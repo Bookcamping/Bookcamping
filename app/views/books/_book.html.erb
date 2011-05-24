@@ -5,21 +5,15 @@
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
       <% if ctx == :book %>
           <span class="comment_count"><%= t('.comments_count', :count => book.comments_count) %></span>
+          <%= link_to 'Permalink', book_path %>
       <% else %>
           <%= link_to t('.comments_count', :count => book.comments_count), book_path %>
+          <%= link_to 'Permalink', book_path %>
           <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
       <% end %>
       <%= link_to 'Borrar', book_path(book), :method => :delete,
                   :confirm => 'Seguro!?' if can? :destroy, book %>
       <%= link_to 'Tweet', '#' if current_user %>
     </div>
-    <% if ctx == :book %>
-        <div class="comments">
-          <h3><%= t('.comments') %></h3>
-          <%= simple_form_for [book, Comment.new] do |form| %>
-              <%= form.input :body, :as => :text %>
-              <%= button_submit_tag 'Comentar' %>
-          <% end %>
-        </div>
-    <% end %>
+    <%= render_comments(book.comments, Comment.new(:resource => book)) if ctx == :book %>
 <% end %>

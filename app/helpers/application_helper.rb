@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def lists_div(size, &block)
-    content_tag(:div, content_tag(:div, :class => "lists", :style => "width: #{size * 440}px;", &block), :class => 'container')
+    content_tag(:div, content_tag(:div, :class => "lists", :style => "width: #{size * 400}px;", &block), :class => 'container')
   end
 
   def render_info

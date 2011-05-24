@@ -48,3 +48,9 @@ es:
       book:
         description: "Texto"
 
+  comments:
+    notice:
+      create: "Gracias por tu comentario."
+    comments:
+      comments: "Comentar"
+      login_before_comment: "Sería mejor que te identificases antes, aunque puedes comentar de forma anónima."

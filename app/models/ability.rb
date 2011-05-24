@@ -1,14 +1,30 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
-    user ||= User.new
-    can :manage, :all if user.super?
+  def initialize(provided_user)
+    self.user = provided_user
+    can :manage, :all if super?
 
-    can :new, BookList unless user.new_record?
-    can :manage, BookList, :user_id => user.id
+    can :create, BookList if user?
+    can :edit, BookList, :user_id => @user.id
 
-    can :manage, Book, :user_id => user.id
+    can :edit, Book, :user_id => @user.id
+  end
 
+  def user=(user )
+    @user = user || User.new
+    puts "### USER #{@user.to_json} ES USER: #{user?}"
+  end
+
+  def anonymous?
+     @user.new_record?
+  end
+
+  def user?
+    !anonymous?
+  end
+
+  def super?
+    user? and @user.super?
   end
 end

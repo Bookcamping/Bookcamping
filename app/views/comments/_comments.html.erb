@@ -1,0 +1,21 @@
+<div class="comments">
+  <h3><%= t('.comments') %></h3>
+  <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') unless current_user? %>
+  <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
+      <%= form.input :body, :as => :text %>
+      <%= button_submit_tag 'Comentar' %>
+  <% end %>
+  <ul class="comments">
+    <% comments.each do |comment| %>
+        <li>
+          <%= div_for comment do %>
+              <div class="info">
+                <span class="user"><%= comment.user.present? ? (link_to comment.user.name, "http://twitter.com/#!/#{comment.user.name}") : 'Anónimx' %></span>
+                <span class="time">hace <%= time_ago_in_words comment.created_at %></span>
+              </div>
+              <%= comment.body %>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>

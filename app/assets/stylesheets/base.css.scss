@@ -12,6 +12,7 @@ h1 {font-size: 20px;}
 h2 {font-size: 16px; }
 strong {font-style:italic;}
 em {font-weight:bold;}
+.notice {background-color:$c-yellow;}
 
 div#session {
     position:fixed;top:0;right:10px;text-align:right;padding:3px; background-color:white;
@@ -31,7 +32,7 @@ div.lists {
 
     div.list {
         float: left; background-color:white;
-        width: 400px; margin: 10px; border-radius:3px;
+        width: 360px; margin: 10px; border-radius:3px;
 
         h1, h2, h3 {padding: 10px 10px;}
         h1 {}
@@ -51,7 +52,7 @@ div.lists {
 }
 
 div.list.intro {
-    h2 {font-size: 32px;}
+    h2 {font-size: 28px;}
 }
 
 div.list form {
@@ -59,7 +60,7 @@ div.list form {
   div.input {
       width: 420px; margin: 10px 0;
       label {display: block; color:$c-head;font-weight:bold;}
-      input[type=text] {width: 350px; border: 1px solid $c-bg; padding: 2px;}
+      input[type=text], textarea {width: 350px; border: 1px solid $c-bg; padding: 2px;}
   }
   input[type=submit] {font-size: 10px;}
   a {font-size: 12px;}
