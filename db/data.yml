@@ -1,0 +1,1359 @@
+
+--- 
+users: 
+  columns: 
+  - id
+  - provider
+  - uid
+  - name
+  - email
+  - rol
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 
+    - 
+    - Silvink
+    - 
+    - 
+    - 2011-05-24 01:51:29.019473
+    - 2011-05-24 01:51:29.019473
+  - - 2
+    - 
+    - 
+    - Dani
+    - 
+    - 
+    - 2011-05-24 01:51:29.068714
+    - 2011-05-24 01:51:29.068714
+
+--- 
+book_lists: 
+  columns: 
+  - id
+  - user_id
+  - name
+  - position
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - "0.- ESPEC\xC3\x8DFICOS\n"
+    - 1
+    - 2011-05-24 01:51:29.267503
+    - 2011-05-24 01:51:29.267503
+  - - 2
+    - 1
+    - |
+      1.- MANUALES DE ACCION. MICROPOLITICA. ANALISIS LOCAL. CULTURA LIBRE.
+
+    - 2
+    - 2011-05-24 01:51:29.318881
+    - 2011-05-24 01:51:29.318881
+  - - 3
+    - 1
+    - |
+      2.- POESIA/GRAFICA/VISUAL/RISAS PETRIFICADAS
+
+    - 3
+    - 2011-05-24 01:51:29.622012
+    - 2011-05-24 01:51:29.622012
+  - - 4
+    - 1
+    - "3.- DISTOP\xC3\x8DAS CL\xC3\x81SICAS Y ESCALOFRIANTEMENTE DISFRUTONAS\n"
+    - 4
+    - 2011-05-24 01:51:29.681286
+    - 2011-05-24 01:51:29.681286
+  - - 5
+    - 1
+    - |
+      4.- ANTECEDENTES. LA(S) MADRE(S) DEL CORDERO.
+
+    - 5
+    - 2011-05-24 01:51:29.746865
+    - 2011-05-24 01:51:29.746865
+  - - 6
+    - 1
+    - |
+      5.- REVELADORES. PENSAMIENTO/POSIBILIDADES. APETECIBLES, NAM NAM.
+
+    - 6
+    - 2011-05-24 01:51:29.984804
+    - 2011-05-24 01:51:29.984804
+
+--- 
+books: 
+  columns: 
+  - id
+  - user_id
+  - book_list_id
+  - title
+  - authors
+  - editor
+  - description
+  - url
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 1
+    - 
+    - 
+    - 
+    - "*POST-IT CITY, CIUDADES OCASIONALES*, Cat\xC3\xA1logo expo CCBB. **(Paracomprender la construccion de la MINICIUDAD que es ahora Sol y #todasacampadas)** http://www.ciutatsocasionals.net/textos.htmhttps://acampadaleonlee.wordpress.com/ (Blog de la Bibliotecafisica de la #acmpadaleon, un lugar donde se proponen, como aqui,lecturas colectivas)."
+    - 
+    - 2011-05-24 01:51:29.306437
+    - 2011-05-24 01:51:54.031762
+  - - 2
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*PRECARIAS A LA DERIVA. A LA DERIVA (POR LOS CIRCUITOS DE LAPRECARIEDAD FEMENINA)*. Por el colectivo Precarias a la deriva. Ed.Traficantes de suehos. 2003 .ttp://www. sindominio.net/karakola/"
+    - 
+    - 2011-05-24 01:51:29.322462
+    - 2011-05-24 01:51:29.322462
+  - - 3
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*LA CRISIS QUE VIENE*, AAW, Ed. Observatorio Metropolitano,http://www.observatoriometropolitano.org/"
+    - 
+    - 2011-05-24 01:51:29.326832
+    - 2011-05-24 01:51:29.326832
+  - - 4
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*\xC2\xBFPOR NUESTRA SALUD? LA PRIVATIZACION DE LOS SERVICIOSSANITARIOS*, de CAS Madrid Comps. Ed. Traficantes de Suefios."
+    - 
+    - 2011-05-24 01:51:29.348186
+    - 2011-05-24 01:51:29.348186
+  - - 5
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EL GRAN POLLO DE LA ALAMEDA*, VVAA,http://www.elgranpollodelaalameda.net/"
+    - 
+    - 2011-05-24 01:51:29.352476
+    - 2011-05-24 01:51:29.352476
+  - - 6
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*TELESTREET: MAQUINA IMAGINATIVA NO HOMOLOGADA* deBerardi, Franco; Jacquemet, Marco; Vitali, Giancarlo."
+    - 
+    - 2011-05-24 01:51:29.358213
+    - 2011-05-24 01:51:29.358213
+  - - 7
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*CONTRA LOS TERTULIANOS*, Carlos Taibo, Libros de la Catarata."
+    - 
+    - 2011-05-24 01:51:29.364845
+    - 2011-05-24 01:51:29.364845
+  - - 8
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*INDIGNAOS*, Stephane Hessel, http://www.attacmadrid.org/wp/wp-content/uploads/lndignaos.pdf"
+    - 
+    - 2011-05-24 01:51:29.373535
+    - 2011-05-24 01:51:29.373535
+  - - 9
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*MANUAL DE DESOBEDIENCIA LEY SINDE*, AAW, Trafis,http://tiny.cc/s4f6k"
+    - 
+    - 2011-05-24 01:51:29.378672
+    - 2011-05-24 01:51:29.378672
+  - - 10
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*LA GRAN DIFERENCIA Y SUS PEQUENAS CONSECUENCIAS...PARA LALUCHA DE LAS MUJERES*, Celia Amoros, Catedra."
+    - 
+    - 2011-05-24 01:51:29.383133
+    - 2011-05-24 01:51:29.383133
+  - - 11
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*MANUAL DE GUERRILLA DE COMUNICACION*, Grupo autonomoa.f.r.i.c.a., Luther Blisset/Sonja Brunzels. Virus"
+    - 
+    - 2011-05-24 01:51:29.387821
+    - 2011-05-24 01:51:29.387821
+  - - 12
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*MANIFESTO POR MADRID. CRITICA Y CRISIS DEL MODELOMETROPOLITANO*, Observatorio Metropolitanos, Ed. Traficantes deSuehos."
+    - 
+    - 2011-05-24 01:51:29.392860
+    - 2011-05-24 01:51:29.392860
+  - - 13
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*CODIGO FUENTE : LA REMEZCLA*, AAW, coordinado por ColectivoZemos98 http://equipo.zemos98.org/Codigo-Fuente-la-remezcla"
+    - 
+    - 2011-05-24 01:51:29.397881
+    - 2011-05-24 01:51:29.397881
+  - - 14
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*OTRAS INAPROPIABLES*, Traficantes de Suefios http://bit.ly/kCL6"
+    - 
+    - 2011-05-24 01:51:29.405986
+    - 2011-05-24 01:51:29.405986
+  - - 15
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EMPRENDIZAJES EN CULTURA*, Jaron Rowan, Ed. Traficantes deSuehos http://tiny.cc/wqOzo"
+    - 
+    - 2011-05-24 01:51:29.410770
+    - 2011-05-24 01:51:29.410770
+  - - 16
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*CAPITALISMO GORE*, Sayak Valencia, Melusina."
+    - 
+    - 2011-05-24 01:51:29.414867
+    - 2011-05-24 01:51:29.414867
+  - - 17
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*LA CRISIS FINANCIERA*, Guia para entenderla y explicarla, de JuanTorres publicado por ATTAC."
+    - 
+    - 2011-05-24 01:51:29.422866
+    - 2011-05-24 01:51:29.422866
+  - - 18
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*ATUREM LA CRISI*, Arcadi Oliveres, Angle Ediciones, 2010"
+    - 
+    - 2011-05-24 01:51:29.427172
+    - 2011-05-24 01:51:29.427172
+  - - 19
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*MANIFESTO CONTRA SEXUAL*, Beto Preciado, Opera PrimaEdiciones."
+    - 
+    - 2011-05-24 01:51:29.432082
+    - 2011-05-24 01:51:29.432082
+  - - 20
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*LA FUERZA DEL ANONIMATO*, http://bit.ly/iHujbL"
+    - 
+    - 2011-05-24 01:51:29.435901
+    - 2011-05-24 01:51:29.435901
+  - - 21
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*PANEL DE CONTROL*, AAW, Colectivoo Zemos98,http://www.zemos98.org/paneldecontrol/libroPaneldeControl.pdf"
+    - 
+    - 2011-05-24 01:51:29.439720
+    - 2011-05-24 01:51:29.439720
+  - - 22
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*CIBERACTIVISMO, REUNION DE OVEJAS ELECTRONICAS*, Ed. Virus."
+    - 
+    - 2011-05-24 01:51:29.443772
+    - 2011-05-24 01:51:29.443772
+  - - 23
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EL ESTADO Y LA CONFLICTIVIDAD POLITICO-SOCIAL EN EL SIGLO XX:CLAVES PARA ENTENDER LA CRISIS DEL SIGLO XXI*, RamonFernandez-Duran, Ed. La llevar-Virus."
+    - 
+    - 2011-05-24 01:51:29.447503
+    - 2011-05-24 01:51:29.447503
+  - - 24
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*VOCES DESDE LOS FEMINISMOS*, Entrevistas diversas y singulares,Libros editados por Diagonal."
+    - 
+    - 2011-05-24 01:51:29.456061
+    - 2011-05-24 01:51:29.456061
+  - - 25
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EDUCACION PARA LA CIUDADANIA, 39 DE ESO, (I Y II PARTE)* Ed.AKAL, Carlos Fernandez Liria y Luis Alegre Zahonero/GrupoPandora."
+    - 
+    - 2011-05-24 01:51:29.459898
+    - 2011-05-24 01:51:29.459898
+  - - 26
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*URBAN POLITICS*, Nai Publihers.http://www.naipublishers.nl/architecture/urbanpolitics_e.html"
+    - 
+    - 2011-05-24 01:51:29.464776
+    - 2011-05-24 01:51:29.464776
+  - - 27
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*DEL TAM-TAM AL DOBLE CLICK*, Una historia conceptual de lacontrainformacion.http://info.nodo50.org/IMG/pdf/historia_contrainformacion.pdf"
+    - 
+    - 2011-05-24 01:51:29.473504
+    - 2011-05-24 01:51:29.473504
+  - - 28
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EL ANTIGUO Y NOBLE ARTE DE DESOBECEDER, LA NO VIOLENCIACOMO ESTRATEGIA DE LUCHA*, OSCAR CHAVES, REDACCIONDIAGONALhttp://www.diagonalperiodico.net/EI-antiguo-y-noble-arte-de.html"
+    - 
+    - 2011-05-24 01:51:29.481630
+    - 2011-05-24 01:51:29.481630
+  - - 29
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*PANICO EN LAS REDES*, Literatura Gris, 1999."
+    - 
+    - 2011-05-24 01:51:29.489423
+    - 2011-05-24 01:51:29.489423
+  - - 30
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*FIN DE SIGLO*, Isidro Lopez y Emmanuel RodriguezTraficantes,http://www.traficantes.net/index.php/trafis/editorial/catalogo/utiles/fin_de_ciclo_financiarizacion_territorio_y_sociedad_de_propietarios_en_la_onda_larga_del_capitalismo_hispano_1959_2010"
+    - 
+    - 2011-05-24 01:51:29.493716
+    - 2011-05-24 01:51:29.493716
+  - - 31
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*MASCULINIDADFEMENINA* de Judith Halberstam"
+    - 
+    - 2011-05-24 01:51:29.497605
+    - 2011-05-24 01:51:29.497605
+  - - 32
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*CON LOS PIES EN LA TIERRA*, AAW, Icaria Libros."
+    - 
+    - 2011-05-24 01:51:29.506102
+    - 2011-05-24 01:51:29.506102
+  - - 33
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*DEVENIR PERRA*, Ziga, Melusina."
+    - 
+    - 2011-05-24 01:51:29.510318
+    - 2011-05-24 01:51:29.510318
+  - - 34
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EL EJE DEL MAL ES HETEROSEXUAL*, Grupo de Trabajo Queer, Trafis.http://webs.uvigo.es/pmayobre/pdf/el_eje_del_mal.pdf"
+    - 
+    - 2011-05-24 01:51:29.514393
+    - 2011-05-24 01:51:29.514393
+  - - 35
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*EL NUEVO ESPIRITU DEL CAPITALISMO*, de Boltanski y Chiapello."
+    - 
+    - 2011-05-24 01:51:29.569636
+    - 2011-05-24 01:51:29.569636
+  - - 36
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*Q*, de Luther Blisset."
+    - 
+    - 2011-05-24 01:51:29.580800
+    - 2011-05-24 01:51:29.580800
+  - - 37
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*REACCIONA, 10 RAZONES POR LAS QUE DEBES ACTUAR FRENTE A LACRISI ECONOMICA Y SOCIAL*, AAW, Aguilar."
+    - 
+    - 2011-05-24 01:51:29.585118
+    - 2011-05-24 01:51:29.585118
+  - - 38
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*LOS OBJETOS SINGULARES*, Arquitectura y Filosofia,http://paper.ll/beturbio/arsarqcrafts#"
+    - 
+    - 2011-05-24 01:51:29.589496
+    - 2011-05-24 01:51:29.589496
+  - - 39
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*LA CRISIS FINANCIERA, GUIA PARA ENTENDERLA Y EXPLICARLA*, deJuan Torres publicado por ATTAC."
+    - 
+    - 2011-05-24 01:51:29.597287
+    - 2011-05-24 01:51:29.597287
+  - - 40
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*GOLEM XIV, Creve y Fuller, M.I.T"
+    - 
+    - 2011-05-24 01:51:29.601978
+    - 2011-05-24 01:51:29.601978
+  - - 41
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*RASTROS DE CARMIN: una historia secreta del siglo XX*, G. Marcus."
+    - 
+    - 2011-05-24 01:51:29.606234
+    - 2011-05-24 01:51:29.606234
+  - - 42
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*OBJETIVO DECRECIMIENTO*, Colectivo Revista Silence."
+    - 
+    - 2011-05-24 01:51:29.613748
+    - 2011-05-24 01:51:29.613748
+  - - 43
+    - 1
+    - 2
+    - 
+    - 
+    - 
+    - "*ECHAR A PERDER: Un analisis del deterioro*, K. Lynch."
+    - 
+    - 2011-05-24 01:51:29.617839
+    - 2011-05-24 01:51:29.617839
+  - - 44
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*NOTICIAS*, Santiago Alba Rico, Ed. Caballo de Troyahttp://www.rebelion.org/autores.php?id=7"
+    - 
+    - 2011-05-24 01:51:29.630308
+    - 2011-05-24 01:51:29.630308
+  - - 45
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*BIENVENIDO AL MUNDO*, Miguel Brieva http://www.clismon.net/"
+    - 
+    - 2011-05-24 01:51:29.634063
+    - 2011-05-24 01:51:29.634063
+  - - 46
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*V DE VENDETTA*, Alan Moore. Planeta de Agostini."
+    - 
+    - 2011-05-24 01:51:29.638497
+    - 2011-05-24 01:51:29.638497
+  - - 47
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*DESANDAR LO ANDADO*, Jorge Riechmann, Hiperion."
+    - 
+    - 2011-05-24 01:51:29.642486
+    - 2011-05-24 01:51:29.642486
+  - - 48
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*FILOSOFIA PARA DIAS CRITICOS*, Chantal Maillard, Pre Textos"
+    - 
+    - 2011-05-24 01:51:29.646116
+    - 2011-05-24 01:51:29.646116
+  - - 49
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*PARA UNA POLITICA DE LAS LUCIERNAGAS*, de Antonio Orihuela, Ed.del Satelite."
+    - 
+    - 2011-05-24 01:51:29.655420
+    - 2011-05-24 01:51:29.655420
+  - - 50
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*GRITAS GRATIS*, www.en3palabras.com, Joana Brabo."
+    - 
+    - 2011-05-24 01:51:29.659660
+    - 2011-05-24 01:51:29.659660
+  - - 51
+    - 1
+    - 3
+    - 
+    - 
+    - 
+    - "*JOE SACCO, Gorazde: Zona Protegida*, Coleccion Trazado, Planeta-DeAgostini Comics, 2001."
+    - 
+    - 2011-05-24 01:51:29.669098
+    - 2011-05-24 01:51:29.669098
+  - - 52
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*LAS HIJAS DE EGALIA*, Gerd Brantenberg, Horas y horas"
+    - 
+    - 2011-05-24 01:51:29.688355
+    - 2011-05-24 01:51:29.688355
+  - - 53
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*1984*, George Orwell"
+    - 
+    - 2011-05-24 01:51:29.692073
+    - 2011-05-24 01:51:29.692073
+  - - 54
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*LOS DESPOSEIDOS*, Ursula K. Leguin, Minotauro."
+    - 
+    - 2011-05-24 01:51:29.696636
+    - 2011-05-24 01:51:29.696636
+  - - 55
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*UN MUNDO FELIZ*, Aldous Huxley"
+    - 
+    - 2011-05-24 01:51:29.700539
+    - 2011-05-24 01:51:29.700539
+  - - 56
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*VIAJE AL FIN DE LA NOCHE*, Louis Ferdinad Celine"
+    - 
+    - 2011-05-24 01:51:29.704223
+    - 2011-05-24 01:51:29.704223
+  - - 57
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*FERDYDURKE*, Witold Gombrowicz, Seix Barral."
+    - 
+    - 2011-05-24 01:51:29.713398
+    - 2011-05-24 01:51:29.713398
+  - - 58
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*RASCACIELOS*, J.G.Ballard"
+    - 
+    - 2011-05-24 01:51:29.717011
+    - 2011-05-24 01:51:29.717011
+  - - 59
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*FAHRENHEIT 451*, Ray Bradbury"
+    - 
+    - 2011-05-24 01:51:29.722453
+    - 2011-05-24 01:51:29.722453
+  - - 60
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*LA MONTANA MAGICA*, Thomas Mann"
+    - 
+    - 2011-05-24 01:51:29.729900
+    - 2011-05-24 01:51:29.729900
+  - - 61
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*PICNIC JUNTO AL CAMINO*, Arkadi y Boris Strugatsky"
+    - 
+    - 2011-05-24 01:51:29.733917
+    - 2011-05-24 01:51:29.733917
+  - - 62
+    - 1
+    - 4
+    - 
+    - 
+    - 
+    - "*ORYX Y CRAKE*, de Margaret Atwood, Ediciones B"
+    - 
+    - 2011-05-24 01:51:29.737540
+    - 2011-05-24 01:51:29.737540
+  - - 63
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - MIL MESETAS, Deleuze y Guattari, PRE TEXTOS
+    - 
+    - 2011-05-24 01:51:29.750583
+    - 2011-05-24 01:51:29.750583
+  - - 64
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - UN CUARTO PROPIO, Virginia Woolf
+    - 
+    - 2011-05-24 01:51:29.754766
+    - 2011-05-24 01:51:29.754766
+  - - 65
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LA SOCIEDAD DEL ESPECTACULO, Guy Debord
+    - 
+    - 2011-05-24 01:51:29.758618
+    - 2011-05-24 01:51:29.758618
+  - - 66
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - PEDAGOGIA DEL OPRIMIDO, Paulo Freire.
+    - 
+    - 2011-05-24 01:51:29.762241
+    - 2011-05-24 01:51:29.762241
+  - - 67
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - SUS CRISIS, NUESTRAS SOLUCIONES, Susan George.
+    - 
+    - 2011-05-24 01:51:29.771359
+    - 2011-05-24 01:51:29.771359
+  - - 68
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - PREFACIO A LA TRANSGRESION, Foucalthttp://www.mediafire.com/7vjhp847xd6pl8kp
+    - 
+    - 2011-05-24 01:51:29.776190
+    - 2011-05-24 01:51:29.776190
+  - - 69
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - BIENVENIDOS AL DESIERTO DE LO REAL, Zizek.
+    - 
+    - 2011-05-24 01:51:29.780904
+    - 2011-05-24 01:51:29.780904
+  - - 70
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - VENDRAN MAS ANOS MALOS Y NOS HARAN MAS CIEGOS, SanchezFerlosio
+    - 
+    - 2011-05-24 01:51:29.788098
+    - 2011-05-24 01:51:29.788098
+  - - 71
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - EL GENERO EN DISPUTA, Judith Butler, Paidos.
+    - 
+    - 2011-05-24 01:51:29.792242
+    - 2011-05-24 01:51:29.792242
+  - - 72
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - SOCIEDADES MOVEDIZAS, Manuel Delgado, Anagrama.http://www.mediafire.com/7a52scllfp91yqop
+    - 
+    - 2011-05-24 01:51:29.795788
+    - 2011-05-24 01:51:29.795788
+  - - 73
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - RIZOMA (primer capitulo de Mil Mesetas, editado aparteposteriormente por Pre Textos), Deleuze y Guattari, Pre Textos.
+    - 
+    - 2011-05-24 01:51:29.804635
+    - 2011-05-24 01:51:29.804635
+  - - 74
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - EL PENSAMIENTO HETEROSEXUAL, Monique Wittig
+    - 
+    - 2011-05-24 01:51:29.808971
+    - 2011-05-24 01:51:29.808971
+  - - 75
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - http://www.alondrallibres.org/shop/article_85/EI-pensamiento-
+    - 
+    - 2011-05-24 01:51:29.812505
+    - 2011-05-24 01:51:29.812505
+  - - 76
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - heterosexual.html?shop_param=cid%3D48%26aid%3D85%26
+    - 
+    - 2011-05-24 01:51:29.821159
+    - 2011-05-24 01:51:29.821159
+  - - 77
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - CONTRAFUEGOS, Pierre Bordieuhttp://www.rebelion.org/hemeroteca/sociales/030326royo.htm
+    - 
+    - 2011-05-24 01:51:29.825247
+    - 2011-05-24 01:51:29.825247
+  - - 78
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - PODER FREAK, Una Cronica de la Contracultura. Vol. 1, JaimeGonzalez, Lenoir Libros.
+    - 
+    - 2011-05-24 01:51:29.829064
+    - 2011-05-24 01:51:29.829064
+  - - 79
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - METAMORFOSIS, Rosi Braidotti,
+    - 
+    - 2011-05-24 01:51:29.837900
+    - 2011-05-24 01:51:29.837900
+  - - 80
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - http://www.4shared.com/document/lPOwl038/Braidotti_Rosi_-_Metamorfosis.html, Akal.
+    - 
+    - 2011-05-24 01:51:29.847150
+    - 2011-05-24 01:51:29.847150
+  - - 81
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - ANARQUISMO Y OTROS ENSAYOS, Emma Goldman
+    - 
+    - 2011-05-24 01:51:29.854477
+    - 2011-05-24 01:51:29.854477
+  - - 82
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - CEROS+UNOS, Sadie Plant, Destino.
+    - 
+    - 2011-05-24 01:51:29.858062
+    - 2011-05-24 01:51:29.858062
+  - - 83
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - PEDAGOGIA DE LA COMUNICACION, Mario Kaplun
+    - 
+    - 2011-05-24 01:51:29.862643
+    - 2011-05-24 01:51:29.862643
+  - - 84
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - http://www.bdp.org.ar/facultad/posgrado/especializaciones/cdi/lib
+    - 
+    - 2011-05-24 01:51:29.866243
+    - 2011-05-24 01:51:29.866243
+  - - 85
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - ros/Kaplun.pdf
+    - 
+    - 2011-05-24 01:51:29.871157
+    - 2011-05-24 01:51:29.871157
+  - - 86
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - MERCADO COMUN, Mercedes Cebrian, Caballo de Troya
+    - 
+    - 2011-05-24 01:51:29.875518
+    - 2011-05-24 01:51:29.875518
+  - - 87
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - ALGO VA MAL, Tony Judl, Taurus.
+    - 
+    - 2011-05-24 01:51:29.879848
+    - 2011-05-24 01:51:29.879848
+  - - 88
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LOS INVISIBLES, Nanni Balestrini, Anagrama, traducido por JoaquinJorda. http://www.anagrama-ed.es/titulo/PN_134
+    - 
+    - 2011-05-24 01:51:29.885891
+    - 2011-05-24 01:51:29.885891
+  - - 89
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - El GUARDIAN ENTRE EL CENTENO, J.D. Salinger
+    - 
+    - 2011-05-24 01:51:29.890122
+    - 2011-05-24 01:51:29.890122
+  - - 90
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - DESEO DE SER PUNK, Belen Gopegui, Anagrama.
+    - 
+    - 2011-05-24 01:51:29.893906
+    - 2011-05-24 01:51:29.893906
+  - - 91
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - PUBLICACIONES de http://www.nettime.org/
+    - 
+    - 2011-05-24 01:51:29.904510
+    - 2011-05-24 01:51:29.904510
+  - - 92
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - MUERTE Y VIDA DE LAS GRANDES CIUDADES, JANE JACOBS, CapitanSwing.
+    - 
+    - 2011-05-24 01:51:29.912081
+    - 2011-05-24 01:51:29.912081
+  - - 93
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - THE ELECTRONIC DISTURBANCE THEATER, de Critical Art Ensemblhttp://www.critical-art.net/books/ted/
+    - 
+    - 2011-05-24 01:51:29.915959
+    - 2011-05-24 01:51:29.915959
+  - - 94
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LAS VENAS ABIERTAS DE AMERICA LATINA, de Eduardo Galeano
+    - 
+    - 2011-05-24 01:51:29.920899
+    - 2011-05-24 01:51:29.920899
+  - - 95
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - MULTITUDES INTELIGENTES, de Howard RheingoldhttpA://bit.ly/cdtgPG
+    - 
+    - 2011-05-24 01:51:29.924924
+    - 2011-05-24 01:51:29.924924
+  - - 96
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LA RESPONSABILIDAD DEL ARTISTA, Jean Clair http://bit.ly/ITfQMz
+    - 
+    - 2011-05-24 01:51:29.928711
+    - 2011-05-24 01:51:29.928711
+  - - 97
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - EL HOMBRE QUE AMABA A LOS PERROS, de Leonardo Padura, Tusquets.
+    - 
+    - 2011-05-24 01:51:29.937442
+    - 2011-05-24 01:51:29.937442
+  - - 98
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LA REVOLUCION DE LA ESPERANZA, Erich Fromm.
+    - 
+    - 2011-05-24 01:51:29.941134
+    - 2011-05-24 01:51:29.941134
+  - - 99
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LO QUE ESTA MAL EN EL MUNDO, G.K. Chesterton, Ed, Acuarela.
+    - 
+    - 2011-05-24 01:51:29.945816
+    - 2011-05-24 01:51:29.945816
+  - - 100
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - CULTURA E IMPERIALISMO, E. Said
+    - 
+    - 2011-05-24 01:51:29.950229
+    - 2011-05-24 01:51:29.950229
+  - - 101
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - QUE FUE DEL MOVIMIENTO ANTIMILITARISTA Y OTRAS MOVIDAShttp://www.nodo50.org/tortuga/Que-fue-del-movimiento
+    - 
+    - 2011-05-24 01:51:29.954013
+    - 2011-05-24 01:51:29.954013
+  - - 102
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LA DOCTRINA DEL SHOCK, Naomi Klein
+    - 
+    - 2011-05-24 01:51:29.962392
+    - 2011-05-24 01:51:29.962392
+  - - 103
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LA DESOBEDIENCIA CIVIL, de Henry David Thoreauhttp://thoreau.eserver.org/spanishcivil.html
+    - 
+    - 2011-05-24 01:51:29.966058
+    - 2011-05-24 01:51:29.966058
+  - - 104
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - LA GALAXIA GUTENBERG, de Marshall McLuhan
+    - 
+    - 2011-05-24 01:51:29.970584
+    - 2011-05-24 01:51:29.970584
+  - - 105
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - EL NARRADOR, Walter Benjamin
+    - 
+    - 2011-05-24 01:51:29.974448
+    - 2011-05-24 01:51:29.974448
+  - - 106
+    - 1
+    - 5
+    - 
+    - 
+    - 
+    - INTERNACIONAL SITUACIONISTA, vol. 1, 2 y 3.
+    - 
+    - 2011-05-24 01:51:29.979004
+    - 2011-05-24 01:51:29.979004
+  - - 107
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - INFORME PETRAS, James Petras, Ed. Hiru.
+    - 
+    - 2011-05-24 01:51:29.989089
+    - 2011-05-24 01:51:29.989089
+  - - 108
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - ETICA HACKER de Pekka Himmamen, Editorial Destino.
+    - 
+    - 2011-05-24 01:51:30.003018
+    - 2011-05-24 01:51:30.003018
+  - - 109
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - TEORIA KING KONG, Virginie Despentes, Melusina
+    - 
+    - 2011-05-24 01:51:30.007341
+    - 2011-05-24 01:51:30.007341
+  - - 110
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - CONTRA EL HOMBRE (GARCIA CALVO/ISABEL ESCUDERO), Lucina.
+    - 
+    - 2011-05-24 01:51:30.011159
+    - 2011-05-24 01:51:30.011159
+  - - 111
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - DESEO Y LIBERTAD, Montserrat Galceran, Trafis.http://bit.ly/klNaCO
+    - 
+    - 2011-05-24 01:51:30.020643
+    - 2011-05-24 01:51:30.020643
+  - - 112
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - HISTORIA DE UN INCENDIO, Servando Rocha, La Felguera
+    - 
+    - 2011-05-24 01:51:30.030249
+    - 2011-05-24 01:51:30.030249
+  - - 113
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - "\"T.A.Z.\", Hakim Bey, http://www.merzmail.net/hakimbey.htm"
+    - 
+    - 2011-05-24 01:51:30.038761
+    - 2011-05-24 01:51:30.038761
+  - - 114
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - TODO Georges Perec
+    - 
+    - 2011-05-24 01:51:30.045379
+    - 2011-05-24 01:51:30.045379
+  - - 115
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - TODO Cortazar
+    - 
+    - 2011-05-24 01:51:30.050078
+    - 2011-05-24 01:51:30.050078
+  - - 116
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - TODO Italo Calvino
+    - 
+    - 2011-05-24 01:51:30.054004
+    - 2011-05-24 01:51:30.054004
+  - - 117
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - EL CUENTO DE LA CRIADA, Margaret Atwood
+    - 
+    - 2011-05-24 01:51:30.062160
+    - 2011-05-24 01:51:30.062160
+  - - 118
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - NOSOTROS, Yevgeni Zamiatin
+    - 
+    - 2011-05-24 01:51:30.066941
+    - 2011-05-24 01:51:30.066941
+  - - 119
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - CARTA A UNA MAESTRA, Alumnos de la escuela de Barbiana
+    - 
+    - 2011-05-24 01:51:30.121357
+    - 2011-05-24 01:51:30.121357
+  - - 120
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - LOS DOMINADOS Y EL ARTE DE LA RESISTENCIA, de James C. Scott
+    - 
+    - 2011-05-24 01:51:30.125592
+    - 2011-05-24 01:51:30.125592
+  - - 121
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - BREVE HISTORIA DEL NEOLIBERALISMO, David Harvey
+    - 
+    - 2011-05-24 01:51:30.129566
+    - 2011-05-24 01:51:30.129566
+  - - 122
+    - 1
+    - 6
+    - 
+    - 
+    - 
+    - LA INOCENCIA ROBADA, de Henry Giroux
+    - 
+    - 2011-05-24 01:51:30.133486
+    - 2011-05-24 01:51:30.133486
+  - - 123
+    - 
+    - 1
+    - 
+    - 
+    - 
+    - "*VAMOS A POR ELLO*, Cat\xC3\xA1logo de novedades"
+    - 
+    - 2011-05-24 02:06:38.886396
+    - 2011-05-24 02:06:38.886396
+  - - 124
+    - 
+    - 1
+    - 
+    - 
+    - 
+    - Vamos a por ello
+    - 
+    - 2011-05-24 02:07:22.224184
+    - 2011-05-24 02:07:22.224184
+  - - 125
+    - 
+    - 1
+    - 
+    - 
+    - 
+    - egasda
+    - 
+    - 2011-05-24 02:08:32.394220
+    - 2011-05-24 02:08:32.394220
+  - - 126
+    - 
+    - 1
+    - 
+    - 
+    - 
+    - asfasdfasdf
+    - 
+    - 2011-05-24 02:08:47.306382
+    - 2011-05-24 02:08:47.306382

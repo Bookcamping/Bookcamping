@@ -46,4 +46,5 @@ group :test, :development do
   gem 'capistrano'
   gem 'turn', :require => false
   gem 'rails_best_practices'
+  gem 'yaml_db'
 end
