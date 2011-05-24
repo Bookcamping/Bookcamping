@@ -1,0 +1,11 @@
+
+/** VARIABLES **/
+$c-bg: #D6D6D6;
+$c-gray: gray;
+$c-head: #0B2930;
+$s-width: 960px;
+
+$c-twlink: #0084B4;
+$c-link: lighten(#0B2930, 10);
+
+@mixin shadow {-moz-box-shadow: 0px 0px 25px #555;-webkit-box-shadow: 0px 0px 25px #555;box-shadow: 0px 1px 5px #555;}

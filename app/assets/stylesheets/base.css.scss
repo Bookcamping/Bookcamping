@@ -1,0 +1,17 @@
+
+@import "variables.css.scss";
+
+html {
+    font: normal normal 16px Calibri;
+    background-color:#f8f8ff;
+    }
+a {text-decoration:none; color:$c-link;}
+a:hover {color: $c-head; text-shadow: 0px 0px 15px $c-gray;}
+h1, h2 {line-height: 1.2em;color: $c-head; }
+h1 {font-size: 16px;}
+h2 {font-size: 14px; font-weight:bold;}
+em {font-weight:bold;}
+
+div#session {
+    position:fixed;top:0;right:10px;width:20em;text-align:right;
+}

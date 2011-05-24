@@ -1,0 +1,6 @@
+<%= div_for book do %>
+    <%= prepare_text book.description %>
+    <div class="controls">
+      <span class="time">hace <%= time_ago_in_words book.created_at %></span>
+    </div>
+<% end %>
