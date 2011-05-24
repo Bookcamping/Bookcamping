@@ -1,0 +1,16 @@
+<%= div_for book_list, :class => 'list' do %>
+    <div class="nav">
+      <%= link_to 'Modificar lista', edit_book_list_path %>
+    </div>
+    <h2><%= book_list.name %></h2>
+    <ul class="books">
+      <% book_list.books.each do |book| %>
+          <li>
+            <%= render book %>
+          </li>
+      <% end %>
+    </ul>
+    <div class="add_book">
+      <%= link_to 'Añadir libro', new_book_path(:list => book_list.id), :remote => true %>
+    </div>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="list">
+  <h2>LISTAS</h2>
+  <ul class="book_lists">
+    <% book_lists.each do |list| %>
+        <li><%= link_to list.title, list %></li>
+    <% end %>
+  </ul>
+</div>

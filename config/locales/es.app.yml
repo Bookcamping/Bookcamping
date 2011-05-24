@@ -1,0 +1,8 @@
+es:
+
+  access_denied:
+    no_user: "Tienes que entrar antes de poder modificar nada."
+    no_privilegies: "Sólo puedes modificar los elementos creados por ti."
+  sessions:
+    signed_in: "Hola!"
+    signed_out: "Adiós!"

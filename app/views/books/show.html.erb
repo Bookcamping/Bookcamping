@@ -1,0 +1,12 @@
+
+<%= lists_div 3 do %>
+    <%= render 'layouts/intro' %>
+    <%= render_book_lists book_lists %>
+    <div class="list">
+      <div class="nav">
+        <%= link_to "&larr; Volver".html_safe, book_list_path(book.book_list) %>
+      </div>
+      <h3><%= book.book_list.name %></h3>
+      <%= render book %>
+    </div>
+<% end %>
