@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   respond_to :js
+  expose(:book_lists) { BookList.all }
   expose(:books)
   expose(:book)
 

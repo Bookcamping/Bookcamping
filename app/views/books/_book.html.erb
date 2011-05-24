@@ -1,5 +1,5 @@
 <%= div_for book do %>
-    <%= prepare_text book.description %>
+    <%= render_description book %>
     <div class="controls">
       <span class="user"><%= link_to book.user.name, "http://twitter.com/#!/#{book.user.name}" if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>

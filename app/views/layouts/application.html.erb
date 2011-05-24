@@ -15,6 +15,9 @@
       <%= link_to "Entrar con Twitter", "/auth/twitter" %>
   <% end %>
 </div>
+<div id="messages">
+  <%= content_tag :p, flash[:notice], :class => 'flash' if flash[:notice].present? %>
+</div>
 <div id="main">
   <%= yield %>
 </div>

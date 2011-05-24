@@ -1,26 +1,6 @@
 <% title 'Bookcamp' %>
 
-<div class="container">
-  <div class="lists" style="width: <%= book_lists.size * 440 + 440 %>px;">
-    <div class="intro list">
-      <h2>#bookcamp</h2>
-      <h2>ALGUNOS LIBROS PARA ENTENDER CÓMO HEMOS LLEGADO HASTA SOL (PORQUE NO SALIMOS DE LA NADA)</h2>
-      <h2>¿Y TÚ, QUÉ LIBRO TE LLEVARÍAS A TU PLAZA/ACAMPADA/ BOOKCAMP?</h2>
-    </div>
-    <% book_lists.each do |list| %>
-        <%= div_for list, :class => 'list' do %>
-            <h2><%= list.name %></h2>
-            <ul class="books">
-              <% list.books.each do |book| %>
-                  <li>
-                    <%= render book %>
-                  </li>
-              <% end %>
-            </ul>
-            <div class="add_book">
-              <%= link_to 'Añadir libro', new_book_path(:list => list.id, :format => :js), :data => {:remote => true} %>
-            </div>
-        <% end %>
-    <% end %>
-  </div>
-</div>
+<%= lists_div book_lists.size + 1 do %>
+    <%= render 'layouts/intro' %>
+    <%= render_book_lists book_lists %>
+<% end %>

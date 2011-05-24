@@ -1,28 +1,24 @@
 
 @import "variables.css.scss";
 
-div.lists {
-    margin-top:30px;
-    overflow: hidden;
 
-    div.list {
-        float: left; background-color:white;
-        width: 400px; margin: 10px; border-radius:3px;
+div.book_list {
+    ul.books {
+        li {overflow:hidden;border-radius:3px;}
+        li:hover {background-color:$c-bg;}
+    }
 
-        h2 {padding: 10px;}
-
-        ul.books {
-            li {overflow:hidden;border-radius:3px;}
-            li:hover {background-color:$c-bg;}
-        }
-
-        div.add_book {
-            padding: 3px 10px;
-            font-size: 80%;
-        }
+    div.add_book {
+        padding: 3px 10px;
+        font-size: 80%;
     }
 }
 
-div.list.intro {
-    h2 {font-size: 32px;}
+div.list {
+
+    ul.book_lists {
+        padding: 10px;
+        li {margin: 5px 0;}
+    }
+
 }
