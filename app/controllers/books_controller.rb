@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  respond_to :js
+  respond_to :html, :js
   expose(:book_lists) { BookList.all }
   expose(:books)
   expose(:book)
@@ -16,17 +16,17 @@ class BooksController < ApplicationController
 
   def create
     book.save
-    respond_with book, :location => root_path
+    respond_with book
   end
 
   def update
     book.update_attributes(params[:book])
-    respond_with book, :location => root_path
+    respond_with book
   end
 
   def destroy
     authorize! :destroy, book
     book.destroy
-    redirect_to root_path
+    respond_with book
   end
 end

@@ -6,3 +6,6 @@ es:
   sessions:
     signed_in: "Hola!"
     signed_out: "Adiós!"
+  books:
+    edit:
+      title: "Editar libro"

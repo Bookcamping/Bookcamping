@@ -1,8 +1,6 @@
-<%= simple_form_for book, :html => {:data => {:remote => true}} do |form| %>
+<%= simple_form_for book do |form| %>
     <%= form.input :book_list_id, :as => :hidden %>
     <%= form.input :description, :as => :text %>
-    <div class="controls">
       <%= button_submit_tag 'Guardar' %>
-      <%= link_to 'Cancelar', book_path(book, :format => :js), :data => {:remote => true} unless book.new_record? %>
-    </div>
+      <%= link_to 'Cancelar', book.new_record? ? book.book_list : book %>
 <% end %>
