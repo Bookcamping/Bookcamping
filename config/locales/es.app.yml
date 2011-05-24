@@ -12,3 +12,14 @@ es:
   users:
     index:
       title: "Participantxs"
+    edit:
+      title: "Editar participante"
+    notice:
+      update: "Participante modificado. Espero que sepas lo que haces."
+  book_lists:
+    book_lists:
+      add_list: "Añadir lista"
+    edit:
+      title: "Modificar lista"
+    new:
+      title: "Crear lista"

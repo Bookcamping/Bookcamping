@@ -1,0 +1,17 @@
+
+<%= lists_div 2 do %>
+<%= render_info %>
+    <div class="list users">
+      <div class="nav">
+        <%= link_to "&larr; Volver".html_safe, users_path %>
+        <%= link_to 'Editar', edit_user_path(user) if can? :edit, user %>
+      </div>
+
+      <%= title user.name, :h2 %>
+      <ul>
+        <li><label>Rol: </label><%= user.rol %></li>
+        <li><label>Provider: </label><%= user.provider %></li>
+        <li><label>Uid: </label><%= user.uid %></li>
+      </ul>
+    </div>
+<% end %>

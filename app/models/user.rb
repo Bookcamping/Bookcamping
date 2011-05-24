@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
       user.name = auth["user_info"]["name"]
     end
   end
+
+  def super?
+    self.id < 4
+  end
 end

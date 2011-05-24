@@ -13,6 +13,10 @@ class BookListsController < ApplicationController
   def show
   end
 
+  def new
+    authorize! :manage, BookList
+  end
+
   def edit
     authorize! :edit, book_list
   end

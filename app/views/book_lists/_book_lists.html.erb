@@ -5,4 +5,7 @@
         <li><%= link_to list.title, list %></li>
     <% end %>
   </ul>
+  <div class="actions">
+    <%= link_to t('.add_list'), new_book_list_path if can? :manage, BookList %>
+  </div>
 </div>

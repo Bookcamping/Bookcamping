@@ -4,21 +4,10 @@
 
 div.book_list {
     ul.books {
+        padding: 0;
         li {overflow:hidden;border-radius:3px;}
         li:hover {background-color:$c-bg;}
     }
 
-    div.add_book {
-        padding: 3px 10px;
-        font-size: 80%;
-    }
 }
 
-div.list {
-
-    ul.book_lists {
-        padding: 10px;
-        li {margin: 5px 0;}
-    }
-
-}

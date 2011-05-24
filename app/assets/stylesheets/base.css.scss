@@ -20,8 +20,8 @@ div#session {
 }
 
 div#messages {
-    height: 1.2em;
-    p.flash {background-color:$c-yellow;text-align:center;padding: 3px;}
+    height: 1.2em;padding: 3px;
+    p.flash {display:inline;background-color:$c-yellow;text-align:center;}
 }
 
 /** LISTS **/
@@ -37,6 +37,17 @@ div.lists {
         h1 {margin: 0.5em 10px;}
         div.nav {padding: 5px 10px; font-size: 80%;}
     }
+
+    ul {
+        padding: 10px;
+        li {margin: 5px 0;}
+    }
+
+    div.actions {
+        padding: 3px 10px;
+        font-size: 80%;
+    }
+
 }
 
 div.list.intro {

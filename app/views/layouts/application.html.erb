@@ -11,6 +11,7 @@
   <% if current_user %>
       Hola <%= current_user.name %>!
       <%= link_to "Salir", signout_path %>
+      <%= link_to '@', users_path if current_user.super? %>
   <% else %>
       <span class="notice">Para colaborar tienes que identificarte &rArr;</span>
       <%= link_to "Entrar con Twitter", "/auth/twitter" %>

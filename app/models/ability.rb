@@ -3,6 +3,6 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    can :manage, :all if user.id == 3
+    can :manage, :all if user.super?
   end
 end
