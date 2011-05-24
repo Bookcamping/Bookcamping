@@ -1,0 +1,8 @@
+<%= lists_div 2 do %>
+    <%= render 'layouts/intro' %>
+    <div class="list">
+      <%= title t('.title') %>
+      <h2>En la lista '<%= book.book_list.name %>'</h2>
+      <%= render 'form' %>
+    </div>
+<% end %>

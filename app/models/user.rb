@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   end
 
   def super?
+    self.rol == 'super'
+  end
+
+  def admin?
     self.id.present? and self.id < 4
   end
 end

@@ -14,7 +14,7 @@ class BookListsController < ApplicationController
   end
 
   def new
-    authorize! :manage, BookList
+    authorize! :new, BookList
   end
 
   def edit

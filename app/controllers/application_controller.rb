@@ -2,7 +2,10 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user
+  include Controllers::AuthMethods
+
+  helper_method :current_user, :current_user?
+
 
   rescue_from ActionView::TemplateError do |x|
     #bubble up the original exception
@@ -17,10 +20,4 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, :notice => t('access_denied.no_user')
     end
   end
-
-  private
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
 end

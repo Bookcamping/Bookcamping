@@ -1,5 +1,4 @@
 es:
-
   access_denied:
     no_user: "Tienes que entrar antes de poder modificar nada."
     no_privilegies: "Sólo puedes modificar los elementos creados por ti."
@@ -9,6 +8,15 @@ es:
   books:
     edit:
       title: "Editar libro"
+    new:
+      title: "Añadir libro"
+    notice:
+      create: "Libro añadido."
+    show:
+      edit: "Editar"
+    book:
+      comments_count: "%{count} Comentarios"
+      comments: "Comentarios"
   users:
     index:
       title: "Participantxs"
@@ -23,3 +31,20 @@ es:
       title: "Modificar lista"
     new:
       title: "Crear lista"
+
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'obligatorio'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Hay errores en los datos introducidos:"
+
+    labels:
+      book:
+        description: "Texto"
+

@@ -5,10 +5,13 @@ Bookcamp::Application.routes.draw do
     get :show_all, :on => :collection, :path => 'camping'
     resources :books, :path => 'libro', :only => [:new]
   end
-  resources :books, :path => 'libros', :except => [:new]
+  resources :books, :path => 'libros', :except => [:new] do
+    resources :comments
+  end
 
   resources :users, :path => 'colaboradorxs'
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout
+  match "/enter/:id" => "sessions#enter", :as => :enter
 end

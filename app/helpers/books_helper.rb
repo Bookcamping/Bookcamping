@@ -6,4 +6,8 @@ module BooksHelper
 
     text = text.sub(/<em>[^<]*<\/em>/, '<a href="' + url_for(book) + '">\0</a>')
   end
+
+  def render_book(book, ctx = :book)
+    render :partial => 'books/book', :locals => {:book => book, :ctx => ctx}
+  end
 end

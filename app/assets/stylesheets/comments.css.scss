@@ -1,0 +1,17 @@
+
+@import "variables.css.scss";
+
+div.list {
+    div.comments {
+        margin-top: 10px;
+        padding-top: 5px;
+        border-top: 1px solid $c-gray;
+
+        h3 {color: $c-gray; padding: 0;margin: 0;}
+
+        form {
+            label {display: none;}
+            textarea {height: 3em;}
+        }
+    }
+}

@@ -8,19 +8,21 @@ class BooksController < ApplicationController
   end
 
   def new
-    book.book_list_id = params[:list]
+    book.book_list_id = params[:book_list_id]
   end
 
   def edit
   end
 
   def create
-    book.save
+    book.user = current_user
+    flash[:notice] = t('books.notice.create') if book.save
     respond_with book
   end
 
   def update
-    book.update_attributes(params[:book])
+    rol = current_user.rol ? current_user.rol.to_sym : nil
+    book.update_attributes(params[:book], :as => rol)
     respond_with book
   end
 

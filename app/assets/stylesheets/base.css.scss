@@ -7,7 +7,7 @@ html {
     }
 a {text-decoration:none; color:$c-link;}
 a:hover {color: $c-head; text-decoration:underline;}
-h1, h2 {line-height: 1.2em;color: $c-head; font-weight:bold;}
+h1, h2, {line-height: 1.2em;color: $c-head; font-weight:bold;}
 h1 {font-size: 20px;}
 h2 {font-size: 16px; }
 strong {font-style:italic;}
@@ -34,7 +34,7 @@ div.lists {
         width: 400px; margin: 10px; border-radius:3px;
 
         h1, h2, h3 {padding: 10px 10px;}
-        h1 {margin: 0.5em 10px;}
+        h1 {}
         div.nav {padding: 5px 10px; font-size: 80%;}
     }
 
