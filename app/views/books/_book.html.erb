@@ -4,9 +4,9 @@
       <span class="user"><%= link_to book.user.name, "http://twitter.com/#!/#{book.user.name}" if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
       <%= link_to '0 Comentarios', '#' %>
-      <%= link_to 'Editar', edit_book_path(book) %>
+      <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
       <%= link_to 'Borrar', book_path(book), :method => :delete,
                   :confirm => 'Seguro!?' if can? :destroy, book %>
-      <%= link_to 'Tweet', '#' %>
+      <%= link_to 'Tweet', '#' if current_user %>
     </div>
 <% end %>

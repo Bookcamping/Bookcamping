@@ -16,6 +16,7 @@ em {font-weight:bold;}
 div#session {
     position:fixed;top:0;right:10px;text-align:right;padding:3px; background-color:white;
     border-radius: 0 0 5px 5px; font-size: 12px;
+    span.notice {background-color:$c-yellow;}
 }
 
 div#messages {

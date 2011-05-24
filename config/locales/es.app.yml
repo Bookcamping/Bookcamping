@@ -9,3 +9,6 @@ es:
   books:
     edit:
       title: "Editar libro"
+  users:
+    index:
+      title: "Participantxs"

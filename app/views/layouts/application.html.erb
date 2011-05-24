@@ -12,6 +12,7 @@
       Hola <%= current_user.name %>!
       <%= link_to "Salir", signout_path %>
   <% else %>
+      <span class="notice">Para colaborar tienes que identificarte &rArr;</span>
       <%= link_to "Entrar con Twitter", "/auth/twitter" %>
   <% end %>
 </div>
