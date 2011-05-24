@@ -1,6 +1,21 @@
-
+@import "variables.css.scss";
 
 div.book {
     margin:10px;
     overflow:hidden;
+
+    div.controls {
+        margin-top:2px;
+        font-size: 80%;
+    }
+}
+
+form.book {
+    div.input {
+        label {display:none;}
+        textarea {
+            font-size: 14px; height: 10em; width:90%; margin: 1px 0;
+            border: 1px solid $c-bg; padding: 3px;
+        }
+    }
 }

@@ -2,5 +2,6 @@
     <%= prepare_text book.description %>
     <div class="controls">
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
+      <%= link_to 'Editar', edit_book_path(book, :format => :js), :data => {:remote => true} %>
     </div>
 <% end %>

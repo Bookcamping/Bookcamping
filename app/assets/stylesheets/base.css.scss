@@ -6,10 +6,11 @@ html {
     background-color:#f8f8ff;
     }
 a {text-decoration:none; color:$c-link;}
-a:hover {color: $c-head; text-shadow: 0px 0px 15px $c-gray;}
+a:hover {color: $c-head; text-decoration:underline;}
 h1, h2 {line-height: 1.2em;color: $c-head; }
 h1 {font-size: 16px;}
 h2 {font-size: 14px; font-weight:bold;}
+strong {font-style:italic;}
 em {font-weight:bold;}
 
 div#session {

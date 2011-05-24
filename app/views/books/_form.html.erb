@@ -1,0 +1,7 @@
+<%= simple_form_for book, :html => {:data => {:remote => true}} do |form| %>
+    <%= form.input :description, :as => :text %>
+    <div class="controls">
+      <%= button_submit_tag 'Guardar' %>
+      <%= link_to 'Cancelar', book_path(book, :format => :js), :data => {:remote => true} %>
+    </div>
+<% end %>

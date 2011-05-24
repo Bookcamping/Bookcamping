@@ -13,6 +13,7 @@ def new_section(number, user)
       puts "SECTION**** #{line}"
       book = ''
     elsif line =~ /^\s*$/
+      book = book.gsub(/\n/,'')
       Book.create!(:book_list => list, :description => book, :user => user) unless book =~ /^\s*$/
       book = ''
     else
