@@ -2,7 +2,7 @@
     <div class="nav">
       <%= link_to 'Modificar lista', edit_book_list_path %>
     </div>
-    <h2><%= book_list.name %></h2>
+    <h2><%= book_list.title %></h2>
     <ul class="books">
       <% book_list.books.each do |book| %>
           <li>

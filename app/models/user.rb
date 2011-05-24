@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   end
 
   def super?
-    self.id < 4
+    self.id.present? and self.id < 4
   end
 end
