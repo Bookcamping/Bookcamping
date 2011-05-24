@@ -2,6 +2,7 @@ class BookListsController < ApplicationController
   respond_to :html, :js
   expose(:book_lists) { BookList.all }
   expose(:book_list)
+  expose(:latest_books) { Book.order('id DESC').limit(10) }
 
   def show_all
 

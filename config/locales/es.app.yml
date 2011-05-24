@@ -32,6 +32,8 @@ es:
     new:
       title: "Crear lista"
 
+    index:
+      latest_books: "ÚLTIMOS LIBROS AÑADIDOS"
   simple_form:
     "yes": 'Sí'
     "no": 'No'

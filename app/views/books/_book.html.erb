@@ -5,10 +5,10 @@
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
       <% if ctx == :book %>
           <span class="comment_count"><%= t('.comments_count', :count => book.comments_count) %></span>
-          <%= link_to 'Permalink', book_path %>
+          <%= link_to 'Permalink', book %>
       <% else %>
-          <%= link_to t('.comments_count', :count => book.comments_count), book_path %>
-          <%= link_to 'Permalink', book_path %>
+          <%= link_to t('.comments_count', :count => book.comments_count), book %>
+          <%= link_to 'Permalink', book %>
           <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
       <% end %>
       <%= link_to 'Borrar', book_path(book), :method => :delete,

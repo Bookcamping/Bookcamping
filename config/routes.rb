@@ -5,7 +5,8 @@ Bookcamp::Application.routes.draw do
     get :show_all, :on => :collection, :path => 'camping'
     resources :books, :path => 'libro', :only => [:new]
   end
-  resources :books, :path => 'libros', :except => [:new] do
+
+  resources :books, :path => 'libros' do
     resources :comments
   end
 
