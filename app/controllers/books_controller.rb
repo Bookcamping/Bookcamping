@@ -22,4 +22,10 @@ class BooksController < ApplicationController
     book.update_attributes(params[:book])
     respond_with book, :location => root_path
   end
+
+  def destroy
+    authorize! :destroy, book
+    book.destroy
+    redirect_to root_path
+  end
 end
