@@ -1,4 +1,4 @@
-<%= title 'Bookcamp' %>
+<% title 'Bookcamp' %>
 
 <div class="container">
   <div class="lists" style="width: <%= book_lists.size * 440 + 440 %>px;">
@@ -17,6 +17,9 @@
                   </li>
               <% end %>
             </ul>
+            <div class="add_book">
+              <%= link_to 'Añadir libro', new_book_path(:list => list.id, :format => :js), :data => {:remote => true} %>
+            </div>
         <% end %>
     <% end %>
   </div>

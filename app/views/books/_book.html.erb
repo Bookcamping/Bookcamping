@@ -1,7 +1,9 @@
 <%= div_for book do %>
     <%= prepare_text book.description %>
     <div class="controls">
+      <span class="user"><%= link_to book.user.name, "http://twitter.com/#!/#{book.user.name}" if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
       <%= link_to 'Editar', edit_book_path(book, :format => :js), :data => {:remote => true} %>
+      <%= link_to 'Tweet!', '#' %>
     </div>
 <% end %>
