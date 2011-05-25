@@ -12,6 +12,8 @@ es:
       title: "Editar participante"
     notice:
       update: "Participante modificado. Espero que sepas lo que haces."
+    show:
+      books: "Libros"
   book_lists:
     book_lists:
       add_list: "Añadir lista"

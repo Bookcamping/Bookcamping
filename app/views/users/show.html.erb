@@ -1,11 +1,21 @@
 <%= lists_div 2 do %>
     <%= render_info %>
     <div class="list users">
-      <%= title user.name %>
       <div class="nav">
         <%= link_to "&larr; Volver".html_safe, users_path %>
-        <%= link_to 'Editar', edit_user_path(user) if can? :edit, user %>
       </div>
+      <%= title user.name %>
+      <div class="nav">
+        <%= button_group do %>
+            <%= edit_button_link_to 'Editar', [:edit, user] if can? :edit, user %>
+        <% end %>
+      </div>
+      <h2><%= t('.books') %></h2>
+      <ul>
+        <% user.books.each do |book| %>
+            <li><%= link_to "&rArr; #{book.title}".html_safe, book %></li>
+        <% end %>
+      </ul>
 
       <% if current_user? :super %>
           <ul>
