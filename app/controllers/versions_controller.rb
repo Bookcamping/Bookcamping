@@ -3,7 +3,6 @@ class VersionsController < ApplicationController
   expose(:version)
 
   def index
-    authorize! :read, Version
   end
 
   def show

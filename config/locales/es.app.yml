@@ -58,7 +58,7 @@ es:
       login_before_comment: "Sería mejor que te identificases antes, aunque puedes comentar de forma anónima."
   versions:
     index:
-      title: "Últimas modificaciones"
+      title: "ACTIVIDAD"
     events:
       create: 'añadido'
       update: 'modificado'

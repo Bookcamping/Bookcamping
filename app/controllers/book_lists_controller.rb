@@ -21,7 +21,14 @@ class BookListsController < ApplicationController
   def edit
     authorize! :edit, book_list
   end
-  
+
+  def create
+    book_list.user = current_user
+    authorize! :create, book_list
+    flash[:notice] = "Lista creada." if book_list.update_attributes(params[:book_list])
+    respond_with book_list
+  end
+
   def update
     authorize! :update, book_list
     flash[:notice] = "Lista modificada." if book_list.update_attributes(params[:book_list])

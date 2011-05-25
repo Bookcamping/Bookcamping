@@ -18,6 +18,10 @@
       <%= link_to "Entrar con Twitter", "/auth/twitter" %>
   <% end %>
 </div>
+<div id="navigation">
+  <%= link_to 'listas', book_lists_path %> /
+  <%= link_to 'actividad', versions_path %>
+</div>
 <div id="messages">
   <%= content_tag :p, flash[:notice], :class => 'flash' if flash[:notice].present? %>
 </div>

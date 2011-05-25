@@ -11,7 +11,7 @@ Bookcamp::Application.routes.draw do
   end
 
   resources :users, :path => 'colaboradorxs'
-  resources :versions, :path => 'cambios'
+  resources :versions, :path => 'actividad'
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout

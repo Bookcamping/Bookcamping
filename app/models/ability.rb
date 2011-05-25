@@ -5,8 +5,8 @@ class Ability
     self.user = provided_user
     can :manage, :all if super?
 
-    can :create, BookList if user?
-    can :edit, BookList, :user_id => @user.id
+    can :manage, BookList, :user_id => @user.id
+    cannot :create, BookList if anonymous?
 
     can :edit, Book, :user_id => @user.id
   end

@@ -26,6 +26,11 @@ div#messages {
     p.flash {display:inline;background-color:$c-yellow;text-align:center;}
 }
 
+div#navigation {
+    font-size: 80%; padding: 3px 10px;
+    a {padding: 3px 0px;}
+}
+
 /** LISTS **/
 div.lists {
     margin-top:30px;
