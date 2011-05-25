@@ -1,5 +1,5 @@
 Bookcamp::Application.routes.draw do
-  root :to => 'shelves#index'
+  root :to => 'shelves#browse'
   match "/reticula" => "shelves#browse", :as => :browse
   resources :shelves, :path => 'listas' do
     resources :books, :path => 'libro', :only => [:new, :create]
