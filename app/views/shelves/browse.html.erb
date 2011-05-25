@@ -5,7 +5,7 @@
         <h2><%= shelf.name %></h2>
         <% shelf.books.each do |book| %>
             <div class="book">
-              <%= link_to "&rArr;&nbsp;#{book.book_title}".html_safe, book %>
+              <%= link_to "&rArr;&nbsp;#{book.title}".html_safe, book %>
             </div>
         <% end %>
       </div>
