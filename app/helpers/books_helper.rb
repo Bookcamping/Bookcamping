@@ -3,8 +3,8 @@ module BooksHelper
     text = auto_link(book.description)
     text = text.gsub(/(#\w+)/, '<a>\0</a>')
     text = RDiscount.new(text, :smart).to_html.html_safe
-
-    text = text.sub(/<em>[^<]*<\/em>/, '<a href="' + url_for(book) + '">\0</a>')
+    text = text.sub(/<em>[^<]*<\/em>/, '<a href="' + url_for(book) + '">\0</a>') unless book.title.present?
+    text
   end
 
   def render_book(book, ctx = :book)

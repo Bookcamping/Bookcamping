@@ -1,5 +1,15 @@
 <%= div_for book do %>
-    <%= render_description book %>
+    <div class="info">
+      <%= content_tag :h3, link_to(book.title, book) if book.title.present? %>
+      <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
+      <% if book.editor.present?  %>
+          / <%= content_tag :span, book.editor, :class => 'editor' %>
+      <% end %>
+    </div>
+    <div class="description">
+      <%= render_description book %>
+    </div>
+    <%= content_tag :div, link_to(book.url, book.url), :class => 'book_url' if book.url.present? %>
     <div class="controls">
       <span class="user"><%= link_to book.user.name, "http://twitter.com/#!/#{book.user.name}" if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>

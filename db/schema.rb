@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524155206) do
+ActiveRecord::Schema.define(:version => 20110525111332) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20110524155206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comments_count",                :default => 0
+    t.string   "glasslevel",     :limit => 50
+    t.string   "license",        :limit => 50
   end
 
   add_index "books", ["book_list_id"], :name => "index_books_on_book_list_id"

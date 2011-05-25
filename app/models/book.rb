@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
        :user_name => Proc.new{|book| book.user.name}
    }
 
-  attr_accessible :description, :book_list_id
+  attr_accessible :description, :book_list_id, :title, :authors, :editor, :url
   attr_accessible :user_id, :as => :super
 
   validates :book_list_id, :presence => true

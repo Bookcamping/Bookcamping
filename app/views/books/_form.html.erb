@@ -1,5 +1,9 @@
 <%= simple_form_for book do |form| %>
     <%= form.input :book_list_id, :as => :hidden %>
+    <%= form.input :title %>
+    <%= form.input :authors %>
+    <%= form.input :editor %>
+    <%= form.input :url %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
       <%= button_submit_tag 'Guardar' %>
