@@ -4,8 +4,10 @@
     <%= render_book_lists book_lists %>
     <div class="list">
       <div class="nav">
-        <%= link_to "&larr; Volver".html_safe, book_list_path(book.book_list) %>
+        <%= link_to "&larr; Volver".html_safe, book_list_path(book.book_list) %> /
         <%= link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
+        <%= link_to 'Borrar', book_path(book), :method => :delete,
+                    :confirm => 'Seguro!?' if can? :destroy, book %>
       </div>
       <h3><%= book.book_list.name %></h3>
       <%= render_book book %>

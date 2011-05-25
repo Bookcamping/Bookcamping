@@ -69,6 +69,8 @@ div.list form {
       input[type=text], textarea, input[type=url] {
           width: $w-list - 50; border: 1px solid $c-bg; padding: 2px;
        }
+
+       span.hint {font-size:80%;color: $c-gray;}
   }
   input[type=submit] {font-size: 10px;}
   a {font-size: 12px;}

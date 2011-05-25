@@ -5,18 +5,6 @@ es:
   sessions:
     signed_in: "Hola!"
     signed_out: "Adiós!"
-  books:
-    edit:
-      title: "Editar libro"
-    new:
-      title: "Añadir libro"
-    notice:
-      create: "Libro añadido."
-    show:
-      edit: "Editar"
-    book:
-      comments_count: "%{count} Comentarios"
-      comments: "Comentarios"
   users:
     index:
       title: "Participantxs"

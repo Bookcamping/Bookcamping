@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525111332) do
+ActiveRecord::Schema.define(:version => 20110525140151) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -52,6 +52,28 @@ ActiveRecord::Schema.define(:version => 20110525111332) do
 
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "shelf_items", :force => true do |t|
+    t.integer  "shelf_id"
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+  end
+
+  add_index "shelf_items", ["book_id"], :name => "index_shelf_items_on_book_id"
+  add_index "shelf_items", ["shelf_id"], :name => "index_shelf_items_on_shelf_id"
+  add_index "shelf_items", ["user_id"], :name => "index_shelf_items_on_user_id"
+
+  create_table "shelves", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name",           :limit => 200
+    t.string   "slug",           :limit => 50
+    t.string   "description",    :limit => 512
+    t.integer  "books_count",                   :default => 0
+    t.integer  "comments_count",                :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"

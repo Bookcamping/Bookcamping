@@ -1,7 +1,11 @@
 Bookcamp::Application.routes.draw do
-  root :to => 'book_lists#index'
+  root :to => 'shelves#index'
 
-  resources :book_lists, :path => 'listas' do
+  resources :shelves, :path => 'listas' do
+
+  end
+
+  resources :book_lists, :path => 'alistas' do
     get :show_all, :on => :collection, :path => 'camping'
     resources :books, :path => 'libro', :only => [:new]
   end

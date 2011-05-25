@@ -11,7 +11,7 @@
     </div>
     <%= content_tag :div, link_to(book.url, book.url), :class => 'book_url' if book.url.present? %>
     <div class="controls">
-      <span class="user"><%= link_to book.user.name, "http://twitter.com/#!/#{book.user.name}" if book.user %></span>
+      <span class="user"><%= link_to book.user.name, book.user if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
       <% if ctx == :book %>
           <span class="comment_count"><%= t('.comments_count', :count => book.comments_count) %></span>
@@ -21,8 +21,6 @@
           <%= link_to 'Permalink', book %>
           <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
       <% end %>
-      <%= link_to 'Borrar', book_path(book), :method => :delete,
-                  :confirm => 'Seguro!?' if can? :destroy, book %>
       <%= link_to 'Tweet', '#' if current_user %>
     </div>
     <%= render_comments(book.comments, Comment.new(:resource => book)) if ctx == :book %>

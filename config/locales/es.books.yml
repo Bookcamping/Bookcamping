@@ -1,0 +1,28 @@
+es:
+  books:
+    edit:
+      title: "Editar libro"
+    new:
+      title: "Añadir libro"
+    notice:
+      create: "Libro añadido."
+    show:
+      edit: "Editar"
+    book:
+      comments_count: "%{count} Comentarios"
+      comments: "Comentarios"
+
+  simple_form:
+    labels:
+      book:
+        title: "Título"
+        authors: "Autoras"
+        editor: "Editorial"
+        url: "Enlace de descarga"
+        description: "Notas"
+    hints:
+      book:
+        title: "Tienes 300 caracteres máximo"
+        authors: "¿Quién lo ha escrito?"
+        url: "Pon sólo el enlace de descarga (si lo hubiese). Otros enlaces en Notas"
+        description: "Se permiten #hastags y @citas."
