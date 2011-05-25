@@ -22,7 +22,7 @@
       <%= render_description book %>
     </div>
     <% if book.url.present? %>
-        <div class="book_url">
+        <div class="download_url">
           <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url) %>
         </div>
     <% end %>
