@@ -1,0 +1,16 @@
+
+div.browse {
+    div.shelf {
+        width:100%;overflow:hidden;
+        margin-bottom: 30px;
+
+        div.book {
+            width: 80px;height:80px;
+            padding:3px;
+            margin: 10px 0 0 10px;
+            float: left;
+            background-color:white;border-radius:3px;
+            overflow:hidden;
+        }
+    }
+}

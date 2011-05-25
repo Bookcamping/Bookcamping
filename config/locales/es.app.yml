@@ -60,3 +60,6 @@ es:
     models:
       Book: 'un libro'
       Comment: 'un comentario'
+  books:
+    book:
+      download: "Descargar!"

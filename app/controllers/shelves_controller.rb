@@ -4,6 +4,10 @@ class ShelvesController < ApplicationController
   expose(:shelf)
   expose(:latest_books) { Book.order('id DESC').limit(10) }
 
+  def browse
+
+  end
+
   def index
   end
 

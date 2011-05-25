@@ -20,7 +20,11 @@
     <div class="description">
       <%= render_description book %>
     </div>
-    <%= content_tag :div, link_to(book.url, book.url), :class => 'book_url' if book.url.present? %>
+    <% if book.url.present? %>
+        <div class="book_url">
+          <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url) %>
+        </div>
+    <% end %>
     <div class="controls">
       <span class="user"><%= link_to book.user.name, book.user if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
