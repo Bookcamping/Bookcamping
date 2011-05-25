@@ -1,13 +1,13 @@
 <% title '' %>
 
-<div class="browse">
+<div id="browse">
   <%= render_info %>
   <% shelves.each do |shelf| %>
       <div class="shelf">
         <h2><%= link_to shelf.name, shelf %></h2>
         <% shelf.books.each do |book| %>
             <div class="book">
-              <%= link_to '&rArr;'.html_safe, book, :class => 'notice' if book.url.present? %>&nbsp;<%= link_to book.title, book %>
+              <%= link_to '&rArr;&nbsp;'.html_safe, book, :class => 'notice' if book.url.present? %><%= link_to book.title, book %>
               <%= book.date %> <%= book.authors %> <%= book.editor %>
             </div>
         <% end %>

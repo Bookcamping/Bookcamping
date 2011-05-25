@@ -9,6 +9,7 @@ Bookcamp::Application.routes.draw do
   end
 
   resources :books, :path => 'libros' do
+    get :view, :on => :member
     resources :comments
     resources :shelf_items, :path => 'incluidos'
   end

@@ -5,6 +5,10 @@ class BooksController < ApplicationController
   expose(:books)
   expose(:book)
 
+  def view
+    render :layout => false
+  end
+
   def show
   end
 

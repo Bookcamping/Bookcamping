@@ -1,27 +1,30 @@
 @import "variables.css.scss";
 
 div.list {
-    div.book {
-        margin:10px;
-        overflow:hidden;
-
-        div.button-group { font-size: 12px;}
-
-        div.controls {
-            margin-top:5px;
-            font-size: 80%;
-        }
-
-        em a {color: black;}
-
-        div.info {
-            h3 {padding: 10px 0; font-weight:bold;}
-        }
-
-        ul.shelf_items { padding: 3px 0;}
-        div.download_url a {background-color:$c-yellow;}
-    }
+    div.book div.info h3 {padding: 10px 0;}
 }
+
+div.book {
+    margin:10px;
+    overflow:hidden;
+
+    div.button-group { font-size: 12px;}
+
+    div.controls {
+        margin-top:5px;
+        font-size: 80%;
+    }
+
+    em a {color: black;}
+
+    div.info {
+        h3 {padding: 10px 0; font-weight:bold;}
+    }
+
+    ul.shelf_items { padding: 3px 0;}
+    div.download_url a {background-color:$c-yellow;}
+}
+div.list form.comment div.input label {display:none;}
 
 form.book {
     div.input {

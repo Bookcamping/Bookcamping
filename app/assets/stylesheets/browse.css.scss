@@ -1,7 +1,8 @@
 
 @import "variables.css.scss";
 
-div.browse {
+div#browse {
+    position:absolute;left:0;right:0;
     div.shelf {
         width:100%;overflow:hidden;
         margin-bottom: 30px;
@@ -20,14 +21,23 @@ div.browse {
             box-shadow: 0px 1px 4px #ccc;
         }
         div.book:hover {
-            background-color: lighten($c-link, 70);
+            background-color: $c-hover;
         }
     }
 
     div.intro {
         padding: 10px;
         width:100%;overflow:hidden;
-        h2 {float: left; margin-right:10px;}
+        float:none;background-color:transparent;
+        h2 {float: left; margin:0 0 0 10px;padding:0;}
         .credits {display:none;}
     }
+
+    a.active {color: #c00;}
+}
+
+div#viewer {
+    position: absolute; right: 30px; top: 100px; width: $w-list; padding: 10px;
+    border-radius: 5px;
+    background-color:white;
 }
