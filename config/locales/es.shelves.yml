@@ -7,6 +7,8 @@ es:
     new:
       title: "AÑADIR LISTA"
 
+    notice:
+      destroy: "Lista borrada."
   simple_form:
     labels:
       name: "Nombre"

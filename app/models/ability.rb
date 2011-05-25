@@ -3,7 +3,7 @@ class Ability
 
   def initialize(provided_user)
     self.user = provided_user
-    can :manage, :all if super?
+    can :manage, :all if admin?
 
     can :manage, Shelf, :user_id => @user.id
     cannot :create, Shelf if anonymous?
@@ -22,6 +22,10 @@ class Ability
 
   def user?
     !anonymous?
+  end
+
+  def admin?
+    user? and @user.admin?
   end
 
   def super?

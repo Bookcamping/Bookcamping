@@ -31,4 +31,10 @@ class ShelvesController < ApplicationController
     respond_with shelf
   end
 
+  def destroy
+    authorize! :destroy, shelf
+    flash[:notice] = t('shelves.notice.destroy') if shelf.destroy
+    respond_with shelf, :location => shelves_path
+  end
+
 end

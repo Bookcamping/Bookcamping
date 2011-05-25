@@ -9,6 +9,8 @@
       <%= button_group do %>
           <%= edit_button_link_to 'Modificar lista', edit_shelf_path(shelf) if can? :edit, shelf %>
           <%= add_button_link_to 'Añadir libro', new_shelf_book_path(shelf) if current_user %>
+          <%= danger_remove_button_link_to 'Borrar lista', shelf, :method => :delete,
+                                           :confirm => "¿Borrar lista #{shelf.name}?" if can? :destroy, shelf %>
       <% end %>
     </div>
     <div class="order">
