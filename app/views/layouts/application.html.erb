@@ -21,7 +21,8 @@
 <div id="navigation">
   <%= link_to 'retícula', browse_path %> /
   <%= link_to 'listas', shelves_path %> /
-  <%= link_to 'actividad', versions_path %>
+  <%= link_to 'actividad', versions_path %> /
+  <%= link_to 'colaboradorxs', users_path %>
 </div>
 <div id="messages">
   <%= content_tag :p, flash[:notice], :class => 'flash' if flash[:notice].present? %>

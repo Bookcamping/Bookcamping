@@ -1,4 +1,5 @@
 module BooksHelper
+
   def render_description(book)
     text = auto_link(book.description)
     text = text.gsub(/(#\w+)/, '<a>\0</a>')

@@ -1,10 +1,11 @@
+<% title 'Retícula' %>
 <div class="browse">
   <% shelves.each do |shelf| %>
       <div class="shelf">
         <h2><%= shelf.name %></h2>
         <% shelf.books.each do |book| %>
             <div class="book">
-              <%= link_to "&rArr; #{book.title}".html_safe, book %>
+              <%= link_to "&rArr;&nbsp;#{book.book_title}".html_safe, book %>
             </div>
         <% end %>
       </div>

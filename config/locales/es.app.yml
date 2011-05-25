@@ -7,7 +7,7 @@ es:
     signed_out: "Adiós!"
   users:
     index:
-      title: "Participantxs"
+      title: "Colaboradoras"
     edit:
       title: "Editar participante"
     notice:

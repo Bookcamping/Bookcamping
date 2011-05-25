@@ -1,6 +1,7 @@
 <%= div_for book do %>
     <div class="info">
-      <%= content_tag :h3, link_to(book.title, book) if book.title.present? %>
+      <%= content_tag :h3, link_to(book.title, book)  %>
+
       <% if ctx == :book %>
           <div>
             <%= button_group do %>
@@ -47,4 +48,7 @@
 
         <%= render_comments(book.comments, Comment.new(:resource => book)) %>
     <% end %>
+    <div>
+      <%= book.description %>
+    </div>
 <% end %>

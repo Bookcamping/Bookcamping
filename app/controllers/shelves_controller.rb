@@ -5,7 +5,9 @@ class ShelvesController < ApplicationController
   expose(:latest_books) { Book.order('id DESC').limit(10) }
 
   def browse
-
+    Book.where(:title => nil).each do |book|
+      book.update_attributes(:title => book.book_title, :description => book.clean_description)
+    end
   end
 
   def index

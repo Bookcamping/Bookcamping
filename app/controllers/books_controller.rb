@@ -32,6 +32,6 @@ class BooksController < ApplicationController
   def destroy
     authorize! :destroy, book
     book.destroy
-    respond_with book
+    respond_with book, :location => root_path
   end
 end
