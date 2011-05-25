@@ -3,6 +3,8 @@ class BookList < ActiveRecord::Base
   has_many :books
   acts_as_list
 
+  has_paper_trail
+
   def title
     "#{self.position - 1}.- #{name}"
   end

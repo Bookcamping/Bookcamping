@@ -4,6 +4,12 @@ class Comment < ActiveRecord::Base
 
   before_save :update_comments_count
 
+  has_paper_trail :meta => {
+      :title => Proc.new {|comment| comment.resource.title},
+      :user_name => Proc.new{|comment| comment.user.name if comment.user }
+  }
+
+
   scope :direct, :conditions => where(:ancestry => nil)
 
   validates :resource_id, :presence => true

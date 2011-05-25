@@ -28,9 +28,9 @@ es:
     book_lists:
       add_list: "Añadir lista"
     edit:
-      title: "Modificar lista"
+      title: "MODIFICAR LISTA"
     new:
-      title: "Crear lista"
+      title: "AÑADIR LISTA"
 
     index:
       latest_books: "ÚLTIMOS LIBROS AÑADIDOS"
@@ -56,3 +56,13 @@ es:
     comments:
       comments: "Comentar"
       login_before_comment: "Sería mejor que te identificases antes, aunque puedes comentar de forma anónima."
+  versions:
+    index:
+      title: "Últimas modificaciones"
+    events:
+      create: 'añadido'
+      update: 'modificado'
+      destroy: 'borrado'
+    models:
+      Book: 'un libro'
+      Comment: 'un comentario'

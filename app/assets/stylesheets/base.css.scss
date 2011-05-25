@@ -33,7 +33,7 @@ div.lists {
 
     div.list {
         float: left; background-color:white;
-        width: 360px; margin: 10px; border-radius:3px;
+        width: $w-list; margin: 10px; border-radius:3px;
 
         h1, h2, h3 {padding: 10px 10px;}
         h1 {}
@@ -59,9 +59,9 @@ div.list.intro {
 div.list form {
   padding: 10px;
   div.input {
-      width: 420px; margin: 10px 0;
+      width: $w-list - 40; margin: 10px 0;
       label {display: block; color:$c-head;font-weight:bold;}
-      input[type=text], textarea {width: 350px; border: 1px solid $c-bg; padding: 2px;}
+      input[type=text], textarea {width: $w-list - 50; border: 1px solid $c-bg; padding: 2px;}
   }
   input[type=submit] {font-size: 10px;}
   a {font-size: 12px;}

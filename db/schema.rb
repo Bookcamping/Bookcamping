@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(:version => 20110524155206) do
   end
 
   create_table "versions", :force => true do |t|
-    t.string   "item_type",  :null => false
-    t.integer  "item_id",    :null => false
-    t.string   "event",      :null => false
+    t.string   "item_type",                 :null => false
+    t.integer  "item_id",                   :null => false
+    t.string   "event",                     :null => false
     t.string   "whodunnit"
+    t.string   "title",      :limit => 300
+    t.string   "user_name",  :limit => 100
     t.text     "object"
     t.datetime "created_at"
   end
