@@ -4,7 +4,7 @@
     <%= render_shelves shelves %>
     <div class="list">
       <div class="nav">
-        <%= link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
+        <%= edit_button_link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
         <%= link_to 'Borrar', book_path(book), :method => :delete,
                     :confirm => 'Seguro!?' if can? :destroy, book %>
       </div>

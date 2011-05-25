@@ -3,6 +3,9 @@ Bookcamp::Application.routes.draw do
 
   resources :shelves, :path => 'listas' do
     resources :books, :path => 'libro', :only => [:new, :create]
+    resources :shelf_items, :path => 'incluidos' do
+      get :autocomplete_book_title, :on => :collection
+    end
   end
 
   resources :books, :path => 'libros' do

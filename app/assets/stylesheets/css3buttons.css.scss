@@ -10,7 +10,7 @@ Licensed under Unlicense
     position: relative;
     overflow: visible;
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 4px 8px;
     border: 1px solid #d4d4d4;
     margin: 0;
     text-decoration: none;
@@ -38,6 +38,9 @@ Licensed under Unlicense
     *display: inline;
 }
 
+$c-active-from: #217c91; //#599bdc;
+$c-active-to: #0B2930; //#3072b3;
+
 .button:hover,
 .button:focus,
 .button:active {
@@ -47,10 +50,10 @@ Licensed under Unlicense
     text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
     color: #fff;
     background-color: #3072b3;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#599bdc), to(#3072b3));
-    background-image: -moz-linear-gradient(#599bdc, #3072b3);
-    background-image: -o-linear-gradient(#599bdc, #3072b3);
-    background-image: linear-gradient(#599bdc, #3072b3);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($c-active-from), to($c-active-to));
+    background-image: -moz-linear-gradient($c-active-from, $c-active-to);
+    background-image: -o-linear-gradient($c-active-from, $c-active-to);
+    background-image: linear-gradient($c-active-from, $c-active-to);
 }
 
 .button:active,
@@ -59,10 +62,10 @@ Licensed under Unlicense
     border-bottom-color: #3884CF;
     color: #fff;
     background-color: #3072b3;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3072b3), to(#599bdc));
-    background-image: -moz-linear-gradient(#3072b3, #599bdc);
-    background-image: -o-linear-gradient(#3072b3, #599bdc);
-    background-image: linear-gradient(#3072b3, #599bdc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($c-active-to), to($c-active-from));
+    background-image: -moz-linear-gradient($c-active-to, $c-active-from);
+    background-image: -o-linear-gradient($c-active-to, $c-active-from);
+    background-image: linear-gradient($c-active-to, $c-active-from);
 }
 
 /* overrides extra padding on button elements in Firefox */
@@ -76,12 +79,12 @@ Licensed under Unlicense
 .button.icon:before {
     content: "";
     position: relative;
-    top: 1px;
+    top: 0px;
     float:left;
     width: 12px;
     height: 12px;
     margin: 0 0.75em 0 -0.25em;
-    background: url(/assets/css3buttons/css3-buttons-icons.png) 0 99px no-repeat;
+    background: url(/assets/css3-buttons-icons.png) 0 99px no-repeat;
 }
 
 .button.arrowup.icon:before { background-position: 0 0; }
@@ -367,12 +370,12 @@ Licensed under Unlicense
 .button-group.minor-group .button:hover,
 .button-group.minor-group .button:focus,
 .button-group.minor-group .button:active {
-    background-color: #599bdc;
+    background-color: $c-active-from;
 }
 
 .button-group.minor-group .button:active,
 .button-group.minor-group .button.active {
-    background-color: #3072b3;
+    background-color: $c-active-to;
 }
 
 .button-group.minor-group .button.icon:before {

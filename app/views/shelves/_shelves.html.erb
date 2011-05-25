@@ -1,7 +1,10 @@
 <div class="list">
   <h2>LISTAS</h2>
+
   <div class="actions">
-    <%= link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
+    <%= button_group do %>
+        <%= add_button_link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
+    <% end %>
   </div>
   <ul class="shelves">
     <% shelves.each do |shelf| %>

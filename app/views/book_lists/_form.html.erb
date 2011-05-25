@@ -1,5 +1,0 @@
-<%= simple_form_for book_list do |form| %>
-    <%= form.input :name, :as => :text %>
-    <%= button_submit_tag 'Guardar' %>
-    <%= link_to 'Cancelar', (book_list.new_record? ? book_lists_path : book_list) %>
-<% end %>

@@ -1,4 +1,4 @@
-<div class="comments">
+<div class="comments section">
   <h3><%= t('.comments') %></h3>
   <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') unless current_user? %>
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>

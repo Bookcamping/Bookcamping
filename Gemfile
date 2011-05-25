@@ -15,12 +15,12 @@ gem 'jquery-rails'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'css3buttons'
+gem 'rails3-jquery-autocomplete'
 
 gem 'cancan'
+#gem 'meta_where'
 
 gem 'omniauth'
-gem 'fog'
-gem 'carrierwave'
 
 gem 'ancestry'
 gem 'paper_trail'
@@ -29,9 +29,9 @@ gem 'rdiscount'
 gem 'kaminari'
 gem 'rails_autolink'
 
-gem 'prawn'
-gem 'prawnto'
-gem 'nokogiri'
+#gem 'prawn'
+#gem 'prawnto'
+#gem 'nokogiri'
 
 gem 'exception_notification', :require => 'exception_notifier'
 #gem 'newrelic_rpm'

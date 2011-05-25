@@ -2,11 +2,14 @@
     <h2><%= shelf.name %></h2>
     <div class="list_info">
       <%= shelf.books_count %> libros.
-      Creada por <%= link_to_user shelf.user %><span> hace <%= time_ago_in_words shelf.created_at %></span>
+      Creada por <%= link_to_user shelf.user %>
+      <span> hace <%= time_ago_in_words shelf.created_at %></span>
     </div>
     <div class="nav">
-      <%= link_to 'Modificar lista', edit_shelf_path(shelf) if can? :edit, shelf %>
-      <%= link_to 'Añadir libro', new_shelf_book_path(shelf) if current_user %>
+      <%= button_group do %>
+          <%= edit_button_link_to 'Modificar lista', edit_shelf_path(shelf) if can? :edit, shelf %>
+          <%= add_button_link_to 'Añadir libro', new_shelf_book_path(shelf) if current_user %>
+      <% end %>
     </div>
     <div class="order">
       Mostrar en primero los: <%= link_to 'Recientes', '#' %> /
