@@ -16,33 +16,4 @@ class Book < ActiveRecord::Base
   attr_accessible :user_id, :as => :super
 
   validates :user_id, :presence => true
-
-  def book_title
-    if self.title.present?
-      self.title
-    else
-      match = /\*(.*)\*/.match(description)
-      if match
-        match[1]
-      else
-        match = /^([a-zA-Z\s^,]*),/.match(description)
-        match ? match[1] : ''
-      end
-    end
-  end
-
-  def clean_description
-    if self.title.present?
-      self.description
-    else
-     title = book_title
-      if title.present?
-        d = description[title.size+2..-1]
-        d.gsub(/^,\s*/, '') if d.present?
-      else
-        description
-      end
-    end
-  end
-
 end

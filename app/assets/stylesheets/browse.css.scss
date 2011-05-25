@@ -1,16 +1,30 @@
 
+@import "variables.css.scss";
+
 div.browse {
     div.shelf {
         width:100%;overflow:hidden;
         margin-bottom: 30px;
 
+        h2 {padding: 10px;}
+
         div.book {
+            font-size: 80%;
+            color: $c-gray;
             width: 80px;height:80px;
             padding:3px;
-            margin: 10px 0 0 10px;
+            margin: 10px 0 5px 10px;
             float: left;
             background-color:white;border-radius:3px;
             overflow:hidden;
+            box-shadow: 0px 1px 4px #ccc;
         }
+    }
+
+    div.intro {
+        padding: 10px;
+        width:100%;overflow:hidden;
+        h2 {float: left; margin-right:10px;}
+        .credits {display:none;}
     }
 }

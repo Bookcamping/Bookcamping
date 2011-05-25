@@ -1,11 +1,14 @@
 <% title 'Retícula' %>
+
 <div class="browse">
+  <%= render_info %>
   <% shelves.each do |shelf| %>
       <div class="shelf">
-        <h2><%= shelf.name %></h2>
+        <h2><%= link_to shelf.name, shelf %></h2>
         <% shelf.books.each do |book| %>
             <div class="book">
-              <%= link_to "&rArr;&nbsp;#{book.title}".html_safe, book %>
+              <%= link_to '&rArr;'.html_safe, book, :class => 'notice' if book.url.present? %>&nbsp;<%= link_to book.title, book %>
+              <%= book.date %> <%= book.authors %>. <%= book.editor %>
             </div>
         <% end %>
       </div>
