@@ -3,7 +3,7 @@ es:
     index:
       title: "Listas"
     shelves:
-      add_shelf: "Añadir lista"
+      add_shelf: "Añadir una nueva lista"
     new:
       title: "AÑADIR LISTA"
 

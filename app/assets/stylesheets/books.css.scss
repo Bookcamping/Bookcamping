@@ -1,20 +1,25 @@
 @import "variables.css.scss";
 
-div.book {
-    margin:10px;
-    overflow:hidden;
+div.list {
+    div.book {
+        margin:10px;
+        overflow:hidden;
 
-    div.button-group { font-size: 12px;}
+        div.button-group { font-size: 12px;}
 
-    div.controls {
-        margin-top:5px;
-        font-size: 80%;
-    }
+        div.controls {
+            margin-top:5px;
+            font-size: 80%;
+        }
 
-    em a {color: black;}
+        em a {color: black;}
 
-    div.info {
-        h3 {padding: 0; font-weight:bold;}
+        div.info {
+            h3 {padding: 10px 0; font-weight:bold;}
+        }
+
+        ul.shelf_items { padding: 3px 0;}
+
     }
 }
 

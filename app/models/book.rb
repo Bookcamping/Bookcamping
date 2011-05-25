@@ -2,7 +2,7 @@ class Book < ActiveRecord::Base
   belongs_to :book_list
   belongs_to :user
   has_many :comments, :as => :resource , :order => 'id DESC'
-  has_many :shelf_items
+  has_many :shelf_items, :include => :shelf
   has_many :shelves, :through => :shelf_items
 
   scope :titled, where('title != null')

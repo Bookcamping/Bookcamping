@@ -34,3 +34,4 @@ es:
       title: "Añadir a una lista"
     notice:
       create: "Añadido a la lista."
+      destroy: "Fuera de la lista!"

@@ -17,4 +17,9 @@ class ShelfItemsController < ApplicationController
     end
     respond_with :shelf_item, :location => book
   end
+
+  def destroy
+    flash[:notice] = t('shelf_items.notice.destroy') if shelf_item.destroy
+    respond_with :shelf_item, :location => book
+  end
 end

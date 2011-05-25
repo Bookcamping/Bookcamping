@@ -37,14 +37,8 @@
     <% if ctx == :book %>
         <div class="shelves section">
           <h3>En:</h3>
-          <% book.shelves.each do |shelf| %>
-              <%= link_to shelf.name, shelf %> /
-          <% end %>
-          <div>
-            <%= button_group do %>
-                <%= calendar_button_link_to t('.add_to_list'), new_book_shelf_item_path(book) %>
-            <% end %>
-          </div>
+          <%= render_shelf_items book.shelf_items %>
+          <%= link_to t('.add_to_list'), new_book_shelf_item_path(book) %>
         </div>
 
         <%= render_comments(book.comments, Comment.new(:resource => book)) %>

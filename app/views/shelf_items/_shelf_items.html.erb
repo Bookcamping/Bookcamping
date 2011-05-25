@@ -1,0 +1,8 @@
+<ul class="shelf_items">
+  <% book.shelf_items.each do |item| %>
+      <li><%= link_to item.shelf.name, item.shelf %>
+        <%= link_to '&larr; quitar de la lista'.html_safe, [item.book, item], :method => :delete,
+            :confirm => "¿Quitamos '#{item.book.title}' de '#{item.shelf.name}'?" %>
+      </li>
+  <% end %>
+</ul>
