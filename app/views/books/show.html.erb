@@ -1,13 +1,8 @@
-
+<% title book.title.present? ? book.title : 'Ver' %>
 <%= lists_div 3 do %>
     <%= render 'layouts/intro' %>
     <%= render_shelves shelves %>
     <div class="list">
-      <div class="nav">
-        <%= edit_button_link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
-        <%= link_to 'Borrar', book_path(book), :method => :delete,
-                    :confirm => 'Seguro!?' if can? :destroy, book %>
-      </div>
       <%= render_book book %>
     </div>
 <% end %>

@@ -12,6 +12,8 @@ es:
       comments_count: "%{count} Comentarios"
       comments: "Comentarios"
 
+      edit: "Editar"
+      add_to_list: "Añadir a otra lista"
   simple_form:
     labels:
       book:
@@ -20,9 +22,15 @@ es:
         editor: "Editorial"
         url: "Enlace de descarga"
         description: "Notas"
+        date: "Fecha"
     hints:
       book:
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito?"
         url: "Pon sólo el enlace de descarga (si lo hubiese). Otros enlaces en Notas"
         description: "Se permiten #hastags y @citas."
+  shelf_items:
+    new:
+      title: "Añadir a una lista"
+    notice:
+      create: "Añadido a la lista."

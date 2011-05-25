@@ -1,0 +1,14 @@
+<%= lists_div 2 do %>
+    <%= render_info %>
+    <div class="list">
+      <%= title t('.title') %>
+      <%= simple_form_for [book, shelf_item] do |form| %>
+          Añadir:
+          <h2><%= book.title %></h2>
+          a la lista:
+          <%= form.association :shelf, :include_blank => false %>
+          <%= button_submit_tag 'Añadir' %>
+          <%= link_to 'Cancelar', book %>
+      <% end %>
+    </div>
+<% end %>

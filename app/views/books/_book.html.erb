@@ -1,6 +1,17 @@
 <%= div_for book do %>
     <div class="info">
       <%= content_tag :h3, link_to(book.title, book) if book.title.present? %>
+      <% if ctx == :book %>
+          <div>
+            <%= button_group do %>
+                <%= edit_button_link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
+                <%= danger_remove_button_link_to 'Borrar', book_path(book), :method => :delete,
+                                                 :confirm => 'Seguro!?' if can? :destroy, book %>
+            <% end %>
+          </div>
+      <% end %>
+
+      <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
       <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
       <% if book.editor.present? %>
           / <%= content_tag :span, book.editor, :class => 'editor' %>
@@ -29,6 +40,11 @@
           <% book.shelves.each do |shelf| %>
               <%= link_to shelf.name, shelf %> /
           <% end %>
+          <div>
+            <%= button_group do %>
+                <%= calendar_button_link_to t('.add_to_list'), new_book_shelf_item_path(book) %>
+            <% end %>
+          </div>
         </div>
 
         <%= render_comments(book.comments, Comment.new(:resource => book)) %>

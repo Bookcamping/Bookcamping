@@ -10,6 +10,7 @@ Bookcamp::Application.routes.draw do
 
   resources :books, :path => 'libros' do
     resources :comments
+    resources :shelf_items, :path => 'incluidos'
   end
 
   resources :users, :path => 'colaboradorxs'

@@ -2,6 +2,7 @@
     <%= form.input :title %>
     <%= form.input :authors %>
     <%= form.input :editor %>
+    <%= form.input :date %>
     <%= form.input :url %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
