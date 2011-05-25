@@ -8,7 +8,7 @@
         <% shelf.books.each do |book| %>
             <div class="book">
               <%= link_to '&rArr;'.html_safe, book, :class => 'notice' if book.url.present? %>&nbsp;<%= link_to book.title, book %>
-              <%= book.date %> <%= book.authors %>. <%= book.editor %>
+              <%= book.date %> <%= book.authors %> <%= book.editor %>
             </div>
         <% end %>
       </div>
