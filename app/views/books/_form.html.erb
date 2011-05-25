@@ -1,5 +1,4 @@
-<%= simple_form_for book do |form| %>
-    <%= form.input :book_list_id, :as => :hidden %>
+<%= simple_form_for [shelf, book] do |form| %>
     <%= form.input :title %>
     <%= form.input :authors %>
     <%= form.input :editor %>

@@ -1,6 +1,6 @@
 <%= simple_form_for shelf do |form| %>
     <%= form.input :name, :as => :text %>
-    <%= form.input :slug %>
+    <%= form.input :slug if current_user? :admin %>
     <%= form.association :user if current_user? :super %>
     <%= button_submit_tag 'Guardar' %>
     <%= link_to 'Cancelar', (shelf.new_record? ? shelves_path : shelf) %>

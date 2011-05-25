@@ -1,8 +1,13 @@
 
 @import "variables.css.scss";
 
+ul.shelves {
+    li span.info {font-size:80%;}
+}
 
 div.shelf {
+
+
     div.list_info {
         font-size: 80%;
         padding: 0 10px;

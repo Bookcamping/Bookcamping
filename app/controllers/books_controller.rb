@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   respond_to :html, :js
-  expose(:book_lists) { BookList.all }
+  expose(:shelves) { Shelf.all }
+  expose(:shelf) { Shelf.find params[:shelf_id] if params[:shelf_id]}
   expose(:books)
   expose(:book)
 
@@ -8,7 +9,6 @@ class BooksController < ApplicationController
   end
 
   def new
-    book.book_list_id = params[:book_list_id]
   end
 
   def edit
@@ -16,7 +16,10 @@ class BooksController < ApplicationController
 
   def create
     book.user = current_user
-    flash[:notice] = t('books.notice.create') if book.save
+    Book.transaction do
+      flash[:notice] = t('books.notice.create') if book.save
+      shelf.add_book book, current_user
+    end
     respond_with book
   end
 

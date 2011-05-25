@@ -1,11 +1,12 @@
 <div class="list">
+  <h2>LISTAS</h2>
   <div class="actions">
     <%= link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
   </div>
-  <h2>LISTAS</h2>
-  <ul class="book_lists">
+  <ul class="shelves">
     <% shelves.each do |shelf| %>
-        <li><%= link_to shelf.name, shelf %> (<%= shelf.books_count %>)</li>
+        <li><%= link_to shelf.name, shelf %> <span class="info">(<%= shelf.books_count %>)
+        Por <%= link_to shelf.user.name, shelf.user %></span></li>
     <% end %>
   </ul>
 </div>
