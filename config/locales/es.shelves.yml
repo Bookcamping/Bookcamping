@@ -2,7 +2,7 @@ es:
   shelves:
     index:
       title: "Listas"
-      latest_books: "ÚLTIMOS LIBROS"
+      latest_books: "ÚLTIMAS ADQUISICIONES"
     shelves:
       add_shelf: "Añadir una nueva lista"
     new:

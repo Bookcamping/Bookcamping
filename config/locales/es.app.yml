@@ -58,7 +58,7 @@ es:
       update: 'modificado'
       destroy: 'borrado'
     models:
-      Book: 'un libro'
+      Book: 'una entrada'
       Comment: 'un comentario'
   books:
     book:
@@ -69,7 +69,7 @@ es:
     app_title: "#bookcamping"
   shelves:
     browse:
-      add: "+ Añadir libro"
+      add: "+ Añadir a la lista"
   camps:
     notice:
       update: "Campamento montado!"

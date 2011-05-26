@@ -1,11 +1,11 @@
 es:
   books:
     edit:
-      title: "Editar libro"
+      title: "Editar"
     new:
-      title: "Añadir libro"
+      title: "Añadir"
     notice:
-      create: "Libro añadido."
+      create: "Otras más! Grrracias."
     show:
       edit: "Editar"
     book:
@@ -19,7 +19,7 @@ es:
       book:
         title: "Título"
         authors: "Autoras"
-        editor: "Editorial"
+        editor: "Editorial / Editora"
         url: "Enlace de descarga"
         description: "Notas"
         date: "Fecha"
@@ -27,10 +27,10 @@ es:
     hints:
       book:
         title: "Tienes 300 caracteres máximo"
-        authors: "¿Quién lo ha escrito?"
+        authors: "¿Quién lo ha escrito / creado / imaginado?"
         url: "Pon sólo el enlace de descarga (si lo hubiese). Otros enlaces en Notas"
         description: "Se permiten #hastags y @citas."
-        media: "Un enlace a una imágen de la web, un vídeo de youtube, vimeo..."
+        media: "Un enlace a una imágen de la web, un vídeo de youtube..."
   shelf_items:
     new:
       title: "Añadir a una lista"
