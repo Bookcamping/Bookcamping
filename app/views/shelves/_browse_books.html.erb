@@ -1,0 +1,12 @@
+<div class="actions">
+  <%= link_to t('.add'), new_shelf_book_path(shelf) if current_user? %>&nbsp;&nbsp;
+  <%= link_to t('.view_list').html_safe, shelf_path(shelf) %>
+</div>
+<div class="books">
+  <% shelf.books.each do |book| %>
+      <div class="book">
+        <%= link_to '&rArr;&nbsp;'.html_safe, book, :class => 'notice' if book.url.present? %><%= link_to book.title, book %>
+        <%= book.date %> <%= book.authors %> <%= book.editor %>
+      </div>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 jQuery ->
-    $("div#browse .book a").click (e) ->
+    $("div#browse .book a").live 'click', (e) ->
         $("a.active").removeClass('active')
         $(this).addClass('active')
         previous = $("div#viewer")
@@ -24,3 +24,14 @@ jQuery ->
     $(".download_url a, .description a").live 'click', ->
         window.open($(this).attr('href'),'_blank')
         false
+
+    $("a.open-shelf").click ->
+        books = $(this).parents('.shelf').children('.load-shelf')
+        if $(this).data('loaded')?
+            books.toggle()
+        else
+            url = $(this).attr('href')
+            console.log(this, url)
+            books.load(url + ".js")
+            $(this).data('loaded', true)
+        return false

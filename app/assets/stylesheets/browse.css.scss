@@ -5,9 +5,9 @@ div#browse {
     position:absolute;left:0;right:0;
     div.shelf {
         width:100%;overflow:hidden;
-        margin-bottom: 30px;
+        div.books { margin-bottom: 30px; }
 
-        h2 {padding: 10px;}
+        h2 {padding: 10px; text-shadow: 0 1px 1px $c-hover;}
 
         div.actions {float:none;padding:0 10px;font-size:80%;}
 

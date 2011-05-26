@@ -70,6 +70,9 @@ es:
   shelves:
     browse:
       add: "+ Añadir a la lista"
+    browse_books:
+      view_list: "Ver como lista &rarr;"
+      add: "+ Nueva entrada"
   camps:
     notice:
       update: "Campamento montado!"
