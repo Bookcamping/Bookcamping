@@ -13,7 +13,7 @@
                                            :confirm => "¿Borrar lista #{shelf.name}?" if can? :destroy, shelf %>
       <% end %>
     </div>
-    <div class="order">
+    <div class="order" style="display:none;">
       Mostrar en primero los: <%= link_to 'Recientes', '#' %> /
       <%= link_to 'Antigüos', '#' %> /
       <%= link_to 'Más valorados' %> /
