@@ -6,7 +6,7 @@
           Añadir:
           <h2><%= book.title %></h2>
           a la lista:
-          <%= form.association :shelf, :include_blank => false %>
+          <%= form.association :shelf, :collection => book.camp.shelves, :include_blank => false %>
           <%= button_submit_tag 'Añadir' %>
           <%= link_to 'Cancelar', book %>
       <% end %>

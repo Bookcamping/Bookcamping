@@ -1,3 +1,4 @@
+# encoding: utf-8
 module BooksHelper
 
   def render_description(book)
@@ -13,8 +14,10 @@ module BooksHelper
   end
 
   def render_media(book)
-    if /youtube.com\/watch\?v=([\w\s\-_]*)/.match(book.media)
-      "<iframe width='360' height='300' src='http://www.youtube.com/embed/#{$1}' frameborder='0' allowfullscreen></iframe>".html_safe
+    if /youtube.com\/watch\?v=([\w\s\-_]*)/.match(book.media) or /youtu\.be\/(.*)/.match(book.media)
+      frame = "<iframe width='339' height='223' src='http://www.youtube.com/embed/#{$1}' frameborder='0' allowfullscreen></iframe>"
+      link = content_tag(:div, link_to('&rArr; Ver en youtube'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
+      (frame + link).html_safe
     else
       book.url.present? ? link_to(image_tag(book.media), book.url) : image_tag(book.media)
     end
