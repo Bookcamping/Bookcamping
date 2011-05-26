@@ -1,5 +1,5 @@
 <%= div_for book do %>
-    <a href="/" class="back">&larr; Volver</a>
+    <%= link_to "&larr; Volver".html_safe, root_path, :class => 'back' if ctx == :book %>
     <div class="info">
       <%= content_tag :h3, link_to(book.title, book) %>
 

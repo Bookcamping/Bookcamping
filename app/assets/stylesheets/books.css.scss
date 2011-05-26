@@ -1,7 +1,7 @@
 @import "variables.css.scss";
 
 div.list {
-    div.book div.info h3 {padding: 10px 0;}
+    div.book div.info h3 {padding: 0px 0;}
 
 }
 
@@ -9,7 +9,7 @@ div.book {
     margin:10px;
     overflow:hidden;
 
-    div.button-group { font-size: 12px;}
+    div.button-group { font-size: 12px; margin-top:5px;}
 
     div.controls {
         margin-top:5px;
@@ -26,7 +26,7 @@ div.book {
     div.download_url a {background-color:$c-yellow;}
     a.back {font-size: 80%;}
 
-    .twitter {display:block;margin-top:5px;}
+    .twitter {display:block;margin-top:5px; height: 20px;overflow:hidden;}
 
     div.media {
         overflow: hidden;
