@@ -1,12 +1,17 @@
 <div class="intro list">
-  <h2><a href="/">#bookcamping</a></h2>
+  <h2><a href="/"><%= t('intro.app_title') %></a></h2>
 
-  <h2>ALGUNOS LIBROS PARA ENTENDER CÓMO HEMOS LLEGADO HASTA SOL (PORQUE NO SALIMOS DE LA NADA)</h2>
+  <div class="twitter">
+    <iframe allowtransparency="true" frameborder="0" scrolling="no"
+            src="http://platform.twitter.com/widgets/tweet_button.html?url=<%= root_url %>&text=%23bookcamping <%= t('intro.line_two') %>"
+            style="width:130px; height:50px;"></iframe>
+  </div>
 
-  <h2>¿Y TÚ, QUÉ LIBRO TE LLEVARÍAS A TU PLAZA/ACAMPADA/ BOOKCAMP?</h2>
+  <h2><%= t('intro.line_one') %></h2>
+  <h2><%= t('intro.line_two') %></h2>
 
   <p class="credits">
-    #bookcamping surge a partir
+    <%= t('intro.app_title') %> surge a partir
     de <%= link_to 'Entorno de posibilidades', 'http://entornodeposibilidades.blogspot.com/2011/05/bookcamp-si-no-quieres-ser-como-ellos.html' %>
     <br/>
     Es <%= link_to 'código libre', 'https://github.com/recortable/Bookcamp' %>, colabora!
