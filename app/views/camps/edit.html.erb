@@ -1,0 +1,12 @@
+<%= lists_div 2 do %>
+    <%= render_info %>
+    <div class="list">
+      <%= title t('title') %>
+      <%= simple_form_for camp do |form| %>
+          <%= form.input :name %>
+          <%= form.input :line1, :as => :text %>
+          <%= form.input :line2, :as => :text %>
+          <%= button_submit_tag 'Guardar' %>
+      <% end %>
+    </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525191748) do
+ActiveRecord::Schema.define(:version => 20110526031855) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -38,10 +38,21 @@ ActiveRecord::Schema.define(:version => 20110525191748) do
     t.string   "media",          :limit => 1024
     t.string   "media_type",     :limit => 32
     t.string   "date",           :limit => 40
+    t.integer  "camp_id"
   end
 
   add_index "books", ["book_list_id"], :name => "index_books_on_book_list_id"
+  add_index "books", ["camp_id"], :name => "index_books_on_camp_id"
   add_index "books", ["user_id"], :name => "index_books_on_user_id"
+
+  create_table "camps", :force => true do |t|
+    t.string   "name",       :limit => 100
+    t.string   "subdomain",  :limit => 100
+    t.string   "line1",      :limit => 200
+    t.string   "line2",      :limit => 200
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -51,8 +62,10 @@ ActiveRecord::Schema.define(:version => 20110525191748) do
     t.string   "body",          :limit => 512
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "camp_id"
   end
 
+  add_index "comments", ["camp_id"], :name => "index_comments_on_camp_id"
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
@@ -61,9 +74,11 @@ ActiveRecord::Schema.define(:version => 20110525191748) do
     t.integer  "book_id"
     t.integer  "user_id"
     t.datetime "created_at"
+    t.integer  "camp_id"
   end
 
   add_index "shelf_items", ["book_id"], :name => "index_shelf_items_on_book_id"
+  add_index "shelf_items", ["camp_id"], :name => "index_shelf_items_on_camp_id"
   add_index "shelf_items", ["shelf_id"], :name => "index_shelf_items_on_shelf_id"
   add_index "shelf_items", ["user_id"], :name => "index_shelf_items_on_user_id"
 
@@ -76,7 +91,10 @@ ActiveRecord::Schema.define(:version => 20110525191748) do
     t.integer  "comments_count",                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "camp_id"
   end
+
+  add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"
 
   create_table "users", :force => true do |t|
     t.string   "provider"
@@ -97,8 +115,10 @@ ActiveRecord::Schema.define(:version => 20110525191748) do
     t.string   "user_name",  :limit => 100
     t.text     "object"
     t.datetime "created_at"
+    t.integer  "camp_id"
   end
 
+  add_index "versions", ["camp_id"], :name => "index_versions_on_camp_id"
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

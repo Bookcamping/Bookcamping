@@ -70,3 +70,6 @@ es:
   shelves:
     browse:
       add: "+ Añadir libro"
+  camps:
+    notice:
+      update: "Campamento montado!"

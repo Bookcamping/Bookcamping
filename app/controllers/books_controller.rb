@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
-  respond_to :html, :js
-  expose(:shelves) { Shelf.all }
-  expose(:shelf) { Shelf.find params[:shelf_id] if params[:shelf_id]}
-  expose(:books)
+  respond_to :html, :js, :json
+  expose(:shelves) { current_camp.shelves }
+  expose(:shelf) { shelves.find params[:shelf_id] if params[:shelf_id]}
+  expose(:books) { current_camp.books }
   expose(:book)
 
   def view
@@ -10,6 +10,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    respond_with :book
   end
 
   def new
@@ -20,6 +21,7 @@ class BooksController < ApplicationController
 
   def create
     book.user = current_user
+    book.camp = camp
     Book.transaction do
       flash[:notice] = t('books.notice.create') if book.save
       shelf.add_book book, current_user

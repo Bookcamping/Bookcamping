@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield :title %> #bookcamping </title>
+  <title><%= yield :title %> <%= current_camp.name %> </title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,8 +11,11 @@
   <% if current_user %>
       Hola <%= current_user.name %>!
       <%= link_to "Salir", signout_path %>
-      <%= link_to '@', users_path if current_user.super? %>
-      <%= link_to 'V', versions_path if current_user.super? %>
+      <% if current_user.super? %>
+          <%= link_to '@', users_path %>
+          <%= link_to 'V', versions_path if current_user.super? %>
+          <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
+      <% end %>
   <% else %>
       <span class="notice">Para colaborar tienes que identificarte &rArr;</span>
       <%= link_to "Entrar con Twitter", "/auth/twitter" %>

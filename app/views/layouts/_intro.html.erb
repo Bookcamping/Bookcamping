@@ -1,5 +1,5 @@
 <div class="intro list">
-  <h2><a href="/"><%= t('intro.app_title') %></a></h2>
+  <h2><a href="/"><%= current_camp.name %></a></h2>
 
   <div class="twitter">
     <iframe allowtransparency="true" frameborder="0" scrolling="no"
@@ -7,11 +7,11 @@
             style="width:130px; height:50px;"></iframe>
   </div>
 
-  <h2><%= t('intro.line_one') %></h2>
-  <h2><%= t('intro.line_two') %></h2>
+  <h2><%= current_camp.line1 %></h2>
+  <h2><%= current_camp.line2 %></h2>
 
   <p class="credits">
-    <%= t('intro.app_title') %> surge a partir
+    <%= current_camp.name %> surge a partir
     de <%= link_to 'Entorno de posibilidades', 'http://entornodeposibilidades.blogspot.com/2011/05/bookcamp-si-no-quieres-ser-como-ellos.html' %>
     <br/>
     Es <%= link_to 'código libre', 'https://github.com/recortable/Bookcamp' %>, colabora!

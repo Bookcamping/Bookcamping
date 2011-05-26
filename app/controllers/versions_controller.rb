@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-  expose(:versions) { Version.order('id DESC').limit(20)}
+  expose(:versions) { current_camp.versions.order('id DESC').limit(20)}
   expose(:version)
 
   def index
@@ -7,6 +7,8 @@ class VersionsController < ApplicationController
 
   def show
     case version.item_type
+      when 'Shelf'
+        redirect_to shelf_path(version.item_id)
       when 'Book'
         redirect_to book_path(version.item_id)
       when 'Comment'

@@ -2,7 +2,7 @@ class ShelfItemsController < ApplicationController
   respond_to :html, :json
   autocomplete :book, :title, :full => true
 
-  expose(:book) { Book.find params[:book_id] }
+  expose(:book) { current_camp.books.find params[:book_id] }
   expose(:shelf_item)
 
   def new
