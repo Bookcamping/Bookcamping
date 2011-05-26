@@ -14,14 +14,17 @@ class BooksController < ApplicationController
   end
 
   def new
+    authorize! :new, book
   end
 
   def edit
+    authorize! :edit, book
   end
 
   def create
     book.user = current_user
     book.camp = current_camp
+    authorize! :create, book
     Book.transaction do
       flash[:notice] = t('books.notice.create') if book.save
       shelf.add_book book, current_user
@@ -30,6 +33,7 @@ class BooksController < ApplicationController
   end
 
   def update
+    authorize! :update, book
     rol = current_user.rol ? current_user.rol.to_sym : nil
     book.update_attributes(params[:book], :as => rol)
     respond_with book

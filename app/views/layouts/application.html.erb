@@ -28,7 +28,7 @@
   <%= link_to 'colaboradorxs', users_path %>
 </div>
 <div id="messages">
-  <%= content_tag :p, flash[:notice], :class => 'flash' if flash[:notice].present? %>
+  <%= content_tag :p, "&rArr; #{flash[:notice]}".html_safe, :class => 'flash' if flash[:notice].present? %>
 </div>
 <div id="main">
   <%= yield %>

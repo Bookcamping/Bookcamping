@@ -9,6 +9,8 @@ class Ability
     cannot :create, Shelf if anonymous?
     can :create, ShelfItem if user?
 
+    can :new, Book if user?
+    can :create, Book if user?
     can :edit, Book, :user_id => @user.id
   end
 

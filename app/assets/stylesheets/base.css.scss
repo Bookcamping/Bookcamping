@@ -25,7 +25,7 @@ div#session {
 
 div#messages {
     height: 1.2em;padding: 3px;
-    p.flash {display:inline;background-color:$c-yellow;text-align:center;}
+    p.flash {display:inline;background-color:$c-yellow;text-align:center; margin: 0 10px;}
 }
 
 div#navigation {
