@@ -67,3 +67,6 @@ es:
     line_two: "¿Y TÚ, QUÉ LIBRO TE LLEVARÍAS A TU PLAZA / ACAMPADA / BOOKCAMP?"
     line_one: "ALGUNOS LIBROS PARA ENTENDER CÓMO HEMOS LLEGADO HASTA SOL (PORQUE NO SALIMOS DE LA NADA)"
     app_title: "#bookcamping"
+  shelves:
+    browse:
+      add: "+ Añadir libro"

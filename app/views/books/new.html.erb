@@ -1,16 +1,8 @@
-<% title t('.title') %>
-<%= lists_div 3 do %>
+<%= lists_div 2 do %>
     <%= render 'layouts/intro' %>
     <div class="list">
+      <%= title t('.title') %>
       <h2>En '<%= shelf.name %>'</h2>
-
-      <h1>Añadir un libro existente...</h1>
-      <p>Próximamente...</p>
-    </div>
-    <div class="list">
-      <h2>En '<%= shelf.name %>'</h2>
-
-      <h1>...o crear un libro y añadirlo</h1>
       <%= render 'form' %>
     </div>
 <% end %>

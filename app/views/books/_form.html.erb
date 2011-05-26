@@ -8,5 +8,5 @@
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
       <%= button_submit_tag 'Guardar' %>
-      <%= link_to 'Cancelar', book.new_record? ? shelf : book %>
+      <%= link_to 'Cancelar', book.new_record? ? root_path : book %>
 <% end %>
