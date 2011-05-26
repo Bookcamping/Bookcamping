@@ -13,6 +13,10 @@ module BooksHelper
   end
 
   def render_media(book)
-    book.url.present? ? link_to(image_tag(book.media), book.url) : image_tag(book.media)
+    if /youtube.com\/watch\?v=([\w\s]*)/.match(book.media)
+      "<iframe width='360' height='300' src='http://www.youtube.com/embed/#{$1}' frameborder='0' allowfullscreen></iframe>".html_safe
+    else
+      book.url.present? ? link_to(image_tag(book.media), book.url) : image_tag(book.media)
+    end
   end
 end
