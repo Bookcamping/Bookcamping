@@ -14,7 +14,7 @@ jQuery ->
             viewer.fadeIn();
         false
 
-    $(".book a.back").live 'click', ->
+    $("#viewer a.back").live 'click', ->
         $("div#viewer").fadeOut ->
             $("a.active").removeClass('active')
             $(this).remove()
