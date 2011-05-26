@@ -23,7 +23,7 @@ class ShelvesController < ApplicationController
 
   def create
     shelf.user = current_user
-    shelf.camp = camp
+    shelf.camp = current_camp
     authorize! :create, shelf
     flash[:notice] = "Lista creada." if shelf.update_attributes(params[:shelf])
     respond_with shelf

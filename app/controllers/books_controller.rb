@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
   def create
     book.user = current_user
-    book.camp = camp
+    book.camp = current_camp
     Book.transaction do
       flash[:notice] = t('books.notice.create') if book.save
       shelf.add_book book, current_user

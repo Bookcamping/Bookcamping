@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     comment.user = current_user
-    comment.camp = camp
+    comment.camp = current_camp
     flash[:notice] = t('comments.notice.create') if comment.save
     respond_with comment, :location => comment.resource
   end
