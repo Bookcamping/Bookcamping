@@ -27,6 +27,11 @@ div.book {
     a.back {font-size: 80%;}
 
     .twitter {display:block;margin-top:5px;}
+
+    div.media {
+        overflow: hidden;
+        img {display: block; margin: 5px auto;}
+    }
 }
 div.list form.comment div.input label {display:none;}
 

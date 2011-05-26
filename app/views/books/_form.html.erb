@@ -4,6 +4,7 @@
     <%= form.input :editor %>
     <%= form.input :date %>
     <%= form.input :url %>
+    <%= form.input :media %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
       <%= button_submit_tag 'Guardar' %>

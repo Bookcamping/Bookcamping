@@ -11,4 +11,8 @@ module BooksHelper
   def render_book(book, ctx = :book)
     render :partial => 'books/book', :locals => {:book => book, :ctx => ctx}
   end
+
+  def render_media(book)
+    book.url.present? ? link_to(image_tag(book.media), book.url) : image_tag(book.media)
+  end
 end
