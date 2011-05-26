@@ -1,7 +1,10 @@
 <% title '' %>
 
-<div id="browse">
+<div id="welcome">
   <%= render_info %>
+</div>
+
+<div id="browse">
   <% shelves.each do |shelf| %>
       <div class="shelf">
         <h2><%= link_to shelf.name, shelf %></h2>

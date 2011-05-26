@@ -6,7 +6,7 @@ jQuery ->
         previous.fadeOut ->
             previous.remove()
 
-        $("div#browse").css('right', '380px')
+        $("div#browse").css('right', '400px')
         viewer = $("<div id='viewer'></div>")
         viewer.css('top', e.pageY - 50);
         $(viewer).load this + "/view", ->
@@ -14,13 +14,13 @@ jQuery ->
             viewer.fadeIn();
         false
 
-    $("a.close_view").live 'click', ->
+    $(".book a.back").live 'click', ->
         $("div#viewer").fadeOut ->
             $("a.active").removeClass('active')
             $(this).remove()
             $("div#browse").css('right', '0px')
         false
 
-    $(".download_url a").live 'click', ->
+    $(".download_url a, .description a").live 'click', ->
         window.open($(this).attr('href'),'_blank')
         false

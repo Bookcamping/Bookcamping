@@ -18,6 +18,7 @@ p {margin: 3px 0;}
 div#session {
     position:fixed;top:0;right:10px;text-align:right;padding:3px; background-color:white;
     border-radius: 0 0 5px 5px; font-size: 12px;
+    z-index: 10000;
     span.notice {background-color:$c-yellow;}
 }
 

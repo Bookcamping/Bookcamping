@@ -2,6 +2,7 @@
 
 div.list {
     div.book div.info h3 {padding: 10px 0;}
+
 }
 
 div.book {
@@ -23,6 +24,7 @@ div.book {
 
     ul.shelf_items { padding: 3px 0;}
     div.download_url a {background-color:$c-yellow;}
+    a.back {font-size: 80%;}
 }
 div.list form.comment div.input label {display:none;}
 

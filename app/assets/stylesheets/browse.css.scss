@@ -25,15 +25,18 @@ div#browse {
         }
     }
 
+
+    a.active {color: #c00;}
+}
+
+div#welcome {
     div.intro {
-        padding: 10px;
+        margin: 0;padding: 10px 0;
         width:100%;overflow:hidden;
         float:none;background-color:transparent;
         h2 {float: left; margin:0 0 0 10px;padding:0;}
         .credits {display:none;}
     }
-
-    a.active {color: #c00;}
 }
 
 div#viewer {
