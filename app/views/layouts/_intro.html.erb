@@ -12,7 +12,7 @@
 
   <p class="credits">
     <%= current_camp.name %> surge a partir
-    de <%= link_to 'Entorno de posibilidades', 'http://entornodeposibilidades.blogspot.com/2011/05/bookcamp-si-no-quieres-ser-como-ellos.html' %>
+    de <%= link_to 'Entorno de posibilidades', 'http://entornodeposibilidades.blogspot.com/2011/05/bookcamp-si-no-quieres-ser-como-ellos.html' if current_camp.id == 1 %>
     <br/>
     Es <%= link_to 'código libre', 'https://github.com/recortable/Bookcamp' %>, colabora!
 

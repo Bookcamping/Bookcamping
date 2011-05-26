@@ -28,7 +28,7 @@ es:
       book:
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito / creado / imaginado?"
-        url: "Pon sólo el enlace de descarga (si lo hubiese). Otros enlaces en Notas"
+        url: "Pon sólo el enlace de descarga gratuita! (si lo hubiese). Otros enlaces en Notas"
         description: "Se permiten #hastags y @citas."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
   shelf_items:
