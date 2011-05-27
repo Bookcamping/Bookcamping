@@ -6,6 +6,7 @@ class Book < ActiveRecord::Base
   has_many :shelves, :through => :shelf_items
 
   scope :titled, where('title != null')
+  scope :search, lambda {|term| where('title LIKE ?', "%#{term}%") }
 
   has_paper_trail :meta => {
       :title => Proc.new { |book| book.title },

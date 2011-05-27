@@ -7,6 +7,10 @@
             style="width:130px; height:50px;"></iframe>
   </div>
 
+  <div class="search">
+    <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
+  </div>
+
   <h2><%= current_camp.line1 %></h2>
   <h2><%= current_camp.line2 %></h2>
 

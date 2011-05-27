@@ -1,4 +1,6 @@
 jQuery ->
+
+    # click on a book
     $("div#browse .book a").live 'click', (e) ->
         $("a.active").removeClass('active')
         $(this).addClass('active')
@@ -14,6 +16,17 @@ jQuery ->
             viewer.fadeIn();
         false
 
+    $("a#show_all_books").click ->
+        $(".load-shelf").slideDown();
+        self = $(this)
+        unless self.data('loaded')?
+            self.data('loaded', true)
+            $.getScript($(this).attr('href') + ".js")
+        false
+
+    $("a#hide_all_books").click ->
+        $(".load-shelf").slideUp()
+
     $("#viewer a.back").live 'click', ->
         $("div#viewer").fadeOut ->
             $("a.active").removeClass('active')
@@ -25,13 +38,14 @@ jQuery ->
         window.open($(this).attr('href'),'_blank')
         false
 
+    # open a shelf
     $("a.open-shelf").click ->
         books = $(this).parents('.shelf').children('.load-shelf')
-        if $(this).data('loaded')?
-            books.toggle()
+        if books.data('loaded')?
+            books.slideToggle()
         else
+            books.show()
             url = $(this).attr('href')
-            console.log(this, url)
             books.load(url + ".js")
-            $(this).data('loaded', true)
+            books.data('loaded', true)
         return false

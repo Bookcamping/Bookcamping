@@ -33,3 +33,11 @@ div#navigation {
     a {padding: 3px 0px;}
 }
 
+div.intro {
+    div.search {
+        padding: 0 10px;
+        font-size: 80%;
+        input[type=text] {border: 1px solid $c-gray; padding: 2px; margin: 0 5px;}
+    }
+}
+

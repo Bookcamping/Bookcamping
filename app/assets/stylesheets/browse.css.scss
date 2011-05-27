@@ -3,13 +3,15 @@
 
 div#browse {
     position:absolute;left:0;right:0;
+    padding-bottom: 40px;
+    div.actions {float:none;padding:0 10px;font-size:80%;}
+
     div.shelf {
         width:100%;overflow:hidden;
         div.books { margin-bottom: 30px; }
 
         h2 {padding: 10px; text-shadow: 0 1px 1px $c-hover;}
 
-        div.actions {float:none;padding:0 10px;font-size:80%;}
 
         div.book {
             font-size: 80%;

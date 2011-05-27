@@ -1,0 +1,21 @@
+<% title t('.title') %>
+
+<%= lists_div 3 do %>
+    <%= render 'layouts/intro' %>
+    <%= render_shelves shelves %>
+    <div class="list shelf search-results">
+      <h1>Buscar '<%= params[:term] %>'</h1>
+
+      <div class="list_info">
+        <%= search_results.count %> libros.
+      </div>
+
+      <ul class="books">
+        <% search_results.each do |book| %>
+            <li>
+              <%= render_book book, :list %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

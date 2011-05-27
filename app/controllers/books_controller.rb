@@ -4,7 +4,11 @@ class BooksController < ApplicationController
   expose(:shelf) { shelves.find params[:shelf_id] if params[:shelf_id]}
   expose(:books) { current_camp.books }
   expose(:book)
+  expose(:search_results) { current_camp.books.search params[:term] }
 
+  def search
+  end
+  
   def view
     render :layout => false
   end

@@ -24,4 +24,5 @@ Bookcamp::Application.routes.draw do
   match "/salir" => "sessions#destroy", :as => :signout
   match "/enter/:id" => "sessions#enter", :as => :enter
   match "/gocamp/:id" => "camps#enter", :as => :gocamp
+  match "/buscar/:term" => "books#search", :as => :search
 end
