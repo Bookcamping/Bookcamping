@@ -2,7 +2,6 @@
     <%= link_to "&larr; Volver".html_safe, root_path, :class => 'back' if ctx == :book %>
     <div class="info">
       <%= content_tag :h3, link_to(book.title, book) %>
-
       <% if ctx == :book %>
           <div>
             <%= button_group do %>
@@ -12,6 +11,7 @@
             <% end %>
           </div>
       <% end %>
+
 
       <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
       <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
@@ -43,6 +43,22 @@
           <%= link_to 'Permalink', book %>
           <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
       <% end %>
+      <div class="bookmarks">
+        <ul class="bookmarks">
+          <li><%= content_tag :span, book.bookmark_count('like_it'), :id => "#{book.id}-like_it" %> personas dicen que
+            les encanta esto.
+          </li>
+          <li><%= content_tag :span, book.bookmark_count('read_later'), :id => "#{book.id}-read_later" %> personas dicen
+            que se mueren por leerlo.
+          </li>
+        </ul>
+        <% if current_user %>
+            <%= button_group do %>
+                <%= like_button_link_to t('like_it'), book_bookmarks_path(book), :rel => :no_follow, :class => 'user_required like_it' %>
+                <%= favorite_button_link_to t('read_later'), book_bookmarks_path(book), :rel => :no_follow, :class => 'user_required read_later' %>
+            <% end %>
+        <% end %>
+      </div>
       <div class="twitter">
         <iframe allowtransparency="true" frameborder="0" scrolling="no"
                 src="http://platform.twitter.com/widgets/tweet_button.html?url=<%= book_url(book) %>&text=%23bookcamping <%= book.title %>"

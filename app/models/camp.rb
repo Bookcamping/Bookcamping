@@ -4,4 +4,5 @@ class Camp < ActiveRecord::Base
   has_many :books
   has_many :comments
   has_many :versions
+  has_many :bookmarks
 end

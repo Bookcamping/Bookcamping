@@ -32,6 +32,15 @@ div.book {
         overflow: hidden;
         img {display: block; margin: 5px auto;}
     }
+
+    div.bookmarks {
+        .button {background:transparent;border:1px solid transparent;color:$c-link;text-shadow:none;}
+        .button:hover {text-decoration:underline; background-color:$c-hover; border: 1px solid $c-gray;}
+        ul.bookmarks {
+            margin:0 5px;padding:0;
+            li {padding:0;margin:2px 0;}
+        }
+    }
 }
 div.list form.comment div.input label {display:none;}
 

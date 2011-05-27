@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110526031855) do
+ActiveRecord::Schema.define(:version => 20110527105256) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(:version => 20110526031855) do
   end
 
   add_index "book_lists", ["user_id"], :name => "index_book_lists_on_user_id"
+
+  create_table "bookmarks", :force => true do |t|
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.integer  "camp_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookmarks", ["book_id"], :name => "index_bookmarks_on_book_id"
+  add_index "bookmarks", ["camp_id"], :name => "index_bookmarks_on_camp_id"
+  add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
 
   create_table "books", :force => true do |t|
     t.integer  "user_id"
@@ -39,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20110526031855) do
     t.string   "media_type",     :limit => 32
     t.string   "date",           :limit => 40
     t.integer  "camp_id"
+    t.string   "marks",          :limit => 300
   end
 
   add_index "books", ["book_list_id"], :name => "index_books_on_book_list_id"

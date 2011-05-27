@@ -26,6 +26,8 @@ div.shelf {
         li:hover {background-color:$c-hover;}
     }
 
+    noh3 {margin:30px 10px -10px 10px;padding: 0;border-bottom:1px solid $c-gray;color:$c-gray;}
+
 }
 
 textarea#shelf_name {height: 3em;}

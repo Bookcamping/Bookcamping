@@ -37,8 +37,14 @@ class ShelvesController < ApplicationController
 
   def destroy
     authorize! :destroy, shelf
-    flash[:notice] = t('shelves.notice.destroy') if shelf.destroy
-    respond_with shelf, :location => shelves_path
+    if shelf.books.count == 0
+      flash[:notice] = t('shelves.notice.destroy') if shelf.destroy
+      respond_with shelf, :location => shelves_path
+    else
+      flash[:notice] = t('shelves.notice.not_empty')
+      respond_with shelf
+    end
+
   end
 
 end

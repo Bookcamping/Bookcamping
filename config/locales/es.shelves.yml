@@ -10,6 +10,7 @@ es:
 
     notice:
       destroy: "Lista borrada."
+      not_empty: "No se puede borrar una lista si no está vacía"
   simple_form:
     labels:
       name: "Nombre"

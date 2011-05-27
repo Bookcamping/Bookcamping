@@ -10,7 +10,7 @@
           <%= add_button_link_to 'Añadir libro', new_shelf_book_path(shelf) if current_user %>
           <%= edit_button_link_to 'Modificar lista', edit_shelf_path(shelf) if can? :edit, shelf %>
           <%= danger_remove_button_link_to 'Borrar lista', shelf, :method => :delete,
-                                           :confirm => "¿Borrar lista #{shelf.name}?" if can? :destroy, shelf %>
+                                           :confirm => "¿Borrar lista #{shelf.name}?" if shelf.books.size == 0 and can? :destroy, shelf %>
       <% end %>
     </div>
     <div class="order" style="display:none;">
@@ -20,12 +20,25 @@
       <%= link_to 'Más comentados' %>
     </div>
 
-
-    <ul class="books">
-      <% shelf.books.each do |book| %>
-          <li>
-            <%= render_book book, :list %>
-          </li>
+    <% if false %>
+    <h3>OTRAS LISTAS</h3>
+    <ul class="shelves">
+      <% shelves.each do |other| %>
+          <% if shelf != other %>
+              <li><%= link_to other.name, other %> <span class="info">(<%= other.books_count %>)
+          Por <%= link_to other.user.name, other.user %></span></li>
+          <% end %>
       <% end %>
     </ul>
+    <% end %>
+
+    <% if true %>
+    <ul class="books">
+      <% shelf.books.each do |book| %>
+      <li>
+        <%= render_book book, :list %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
 <% end %>

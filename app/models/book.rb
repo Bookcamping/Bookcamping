@@ -1,9 +1,11 @@
 class Book < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
-  has_many :comments, :as => :resource, :order => 'id DESC'
+  has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
   has_many :shelf_items, :include => :shelf, :dependent => :destroy
   has_many :shelves, :through => :shelf_items
+  has_many :bookmarks, :dependent => :destroy
+  serialize :marks
 
   scope :titled, where('title != null')
   scope :search, lambda {|term| where('title LIKE ?', "%#{term}%") }
@@ -19,4 +21,19 @@ class Book < ActiveRecord::Base
 
   validates :user_id, :presence => true
   validates :camp_id, :presence => true
+
+  def bookmark_count(name)
+    self.marks ||= {}
+    self.marks[name] ||= 0
+    self.marks[name]
+  end
+
+  def update_bookmark(name, delta)
+    actual = bookmark_count name
+    self.marks[name] = actual + delta
+    self.save
+  end
+
+
+
 end

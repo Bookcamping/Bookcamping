@@ -15,6 +15,7 @@ Bookcamp::Application.routes.draw do
     get :view, :on => :member
     resources :comments
     resources :shelf_items, :path => 'incluidos'
+    resources :bookmarks, :path => 'marcar'
   end
 
   resources :users, :path => 'colaboradorxs'

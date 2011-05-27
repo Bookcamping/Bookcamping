@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  book: 
+  user: 
+  camp: 
+  mark: MyString
+
+two:
+  book: 
+  user: 
+  camp: 
+  mark: MyString

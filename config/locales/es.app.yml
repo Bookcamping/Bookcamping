@@ -58,8 +58,9 @@ es:
       update: 'modificado'
       destroy: 'borrado'
     models:
-      Book: 'una entrada'
+      Book: 'la entrada'
       Comment: 'un comentario'
+      Shelf: 'la lista'
   books:
     book:
       download: "Descargar!"

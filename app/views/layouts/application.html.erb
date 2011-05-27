@@ -9,6 +9,7 @@
 <body>
 <div id="session">
   <% if current_user %>
+      <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
       Hola <%= current_user.name %>!
       <%= link_to "Salir", signout_path %>
       <% if current_user.super? %>
