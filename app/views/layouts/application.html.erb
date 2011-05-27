@@ -14,13 +14,11 @@
       Hola <%= current_user.name %>!
       <%= link_to "Salir", signout_path %>
       <% if current_user.super? %>
-          <%= link_to '@', users_path %>
-          <%= link_to 'V', versions_path if current_user.super? %>
           <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
       <% end %>
   <% else %>
       <span class="notice">Para colaborar tienes que identificarte &rArr;</span>
-      <%= link_to "Entrar con Twitter", "/auth/twitter" %>
+      Entrar con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %>
   <% end %>
 </div>
 <div id="navigation">
