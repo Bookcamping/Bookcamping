@@ -5,8 +5,11 @@
 <div class="books">
   <% shelf.books.each do |book| %>
       <div class="book">
-        <%= link_to '&rArr;&nbsp;'.html_safe, book, :class => 'notice' if book.url.present? %><%= link_to book.title, book %>
-        <%= book.date %> <%= book.authors %> <%= book.editor %>
+        <div class="content">
+          <%= content_tag :span, '&rArr;&nbsp;'.html_safe, :class => :notice if book.url.present? %><%= link_to book.title, book %>
+          <%= book.date %> <%= book.authors %> <%= book.editor %>
+        </div>
+        <div class="info"><%= iconic(:comment) %><%= book.comments_count %><%= iconic(:heart) %><%= book.bookmark_count 'like_it' %><%= iconic(:star) %><%= book.bookmark_count 'read_later' %></div>
       </div>
   <% end %>
 </div>

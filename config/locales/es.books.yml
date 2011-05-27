@@ -37,8 +37,8 @@ es:
     notice:
       create: "Añadido a la lista."
       destroy: "Fuera de la lista!"
-  read_later: "Me muero por leerlo!"
-  like_it: "Está mortal!"
+  read_later: "Si, me muero por leerlo!"
+  like_it: "Si, está mortal!"
   bookmarks:
     notice:
       create:

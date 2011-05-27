@@ -9,8 +9,10 @@ callback = (data) ->
 jQuery ->
     $('a.like_it').live 'click', ->
         $.post $(this).attr('href') + '.json', {mark: 'like_it'}, callback
+        $(this).fadeOut();
         false
 
     $('a.read_later').live 'click', ->
         $.post $(this).attr('href') + '.json', {mark: 'read_later'}, callback
+        $(this).fadeOut();
         false

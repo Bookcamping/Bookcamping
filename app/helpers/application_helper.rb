@@ -11,4 +11,9 @@ module ApplicationHelper
   def render_info
     render 'layouts/intro'
   end
+
+  def iconic(symbol, label = '')
+    content_tag(:span, '', :class => "iconic #{symbol}") + label.to_s
+  end
+
 end
