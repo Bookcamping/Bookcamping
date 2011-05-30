@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   def search
   end
-  
+
   def view
     render :layout => false
   end

@@ -1,6 +1,9 @@
 search = (term) ->
-    url = "/buscar/" + term
-    window.location = url
+    if term.length < 3
+        $("#search-error").text('Pon tres letras al menos, no?')
+    else
+        url = "/buscar/" + term
+        window.location = url
 
 jQuery ->
     $("div.search input[type=text]").change ->
@@ -9,3 +12,5 @@ jQuery ->
     $("div.search a").click ->
         search $("div.search input[type=text]").val()
         false
+
+    $("div.search-results").highlight($("#search-term").text());

@@ -4,7 +4,7 @@
     <%= render 'layouts/intro' %>
     <%= render_shelves shelves %>
     <div class="list shelf search-results">
-      <h1>Buscar '<%= params[:term] %>'</h1>
+      <h1>Buscar '<span id="search-term"><%= params[:term] %></span>'</h1>
 
       <div class="list_info">
         <%= search_results.count %> libros.

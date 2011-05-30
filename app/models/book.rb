@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
   serialize :marks
 
   scope :titled, where('title != null')
-  scope :search, lambda {|term| where('title LIKE ?', "%#{term}%") }
+  scope :search, lambda {|term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 
   has_paper_trail :meta => {
       :title => Proc.new { |book| book.title },

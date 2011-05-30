@@ -5,7 +5,7 @@ module BooksHelper
     text = auto_link(book.description)
     text = text.gsub(/(#\w+)/, '<a>\0</a>')
     text = RDiscount.new(text, :smart).to_html.html_safe
-    text = text.sub(/<em>[^<]*<\/em>/, '<a href="' + url_for(book) + '">\0</a>') unless book.title.present?
+    text = text.sub(/<em>[^<]*<\/em>/, '<a href="' + url_for(book) + '">\0</a>') unless book.title?
     text
   end
 
@@ -27,7 +27,7 @@ module BooksHelper
       link = content_tag(:div, link_to('&rArr; Ver en google video'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
     else
-      book.url.present? ? link_to(image_tag(book.media), book.url) : image_tag(book.media)
+      book.url? ? link_to(image_tag(book.media), book.url) : image_tag(book.media)
     end
   end
 

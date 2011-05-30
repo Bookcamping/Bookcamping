@@ -9,6 +9,7 @@
 
   <div class="search">
     <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
+    <p id="search-error" class="error">&nbsp;</p>
   </div>
 
   <h2><%= current_camp.line1 %></h2>
