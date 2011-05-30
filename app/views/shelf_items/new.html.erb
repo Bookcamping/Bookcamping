@@ -2,10 +2,14 @@
     <%= render_info %>
     <div class="list">
       <%= title t('.title') %>
+      <h2>La referencia '<%= book.title %>' está actualmente en la/s lista/s:</h2>
+      <ul>
+        <% book.shelf_items.each do |item| %>
+        <li><%= item.shelf.name %></li>
+        <% end %>
+      </ul>
+
       <%= simple_form_for [book, shelf_item] do |form| %>
-          Añadir:
-          <h2><%= book.title %></h2>
-          a la lista:
           <%= form.association :shelf, :collection => book.camp.shelves, :include_blank => false %>
           <%= button_submit_tag 'Añadir' %>
           <%= link_to 'Cancelar', book %>

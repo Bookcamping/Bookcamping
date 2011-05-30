@@ -27,7 +27,7 @@
           <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url) %>
         </div>
     <% end %>
-    <% if ctx == :book and book.media.present? %>
+    <% if book.media? and (ctx == :book || current_camp.show_media_on_lists) %>
         <div class="media">
           <%= render_media book %>
         </div>

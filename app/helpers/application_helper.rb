@@ -16,4 +16,8 @@ module ApplicationHelper
     content_tag(:span, '', :class => "iconic #{symbol}") + label.to_s
   end
 
+  def current_model
+    current_camp.model_name
+  end
+
 end

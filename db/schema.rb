@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110527105256) do
+ActiveRecord::Schema.define(:version => 20110530143503) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -60,12 +60,15 @@ ActiveRecord::Schema.define(:version => 20110527105256) do
   add_index "books", ["user_id"], :name => "index_books_on_user_id"
 
   create_table "camps", :force => true do |t|
-    t.string   "name",       :limit => 100
-    t.string   "subdomain",  :limit => 100
-    t.string   "line1",      :limit => 200
-    t.string   "line2",      :limit => 200
+    t.string   "name",                :limit => 100
+    t.string   "subdomain",           :limit => 100
+    t.string   "line1",               :limit => 200
+    t.string   "line2",               :limit => 200
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "model_name",          :limit => 32
+    t.string   "origin",              :limit => 256
+    t.boolean  "show_media_on_lists",                :default => false
   end
 
   create_table "comments", :force => true do |t|

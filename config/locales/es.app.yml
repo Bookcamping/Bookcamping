@@ -66,16 +66,12 @@ es:
       download: "Descargar!"
     search:
       title: "Resultados de la búsqueda"
-  intro:
-    line_two: "¿Y TÚ, QUÉ LIBRO TE LLEVARÍAS A TU PLAZA / ACAMPADA / BOOKCAMP?"
-    line_one: "ALGUNOS LIBROS PARA ENTENDER CÓMO HEMOS LLEGADO HASTA SOL (PORQUE NO SALIMOS DE LA NADA)"
-    app_title: "#bookcamping"
   shelves:
     browse:
       add: "+ Añadir a la lista"
     browse_books:
       view_list: "Ver como lista &rarr;"
-      add: "+ Nueva entrada"
+      add: "+ Añadir %{model}"
   camps:
     notice:
       update: "Campamento montado!"

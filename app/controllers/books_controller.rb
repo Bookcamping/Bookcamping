@@ -4,8 +4,19 @@ class BooksController < ApplicationController
   expose(:shelf) { shelves.find params[:shelf_id] if params[:shelf_id]}
   expose(:books) { current_camp.books }
   expose(:book)
-  expose(:search_results) { current_camp.books.search params[:term] }
 
+
+
+  def index
+    redirect_to root_path
+  end
+
+  expose(:latest_books) { current_camp.books.order('id DESC').limit(5) }
+  expose(:commented_books) { current_camp.books.where('comments_count > 0').order('comments_count DESC').limit(5) }
+  def statistics
+  end
+
+  expose(:search_results) { current_camp.books.search params[:term] }
   def search
   end
 

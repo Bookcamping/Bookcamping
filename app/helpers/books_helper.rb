@@ -13,6 +13,10 @@ module BooksHelper
     render :partial => 'books/book', :locals => {:book => book, :ctx => ctx}
   end
 
+  def render_book_list(books)
+    render :partial => 'books/book_list', :locals => {:books => books}
+  end
+
   def render_media(book)
     if /youtube.com\/watch\?v=([\w\s\-_]*)/.match(book.media) or /youtu\.be\/(.*)/.match(book.media)
       frame = "<iframe width='339' height='223' src='http://www.youtube.com/embed/#{$1}' frameborder='0' allowfullscreen></iframe>"

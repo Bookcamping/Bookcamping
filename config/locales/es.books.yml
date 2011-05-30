@@ -1,9 +1,9 @@
 es:
   books:
     edit:
-      title: "Editar"
+      title: "Editar %{model}"
     new:
-      title: "Añadir"
+      title: "Añadir %{model}"
     notice:
       create: "Otras más! Grrracias."
     show:
@@ -14,6 +14,12 @@ es:
 
       edit: "Editar"
       add_to_list: "Añadir a otra lista"
+    statistics:
+      latest_books: "Últimas adquisiciones"
+      title: "Estadísticas"
+      commented_books: "Más comentados"
+    book_list:
+      empty_list: "No hay %{model}s en esta lista."
   simple_form:
     labels:
       book:
@@ -45,3 +51,6 @@ es:
         like_it: "Nos alegramos de que flipes!"
         read_later: "No tardes en meterle mano!"
       already_exists: "Ya te teníamos apuntada..."
+  shelves:
+    shelf:
+      add_book: "Añadir %{model}"

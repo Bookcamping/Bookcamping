@@ -2,7 +2,6 @@ class ShelvesController < ApplicationController
   respond_to :html, :js, :json
   expose(:shelves) { current_camp.shelves }
   expose(:shelf)
-  expose(:latest_books) { current_camp.books.order('id DESC').limit(10) }
 
   def browse
   end

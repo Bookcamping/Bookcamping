@@ -1,0 +1,13 @@
+<% title t('.title') %>
+
+<%= lists_div 3 do %>
+    <%= render_info %>
+    <div class="list">
+      <h2><%= t('.latest_books') %></h2>
+      <%= render_book_list latest_books %>
+    </div>
+    <div class="list">
+      <h2><%= t('.commented_books') %></h2>
+      <%= render_book_list commented_books %>
+    </div>
+<% end %>

@@ -1,9 +1,11 @@
 Bookcamp::Application.routes.draw do
   root :to => 'shelves#browse'
+
   match "/reticula" => "shelves#browse", :as => :browse
+  match "/estadisticas" => "books#statistics", :as => :statistics
 
   resources :shelves, :path => 'listas' do
-    resources :books, :path => 'libro', :only => [:new, :create]
+    resources :books, :path => 'referencia', :only => [:new, :create]
     resources :shelf_items, :path => 'incluidos' do
       get :autocomplete_book_title, :on => :collection
     end
@@ -11,7 +13,7 @@ Bookcamp::Application.routes.draw do
 
   resources :camps, :path => 'campamentos'
 
-  resources :books, :path => 'libros' do
+  resources :books, :path => 'referencia' do
     get :view, :on => :member
     resources :comments
     resources :shelf_items, :path => 'incluidos'
@@ -20,6 +22,9 @@ Bookcamp::Application.routes.draw do
 
   resources :users, :path => 'colaboradorxs'
   resources :versions, :path => 'actividad'
+
+  match "/libros/:id" => redirect("/referencia/%{id}")
+
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout
