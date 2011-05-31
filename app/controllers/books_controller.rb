@@ -28,6 +28,7 @@ class BooksController < ApplicationController
 
   def show
     respond_with :book
+    #redirect_to browse_book_path(book.shelves.first, book)
   end
 
   def new

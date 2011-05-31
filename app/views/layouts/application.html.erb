@@ -24,10 +24,9 @@
   <%= link_to '#bookcamping', 'http://bookcamp.cc' %> |
   <%= link_to '#videocamping', 'http://video.bookcamp.cc' %> |
   <%= link_to 'explorar', app_path %> /
-  <%= link_to 'retícula', browse_path %> /
-  <%= link_to 'estadísticas', statistics_path %> /
   <%= link_to 'listas', shelves_path %> /
   <%= link_to 'actividad', versions_path %> /
+  <%= link_to 'estadísticas', statistics_path %> /
   <%= link_to 'colaboradorxs', users_path %>
 </div>
 <div id="messages">
@@ -40,31 +39,6 @@
 <div id="main">
   <%= yield %>
 </div>
-<script type="text/javascript">
-    if (navigator.userAgent.indexOf('MSIE 6') == -1) {
-        WebFontConfig = {
-            google: { families: [ 'Calibri' ],
-                api: 'http://themes.googleusercontent.com/fonts/css?kit=CdSZfRtHbQrBohqmzSdDYGyZhELkpoNlLnDCmaKGYCI'
-            },
-            loading: function() {
-                if (window.jstiming) window.jstiming.load.tick('webfontLoading');
-            },
-            active: function() {
-                if (window.jstiming) window.jstiming.load.tick('webfontActive');
-            }
-        };
-        (function() {
-            var wf = document.createElement('script');
-            wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-            wf.type = 'text/javascript';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-        })();
-    } else {
-        document.documentElement.className = 'wf-inactive';
-    }
-</script>
 
 <script type="text/javascript">
     var _gaq = _gaq || [];

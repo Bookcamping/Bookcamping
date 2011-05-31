@@ -9,12 +9,12 @@ div#banner {
 }
 
 div#app {
-    position:fixed; left:5px;right:5px;top:5em;bottom:5px;
+    position:fixed; left:5px;right:5px;top:1em;bottom:5px;
 
     a.active {color: #c00;}
 
     .browser {
-        position:absolute;left:0;top:0;bottom:0;width: 220px;
+        position:absolute;left:0;top:2em;bottom:0;width: 220px;
         text-shadow: 0px 0px 1px gray;
         overflow: auto;
 
@@ -41,7 +41,7 @@ div#app {
     .book a.back {display:none;}
 
     .main {
-        position:absolute;top:0;bottom:0;left:220px;right: $w-list + 40px;
+        position:absolute;top:4em;bottom:0;left:220px;right: $w-list + 40px;
         overflow: auto;
 
         h1 {padding-left:10px;}
@@ -54,18 +54,14 @@ div#app {
     .main > .content {padding: 10px;}
 
     .viewer {
-        position:absolute;top:0;bottom:0;right:10px;width: $w-list + 30px;
+        position:absolute;top:4em;bottom:0;right:10px;width: $w-list + 30px;
         overflow: auto;
     }
 
     .actions {margin: 0 10px;}
+    div.search {
+        margin: 0;
+        input[type=text] {width: 100px;}
+    }
 }
 
-
-div.scrollable { width: 520px; clear: both; margin: 20px 0 10px; }
-div.scrollable .thumb .end, div.scrollable .thumb { background-color: #003D5D; }
-div.scrollable .scrollbar { position: relative; float: right; width: 15px; }
-div.scrollable .track { background-color: #D8EEFD; height: 100%; width:13px; position: relative; padding: 0 1px; }
-div.scrollable .thumb { height: 20px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
-div.scrollable .thumb .end { overflow: hidden; height: 5px; width: 13px; }
-div.scrollable .disable{ display: none; }

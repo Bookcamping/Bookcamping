@@ -9,4 +9,13 @@ module AppHelper
                 :data => {:hash => "#/listas/#{list[:id]}"}, :class => 'shelf'
     end
   end
+
+  def browse_book_path(shelf, book)
+    browse_shelf_path(shelf) + "/ver/#{book.id}"
+  end
+
+  def browse_shelf_path(shelf)
+    app_path + "#/listas/#{shelf.id}"
+  end
+
 end

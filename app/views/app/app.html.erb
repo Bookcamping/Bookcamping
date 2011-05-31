@@ -5,6 +5,10 @@
 </div>
 <div id="app">
   <div class="browser">
+    <div class="search">
+      <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
+      <p id="search-error" class="error">&nbsp;</p>
+    </div>
     <ul class="sections">
       <% library.section_names.each do |section_name| %>
           <li class="section">

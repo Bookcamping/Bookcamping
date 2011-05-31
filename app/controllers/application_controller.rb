@@ -18,9 +18,6 @@ class ApplicationController < ActionController::Base
     render :partial => 'books/list_as_grid', :locals => {:name => name, :books => books, :shelf => shelf}
   end
 
-  def browse_book_path(shelf, book)
-    app_path(:anchor => "/listas/#{shelf.id}/ver/#{book.id}")
-  end
 
 
   def info_for_paper_trail
