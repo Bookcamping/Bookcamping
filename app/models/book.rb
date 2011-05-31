@@ -11,9 +11,7 @@ class Book < ActiveRecord::Base
   scope :search, lambda {|term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 
   has_paper_trail :meta => {
-      :title => Proc.new { |book| book.title },
-      :camp_id => Proc.new { |book| book.camp_id },
-      :user_name => Proc.new { |book| book.user.name }
+      :title => Proc.new { |book| book.title }
   }
 
   attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media

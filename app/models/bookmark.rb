@@ -13,14 +13,23 @@ class Bookmark < ActiveRecord::Base
   validates :name, :presence => true
   attr_accessor :count, :message
 
+  has_paper_trail :meta => {
+      :title => Proc.new { |bookmark| bookmark.book.title }
+  }
+
+
   NAMES = [:like_it, :read_later]
 
   after_create do
+    PaperTrail.enabled = false
     self.book.update_bookmark(self.name, 1)
+    PaperTrail.enabled = true
   end
 
   after_destroy do
+    PaperTrail.enabled = false
     self.book.update_bookmark(self.name, -1)
+    PaperTrail.enabled = true
   end
 
   def to_json(options = {})

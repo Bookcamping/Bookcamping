@@ -14,6 +14,9 @@ class VersionsController < ApplicationController
       when 'Comment'
         comment = Comment.find version.item_id
         redirect_to comment.resource
+      when 'Bookmark'
+        bookmark = Bookmark.find version.item_id
+        redirect_to book_path(bookmark.book)
       else
         redirect_to root_path, :notice => 'No encontrado'
     end

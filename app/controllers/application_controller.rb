@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :current_user?
 
+  def info_for_paper_trail
+    {:user_name => current_user? ? current_user.name : 'Anónimx',
+     :camp_id => current_camp.id}
+  end
+
 
   rescue_from ActionView::TemplateError do |x|
     #bubble up the original exception

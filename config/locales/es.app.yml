@@ -50,6 +50,8 @@ es:
     comments:
       comments: "Comentar"
       login_before_comment: "Sería mejor que te identificases antes, aunque puedes comentar de forma anónima."
+      anonymous_comment: "Aunque preferimos los comentarios firmados, para mantener tu privacidad puedes hacerlo de manera anónima."
+      force_anonymous: "Comentar de forma anónima"
   versions:
     index:
       title: "ACTIVIDAD"
@@ -61,6 +63,7 @@ es:
       Book: 'la entrada'
       Comment: 'un comentario'
       Shelf: 'la lista'
+      Bookmark: 'una marca a'
   books:
     book:
       download: "Descargar!"

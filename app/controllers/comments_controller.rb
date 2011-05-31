@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   expose(:comment)
 
   def create
-    comment.user = current_user
+    comment.user = current_user unless params[:anonymous]
     comment.camp = current_camp
     flash[:notice] = t('comments.notice.create') if comment.save
     respond_with comment, :location => comment.resource

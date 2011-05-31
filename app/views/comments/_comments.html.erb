@@ -1,8 +1,13 @@
 <div class="comments section">
   <h3><%= t('.comments') %></h3>
-  <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') unless current_user? %>
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
       <%= form.input :body, :as => :text %>
+      <% if current_user? %>
+          <%= content_tag :p, t('.anonymous_comment'), :class => 'notice' %>
+          <%= check_box_tag :anonymous %> <%= t('.force_anonymous') %><br/><br/>
+      <% else %>
+          <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') %>
+      <% end %>
       <%= button_submit_tag 'Comentar' %>
   <% end %>
   <ul class="comments">

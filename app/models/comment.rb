@@ -6,8 +6,7 @@ class Comment < ActiveRecord::Base
   after_create :update_comments_count
 
   has_paper_trail :meta => {
-      :title => Proc.new {|comment| comment.resource.title},
-      :user_name => Proc.new{|comment| comment.user.name if comment.user }
+      :title => Proc.new {|comment| comment.resource.title}
   }
 
 
@@ -20,7 +19,9 @@ class Comment < ActiveRecord::Base
 
   protected
   def update_comments_count
+    PaperTrail.enabled = false
     self.resource.update_attribute(:comments_count, self.resource.comments_count + 1)
+    PaperTrail.enabled = true
   end
 
 end
