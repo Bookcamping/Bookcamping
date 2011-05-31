@@ -35,6 +35,10 @@ jQuery ->
             console.log("unknown location", location.hash)
             location.hash = '#/lista/ultimas'
 
+        $("#app .browser a.active").removeClass('active')
+        if current.match /(\/ver\/.*)/
+            current = current[0..-((RegExp.$1).length + 1)]
+        $("a[href='#{current}']").addClass('active');
 
     $(window).hashchange()
 
@@ -45,3 +49,4 @@ jQuery ->
             current = current[0..-((RegExp.$1).length + 1)]
         location.hash = current + '/ver/' + url
         false
+

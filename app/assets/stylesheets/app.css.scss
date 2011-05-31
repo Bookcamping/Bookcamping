@@ -4,23 +4,31 @@
 div#app {
     position:fixed; left:5px;right:5px;top:40px;bottom:5px;
 
+    a.active {color: #c00;}
+
     .browser {
         position:absolute;left:0;top:0;bottom:0;width: 200px;
         text-shadow: 0px 0px 1px gray;
+        overflow: auto;
 
-        li.section {
-            margin-bottom: 20px;
+        ul {
+            width: 200px; overflow: hidden;
+            li.section {
+                margin-bottom: 20px;
 
-            ul.lists {
-                margin: 5px 0 0 0px;
-                border-top: 1px solid darken($c-bg, 5);
+                ul.lists {
+                    margin: 5px 1px 0 0px;
+                    border-top: 1px solid darken($c-bg, 5);
 
-                li {
-                    padding: 2px 0 2px 5px;
-                    border-bottom:1px solid darken($c-bg, 5);
+                    li {
+                        padding: 2px 0 2px 5px;
+                        border-bottom:1px solid darken($c-bg, 5);
+                    }
                 }
             }
+
         }
+
     }
 
     .book a.back {display:none;}
@@ -41,3 +49,12 @@ div#app {
         overflow: auto;
     }
 }
+
+
+div.scrollable { width: 520px; clear: both; margin: 20px 0 10px; }
+div.scrollable .thumb .end, div.scrollable .thumb { background-color: #003D5D; }
+div.scrollable .scrollbar { position: relative; float: right; width: 15px; }
+div.scrollable .track { background-color: #D8EEFD; height: 100%; width:13px; position: relative; padding: 0 1px; }
+div.scrollable .thumb { height: 20px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+div.scrollable .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+div.scrollable .disable{ display: none; }
