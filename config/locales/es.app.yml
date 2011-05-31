@@ -2,6 +2,7 @@ es:
   app:
     sections:
       bookcamping: '#bookcamping'
+      videocamping: '#videocamping'
       shelves: 'Listas'
       library: 'Mi librería'
 

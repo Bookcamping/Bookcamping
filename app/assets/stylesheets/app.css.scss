@@ -2,7 +2,7 @@
 @import "variables.css.scss";
 
 div#banner {
-    position: fixed;left:215px;right:50x;top:2em;height: 3.0em;
+    position: fixed;left:235px;right:50x;top:2em;height: 3.0em;
     overflow: hidden;
 
     h2 {height: 1.2em; overflow: hidden; font-weight:bold;}
@@ -14,12 +14,12 @@ div#app {
     a.active {color: #c00;}
 
     .browser {
-        position:absolute;left:0;top:0;bottom:0;width: 200px;
+        position:absolute;left:0;top:0;bottom:0;width: 220px;
         text-shadow: 0px 0px 1px gray;
         overflow: auto;
 
         ul {
-            width: 185px; overflow: hidden;
+            width: 200px; overflow: hidden;
             li.section {
                 margin-bottom: 20px;
 
@@ -41,7 +41,7 @@ div#app {
     .book a.back {display:none;}
 
     .main {
-        position:absolute;top:0;bottom:0;left:200px;right: $w-list + 40px;
+        position:absolute;top:0;bottom:0;left:220px;right: $w-list + 40px;
         overflow: auto;
 
         h1 {padding-left:10px;}
@@ -50,6 +50,8 @@ div#app {
             h1 {font-size: 32px; margin-bottom:20px; padding:0;}
         }
     }
+
+    .main > .content {padding: 10px;}
 
     .viewer {
         position:absolute;top:0;bottom:0;right:10px;width: $w-list + 30px;
