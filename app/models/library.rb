@@ -6,12 +6,15 @@ class Library
     @user = user
     @sections = {}
     root = section(camp.name[1..-1])
-    add(root, 'latest', 'list')
-    add(root, 'commented', 'list')
-    add(root, 'like_it', 'list')
-    add(root, 'read_later', 'list')
+    add(root, 'ultimas', 'list')
+    add(root, 'comentadas', 'list')
+    add(root, 'valoradas', 'list')
+    add(root, 'deseadas', 'list')
 
-    shelves = section('shelves')
+    shelves = section('listas')
+    camp.shelves.each {|s| add(shelves, "#{s.name} (#{s.books_count})", 'shelf', s.id)}
+
+    library = section('libreria')
 
   end
 

@@ -3,9 +3,10 @@ es:
     sections:
       bookcamping: '#bookcamping'
       shelves: 'Listas'
+      library: 'Mi librería'
 
     lists:
-      latest: "<span class='iconic'>r</span>Últimas adquisiciones"
-      commented: "<span class='iconic'>q</span>Más comentados"
-      like_it: "<span class='iconic'>h</span>Más valorados"
-      read_later: "<span class='iconic'>s</span>Más deseados"
+      ultimas: "<span class='iconic'>r</span>Últimas adquisiciones"
+      comentadas: "<span class='iconic'>q</span>Más comentados"
+      valoradas: "<span class='iconic'>h</span>Más valorados"
+      deseadas: "<span class='iconic'>s</span>Más deseados"

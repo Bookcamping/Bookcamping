@@ -6,41 +6,44 @@ div#browse {
     padding-bottom: 40px;
     div.actions {float:none;padding:0 10px;font-size:80%;}
 
-    div.shelf {
-        width:100%;overflow:hidden;
-        div.books { margin-bottom: 30px; }
 
-        h2 {padding: 10px; text-shadow: 0 1px 1px $c-hover;}
-
-
-        div.book {
-            font-size: 80%;
-            color: $c-gray;
-            width: 80px;height:80px;
-            padding:3px;
-            margin: 10px 5px 5px 10px;
-            float: left;
-            background-color:white;border-radius:3px;
-            overflow:hidden;
-            box-shadow: 0px 1px 4px #ccc;
-
-            div.content {
-                height: 65px;overflow:hidden;
-            }
-
-            div.info {
-                margin-top: 3px;
-            }
-
-        }
-        div.book:hover {
-            background-color: $c-hover;
-        }
-    }
 
 
     a.active {color: #c00;}
 }
+
+div.shelf.grid {
+    width:100%;overflow:hidden;
+    div.books { margin-bottom: 30px; }
+
+    h2 {padding: 10px; text-shadow: 0 1px 1px $c-hover;}
+
+
+    div.book {
+        font-size: 80%;
+        color: $c-gray;
+        width: 80px;height:80px;
+        padding:3px;
+        margin: 10px 5px 5px 10px;
+        float: left;
+        background-color:white;border-radius:3px;
+        overflow:hidden;
+        box-shadow: 0px 1px 4px #ccc;
+
+        div.content {
+            height: 65px;overflow:hidden;
+        }
+
+        div.info {
+            margin-top: 3px;
+        }
+
+    }
+    div.book:hover {
+        background-color: $c-hover;
+    }
+}
+
 
 div#welcome {
     div.intro {

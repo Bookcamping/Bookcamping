@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include Controllers::AuthMethods
+  helper_method :current_user, :current_user?
 
   expose(:current_camp) do
     if request.subdomain.present?
@@ -13,7 +14,10 @@ class ApplicationController < ActionController::Base
     Camp.find session[:camp_id]
   end
 
-  helper_method :current_user, :current_user?
+  def render_grid(name, books)
+    render :partial => 'books/list_as_grid', :locals => {:name => name, :books => books}
+  end
+
 
   def info_for_paper_trail
     {:user_name => current_user? ? current_user.name : 'Anónimx',

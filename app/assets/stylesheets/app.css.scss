@@ -3,23 +3,41 @@
 
 div#app {
     position:fixed; left:5px;right:5px;top:40px;bottom:5px;
-    border: 1px solid red;
 
     .browser {
         position:absolute;left:0;top:0;bottom:0;width: 200px;
+        text-shadow: 0px 0px 1px gray;
 
         li.section {
             margin-bottom: 20px;
 
             ul.lists {
-                margin: 5px 0 0 10px;
+                margin: 5px 0 0 0px;
+                border-top: 1px solid darken($c-bg, 5);
+
+                li {
+                    padding: 2px 0 2px 5px;
+                    border-bottom:1px solid darken($c-bg, 5);
+                }
             }
         }
+    }
 
+    .book a.back {display:none;}
+
+    .main {
+        position:absolute;top:0;bottom:0;left:210px;right: $w-list + 40px;
+        overflow: auto;
+
+        h1 {padding-left:10px;}
+
+        .section {
+            h1 {font-size: 32px; margin-bottom:20px; padding:0;}
+        }
     }
 
     .viewer {
-        position:absolute;top:0;bottom:0;right:0;width: $w-list;
-        background-color:gray;
+        position:absolute;top:0;bottom:0;right:10px;width: $w-list + 30px;
+        overflow: auto;
     }
 }

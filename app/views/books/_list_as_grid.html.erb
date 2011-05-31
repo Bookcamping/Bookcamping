@@ -1,11 +1,6 @@
-<% if shelf %>
-    <div class="actions">
-      <%= link_to t('.add', :model => current_model), new_shelf_book_path(shelf) %>&nbsp;&nbsp;
-      <%= link_to t('.view_list').html_safe, shelf_path(shelf) %>
-    </div>
-<% end %>
-<div class="books">
-  <% shelf.books.each do |book| %>
+<div class="shelf grid">
+  <h1><%= name %> (<%= books.size %>)</h1>
+  <% books.each do |book| %>
       <div class="book">
         <div class="content">
           <%= content_tag :span, '&rArr;&nbsp;'.html_safe, :class => :notice if book.url? %><%= link_to book.title, book %>

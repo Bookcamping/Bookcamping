@@ -1,10 +1,11 @@
 Bookcamp::Application.routes.draw do
-  root :to => 'shelves#browse'
+  root :to => 'app#app'
 
   match "/reticula" => "shelves#browse", :as => :browse
   match "/estadisticas" => "books#statistics", :as => :statistics
 
   resources :shelves, :path => 'listas' do
+    get :grid, :on => :member
     resources :books, :path => 'referencia', :only => [:new, :create]
     resources :shelf_items, :path => 'incluidos' do
       get :autocomplete_book_title, :on => :collection
@@ -31,6 +32,7 @@ Bookcamp::Application.routes.draw do
   match "/enter/:id" => "sessions#enter", :as => :enter
   match "/gocamp/:id" => "camps#enter", :as => :gocamp
   match "/buscar/:term" => "books#search", :as => :search
-  match "/app" => "app#app", :as => :app
+  match "/explorar" => "app#app", :as => :app
   match "/seccion/:id" => "app#sections", :as => :section
+  match "/lista/:id" => "app#lists", :as => :list
 end

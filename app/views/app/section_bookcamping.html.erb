@@ -1,0 +1,12 @@
+<div class="section">
+  <h1>#bookcamping</h1>
+
+  <h2><%= current_camp.line1 %></h2>
+
+  <h2><%= current_camp.line2 %></h2>
+
+  <p class="credits">
+    <%= current_camp.origin.html_safe if current_camp.origin? %>
+    Este software es <%= link_to 'código libre', 'https://github.com/recortable/Bookcamp' %>, copia y colabora!
+  </p>
+</div>
