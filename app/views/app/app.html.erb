@@ -1,0 +1,21 @@
+<div id="app">
+  <div class="browser">
+    <ul class="sections">
+      <% library.section_names.each do |section_name| %>
+          <li class="section"><%= link_to t("app.sections.#{section_name}"), section_path(section_name), :class => 'section' %>
+            <ul class="lists">
+              <% library.section(section_name).each do |list| %>
+                  <li class="list"><%= link_to_list list %></li>
+              <% end %>
+            </ul>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="grid">
+
+  </div>
+  <div class="viewer">
+
+  </div>
+</div>

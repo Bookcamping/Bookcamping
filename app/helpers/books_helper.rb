@@ -23,7 +23,7 @@ module BooksHelper
       link = content_tag(:div, link_to('&rArr; Ver en youtube'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
     elsif /vimeo.com\/(\d+)/.match(book.media)
-      frame = '<iframe src="http://player.vimeo.com/video/' + $1 + '?title=0&amp;byline=0&amp;portrait=0" width="339" height="256" frameborder="0"></iframe><p><a href="http://vimeo.com/' + $1 + '">La Fiambrera Obrera</a> from <a href="http://vimeo.com/emptyworld">TXP TV</a> on <a href="http://vimeo.com">Vimeo</a>.</p>'
+      frame = '<iframe src="http://player.vimeo.com/video/' + $1 + '?title=0&amp;byline=0&amp;portrait=0" width="339" height="256" frameborder="0"></iframe>'
       link = content_tag(:div, link_to('&rArr; Ver en vimeo'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
     elsif /docid=(\d+)/.match(book.media)

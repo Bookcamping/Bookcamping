@@ -1,0 +1,25 @@
+
+@import "variables.css.scss";
+
+div#app {
+    position:fixed; left:5px;right:5px;top:40px;bottom:5px;
+    border: 1px solid red;
+
+    .browser {
+        position:absolute;left:0;top:0;bottom:0;width: 200px;
+
+        li.section {
+            margin-bottom: 20px;
+
+            ul.lists {
+                margin: 5px 0 0 10px;
+            }
+        }
+
+    }
+
+    .viewer {
+        position:absolute;top:0;bottom:0;right:0;width: $w-list;
+        background-color:gray;
+    }
+}

@@ -1,84 +1,11 @@
 es:
-  access_denied:
-    no_user: "Tienes que entrar antes de poder modificar nada."
-    no_privilegies: "Sólo puedes modificar los elementos creados por ti."
-  sessions:
-    signed_in: "Hola!"
-    signed_out: "Adiós!"
-  users:
-    index:
-      title: "Colaboradoras"
-    edit:
-      title: "Editar participante"
-    notice:
-      update: "Participante modificado. Espero que sepas lo que haces."
-    show:
-      books: "Libros"
-  book_lists:
-    book_lists:
-      add_list: "Añadir lista"
-    edit:
-      title: "MODIFICAR LISTA"
-    new:
-      title: "AÑADIR LISTA"
+  app:
+    sections:
+      bookcamping: '#bookcamping'
+      shelves: 'Listas'
 
-    index:
-      latest_books: "ÚLTIMOS LIBROS AÑADIDOS"
-  simple_form:
-    "yes": 'Sí'
-    "no": 'No'
-    required:
-      text: 'obligatorio'
-      mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
-    error_notification:
-      default_message: "Hay errores en los datos introducidos:"
-
-    labels:
-      book:
-        description: "Texto"
-        title: "Título"
-        authors: "Autoras"
-        editor: "Editorial"
-        url: "Enlace de descarga"
-
-  comments:
-    notice:
-      create: "Gracias por tu comentario."
-    comments:
-      comments: "Comentar"
-      login_before_comment: "Sería mejor que te identificases antes, aunque puedes comentar de forma anónima."
-      anonymous_comment: "Aunque preferimos los comentarios firmados, para mantener tu privacidad puedes hacerlo de manera anónima."
-      force_anonymous: "Comentar de forma anónima"
-  versions:
-    index:
-      title: "ACTIVIDAD"
-    events:
-      create: 'añadido'
-      update: 'modificado'
-      destroy: 'borrado'
-    models:
-      Book: 'la entrada'
-      Comment: 'un comentario'
-      Shelf: 'la lista'
-      Bookmark: 'una marca a'
-  books:
-    book:
-      download: "Descargar!"
-    search:
-      title: "Resultados de la búsqueda"
-  shelves:
-    browse:
-      add: "+ Añadir a la lista"
-    browse_books:
-      view_list: "Ver como lista &rarr;"
-      add: "+ Añadir %{model}"
-  camps:
-    notice:
-      update: "Campamento montado!"
-  bookmarks:
-    read_later:
-      libro: "Me muero por leerlo!"
-      video: "Si, me muero por verlo!"
+    lists:
+      latest: "<span class='iconic'>r</span>Últimas adquisiciones"
+      commented: "<span class='iconic'>q</span>Más comentados"
+      like_it: "<span class='iconic'>h</span>Más valorados"
+      read_later: "<span class='iconic'>s</span>Más deseados"
