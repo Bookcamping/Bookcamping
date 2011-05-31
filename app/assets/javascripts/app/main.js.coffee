@@ -5,7 +5,7 @@ load_main = (url) ->
     console.log 'main', url
     if current_main != url
         current_main = url
-        $("#app .main").html('<p><span class="iconic">[</span>Un momento...</p>').load(url)
+        $("#app .main").html('<p>&nbsp;<span class="iconic">[</span>Un momento...</p>').load(url)
 
 load_viewer = (url) ->
     console.log 'viewer', url

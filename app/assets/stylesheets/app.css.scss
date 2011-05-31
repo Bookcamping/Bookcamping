@@ -1,8 +1,15 @@
 
 @import "variables.css.scss";
 
+div#banner {
+    position: fixed;left:215px;right:50x;top:2em;height: 3.0em;
+    overflow: hidden;
+
+    h2 {height: 1.2em; overflow: hidden; font-weight:bold;}
+}
+
 div#app {
-    position:fixed; left:5px;right:5px;top:40px;bottom:5px;
+    position:fixed; left:5px;right:5px;top:5em;bottom:5px;
 
     a.active {color: #c00;}
 
@@ -12,7 +19,7 @@ div#app {
         overflow: auto;
 
         ul {
-            width: 200px; overflow: hidden;
+            width: 185px; overflow: hidden;
             li.section {
                 margin-bottom: 20px;
 
@@ -34,7 +41,7 @@ div#app {
     .book a.back {display:none;}
 
     .main {
-        position:absolute;top:0;bottom:0;left:210px;right: $w-list + 40px;
+        position:absolute;top:0;bottom:0;left:200px;right: $w-list + 40px;
         overflow: auto;
 
         h1 {padding-left:10px;}
