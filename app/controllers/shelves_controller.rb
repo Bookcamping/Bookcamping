@@ -13,7 +13,7 @@ class ShelvesController < ApplicationController
   end
 
   def grid
-    render_grid shelf.name, shelf.books
+    render_grid shelf.name, shelf.books, shelf
   end
 
   def new

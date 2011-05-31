@@ -14,8 +14,12 @@ class ApplicationController < ActionController::Base
     Camp.find session[:camp_id]
   end
 
-  def render_grid(name, books)
-    render :partial => 'books/list_as_grid', :locals => {:name => name, :books => books}
+  def render_grid(name, books, shelf = nil)
+    render :partial => 'books/list_as_grid', :locals => {:name => name, :books => books, :shelf => shelf}
+  end
+
+  def browse_book_path(shelf, book)
+    app_path(:anchor => "/listas/#{shelf.id}/ver/#{book.id}")
   end
 
 

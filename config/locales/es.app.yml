@@ -10,3 +10,6 @@ es:
       comentadas: "<span class='iconic'>q</span>Más comentados"
       valoradas: "<span class='iconic'>h</span>Más valorados"
       deseadas: "<span class='iconic'>s</span>Más deseados"
+  books:
+    list_as_grid:
+      new_reference: "+&nbsp;Añadir %{model}"

@@ -1,5 +1,10 @@
 <div class="shelf grid">
   <h1><%= name %> (<%= books.size %>)</h1>
+  <% if shelf %>
+      <div class="actions">
+        <%= link_to t('.new_reference', :model => current_model).html_safe, new_shelf_book_path(shelf) %>
+      </div>
+  <% end %>
   <% books.each do |book| %>
       <div class="book">
         <div class="content">
