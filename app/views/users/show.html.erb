@@ -10,18 +10,24 @@
             <%= edit_button_link_to 'Editar', [:edit, user] if can? :edit, user %>
         <% end %>
       </div>
-      <h2><%= t('.books') %></h2>
+      <h2>Tus <%= current_model %>s</h2>
       <ul>
-        <% user.books.each do |book| %>
+        <% books do |book| %>
             <li><%= link_to "&rArr; #{book.title}".html_safe, book %></li>
         <% end %>
       </ul>
 
       <% if current_user? :super %>
+          <h2>Información de administración</h2>
           <ul>
+            <li><label>Vicio: </label><%= user.login_count %></li>
+            <li><label>Hace: </label><%= time_ago_in_words user.last_login_at if user.last_login_at? %></li>
             <li><label>Rol: </label><%= user.rol %></li>
             <li><label>Provider: </label><%= user.provider %></li>
             <li><label>Uid: </label><%= user.uid %></li>
+            <% user.memberships.each do |ms| %>
+            <li><label>En <%= ms.camp.name %></label> - <%= ms.rol %></li>
+            <% end %>
           </ul>
       <% end %>
     </div>

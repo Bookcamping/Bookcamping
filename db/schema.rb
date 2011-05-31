@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530152046) do
+ActiveRecord::Schema.define(:version => 20110531093409) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -88,6 +88,14 @@ ActiveRecord::Schema.define(:version => 20110530152046) do
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "camp_id"
+    t.string   "rol",        :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shelf_items", :force => true do |t|
     t.integer  "shelf_id"
     t.integer  "book_id"
@@ -120,9 +128,11 @@ ActiveRecord::Schema.define(:version => 20110530152046) do
     t.string   "uid"
     t.string   "name"
     t.string   "email"
-    t.string   "rol",        :limit => 10
+    t.string   "rol",           :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "login_count",                 :default => 0
+    t.datetime "last_login_at"
   end
 
   create_table "versions", :force => true do |t|

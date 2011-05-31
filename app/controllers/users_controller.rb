@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   respond_to :html
-  expose(:users) { User.all }
+  expose(:users) { current_camp.users }
   expose(:user)
+  expose(:books) { user.books.where(:camp_id => current_camp.id) }
 
   def index
   end
