@@ -22,16 +22,14 @@ class Book < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :camp_id, :presence => true
 
+
   def bookmark_count(name)
-    self.marks ||= {}
-    self.marks[name] ||= 0
-    self.marks[name]
+    self.send "#{name}_marks"
   end
 
   def update_bookmark(name, delta)
-    actual = bookmark_count name
-    self.marks[name] = actual + delta
-    self.save
+    value = self.send("#{name}_marks") + delta
+    self.update_attribute("#{name}_marks", value)
   end
 
 

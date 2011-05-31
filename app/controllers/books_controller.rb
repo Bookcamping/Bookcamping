@@ -13,6 +13,8 @@ class BooksController < ApplicationController
 
   expose(:latest_books) { current_camp.books.order('id DESC').limit(5) }
   expose(:commented_books) { current_camp.books.where('comments_count > 0').order('comments_count DESC').limit(5) }
+  expose(:like_it_books) { current_camp.books.where('like_it_marks > 0').order('like_it_marks DESC').limit(5) }
+  expose(:read_later_books) { current_camp.books.where('read_later_marks > 0').order('read_later_marks DESC').limit(5) }
   def statistics
   end
 

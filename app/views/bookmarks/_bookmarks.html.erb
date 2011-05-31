@@ -1,6 +1,7 @@
-    <%= iconic(:heart) %><%= content_tag :span, book.bookmark_count('like_it'), :id => "#{book.id}-like_it" %>
-    <%= link_to t('like_it'), book_bookmarks_path(book),
-                :rel => :no_follow, :class => 'user_required like_it' if current_user? %>
-    <%= iconic(:star) %><%= content_tag :span, book.bookmark_count('read_later'), :id => "#{book.id}-read_later" %>
-    <%= link_to t('read_later'), book_bookmarks_path(book),
-                :rel => :no_follow, :class => 'user_required read_later' if current_user? %>
+<%= iconic(:heart) %><%= content_tag :span, book.like_it_marks, :id => "#{book.id}-like_it" %>
+<%= link_to t('like_it'), book_bookmarks_path(book),
+            :rel => :no_follow, :class => 'user_required like_it' if current_user? %>
+<%= iconic(:star) %><%= content_tag :span, book.read_later_marks, :id => "#{book.id}-read_later" %>
+<%= link_to t("bookmarks.read_later.#{current_model}"), book_bookmarks_path(book),
+            :rel => :no_follow, :class => 'user_required read_later' if current_user? %>
+

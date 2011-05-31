@@ -3,7 +3,7 @@
 <head>
   <title><%= yield :title %> <%= current_camp.name %> </title>
   <%= stylesheet_link_tag "application" %>
-  <link href="/iconic.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/iconic.css" media="screen" rel="stylesheet" type="text/css"/>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -37,17 +37,46 @@
   <%= yield %>
 </div>
 <script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11032039-5']);
-  _gaq.push(['_setDomainName', '.bookcamp.cc']);
-  _gaq.push(['_setAllowHash', 'false']);
-  _gaq.push(['_trackPageview']);
+    if (navigator.userAgent.indexOf('MSIE 6') == -1) {
+        WebFontConfig = {
+            google: { families: [ 'Calibri' ],
+                api: 'http://themes.googleusercontent.com/fonts/css?kit=CdSZfRtHbQrBohqmzSdDYGyZhELkpoNlLnDCmaKGYCI'
+            },
+            loading: function() {
+                if (window.jstiming) window.jstiming.load.tick('webfontLoading');
+            },
+            active: function() {
+                if (window.jstiming) window.jstiming.load.tick('webfontActive');
+            }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    } else {
+        document.documentElement.className = 'wf-inactive';
+    }
+</script>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11032039-5']);
+    _gaq.push(['_setDomainName', '.bookcamp.cc']);
+    _gaq.push(['_setAllowHash', 'false']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
 

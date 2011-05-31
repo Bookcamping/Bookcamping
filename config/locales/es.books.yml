@@ -18,6 +18,8 @@ es:
       latest_books: "Últimas adquisiciones"
       title: "Estadísticas"
       commented_books: "Más comentados"
+      like_it_books: "Más valorados"
+      read_later_books: "Más deseados"
     book_list:
       empty_list: "No hay %{model}s en esta lista."
   simple_form:
@@ -43,7 +45,9 @@ es:
     notice:
       create: "Añadido a la lista."
       destroy: "Fuera de la lista!"
-  read_later: "Si, me muero por leerlo!"
+  read_later:
+    book: "Si, muero por leerlo!"
+    video: "Si, muero por verlo!"
   like_it: "Si, está mortal!"
   bookmarks:
     notice:

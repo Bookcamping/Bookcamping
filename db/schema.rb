@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530143503) do
+ActiveRecord::Schema.define(:version => 20110530152046) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -38,21 +38,23 @@ ActiveRecord::Schema.define(:version => 20110530143503) do
   create_table "books", :force => true do |t|
     t.integer  "user_id"
     t.integer  "book_list_id"
-    t.string   "title",          :limit => 300
-    t.string   "authors",        :limit => 100
-    t.string   "editor",         :limit => 100
-    t.string   "description",    :limit => 512
-    t.string   "url",            :limit => 300
+    t.string   "title",            :limit => 300
+    t.string   "authors",          :limit => 100
+    t.string   "editor",           :limit => 100
+    t.string   "description",      :limit => 512
+    t.string   "url",              :limit => 300
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count",                 :default => 0
-    t.string   "glasslevel",     :limit => 50
-    t.string   "license",        :limit => 50
-    t.string   "media",          :limit => 1024
-    t.string   "media_type",     :limit => 32
-    t.string   "date",           :limit => 40
+    t.integer  "comments_count",                   :default => 0
+    t.string   "glasslevel",       :limit => 50
+    t.string   "license",          :limit => 50
+    t.string   "media",            :limit => 1024
+    t.string   "media_type",       :limit => 32
+    t.string   "date",             :limit => 40
     t.integer  "camp_id"
-    t.string   "marks",          :limit => 300
+    t.string   "marks",            :limit => 300
+    t.integer  "like_it_marks",                    :default => 0
+    t.integer  "read_later_marks",                 :default => 0
   end
 
   add_index "books", ["book_list_id"], :name => "index_books_on_book_list_id"

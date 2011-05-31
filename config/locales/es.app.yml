@@ -75,3 +75,7 @@ es:
   camps:
     notice:
       update: "Campamento montado!"
+  bookmarks:
+    read_later:
+      libro: "Me muero por leerlo!"
+      video: "Si, me muero por verlo!"

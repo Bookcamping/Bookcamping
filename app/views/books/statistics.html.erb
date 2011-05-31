@@ -1,13 +1,23 @@
 <% title t('.title') %>
 
-<%= lists_div 3 do %>
+<%= lists_div 5 do %>
     <%= render_info %>
     <div class="list">
-      <h2><%= t('.latest_books') %></h2>
+      <h2><%= iconic(:rss) %><%= t('.latest_books') %></h2>
+      <h3>Número de <%= current_model %>s: <%= current_camp.books.count %></h3>
       <%= render_book_list latest_books %>
     </div>
     <div class="list">
-      <h2><%= t('.commented_books') %></h2>
+      <h2><%= iconic(:heart) %><%= t('.like_it_books') %></h2>
+      <%= render_book_list like_it_books %>
+    </div>
+    <div class="list">
+      <h2><%= iconic(:star) %><%= t('.read_later_books') %></h2>
+      <%= render_book_list read_later_books %>
+    </div>
+
+    <div class="list">
+      <h2><%= iconic(:comment) %><%= t('.commented_books') %></h2>
       <%= render_book_list commented_books %>
     </div>
 <% end %>

@@ -2,7 +2,7 @@
 @import "variables.css.scss";
 
 html {
-    font: normal normal 16px Calibri;
+    font: normal normal 14px Calibri;
     background-color:#f8f8ff;
     }
 a {text-decoration:none; color:$c-link;}
@@ -17,7 +17,7 @@ textarea  {height: 8em;}
 .notice {background-color:$c-yellow;}
 .highlight { background-color: $c-yellow;}
 .error {color: #c00;}
-.info {padding: 10px;}
+p.info {padding: 10px;}
 #search-error {margin-left: 5px;}
 
 div#session {
