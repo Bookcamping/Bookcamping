@@ -1,13 +1,13 @@
 current_main = null
 current_viewer = null
 
-WAIT = '<p>&nbsp;<span class="iconic">[</span>Un momento...</p>'
+WAIT = '<p>&nbsp;<span class="iconic spin"></span>Un momento...</p>'
 
 load_main = (url) ->
     console.log 'main', url
     if current_main != url
         current_main = url
-        $("#app .main").html(WAIT).load(url)
+        $("#app .main").html(WAIT).load url
         true
     else
         false
@@ -16,14 +16,13 @@ load_viewer = (url) ->
     console.log 'viewer', url
     if current_viewer != url
         current_viewer = url
-        $("#app .viewer").html(WAIT).load(url)
+        $("#app .viewer").html(WAIT).load url
 
 clean_viewer = ->
     current_viewer = null
     $("#app .viewer").html('')
 
 jQuery ->
-
     $(window).hashchange ->
         current = location.hash
         console.log 'hash', current
@@ -51,6 +50,7 @@ jQuery ->
         $("a[href='#{current}']").addClass('active');
 
     $(window).hashchange()
+
 
     $("#app .browser a").live 'click', ->
         hash = $(this).data('hash')
