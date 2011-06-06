@@ -1,7 +1,7 @@
 current_main = null
 current_viewer = null
 
-WAIT = '<p>&nbsp;<span class="iconic">[</span>Un momento...</p>'
+WAIT = '<p>&nbsp;<span class="iconic spinner"></span>Un momento...</p>'
 
 load_main = (url) ->
     console.log 'main', url
