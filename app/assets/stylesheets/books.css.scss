@@ -26,7 +26,12 @@ div.book {
     div.download_url a {background-color:$c-yellow;}
     a.back {font-size: 80%;}
 
-    .twitter {display:block;margin-top:5px; height: 20px;overflow:hidden;}
+
+    table.social {
+        margin-top:5px;
+        div.twitter {width: 110px;overflow:hidden; margin-top:5px; height:30px;}
+        div.facebook {width: 160px;overflow:hidden; height:30px; }
+    }
 
     div.media {
         overflow: hidden;

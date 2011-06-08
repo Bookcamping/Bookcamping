@@ -54,7 +54,7 @@ div#app {
     }
 
     .viewer {
-        position:fixed;top:5.6em;bottom:0;right:10px;width: $w-list + 30px;
+        position:fixed;top:5.6em;bottom:10px;right:10px;width: $w-list + 30px;
         overflow: auto;
 
         .slogan {

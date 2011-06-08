@@ -51,11 +51,24 @@
             <% end %>
         <% end %>
       </div>
-      <div class="twitter">
-        <iframe allowtransparency="true" frameborder="0" scrolling="no"
-                src="http://platform.twitter.com/widgets/tweet_button.html?url=<%= book_url(book) %>&text=%23bookcamping <%= book.title %>"
-                style="width:130px; height:50px;"></iframe>
-      </div>
+      <table class="social">
+        <tr>
+          <td>
+            <div class="twitter">
+              <iframe allowtransparency="true" frameborder="0" scrolling="no"
+                      src="http://platform.twitter.com/widgets/tweet_button.html?url=<%= book_url(book) %>&text=%23bookcamping <%= book.title %>"
+                      style="width:130px; height:50px;"></iframe>
+            </div>
+          </td>
+          <td>
+            <div class="facebook">
+              <iframe src="http://www.facebook.com/plugins/like.php?href=<%= book_url(book) %>"
+                      scrolling="no" frameborder="0" style="border:none; width:450px; height:80px"></iframe>
+
+            </div>
+          </td>
+        </tr>
+      </table>
       <% if ctx == :book %>
           <div class="shelves section">
             <h3>En:</h3>
