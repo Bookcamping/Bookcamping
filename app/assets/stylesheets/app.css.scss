@@ -2,24 +2,21 @@
 @import "variables.css.scss";
 
 div#banner {
-    position: fixed;left:235px;right:50x;top:2em;height: 3.0em;
+    display: none;
+    position: absolute;left:310px;right:50x;top:1.5em;height: 3.0em;
     overflow: hidden;
-
-    h2 {height: 1.2em; overflow: hidden; font-weight:bold;}
+    font-weight:bold;
 }
 
 div#app {
-    position:fixed; left:5px;right:5px;top:1em;bottom:5px;
-
+    position:absolute;left: 5px;top:4em;right:400px;
     a.active {color: #c00;}
 
     .browser {
-        position:absolute;left:0;top:2em;bottom:0;width: 220px;
+        float: left;width: 30%;
         text-shadow: 0px 0px 1px gray;
-        overflow: auto;
 
         ul {
-            width: 200px; overflow: hidden;
             li.section {
                 margin-bottom: 20px;
 
@@ -41,9 +38,7 @@ div#app {
     .book a.back {display:none;}
 
     .main {
-        position:absolute;top:4em;bottom:0;left:220px;right: $w-list + 40px;
-        overflow: auto;
-
+        float: left;width:70%;
         h1 {padding-left:10px;}
 
         .section {
@@ -53,9 +48,19 @@ div#app {
 
     .main > .content {padding: 10px;}
 
+    #search {
+        position: fixed; top: 4em; right:30px;width: $w-list;
+        text-align:right;
+    }
+
     .viewer {
-        position:absolute;top:4em;bottom:0;right:10px;width: $w-list + 30px;
+        position:fixed;top:5.6em;bottom:0;right:10px;width: $w-list + 30px;
         overflow: auto;
+
+        .slogan {
+            margin: 00px 10px;
+            h2 {margin: 10px 0;}
+        }
     }
 
     .actions {margin: 0 10px;}
@@ -65,3 +70,8 @@ div#app {
     }
 }
 
+#app ::-webkit-scrollbar{width:9px;height:9px;}
+#app ::-webkit-scrollbar-button:start:decrement,#app ::-webkit-scrollbar-button:end:increment{display:block;height:0;background-color:transparent;}
+#app ::-webkit-scrollbar-track-piece{background-color:#FAFAFA;-webkit-border-radius:0;-webkit-border-bottom-right-radius:8px;-webkit-border-bottom-left-radius:8px;}
+#app ::-webkit-scrollbar-thumb:vertical{height:50px;background-color:#999;-webkit-border-radius:8px;}
+#app ::-webkit-scrollbar-thumb:horizontal{width:50px;background-color:#999;-webkit-border-radius:8px;}

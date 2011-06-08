@@ -3,8 +3,9 @@
 
 html {
     font: normal normal 15px Calibri;
-    background-color:#f8f8ff;
-    }
+    background: $c-bg;
+}
+
 a {text-decoration:none; color:$c-link;}
 a:hover {color: $c-head; text-decoration:underline;}
 h1, h2, {line-height: 1.2em;color: $c-head; font-weight:bold;}

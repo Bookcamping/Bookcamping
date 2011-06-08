@@ -33,6 +33,6 @@ Bookcamp::Application.routes.draw do
   match "/gocamp/:id" => "camps#enter", :as => :gocamp
   match "/buscar/:term" => "books#search", :as => :search
   match "/explorar" => "app#app", :as => :app
-  match "/seccion/:id" => "app#sections", :as => :section
+  match "/seccion/:id" => "app#section", :as => :section
   match "/lista/:id" => "app#lists", :as => :list
 end

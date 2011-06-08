@@ -16,7 +16,7 @@
           <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
       <% end %>
   <% else %>
-      <span class="notice">Para colaborar tienes que identificarte &rArr;</span>
+      <%= content_tag :span, "#{flash[:notice]}".html_safe, :class => 'notice' if flash[:notice].present? %>
       Entrar con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %>
   <% end %>
 </div>
@@ -29,11 +29,8 @@
   <%= link_to 'estadísticas', statistics_path %> /
   <%= link_to 'colaboradorxs', users_path %>
 </div>
-<div id="messages">
-  <%= content_tag :p, "&rArr; #{flash[:notice]}".html_safe, :class => 'flash' if flash[:notice].present? %>
-</div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
-<script>window.jQuery || document.write('<script src="/js/jquery-1.6.1.min.js">\x3C/script>')</script>
+<script>window.jQuery || document.write('<script src="/js/jquery.js">\x3C/script>')</script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
 <%= javascript_include_tag "application" %>
 <div id="main">

@@ -1,13 +1,13 @@
 current_main = null
 current_viewer = null
 
-WAIT = '<p>&nbsp;<span class="iconic spinner"></span>Un momento...</p>'
+WAIT = '<p>&nbsp;<span class="iconic spin"></span>Un momento...</p>'
 
 load_main = (url) ->
     console.log 'main', url
     if current_main != url
         current_main = url
-        $("#app .main").html(WAIT).load(url)
+        $("#app .main").html(WAIT).load url
         true
     else
         false
@@ -16,17 +16,15 @@ load_viewer = (url) ->
     console.log 'viewer', url
     if current_viewer != url
         current_viewer = url
-        $("#app .viewer").html(WAIT).load(url)
+        $("#app .viewer").html(WAIT).load url
 
 clean_viewer = ->
     current_viewer = null
-    $("#app .viewer").html('')
+    $("#app .viewer").html($("#banner").html())
 
 jQuery ->
-
     $(window).hashchange ->
         current = location.hash
-        console.log 'hash', current
         if current.match /^\/?#?$/
             location.hash = '#/lista/ultimas'
         else if match = /^#\/seccion\/(\w+)$/.exec(current)
@@ -52,13 +50,16 @@ jQuery ->
 
     $(window).hashchange()
 
-    $("#app .browser a").live 'click', ->
+    ajaxize = ->
         hash = $(this).data('hash')
         if hash?
             location.hash = hash
             false
         else
             true
+
+    $("#app .browser a").live 'click', ajaxize
+    $("#app a.ajaxize").live 'click', ajaxize
 
     $("#app .main .book .content a").live 'click', ->
         url = $(this).attr('href')[12..-1]
