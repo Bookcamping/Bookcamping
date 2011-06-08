@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531093409) do
+ActiveRecord::Schema.define(:version => 20110608101759) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110531093409) do
     t.string   "title",            :limit => 300
     t.string   "authors",          :limit => 100
     t.string   "editor",           :limit => 100
-    t.string   "description",      :limit => 512
+    t.text     "description"
     t.string   "url",              :limit => 300
     t.datetime "created_at"
     t.datetime "updated_at"
