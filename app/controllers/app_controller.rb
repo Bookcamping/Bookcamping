@@ -1,8 +1,9 @@
 class AppController < ApplicationController
   expose(:library) { Library.new(current_camp, current_user) }
+  expose(:section_name) { ['bookcamping', 'videocamping', 'listas', 'libreria'].include?(params[:id]) ? params[:id] : nil }
+  expose(:shelves) { current_camp.shelves }
 
   def app
-
   end
 
   LIMIT = 20
@@ -21,11 +22,7 @@ class AppController < ApplicationController
     end
   end
 
-  def sections
-    if ['bookcamping', 'videocamping', 'listas', 'libreria'].include? params[:id]
-      render "section_#{params[:id]}", :layout => false
-    else
-      render :text => params[:id]
-    end
+  def section
+    render 'section', :layout => false
   end
 end

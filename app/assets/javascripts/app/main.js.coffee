@@ -20,12 +20,11 @@ load_viewer = (url) ->
 
 clean_viewer = ->
     current_viewer = null
-    $("#app .viewer").html('')
+    $("#app .viewer").html($("#banner").html())
 
 jQuery ->
     $(window).hashchange ->
         current = location.hash
-        console.log 'hash', current
         if current.match /^\/?#?$/
             location.hash = '#/lista/ultimas'
         else if match = /^#\/seccion\/(\w+)$/.exec(current)
@@ -51,14 +50,16 @@ jQuery ->
 
     $(window).hashchange()
 
-
-    $("#app .browser a").live 'click', ->
+    ajaxize = ->
         hash = $(this).data('hash')
         if hash?
             location.hash = hash
             false
         else
             true
+
+    $("#app .browser a").live 'click', ajaxize
+    $("#app a.ajaxize").live 'click', ajaxize
 
     $("#app .main .book .content a").live 'click', ->
         url = $(this).attr('href')[12..-1]

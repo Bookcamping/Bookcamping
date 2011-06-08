@@ -1,14 +1,12 @@
 <div id="banner">
-  <h2><%= current_camp.line1 %></h2>
+  <div class="slogan">
+    <h2><%= current_camp.line1 %></h2>
 
-  <h2><%= current_camp.line2 %></h2>
+    <h2><%= current_camp.line2 %></h2>
+  </div>
 </div>
 <div id="app">
   <div class="browser">
-    <div class="search">
-      <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
-      <p id="search-error" class="error">&nbsp;</p>
-    </div>
     <ul class="sections">
       <% library.section_names.each do |section_name| %>
           <li class="section">
@@ -25,7 +23,11 @@
     </ul>
   </div>
   <div class="main">
-
+    <%= render current_camp.name[1..-1] %>
+  </div>
+  <div id="search" class="search">
+    <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
+    <p id="search-error" class="error">&nbsp;</p>
   </div>
   <div class="viewer">
     <div class="customScrollBox">

@@ -2,15 +2,14 @@
 @import "variables.css.scss";
 
 div#banner {
-    position: fixed;left:235px;right:50x;top:2em;height: 3.0em;
+    display: none;
+    position: absolute;left:310px;right:50x;top:1.5em;height: 3.0em;
     overflow: hidden;
-
-    h2 {height: 1.2em; overflow: hidden; font-weight:bold;}
+    font-weight:bold;
 }
 
 div#app {
     position:absolute;left: 5px;top:4em;right:400px;
-    border:1px solid red;
     a.active {color: #c00;}
 
     .browser {
@@ -49,9 +48,19 @@ div#app {
 
     .main > .content {padding: 10px;}
 
+    #search {
+        position: fixed; top: 4em; right:30px;width: $w-list;
+        text-align:right;
+    }
+
     .viewer {
-        position:fixed;top:4em;bottom:0;right:10px;width: $w-list + 30px;
+        position:fixed;top:5.6em;bottom:0;right:10px;width: $w-list + 30px;
         overflow: auto;
+
+        .slogan {
+            margin: 00px 10px;
+            h2 {margin: 10px 0;}
+        }
     }
 
     .actions {margin: 0 10px;}
