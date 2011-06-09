@@ -1,8 +1,17 @@
 
 #banner {
-    padding: 10px;
+    margin: 40px 20px 10px 20px;
 
     h1 {float: left; margin-right: 1em;}
     h2 {font-size: 100%;}
-    #search {float: right; height: 32px; margin-right: 20px;}
+}
+
+div#top {
+    margin: 10px 20px;
+    #search {
+        float: right; height: 32px;
+
+        input[type=text] {margin-right:5px;}
+    }
+
 }

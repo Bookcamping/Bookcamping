@@ -10,9 +10,10 @@ div.container {
 
 #main {
     max-width: 1040px;
-    margin: 40px auto;
+    margin: 0px auto;
 
     div#content {
+        margin: 10px;
         background-color: white;
         overflow:hidden;
         border-radius: 10px;
