@@ -1,0 +1,31 @@
+
+@import "variables.css.scss";
+
+html {
+    background-color: $c-background;
+}
+
+body {
+    font-family: Arial,"Helvetica Neue",sans-serif;
+    font-size: 90%;
+    line-height: 1.3em;
+    color: $c-text;
+}
+
+em {font-style:italic;}
+strong {font-weight:bold;}
+
+a {text-decoration:none; color:darken(desaturate($c-background,20),30);}
+a:hover {color:darken(desaturate($c-background,0),20)}
+
+h1, h2, h3 {line-height: 1.3em;}
+h1 {font-size: 160%;}
+h2 {font-size: 120%;font-weight:bold;}
+h3 {font-size: 105%;font-weight:bold;}
+p {margin: 5px 0;}
+
+form {
+    width: 100%;
+    textarea {height: 5em; width: 100%;}
+}
+input[type=text], textarea {border: 1px solid $c-gray; padding: 2px;}

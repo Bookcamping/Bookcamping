@@ -1,17 +1,14 @@
 <%= div_for book do %>
-    <%= link_to "&larr; Volver".html_safe, browse_book_path(book.shelves.first, book), :class => 'back' if ctx == :book %>
+    <h2><%= book.title %></h2>
+    <%= button_group do %>
+        <%= edit_button_link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
+        <%= danger_remove_button_link_to 'Borrar', book_path(book), :method => :delete,
+                                         :confirm => 'Seguro!?' if can? :destroy, book %>
+    <% end %>
     <div class="info">
-      <%= content_tag :h3, link_to(book.title, book) %>
-      <div class="license"><%= book.license_id? ? image_tag(book.license.icon) : '<Licencia desconocida>' %></div>
-      <% if ctx == :book %>
-          <div>
-            <%= button_group do %>
-                <%= edit_button_link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
-                <%= danger_remove_button_link_to 'Borrar', book_path(book), :method => :delete,
-                                                 :confirm => 'Seguro!?' if can? :destroy, book %>
-            <% end %>
-          </div>
-      <% end %>
+      <div>
+      </div>
+      <%= book.license_id? ? image_tag(book.license.icon) : '<Licencia desconocida>' %>
       <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
       <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
       <% if book.editor.present? %>
@@ -19,14 +16,14 @@
       <% end %>
     </div>
     <div class="description">
-      <%= render_description book, (ctx == :book ? nil : 500) %>
+      <%= render_description book %>
     </div>
     <% if book.url.present? %>
         <div class="download_url">
           <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url) %>
         </div>
     <% end %>
-    <% if book.media? and (ctx == :book || current_camp.show_media_on_lists) %>
+    <% if book.media? %>
         <div class="media">
           <%= render_media book %>
         </div>
@@ -34,17 +31,12 @@
     <div class="controls">
       <span class="user"><%= link_to book.user.name, book.user if book.user %></span>
       <span class="time">hace <%= time_ago_in_words book.created_at %></span>
-      <% if ctx == :book %>
-          <span class="comment_count"><%= iconic(:comment, book.comments_count) %></span>
-          <%= link_to 'Permalink', book %>
-      <% else %>
-          <%= link_to iconic(:comment, book.comments_count), book %>
-          <%= link_to 'Permalink', book %>
-          <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
-      <% end %>
+      <%= link_to iconic(:comment, book.comments_count), book %>
+      <%= link_to 'Permalink', book %>
+      <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
       <div class="bookmarks">
         <%= render_bookmarks book %>
-        <% if current_user? :super and ctx == :book %>
+        <% if current_user? :super %>
             <% book.bookmarks.each do |bookmark| %>
                 <li><%= bookmark.name %> - <%= bookmark.user.name %></li>
             <% end %>
@@ -68,14 +60,11 @@
           </td>
         </tr>
       </table>
-      <% if ctx == :book %>
-          <div class="shelves section">
-            <h3>En:</h3>
-            <%= render_shelf_items book.shelf_items %>
-            <%= link_to t('.add_to_list'), new_book_shelf_item_path(book) %>
-          </div>
-
-          <%= render_comments(book.comments, Comment.new(:resource => book)) %>
-      <% end %>
+      <div class="shelves section">
+        <h3>En:</h3>
+        <%= render_shelf_items book.shelf_items %>
+        <%= link_to t('.add_to_list'), new_book_shelf_item_path(book) %>
+      </div>
+      <%= render_comments(book.comments, Comment.new(:resource => book)) %>
     </div>
 <% end %>

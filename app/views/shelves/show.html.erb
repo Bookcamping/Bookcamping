@@ -1,7 +1,4 @@
-<% title shelf.name %>
-
-<%= lists_div 3 do %>
-    <%= render 'layouts/intro' %>
-    <%= render_shelves shelves %>
+<%= content_for :browser do %>
     <%= render shelf %>
 <% end %>
+

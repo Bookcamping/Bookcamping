@@ -1,0 +1,35 @@
+
+@import "variables.css.scss";
+
+div.container {
+    width: 100%; overflow: hidden;
+    div.column2 {
+        float: left; width: 50%;
+    }
+}
+
+#main {
+    max-width: 960px;
+    margin: 40px auto;
+
+    div#content {
+        background-color: lighten($c-background, 10);
+        overflow:hidden;
+        border-radius: 10px;
+
+        div.browser {
+            padding: 10px;
+            background-color: white;
+            padding-bottom: 10000px;
+            margin-bottom: -10000px;
+            box-shadow: 0px 0px 3px gray;
+        }
+
+        div.main {
+            padding: 10px;
+
+        }
+    }
+
+
+}

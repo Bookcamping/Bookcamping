@@ -11,6 +11,7 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
+#gem 'compass', :require => false
 
 gem 'decent_exposure'
 gem 'simple_form'

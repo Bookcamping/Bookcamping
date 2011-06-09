@@ -20,6 +20,8 @@ class Book < ActiveRecord::Base
 
   validates :user_id, :presence => true
   validates :camp_id, :presence => true
+  validates :license_id, :presence => true
+  validates :title, :presence => true
 
 
   def bookmark_count(name)

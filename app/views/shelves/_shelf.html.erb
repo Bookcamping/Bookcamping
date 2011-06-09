@@ -1,7 +1,4 @@
 <%= div_for shelf, :class => 'list' do %>
-    <div class="actions">
-      <%= link_to "&larr; Volver".html_safe, browse_shelf_path(shelf), :class => 'back' %>
-    </div>
     <h1><%= shelf.name %></h1>
     <div class="list_info">
       <%= shelf.books_count %> <%= current_camp.model_name %>s.
@@ -16,32 +13,8 @@
                                            :confirm => "¿Borrar lista #{shelf.name}?" if shelf.books.size == 0 and can? :destroy, shelf %>
       <% end %>
     </div>
-    <div class="order" style="display:none;">
-      Mostrar en primero los: <%= link_to 'Recientes', '#' %> /
-      <%= link_to 'Antigüos', '#' %> /
-      <%= link_to 'Más valorados' %> /
-      <%= link_to 'Más comentados' %>
-    </div>
 
-    <% if false %>
-        <h3>OTRAS LISTAS</h3>
-        <ul class="shelves">
-          <% shelves.each do |other| %>
-              <% if shelf != other %>
-                  <li><%= link_to other.name, other %> <span class="info">(<%= other.books_count %>)
-          Por <%= link_to other.user.name, other.user %></span></li>
-              <% end %>
-          <% end %>
-        </ul>
-    <% end %>
-
-    <% if true %>
-        <ul class="books">
-          <% shelf.books.each do |book| %>
-              <li>
-                <%= render_book book, :list %>
-              </li>
-          <% end %>
-        </ul>
-    <% end %>
+    <ul class="books">
+      <%= render :partial => 'shelves/book', :collection => shelf.books %>
+    </ul>
 <% end %>

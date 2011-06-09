@@ -13,48 +13,28 @@
       <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
       Hola <%= current_user.name %>!
       <%= link_to "Salir", signout_path %>
+      <% if current_user.super? %>
+          <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
+      <% end %>
   <% else %>
-      Entrar
-      con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %> <%= link_to "Facebook", "/auth/facebook" %>
+      Entrar con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %> <%= link_to "Facebook", "/auth/facebook" %>
   <% end %>
+</div>
+<div id="navigation">
+  <%= link_to '#bookcamping', 'http://bookcamp.cc' %> |
+  <%= link_to '#videocamping', 'http://video.bookcamp.cc' %> |
+  <%= link_to 'explorar', app_path %> /
+  <%= link_to 'listas', shelves_path %> /
+  <%= link_to 'actividad', versions_path %> /
+  <%= link_to 'estadísticas', statistics_path %> /
+  <%= link_to 'colaboradorxs', users_path %>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="/js/jquery.js">\x3C/script>')</script>
-<%= javascript_include_tag "application" %>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
-
+<%= javascript_include_tag "application" %>
 <div id="main">
-  <div id="banner" class="container">
-    <div id="search">
-      <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
-      <p id="search-error" class="error">&nbsp;</p>
-    </div>
-
-    <h1><a href="/"><%= current_camp.name %></a></h1>
-
-    <div class="social">
-      <div class="twitter">
-        <iframe allowtransparency="true" frameborder="0" scrolling="no"
-                src="http://platform.twitter.com/widgets/tweet_button.html?url=<%= root_url %>&text=%23<%= current_camp.name %> <%= current_camp.line2 %>"
-                style="width:130px; height:50px;"></iframe>
-      </div>
-    </div>
-    <h2><%= current_camp.line1 %></h2>
-
-    <h2><%= current_camp.line2 %></h2>
-  </div>
-  <div id="content" class="container">
-    <div class="column2">
-      <div class="browser">
-        <%= yield :browser %>
-      </div>
-    </div>
-    <div class="column2">
-      <div class="main">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+  <%= yield %>
 </div>
 
 <script type="text/javascript">

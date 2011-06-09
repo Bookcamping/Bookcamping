@@ -1,0 +1,18 @@
+<%= browser %>
+
+<h1>BOOKCAMPING, DE LA PLAZA A LA NUBE</h1>
+
+<p>Bienvenidas a bookcamp.cc, una biblioteca abierta y colaborativa nacida a la sombra del 15 de Mayo. En sus
+  estanterías digitales encontrarás algunos libros (y vídeos) para entender cómo hemos llegado hasta aquí y algunos
+  otros para
+  seguir pensando hacia dónde y cómo queremos continuar. Porque no salimos de la nada y porque no sólo de Indignaos
+  vive Sol. Yes, we read. O dicho con otra fórmula mítica, generacional y más local: Si no quieres ser como ellos,
+  lee.</p>
+
+<p>Gestión del fondo o Colectivo Editor o Como queráis: Bartleby y Cía</p>
+
+<br/><br/><br/>
+<p class="credits">
+  <%= current_camp.origin.html_safe if current_camp.origin? %>
+  Este software es <%= link_to 'código libre', 'https://github.com/recortable/Bookcamp' %>, copia y colabora!
+</p>

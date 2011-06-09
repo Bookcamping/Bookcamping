@@ -1,0 +1,11 @@
+<h1>Listas</h1>
+
+<ul class="lists">
+  <li><%= link_to 'Últimas adquisiciones' %></li>
+  <li><%= link_to 'Más valoradas' %></li>
+  <li><%= link_to 'Más comentadas' %></li>
+  <li><%= link_to 'Más deseadas' %></li>
+  <% shelves.each do |shelf| %>
+      <li><%= link_to shelf.name, shelf %></li>
+  <% end %>
+</ul>

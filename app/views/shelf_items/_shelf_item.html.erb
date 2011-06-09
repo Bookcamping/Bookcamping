@@ -1,0 +1,6 @@
+<%= div_for shelf_item do %>
+    <% book = shelf_item.book %>
+    <% if book.present? %>
+        <h3><%= book.title %></h3>
+    <% end %>
+<% end %>

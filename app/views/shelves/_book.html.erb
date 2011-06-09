@@ -1,0 +1,20 @@
+<%= content_tag_for :li, book do %>
+    <h3><%= link_to book.title, [shelf, book] %></h3>
+    <div class="info">
+      <%= image_tag(book.license.icon, :class => 'license') %>
+      <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
+      <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
+      <% if book.editor.present? %>
+          / <%= content_tag :span, book.editor, :class => 'editor' %>
+      <% end %>
+    </div>
+    <div class="description">
+      <%= render_description book, 500 %>
+    </div>
+    <% if book.media? and current_camp.show_media_on_lists? %>
+        <div class="media">
+          <%= render_media book %>
+        </div>
+    <% end %>
+
+<% end %>
