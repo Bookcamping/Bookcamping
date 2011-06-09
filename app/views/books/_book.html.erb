@@ -1,8 +1,8 @@
 <%= div_for book do %>
     <%= link_to "&larr; Volver".html_safe, browse_book_path(book.shelves.first, book), :class => 'back' if ctx == :book %>
     <div class="info">
-      <%= book.license_id? ? image_tag(book.license.icon) : '<Licencia desconocida>' %>
       <%= content_tag :h3, link_to(book.title, book) %>
+      <%= book.license_id? ? image_tag(book.license.icon) : '<Licencia desconocida>' %>
       <% if ctx == :book %>
           <div>
             <%= button_group do %>
@@ -12,7 +12,6 @@
             <% end %>
           </div>
       <% end %>
-
       <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
       <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
       <% if book.editor.present? %>
