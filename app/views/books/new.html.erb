@@ -1,8 +1,5 @@
-<%= lists_div 2 do %>
-    <%= render 'layouts/intro' %>
-    <div class="list">
-      <%= title t('.title', :model => current_model) %>
-      <h2>En '<%= shelf.name %>'</h2>
-      <%= render 'form' %>
-    </div>
-<% end %>
+<%= title t('.title', :model => current_model) %>
+
+<%= browser 'form' %>
+
+<%= render 'welcome' %>
