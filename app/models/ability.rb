@@ -11,9 +11,8 @@ class Ability
 
     can :create, Bookmark if user?
 
-    can :new, Book if user?
-    can :create, Book if user?
-    can :edit, Book, :user_id => @user.id
+    can :manage, Book if user?
+    cannot :destroy, Book unless admin?
   end
 
   def user=(user )

@@ -13,6 +13,7 @@ Bookcamp::Application.routes.draw do
   end
 
   resources :camps, :path => 'campamentos'
+  resources :licenses, :path => 'licencias'
 
   resources :books, :path => 'referencia' do
     get :view, :on => :member

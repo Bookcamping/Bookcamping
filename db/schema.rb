@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608101759) do
+ActiveRecord::Schema.define(:version => 20110609130618) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110608101759) do
     t.string   "marks",            :limit => 300
     t.integer  "like_it_marks",                    :default => 0
     t.integer  "read_later_marks",                 :default => 0
+    t.integer  "license_id"
   end
 
   add_index "books", ["book_list_id"], :name => "index_books_on_book_list_id"
@@ -87,6 +88,15 @@ ActiveRecord::Schema.define(:version => 20110608101759) do
   add_index "comments", ["camp_id"], :name => "index_comments_on_camp_id"
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "licenses", :force => true do |t|
+    t.string   "name",       :limit => 300
+    t.string   "url",        :limit => 500
+    t.string   "icon",       :limit => 300
+    t.boolean  "open"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"

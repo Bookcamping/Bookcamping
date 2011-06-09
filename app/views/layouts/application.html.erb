@@ -8,6 +8,7 @@
 </head>
 <body>
 <div id="session">
+  <%= content_tag :span, "#{flash[:notice]} &rArr;".html_safe, :class => 'notice' if flash[:notice].present? %>
   <% if current_user %>
       <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
       Hola <%= current_user.name %>!
@@ -16,7 +17,6 @@
           <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
       <% end %>
   <% else %>
-      <%= content_tag :span, "#{flash[:notice]}".html_safe, :class => 'notice' if flash[:notice].present? %>
       Entrar con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %> <%= link_to "Facebook", "/auth/facebook" %>
   <% end %>
 </div>

@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   has_many :shelf_items, :include => :shelf, :dependent => :destroy
   has_many :shelves, :through => :shelf_items
   has_many :bookmarks, :dependent => :destroy
+  belongs_to :license
   serialize :marks
 
   scope :titled, where('title != null')
@@ -14,7 +15,7 @@ class Book < ActiveRecord::Base
       :title => Proc.new { |book| book.title }
   }
 
-  attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media
+  attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media, :license_id
   attr_accessible :user_id, :as => :super
 
   validates :user_id, :presence => true
