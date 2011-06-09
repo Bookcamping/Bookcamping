@@ -11,6 +11,8 @@ class CreateLicenses < ActiveRecord::Migration
 
     add_column :books, :license_id, :integer
 
+    License.create(:name => 'No lo se', :url => '', :icon => '', :open => false)
+
     License.create(:name => 'Creative commons CC BY-NC-ND (Reconocimiento/NoComercial/SinObraDerivada',
                    :url => 'http://creativecommons.org/licenses/by-nc-nd/3.0',
                    :icon => 'http://upload.wikimedia.org/wikipedia/commons/0/03/CC-BY-NC-ND-icon-80x15.png',
