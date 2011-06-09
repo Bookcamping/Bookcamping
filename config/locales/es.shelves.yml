@@ -3,6 +3,8 @@ es:
     index:
       title: "Listas"
       latest_books: "ÚLTIMAS ADQUISICIONES"
+      add_shelf: "Añadir lista"
+      add_book: "Añadir %{model}"
     shelves:
       add_shelf: "Añadir una nueva lista"
     new:

@@ -7,6 +7,7 @@
     </div>
     <div class="nav">
       <%= button_group do %>
+          <%= arrowleft_button_link_to 'Volver', shelves_path %>
           <%= add_button_link_to t('.add_book', :model => current_camp.model_name), new_shelf_book_path(shelf) if current_user %>
           <%= edit_button_link_to 'Modificar lista', edit_shelf_path(shelf) if can? :edit, shelf %>
           <%= danger_remove_button_link_to 'Borrar lista', shelf, :method => :delete,
@@ -14,7 +15,7 @@
       <% end %>
     </div>
 
-    <ul class="books">
+    <ul class="items books">
       <%= render :partial => 'shelves/book', :collection => shelf.books %>
     </ul>
 <% end %>

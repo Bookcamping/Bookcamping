@@ -1,4 +1,4 @@
-<%= content_tag_for :li, book do %>
+<%= content_tag_for :li, book, :class => 'item' do %>
     <h3><%= link_to book.title, [shelf, book] %></h3>
     <div class="info">
       <%= image_tag(book.license.icon, :class => 'license') %>

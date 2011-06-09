@@ -4,14 +4,19 @@
     <div class="list">
       <h1>LISTAS</h1>
 
-      <div class="actions">
-        <%= link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
-      </div>
-      <ul class="shelves">
+      <%= button_group do %>
+          <%= add_button_link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
+          <%= add_button_link_to t('.add_book', :model => current_model), new_book_path if can? :create, Book %>
+      <% end %>
+      <ul class="shelves items">
         <% shelves.each do |shelf| %>
-            <li><%= link_to shelf.name, shelf %> <span class="info">(<%= shelf.books_count %>)
-        Por <%= link_to shelf.user.name, shelf.user %></span></li>
+            <li class="shelf item">
+              <h2><%= link_to shelf.name, shelf %> (<%= shelf.books_count %>)</h2>
+              <span class="info">Por <%= link_to shelf.user.name, shelf.user %></span>
+            </li>
         <% end %>
       </ul>
     </div>
 <% end %>
+
+<%= render :partial => 'welcome' %>

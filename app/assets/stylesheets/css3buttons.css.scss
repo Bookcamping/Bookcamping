@@ -10,7 +10,7 @@ Licensed under Unlicense
     position: relative;
     overflow: visible;
     display: inline-block;
-    padding: 4px 8px;
+    padding: 4px 8px 2px 8px;
     border: 1px solid #d4d4d4;
     margin: 0;
     text-decoration: none;
@@ -79,7 +79,7 @@ $c-active-to: #0B2930; //#3072b3;
 .button.icon:before {
     content: "";
     position: relative;
-    top: 0px;
+    top: 1px;
     float:left;
     width: 12px;
     height: 12px;
