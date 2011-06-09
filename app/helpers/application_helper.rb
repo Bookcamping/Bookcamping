@@ -1,7 +1,9 @@
+# encoding: utf-8
+
 module ApplicationHelper
   def title(caption, tag = :h1)
     content_for(:title) { caption }
-    content_tag(tag, caption)
+    content_tag(tag, caption.mb_chars.upcase)
   end
 
   def render_info

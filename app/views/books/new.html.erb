@@ -1,5 +1,7 @@
-<%= title t('.title', :model => current_model) %>
+<% content_for :browser do %>
+    <%= title t('.title', :model => current_model) %>
+    <%= render 'form' %>
+<% end %>
 
-<%= browser 'form' %>
 
 <%= render 'welcome' %>

@@ -30,6 +30,8 @@ div.container {
             box-shadow: 0 0 10px darken($c-background, 50);
             padding-bottom: 10000px;
             margin-bottom: -10000px;
+
+            h2 {margin-top:10px;}
         }
     }
 

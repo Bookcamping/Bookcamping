@@ -32,6 +32,12 @@ form {
     div.input {
         label {display:block; font-weight:bold;}
         .hint {color: gray;display:block;font-size:80%;}
+        input[type=text], input[type=url], textarea {
+            border: 1px solid darken(desaturate($c-background,10),30); padding: 2px;
+            width: 95%;
+        }
     }
+    input[type=submit] {margin-top: 20px;}
+
 }
-input[type=text], textarea {border: 1px solid darken(desaturate($c-background,20),30); padding: 2px;}
+input[type=text], textarea {}

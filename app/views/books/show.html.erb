@@ -2,6 +2,15 @@
     <% if shelf %>
         <%= render shelf %>
     <% else %>
+        <h1>ESTE <%= current_model.upcase %> ESTÁ EN</h1>
+        <ul class="shelves items">
+          <% book.shelves.each do |shelf| %>
+              <li class="shelf item">
+                <h2><%= link_to shelf.name, [shelf, book] %> (<%= shelf.books_count %>)</h2>
+                <span class="info">Por <%= link_to shelf.user.name, shelf.user %></span>
+              </li>
+          <% end %>
+        </ul>
     <% end %>
 <% end %>
 
