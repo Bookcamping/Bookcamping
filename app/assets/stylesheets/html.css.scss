@@ -15,10 +15,10 @@ body {
 em {font-style:italic;}
 strong {font-weight:bold;}
 
-a {text-decoration:none; color:darken(desaturate($c-background,20),30);}
-a:hover {color:darken(desaturate($c-background,0),20)}
+a {text-decoration:none; color:$c-link-dk;}
+a:hover {color: $c-link;}
 
-h1, h2, h3 {line-height: 1.3em;}
+h1, h2, h3 {line-height: 1.3em; color: $c-link-dk;}
 h1 {font-size: 160%;}
 h2 {font-size: 120%;font-weight:bold;}
 h3 {font-size: 105%;font-weight:bold;}

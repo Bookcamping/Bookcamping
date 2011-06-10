@@ -1,6 +1,9 @@
 
-$c-background:  #58DF37; // #E29CEF; // #e7e7e7; //
+
+$c-background: #f5f5f5;  //#58DF37; // #E29CEF; // #e7e7e7; //
 $c-light: lighten($c-background, 30);
 $c-line: desaturate(lighten($c-background, 10), 40);
 $c-gray: gray;
 $c-text: #333;
+$c-link: #00adef;
+$c-link-dk: darken(desaturate($c-link,20), 20);

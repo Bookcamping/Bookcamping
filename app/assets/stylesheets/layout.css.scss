@@ -53,6 +53,8 @@ ul.items {
         margin: 5px; padding: 5px;
     }
 
+    li.item:hover {background-color:darken($c-background, 10);}
+
     li.item.shelf {
     }
 
