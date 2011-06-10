@@ -2,7 +2,7 @@
 @import "variables.css.scss";
 
 html {
-    background-color: $c-background;
+    background: url('/assets/background.jpg') $c-background;
 }
 
 body {
