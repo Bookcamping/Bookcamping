@@ -30,6 +30,7 @@ form {
     textarea {height: 5em; width: 100%;}
 
     div.input {
+        margin: 10px 0;
         label {display:block; font-weight:bold;}
         .hint {color: gray;display:block;font-size:80%;}
         input[type=text], input[type=url], textarea {

@@ -1,5 +1,5 @@
 <%= div_for book do %>
-    <h2><%= book.title %></h2>
+    <h2><%= link_to_unless_current book.title, book %></h2>
     <%= button_group do %>
         <%= edit_button_link_to t('.edit'), edit_book_path(book) if can? :edit, book %>
         <%= danger_remove_button_link_to 'Borrar', book_path(book), :method => :delete,

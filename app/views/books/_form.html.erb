@@ -3,10 +3,11 @@
     <%= form.input :authors %>
     <%= form.input :editor %>
     <%= form.input :date %>
-    <%= form.association :license, :allow_blank => false %>
+    <%= form.input(:initial_shelf, :collection => shelves, :include_blank => false) if book.new_record? %>
+    <%= form.association :license, :include_blank => false %>
     <%= form.input :url %>
     <%= form.input :media %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
-    <%= button_submit_tag 'Guardar' %>
+    <%= form.submit 'Guardar' %>
 <% end %>

@@ -4,8 +4,8 @@
 div.container {
     width: 100%; overflow: hidden;
 
-    div.browser_column { float: left; width: 60%; }
-    div.main_column { float: left; width: 40%; }
+    div.main_column { float: left; width: 60%; }
+    div.sidebar_column { float: left; width: 40%; }
 }
 
 #main {
@@ -18,16 +18,16 @@ div.container {
         overflow:hidden;
         border-radius: 10px;
 
-        div.browser {
+        div.main {
             padding: 10px;
             background-color: lighten($c-background, 6);
+            box-shadow: 0 0 30px darken($c-background, 50);
             padding-bottom: 10000px;
             margin-bottom: -10000px;
         }
 
-        div.main {
+        div.sidebar {
             padding: 10px;
-            box-shadow: 0 0 10px darken($c-background, 50);
             padding-bottom: 10000px;
             margin-bottom: -10000px;
 
@@ -40,6 +40,7 @@ div.container {
 
 
 .button-group {margin-top: 10px;}
+.notice {background-color: yellow;}
 
 ul.items {
     width: 100%; overflow: hidden;
@@ -61,7 +62,5 @@ ul.items {
     li.item.book {
         float: left; overflow: hidden;
         width: 80px; height: 100px;
-
-
     }
 }

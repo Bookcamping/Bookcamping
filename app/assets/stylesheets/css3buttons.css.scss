@@ -6,7 +6,7 @@ Licensed under Unlicense
 
 /* ------------------------------------------------------------------------------------------------------------- BUTTON */
 
-.button {
+@mixin button {
     position: relative;
     overflow: visible;
     display: inline-block;
@@ -38,9 +38,17 @@ Licensed under Unlicense
     *display: inline;
 }
 
+.button {
+    @include button;
+}
+
+form input[type=submit] {@include button; padding-bottom: 4px;}
+
+
 $c-active-from: #217c91; //#599bdc;
 $c-active-to: #0B2930; //#3072b3;
 
+form input[type=submit]:hover,
 .button:hover,
 .button:focus,
 .button:active {
@@ -56,6 +64,7 @@ $c-active-to: #0B2930; //#3072b3;
     background-image: linear-gradient($c-active-from, $c-active-to);
 }
 
+form input[type=submit]:active,
 .button:active,
 .button.active {
     border-color: #2a65a0;

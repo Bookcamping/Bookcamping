@@ -2,6 +2,5 @@
     <%= form.input :name, :as => :text %>
     <%= form.input :slug if current_user? :admin %>
     <%= form.association :user if current_user? :super %>
-    <%= button_submit_tag 'Guardar' %>
-    <%= link_to 'Cancelar', (shelf.new_record? ? shelves_path : shelf) %>
+    <%= form.submit 'Guardar' %>
 <% end %>

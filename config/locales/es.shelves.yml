@@ -13,10 +13,13 @@ es:
     notice:
       destroy: "Lista borrada."
       not_empty: "No se puede borrar una lista si no está vacía"
+    edit:
+      title: "Modificar lista"
   simple_form:
     labels:
       name: "Nombre"
       slug: "Nombre corto"
+      initial_shelf: 'Incluido en la lista'
     hints:
       name: "Tienes 200 caracteres"
       slug: "Sirve para poner enlaces a esta lista. Sólo letras y números (sin espacios). 50 caracteres."

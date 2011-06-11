@@ -1,6 +1,4 @@
-<%= lists_div 2 do %>
-    <%= render_info %>
-    <div class="list">
+<%= content_for :browser do %>
       <%= title t('title') %>
       <%= simple_form_for camp do |form| %>
           <%= form.input :name %>
@@ -11,5 +9,4 @@
           <%= form.input :origin, :as => :text %>
           <%= button_submit_tag 'Guardar' %>
       <% end %>
-    </div>
 <% end %>

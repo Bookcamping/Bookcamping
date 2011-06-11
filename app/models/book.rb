@@ -33,6 +33,14 @@ class Book < ActiveRecord::Base
     self.update_attribute("#{name}_marks", value)
   end
 
+  def initial_shelf
+    @initial_shelf
+  end
+
+  def initial_shelf=(shelf_id)
+    @initial_shelf = shelf_id
+  end
+
 
 
 end

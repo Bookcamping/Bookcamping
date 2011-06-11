@@ -32,6 +32,7 @@ class BooksController < ApplicationController
 
   def new
     authorize! :new, book
+    book.initial_shelf = shelf.id if shelf
   end
 
   def edit

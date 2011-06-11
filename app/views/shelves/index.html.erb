@@ -1,16 +1,13 @@
-<% title t('.title') %>
 
-<% content_for :browser do %>
-    <div class="list">
-      <h1>LISTAS</h1>
+<div class="list">
+  <%= title t('.title') %>
 
-      <%= button_group do %>
-          <%= add_button_link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
-          <%= add_button_link_to t('.add_book', :model => current_model), new_book_path if can? :create, Book %>
-      <% end %>
+  <%= button_group do %>
+      <%= add_button_link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
+      <%= add_button_link_to t('.add_book', :model => current_model), new_book_path if can? :create, Book %>
+  <% end %>
 
-      <%= render :partial => 'shelves', :object => shelves %>
-    </div>
-<% end %>
+  <%= render :partial => 'shelves', :object => shelves %>
+</div>
 
-<%= render :partial => 'welcome' %>
+<%= sidebar 'welcome' %>

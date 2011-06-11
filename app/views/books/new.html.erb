@@ -1,7 +1,10 @@
-<% content_for :browser do %>
-    <%= title t('.title', :model => current_model) %>
-    <%= render 'form' %>
+<%= sidebar %>
+
+<%= title t('.title', :model => current_model) %>
+
+<%= button_group do %>
+    <%= arrowleft_button_link_to 'Cancelar', books_path %>
 <% end %>
 
+<%= render 'form' %>
 
-<%= render 'welcome' %>

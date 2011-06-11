@@ -1,7 +1,9 @@
-<%= lists_div 2 do %>
-    <%= render 'layouts/intro' %>
-    <div class="list">
-      <%= title t('.title') %>
-      <%= render :partial => 'form' %>
-    </div>
+<%= sidebar %>
+
+<%= title t('.title') %>
+
+<%= button_group do %>
+    <%= arrowleft_button_link_to 'Cancelar edición', shelf %>
 <% end %>
+
+<%= render :partial => 'form' %>

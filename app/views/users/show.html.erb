@@ -6,10 +6,13 @@
       <%= home_button_link_to 'Volver', root_path %>
       <%= edit_button_link_to 'Editar', [:edit, user] if can? :edit, user %>
       <%= remove_button_link_to 'Salir', signout_path, :confirm => '¿Seguro que quieres salir?' if current_user == user %>
+      <% if current_user? :super %>
+          <%= button_link_to 'Editar camp', edit_camp_path(current_camp) %>
+      <% end %>
   <% end %>
 </div>
 
-<h2><%= current_user == user ? 'Tus' : 'Sus'%> <%= current_model %>s (<%= books.size %>)</h2>
+<h2><%= current_user == user ? 'Tus' : 'Sus' %> <%= current_model %>s (<%= books.size %>)</h2>
 <ul>
   <% books.each do |book| %>
       <li><%= link_to book.title, book %></li>
