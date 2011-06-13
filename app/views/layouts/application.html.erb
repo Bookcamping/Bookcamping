@@ -18,6 +18,10 @@
       <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>
       <p id="search-error" class="error">&nbsp;</p>
     </div>
+    <div id="links">
+      <%= link_to '#bookcamping', 'http://bookcamping.cc' %>
+      <%= link_to '#videocamping', 'http://videocamping.cc' %>
+    </div>
   <div id="session">
     <% if current_user %>
         <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
