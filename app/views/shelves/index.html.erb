@@ -8,13 +8,13 @@
 
   <div class="generated lists">
     <br/>
-    <%= link_to 'Últimas adquisiciones', list_path(:ultimas) %> |
-    <%= link_to 'Más comentadas', list_path(:comentadas) %> |
-    <%= link_to 'Más valoradas', list_path(:valoradas) %> |
-    <%= link_to 'Más deseadas', list_path(:deseadas) %> |
+    <%= link_to 'Últimas adquisiciones', auto_shelf_path(:ultimas) %> |
+    <%= link_to 'Más comentadas', auto_shelf_path(:comentadas) %> |
+    <%= link_to 'Más valoradas', auto_shelf_path(:valoradas) %> |
+    <%= link_to 'Más deseadas', auto_shelf_path(:deseadas) %> |
   </div>
 
   <%= render :partial => 'shelves', :object => shelves %>
 </div>
 
-<%= sidebar 'welcome' %>
+<%= sidebar  %>

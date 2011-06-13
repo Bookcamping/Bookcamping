@@ -14,7 +14,7 @@ module ApplicationHelper
     content_tag(:div, content_tag(:div, :class => "lists", :style => "width: #{size * 380}px;", &block), :class => 'container')
   end
 
-  def sidebar(partial = 'welcome')
+  def sidebar(partial = 'sidebar')
     content_for(:sidebar) { render partial }
   end
 

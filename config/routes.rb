@@ -12,7 +12,6 @@ Bookcamp::Application.routes.draw do
     end
   end
 
-
   resources :camps, :path => 'campamentos'
   resources :licenses, :path => 'licencias'
 
@@ -23,6 +22,7 @@ Bookcamp::Application.routes.draw do
     resources :bookmarks, :path => 'marcar'
   end
 
+  resources :auto_shelves, :path => 'lista'
   resources :users, :path => 'colaboradorxs'
   resources :versions, :path => 'actividad'
 
@@ -36,5 +36,4 @@ Bookcamp::Application.routes.draw do
   match "/buscar/:term" => "books#search", :as => :search
   match "/explorar" => "app#app", :as => :app
   match "/seccion/:id" => "app#section", :as => :section
-  match "/lista/:id" => "shelves#show_autoshelf", :as => :list
 end

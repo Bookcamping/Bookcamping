@@ -27,14 +27,16 @@ div.book {
     a.back {font-size: 80%;}
 
 
+
+
     table.social {
         margin-top:5px;
         div.twitter {width: 110px;overflow:hidden; margin-top:5px; height:30px;}
         div.facebook {width: 160px;overflow:hidden; height:30px; }
-    }
+        }
 
     div.media {
-        overflow: hidden;
+        overflow: hidden; text-align:center;
         img {display: block; margin: 5px auto;}
     }
 

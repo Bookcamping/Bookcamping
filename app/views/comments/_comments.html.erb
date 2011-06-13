@@ -1,7 +1,7 @@
 <div class="comments section">
   <h3><%= t('.comments') %></h3>
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
-      <%= form.input :body, :as => :text %>
+      <%= form.input :body, :as => :text, :label => false %>
       <% if current_user? %>
           <%= content_tag :p, t('.anonymous_comment'), :class => 'notice' %>
           <%= check_box_tag :anonymous %> <%= t('.force_anonymous') %><br/><br/>

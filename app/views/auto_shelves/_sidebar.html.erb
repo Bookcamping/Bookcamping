@@ -1,0 +1,16 @@
+<h1>ESTADÍSTICAS</h1>
+
+<h2>Número de referencias: <%= current_camp.books.count %></h2>
+<h2>Número de colaboradoras: <%= current_camp.users.count %></h2>
+<br/>
+<ul>
+  <li><%= link_to 'Últimas adquisiciones', auto_shelf_path(:ultimas) %></li>
+  <li><%= link_to 'Más comentadas', auto_shelf_path(:comentadas) %></li>
+  <li><%= link_to 'Más valoradas', auto_shelf_path(:valoradas) %></li>
+  <li><%= link_to 'Más deseadas', auto_shelf_path(:deseadas) %></li>
+</ul>
+
+<br/>
+<br/>
+
+

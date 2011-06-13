@@ -1,0 +1,13 @@
+
+div.book {
+    div.media {
+        overflow: hidden;
+        img {display: block; margin: 5px auto;}
+    }
+
+        table.social {
+        margin-top:5px;
+        div.twitter {width: 110px;overflow:hidden; margin-top:5px; height:30px;}
+        div.facebook {width: 160px;overflow:hidden; height:30px; }
+        }
+}

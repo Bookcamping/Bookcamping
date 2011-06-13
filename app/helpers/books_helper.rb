@@ -10,8 +10,8 @@ module BooksHelper
     text
   end
 
-  def render_book(book, ctx = :book)
-    render :partial => 'books/book', :locals => {:book => book, :ctx => ctx}
+  def render_book(book)
+    render :partial => 'books/book', :object => book
   end
 
   def render_book_list(books)

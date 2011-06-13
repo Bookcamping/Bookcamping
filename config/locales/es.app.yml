@@ -7,10 +7,10 @@ es:
       library: 'Mi librería'
 
     lists:
-      ultimas: "<span class='iconic rss'></span>Últimas adquisiciones"
-      comentadas: "<span class='iconic comment'></span>Más comentados"
-      valoradas: "<span class='iconic heart'></span>Más valorados"
-      deseadas: "<span class='iconic star'></span>Más deseados"
+      ultimas: "Últimas adquisiciones"
+      comentadas: "Más comentados"
+      valoradas: "Más valorados"
+      deseadas: "Más deseados"
   books:
     list_as_grid:
       new_reference: "+&nbsp;Añadir %{model}"

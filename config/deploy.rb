@@ -2,13 +2,13 @@
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
 # default_run_options[:pty] = true
-set :application, "Bookcamp"
+set :application, "GoCamping"
 set :deploy_to, "/home/deploy/#{application}"
 set :user, "deploy"
 set :use_sudo, false
 
 set :scm, "git"
-set :repository,  "git://github.com/recortable/Bookcamp.git"
+set :repository,  "git://github.com/recortable/GoCamping.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, false
