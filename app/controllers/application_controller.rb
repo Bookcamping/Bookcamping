@@ -6,9 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user?
 
   expose(:current_camp) do
-    if request.subdomain.present?
-      camp = Camp.find_by_subdomain(request.subdomain)
-      session[:camp_id] ||= camp.id if camp
+    if request.domain == 'videocamping'
+      session[:camp_id] = 2
     end
     session[:camp_id] ||= 1
     Camp.find session[:camp_id]
