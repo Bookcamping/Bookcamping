@@ -9,7 +9,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository,  "git://github.com/recortable/GoCamping.git"
-set :branch, "master"
+set :branch, "ui2"
 set :deploy_via, :remote_cache
 set :scm_verbose, false
 
