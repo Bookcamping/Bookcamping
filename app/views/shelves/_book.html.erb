@@ -1,7 +1,7 @@
 <%= content_tag_for :li, book, :class => 'item' do %>
     <h3><%= link_to book.title, (shelf ? [shelf, book] : book) %></h3>
     <div class="info">
-      <%= image_tag(book.license.icon, :class => 'license') %>
+      <%= image_tag(book.license.icon, :class => 'license') if book.license %>
       <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
       <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
       <% if book.editor.present? %>
