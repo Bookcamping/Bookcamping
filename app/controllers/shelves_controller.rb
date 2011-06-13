@@ -2,6 +2,7 @@ class ShelvesController < ApplicationController
   respond_to :html, :js, :json
   expose(:shelves) { current_camp.shelves }
   expose(:shelf)
+  expose(:auto_shelf) { AutoShelf.new(params[:id]) }
 
   def browse
   end
@@ -12,8 +13,8 @@ class ShelvesController < ApplicationController
   def show
   end
 
-  def grid
-    render_grid shelf.name, shelf.books, shelf
+  def show_autoshelf
+    render :action => :show
   end
 
   def new

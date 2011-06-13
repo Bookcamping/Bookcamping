@@ -1,11 +1,18 @@
-
-<div class="list">
+<div class="lists">
   <%= title t('.title') %>
 
   <%= button_group do %>
       <%= add_button_link_to t('.add_shelf'), new_shelf_path if can? :create, Shelf %>
       <%= add_button_link_to t('.add_book', :model => current_model), new_book_path if can? :create, Book %>
   <% end %>
+
+  <div class="generated lists">
+    <br/>
+    <%= link_to 'Últimas adquisiciones', list_path(:ultimas) %> |
+    <%= link_to 'Más comentadas', list_path(:comentadas) %> |
+    <%= link_to 'Más valoradas', list_path(:valoradas) %> |
+    <%= link_to 'Más deseadas', list_path(:deseadas) %> |
+  </div>
 
   <%= render :partial => 'shelves', :object => shelves %>
 </div>
