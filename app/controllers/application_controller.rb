@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user?
 
   expose(:current_camp) do
-    if request.domain == 'videocamping'
+    if request.domain == 'videocamping.cc'
       session[:camp_id] = 2
     end
     session[:camp_id] ||= 1
