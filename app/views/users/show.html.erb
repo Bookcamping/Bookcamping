@@ -10,9 +10,9 @@
             <%= edit_button_link_to 'Editar', [:edit, user] if can? :edit, user %>
         <% end %>
       </div>
-      <h2>Tus <%= current_model %>s</h2>
+      <h2><%= current_user == user ? 'Tus' : 'Sus' %> <%= current_model %>s (<%= books.size %>)</h2>
       <ul>
-        <% books do |book| %>
+        <% books.each do |book| %>
             <li><%= link_to "&rArr; #{book.title}".html_safe, book %></li>
         <% end %>
       </ul>
