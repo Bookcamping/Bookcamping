@@ -45,9 +45,14 @@
       <div class="bookmarks">
         <%= render_bookmarks book %>
         <% if current_user? :super and ctx == :book %>
-            <% book.bookmarks.each do |bookmark| %>
-                <li><%= bookmark.name %> - <%= bookmark.user.name %></li>
-            <% end %>
+            <div>
+              <%= book.comments_count %> comentarios.
+              <ul>
+                <% book.bookmarks.each do |bookmark| %>
+                    <li><%= bookmark.name %> - <%= bookmark.user.name %></li>
+                <% end %>
+              </ul>
+            </div>
         <% end %>
       </div>
       <table class="social">
