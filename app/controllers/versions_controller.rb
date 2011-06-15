@@ -1,5 +1,5 @@
 class VersionsController < ApplicationController
-  expose(:versions) { current_camp.versions.order('id DESC').limit(20)}
+  expose(:versions) { current_camp.versions.order('id DESC').limit(40)}
   expose(:version)
 
   def index
