@@ -1,13 +1,11 @@
 source 'http://rubygems.org'
 
-#gem 'rails', '3.1.0.beta1'
-gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
-gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git' 
-gem 'sqlite3'
-gem 'mysql2'
+gem 'rails', '3.1.0.rc4'
+#gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
+#gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 
 # Asset template engines
-gem 'sass'
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
@@ -36,8 +34,15 @@ gem 'rails_autolink'
 gem 'exception_notification', :require => 'exception_notifier'
 #gem 'newrelic_rpm'
 
+# heroku
+group :production do
+  gem 'pg'
+end
+
 group :test, :development do
   # Pretty printed test output
+  gem 'sqlite3'
+  gem 'mysql2'
   gem 'oink'
   gem 'mongrel', '1.2.0.pre2'
   gem 'ruby-debug19'
