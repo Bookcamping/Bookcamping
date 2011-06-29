@@ -37,6 +37,7 @@ gem 'exception_notification', :require => 'exception_notifier'
 # heroku
 group :production do
   gem 'pg'
+  gem 'therubyracer-heroku'
 end
 
 group :test, :development do

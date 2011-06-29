@@ -1,3 +1,6 @@
-<%= title book.title %>
-
 <%= render shelf if shelf? %>
+
+<% content_for :sidebar do %>
+    <%= title book.title %>
+    <%= image_tag(book.license.icon) %>
+<% end %>
