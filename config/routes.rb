@@ -5,10 +5,7 @@ Bookcamp::Application.routes.draw do
   match "/estadisticas" => "books#statistics", :as => :statistics
 
   resources :shelves, :path => 'listas' do
-    get :grid, :on => :member
-    resources :books, :path => 'referencia', :only => [:new, :create]
-    resources :shelf_items, :path => 'incluidos' do
-    end
+    resources :books, :path => 'referencia', :only => :show
   end
 
   resources :camps, :path => 'campamentos'

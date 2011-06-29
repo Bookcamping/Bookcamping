@@ -18,4 +18,12 @@ class Shelf < ActiveRecord::Base
   def add_book(book, user)
     ShelfItem.create!(:shelf_id => self.id, :book_id => book.id, :user_id => user.id)
   end
+
+  def background
+    color? ? color : 'black'
+  end
+
+  def to_param
+    "#{self.id}-#{self.name.parameterize}"
+  end
 end

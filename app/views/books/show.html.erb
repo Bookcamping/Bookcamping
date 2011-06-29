@@ -1,8 +1,1 @@
-<% title book.title.present? ? book.title : 'Ver' %>
-<%= lists_div 3 do %>
-    <%= render 'layouts/intro' %>
-    <%= render_shelves shelves %>
-    <div class="list">
-      <%= render_book book %>
-    </div>
-<% end %>
+<%= title book.title %>

@@ -1,14 +1,15 @@
 class BooksController < ApplicationController
   respond_to :html, :js, :json
   expose(:shelves) { current_camp.shelves }
-  expose(:shelf) { shelves.find params[:shelf_id] if params[:shelf_id]}
+  expose(:shelf?) { params[:shelf_id].present? }
+  expose(:shelf) { shelves.find params[:shelf_id] if shelf? }
   expose(:books) { current_camp.books }
   expose(:book)
 
 
 
   def index
-    redirect_to root_path
+    redirect_to shelf? ? shelf : root_path
   end
 
   expose(:latest_books) { current_camp.books.order('id DESC').limit(5) }

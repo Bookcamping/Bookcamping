@@ -28,3 +28,34 @@ table.shelves {
         margin: 0;padding:0;height: 5px;
     }
 }
+
+div.shelf {
+    div.info {
+        padding: 3px 0;
+        border-bottom: 2px solid black;
+
+        h1 {font-size: 20px; font-weight: bold;}
+    }
+
+    div.books {
+        div.book {
+            float: left;
+            width: 109px; height: 143px;
+            background: url('/assets/ui3/book.png') no-repeat;
+            margin-left: -3px;
+            margin-right: 6px;
+            margin-bottom: 3px;
+
+            div.content {
+                font-size: 13px;
+                margin: 20px 6px 3px 15px;
+                height: 114px;
+                overflow: hidden;
+
+                a {color: black;}
+                h3 {font-weight: bold;}
+            }
+
+        }
+    }
+}
