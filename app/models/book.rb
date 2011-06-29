@@ -17,10 +17,20 @@ class Book < ActiveRecord::Base
 
   attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media, :license_id
   attr_accessible :user_id, :as => :super
+  attr_accessor :include_in_shelf_id
 
   validates :user_id, :presence => true
   validates :camp_id, :presence => true
+  validates :title, :presence => true
+  validates :license_id, :presence => true
 
+
+  after_create do
+    if include_in_shelf_id.present?
+      shelf = Shelf.find include_in_shelf_id
+      shelf.add_book self, self.current_user
+    end
+  end
 
   def bookmark_count(name)
     self.send "#{name}_marks"

@@ -1,10 +1,16 @@
-
 <%= div_for shelf do %>
     <div class="info">
+      <div class="count">
+        <%= shelf.books_count %><br/>
+        <%= current_model %>s
+      </div>
+      <div class="controls">
+        <%= link_to "Añadir #{current_model}", new_book_path, :class => 'add' %>
+        <%= link_to 'Volver', shelves_path, :class => 'back' %>
+      </div>
       <%= title shelf.name %>
       Creada por <%= shelf.user.name %> y modificada hace <%= time_ago_in_words shelf.updated_at %>
     </div>
-
     <div class="books container">
       <% shelf.books.each do |book| %>
           <%= div_for book, :style => "background-color: #{shelf.background};" do %>

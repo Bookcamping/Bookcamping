@@ -33,6 +33,7 @@ class BooksController < ApplicationController
   end
 
   def new
+    book.include_in_shelf_id = params[:shelf_id]
     authorize! :new, book
   end
 
@@ -44,10 +45,7 @@ class BooksController < ApplicationController
     book.user = current_user
     book.camp = current_camp
     authorize! :create, book
-    Book.transaction do
       flash[:notice] = t('books.notice.create') if book.save
-      shelf.add_book book, current_user
-    end
     respond_with book
   end
 

@@ -1,13 +1,15 @@
-<%= simple_form_for [shelf, book] do |form| %>
+<%= simple_form_for book do |form| %>
+    <% if book.new_record? %>
+        <%= form.input :include_in_shelf_id, :collection => Shelf.all, :include_blank => false %>
+    <% end %>
     <%= form.input :title %>
     <%= form.input :authors %>
     <%= form.input :editor %>
     <%= form.input :date %>
-    <%= form.association :license, :allow_blank => false %>
+    <%= form.association :license, :include_blank => false %>
     <%= form.input :url %>
     <%= form.input :media %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
-      <%= button_submit_tag 'Guardar' %>
-      <%= link_to 'Cancelar', book.new_record? ? root_path : book %>
+    <%= form.submit 'Guardar' %>
 <% end %>

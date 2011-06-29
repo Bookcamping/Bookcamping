@@ -5,5 +5,24 @@ html {
     font-family: $f-base;
 }
 
+
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
+
+
+form {
+    div.input {
+        width: 100%; overflow: hidden;
+        margin: 5px 0;
+
+        label {
+            display: block; font-weight: bold;
+        }
+
+        .hint {
+            display: block; color: gray;
+        }
+
+        input[type=text], textarea {width: 400px; border: 1px solid black; padding: 2px;}
+    }
+}

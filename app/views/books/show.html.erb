@@ -1,4 +1,9 @@
-<%= render shelf if shelf? %>
+<% if shelf? %>
+    <%= render shelf %>
+<% else %>
+    <h1>Incluído en las siguientes listas</h1>
+    <%= render :partial => 'shelves/shelves', :object => book.shelves %>
+<% end %>
 
 <% content_for :sidebar do %>
     <%= div_for book do %>
@@ -10,6 +15,11 @@
           <% if book.editor.present? %>
               / <%= content_tag :span, book.editor, :class => 'editor' %>
           <% end %>
+        </div>
+        <div class="actions">
+          <%= link_to 'Editar', [:edit, book] if can? :edit, book %>
+          <%= link_to 'Borrar', book, :method => :delete,
+                      :confirm => "¿Quieres borrar '#{book.title}'?" if can? :destroy, book %>
         </div>
         <div class="description">
           <%= render_description book %>
@@ -24,7 +34,7 @@
               <%= render_media book %>
             </div>
         <% end %>
-         <%= render_comments(book.comments, Comment.new(:resource => book)) %>
+        <%= render_comments(book.comments, Comment.new(:resource => book)) %>
 
     <% end %>
 <% end %>

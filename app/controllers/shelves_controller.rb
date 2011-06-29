@@ -12,10 +12,6 @@ class ShelvesController < ApplicationController
   def show
   end
 
-  def grid
-    render_grid shelf.name, shelf.books, shelf
-  end
-
   def new
     authorize! :new, Shelf
   end

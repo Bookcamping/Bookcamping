@@ -31,10 +31,37 @@ table.shelves {
 
 div.shelf {
     div.info {
+        width: 100%; overflow: hidden;
         padding: 3px 0;
         border-bottom: 2px solid black;
 
-        h1 {font-size: 20px; font-weight: bold;}
+        div.count {
+            float: right; width: 64px; height: 44px;
+            text-align: center; padding: 10px 0;
+            background-color: black; color: white;
+            font-weight: bold;
+        }
+
+        div.controls {
+            float: right; width: 132px; height: 58px;
+
+            a.add {
+                display: block;
+                height: 18px; padding: 3px 5px;
+                border: 1px solid black;
+                color: black;
+            }
+
+            a.back {
+                display: block;
+                width: 79px; height: 25px;
+                overflow: hidden; text-indent: -1000px;
+                background: url('/assets/ui3/back.png') no-repeat;
+            }
+        }
+
+
+        h1 {font-size: 16px; font-weight: bold;}
     }
 
     div.books {
@@ -48,12 +75,12 @@ div.shelf {
 
             div.content {
                 font-size: 13px;
-                margin: 20px 6px 3px 15px;
+                margin: 20px 8px 3px 15px;
                 height: 114px;
                 overflow: hidden;
 
                 a {color: black;}
-                h3 {font-weight: bold;}
+                h3 {font-weight: bold;text-transform: uppercase;}
             }
 
         }

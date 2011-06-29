@@ -1,7 +1,4 @@
-<%= lists_div 2 do %>
-    <%= render 'layouts/intro' %>
-    <div class="list">
-      <%= title t('.title', :model => current_model)  %>
-      <%= render 'form' %>
-    </div>
-<% end %>
+<%= title t('.title', :model => current_model) %>
+<%= render 'form' %>
+
+<%#= content_for(:sidebar) { render 'sidebar' } %>
