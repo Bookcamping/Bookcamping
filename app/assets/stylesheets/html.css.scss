@@ -1,0 +1,9 @@
+
+@import "variables.css.scss";
+
+html {
+    font-family: $f-base;
+}
+
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110609141652) do
+ActiveRecord::Schema.define(:version => 20110629100820) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20110609141652) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "camp_id"
+    t.string   "color",          :limit => 16
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"

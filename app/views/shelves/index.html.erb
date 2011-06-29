@@ -1,6 +1,22 @@
 <% title t('.title') %>
 
-<%= lists_div 2 do %>
-    <%= render_info %>
-    <%= render_shelves shelves %>
-<% end %>
+<table class="shelves">
+  <% shelves.each do |shelf| %>
+      <tr class="spacer">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="shelf" style="background-color: <%= shelf.color %>;">
+        <td class="main">
+          <span class="name"><%= link_to shelf.name, shelf %></span>
+          <span class="user">Por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
+        </td>
+        <td class="count">
+          <div>
+            <%= shelf.books_count %><br/>
+            <%= current_model %>s
+            </div>
+        </td>
+      </tr>
+  <% end %>
+</table>

@@ -1,34 +1,30 @@
 
 @import "variables.css.scss";
 
-ul.shelves {
-    li span.info {font-size:80%;}
-    li span.info a {font-weight:normal;}
-    a {font-weight:bold;}
+table.shelves {
+    width: 100%;
+
+    tr.shelf {
+        width: 674px; height: 63px;
+        a {color: black;}
+
+        td.main {
+            width: 550px;
+            background: url('/assets/ui3/shelf.png') no-repeat;
+            padding: 0 50px 0 30px;
+            .name {font-weight: bold;}
+        }
+
+        td.count {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            div {margin-left: -10px;}
+        }
+    }
+
+    tr.spacer {
+        display: block;
+        margin: 0;padding:0;height: 5px;
+    }
 }
-
-div.shelf {
-
-
-    div.list_info {
-        font-size: 80%;
-        padding: 0 10px;
-        margin-top: -1em;
-    }
-
-    div.order {
-        padding: 0 10px; font-size: 80%;
-    }
-
-    ul.books {
-        padding: 0;
-        li {overflow:hidden;border-radius:3px;}
-        li:hover {background-color:$c-hover;}
-    }
-
-    noh3 {margin:30px 10px -10px 10px;padding: 0;border-bottom:1px solid $c-gray;color:$c-gray;}
-
-}
-
-textarea#shelf_name {height: 3em;}
-

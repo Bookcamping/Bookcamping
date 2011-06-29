@@ -1,15 +1,7 @@
 
-/** VARIABLES **/
-$c-bg: #e7e7e7;
-$c-gray: gray;
-$c-head: #0B2930;
-$s-width: 960px;
-$c-yellow: #ffff99;
+$s-width: 1025px;
+$s-center: 674px;
+$s-sidebar: 336px;
 
-$c-twlink: #0084B4;
-$c-link: lighten(#0B2930, 10);
-$c-hover: lighten($c-link, 70);
-
-$w-list: 360px;
-
-@mixin shadow {-moz-box-shadow: 0px 0px 25px #555;-webkit-box-shadow: 0px 0px 25px #555;box-shadow: 0px 1px 5px #555;}
+$f-base: 'Kreon', arial, serif;
+$f-session: 'Cousine', arial, serif;

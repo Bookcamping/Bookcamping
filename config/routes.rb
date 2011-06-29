@@ -1,5 +1,5 @@
 Bookcamp::Application.routes.draw do
-  root :to => 'app#app'
+  root :to => 'shelves#index'
 
   match "/reticula" => "shelves#browse", :as => :browse
   match "/estadisticas" => "books#statistics", :as => :statistics
@@ -8,7 +8,6 @@ Bookcamp::Application.routes.draw do
     get :grid, :on => :member
     resources :books, :path => 'referencia', :only => [:new, :create]
     resources :shelf_items, :path => 'incluidos' do
-      get :autocomplete_book_title, :on => :collection
     end
   end
 

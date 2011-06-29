@@ -1,0 +1,74 @@
+
+@import "variables.css.scss";
+
+.container {width:100%;overflow:hidden;}
+
+div#page {
+     width: $s-width; margin: 0 auto;
+
+    div#session {
+        width: $s-width; height: 25px;
+        color: white;
+        font-family: $f-session;
+        font-size: 12px;
+        background: url('/assets/ui3/session.png') no-repeat;
+    }
+
+    div#center {
+        width: $s-center; float: left;
+        border-top: 6px solid black;
+        margin-bottom: 30px;
+     }
+
+     div#sidebar {
+        width: $s-sidebar; float: left;
+        margin-left: 15px;
+        border-top: 6px solid black;
+     }
+
+}
+
+div#session {
+    margin: 30px 0 0 0;
+    a {color: white;}
+    .user {
+        padding: 7px 0 0 20px;
+    }
+}
+
+div#header {
+    margin: 20px 0;
+    h1 {
+        width: 1025px; height: 116px; overflow: hidden;
+        text-indent: -1000px;
+        background: url('/assets/ui3/bookcamping.png') no-repeat;
+    }
+}
+
+
+div#sidebar {
+    #sidecontent {
+        div.buttons {
+            margin-top: 16px;
+            width: 336px; height: 145px;
+            background: url('/assets/ui3/sidebuttons.png') no-repeat;
+
+            a {
+                display: block; float: left; width: 168px;
+                margin-top: 23px;
+                text-align: center; font-weight: bold; color: black;
+                text-transform: uppercase;
+             }
+        }
+
+        div.main {
+            color: white;background-color: black;
+            padding: 30px 20px;
+        }
+
+        div.footer {
+            width: $s-sidebar; height: 15px;
+            background: url('/assets/ui3/sidefooter.png') no-repeat;
+        }
+    }
+}

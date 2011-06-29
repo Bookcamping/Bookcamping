@@ -2,40 +2,55 @@
 <html>
 <head>
   <title><%= yield :title %> <%= current_camp.name %> </title>
+  <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cousine&v1' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag "application" %>
   <!--link href="/iconic.css" media="screen" rel="stylesheet" type="text/css"/-->
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="session">
-  <%= content_tag :span, "#{flash[:notice]} &rArr;".html_safe, :class => 'notice' if flash[:notice].present? %>
-  <% if current_user %>
-      <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
-      Hola <%= current_user.name %>!
-      <%= link_to "Salir", signout_path %>
-      <% if current_user.super? %>
-          <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
+<div id="page">
+  <div id="session">
+    <div class="user">
+      <% if current_user %>
+          <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
+          Hola <%= current_user.name %>!
+          <%= link_to "Salir", signout_path %>
+          <% if current_user.super? %>
+              <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
+          <% end %>
+      <% else %>
+          Entrar
+          con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %> <%= link_to "Facebook", "/auth/facebook" %>
       <% end %>
-  <% else %>
-      Entrar con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %> <%= link_to "Facebook", "/auth/facebook" %>
-  <% end %>
-</div>
-<div id="navigation">
-  <%= link_to '#bookcamping', 'http://bookcamping.cc' %> |
-  <%= link_to '#videocamping', 'http://videocamping.cc' %> |
-  <%= link_to 'explorar', app_path %> /
-  <%= link_to 'listas', shelves_path %> /
-  <%= link_to 'actividad', versions_path %> /
-  <%= link_to 'estadísticas', statistics_path %> /
-  <%= link_to 'colaboradorxs', users_path %>
+    </div>
+    <div class="search">
+      &nbsp;
+    </div>
+  </div>
+  <div id="flash">
+    <%= content_tag :span, "#{flash[:notice]} &rArr;".html_safe, :class => 'notice' if flash[:notice].present? %>
+  </div>
+
+  <div id="header">
+    <h1 id="logo">bookcamping</h1>
+  </div>
+  <div id="main">
+    <div class="container">
+      <div id="center">
+        <%= yield %>
+      </div>
+      <div id="sidebar">
+        <%= render 'sidebar' %>
+      </div>
+
+    </div>
+  </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="/js/jquery.js">\x3C/script>')</script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
 <%= javascript_include_tag "application" %>
-<div id="main">
-  <%= yield %>
-</div>
 
 <script type="text/javascript">
     var _gaq = _gaq || [];
