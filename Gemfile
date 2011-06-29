@@ -37,7 +37,7 @@ gem 'exception_notification', :require => 'exception_notifier'
 # heroku
 group :production do
   gem 'pg'
-  gem 'therubyracer-heroku'
+  gem "therubyracer-heroku", "~> 0.8.1.pre3"
 end
 
 group :test, :development do
@@ -49,8 +49,6 @@ group :test, :development do
   gem 'ruby-debug19'
   gem 'test-unit'
   gem 'database_cleaner'
-  gem 'capistrano'
   gem 'turn', :require => false
-  #gem 'rails_best_practices'
   gem 'yaml_db'
 end
