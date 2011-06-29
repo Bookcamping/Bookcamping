@@ -23,7 +23,7 @@
     </ul>
   </div>
   <div class="main">
-    <%= render current_camp.name[1..-1] %>
+    <%= render current_camp.name %>
   </div>
   <div id="search" class="search">
     <%= text_field_tag :q %><%= search_button_link_to 'Buscar'.html_safe, '#', :rel => :no_follow %>

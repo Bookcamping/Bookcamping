@@ -34,6 +34,7 @@ div.shelf {
         width: 100%; overflow: hidden;
         padding: 3px 0;
         border-bottom: 2px solid black;
+        margin-bottom: 10px;
 
         div.count {
             float: right; width: 64px; height: 44px;
@@ -43,40 +44,64 @@ div.shelf {
         }
 
         div.controls {
-            float: right; width: 132px; height: 58px;
+            float: right; width: 122px; height: 58px;
+            margin-right: 10px;
 
             a.add {
                 display: block;
                 height: 18px; padding: 3px 5px;
-                border: 1px solid black;
+                border: 2px solid black;
                 color: black;
             }
 
         }
 
 
-        h1 {font-size: 16px; font-weight: bold;}
+        h1 {font-size: 16px; margin-top: 0;;}
     }
 
-    div.books {
-        div.book {
-            float: left;
-            width: 109px; height: 143px;
-            background: url('/assets/ui3/book.png') no-repeat;
-            margin-left: -3px;
-            margin-right: 6px;
-            margin-bottom: 3px;
+}
 
-            div.content {
-                font-size: 13px;
-                margin: 20px 8px 3px 15px;
-                height: 114px;
-                overflow: hidden;
+div.books {
+    div.book {
+        float: left;
+        width: 109px; height: 143px;
+        background: url('/assets/ui3/book.png') no-repeat;
+        margin-left: -3px;
+        margin-right: 6px;
+        margin-bottom: 3px;
 
-                a {color: black;}
-                h3 {font-weight: bold;text-transform: uppercase;}
-            }
+        div.content {
+            font-size: 13px;
+            margin: 20px 8px 3px 15px;
+            height: 114px;
+            overflow: hidden;
 
+            a {color: black;}
+            h3 {font-weight: bold;text-transform: uppercase;}
         }
+
     }
+}
+
+
+div#autoshelves {
+    margin-top: 8px;
+    width: 100%; height:25px; overflow: hidden;
+    background: url('/assets/ui3/lists.png') no-repeat;
+    color: red;
+
+    a {
+        display: block; float: left; overflow: hidden;
+        height: 25px;
+        margin-right: 10px;
+        text-indent : -1000px;
+        border: 1px solid transparent;
+    }
+
+    a.ultimas {width: 190px;margin-left: 10px;}
+    a.comentadas {width: 155px;}
+    a.valoradas {width: 140px;}
+    a.deseadas {width: 135px; margin-right: 0;}
+
 }

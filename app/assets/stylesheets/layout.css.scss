@@ -44,15 +44,13 @@ div#session {
 div#header {
     margin: 20px 0;
     h1 {
-        width: 1025px; height: 116px; overflow: hidden;
+        width: 1025px; height: 125px; overflow: hidden;
         text-indent: -1000px;
         background: url('/assets/ui3/bookcamping.png') no-repeat;
     }
 }
 
 div#center {
-    h1 {font-size: 24px; margin-top: 20px;}
-
 }
 
 
@@ -74,6 +72,9 @@ div#sidebar {
         div.main {
             color: white;background-color: black;
             padding: 30px 20px;
+
+            p {margin: 10px 0;}
+            a {color: white; font-weight: bold;}
         }
 
         div.footer {

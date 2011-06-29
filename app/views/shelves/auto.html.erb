@@ -1,0 +1,13 @@
+<div id="autoshelves">
+  <% AutoShelf::NAMES.each do |name| %>
+      <%= link_to t("autoshelf.name.#{name}"), autoshelf_path(name), :class => name %>
+  <% end %>
+</div>
+
+
+<%= title autoshelf.title %>
+<%= link_to 'Volver', root_path, :class => 'back' %>
+
+<%= render_books autoshelf.books, '#efefef' %>
+
+<%= content_for(:sidebar) { render 'sidebar' } %>

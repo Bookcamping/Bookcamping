@@ -24,6 +24,7 @@ Bookcamp::Application.routes.draw do
   match "/libros/:id" => redirect("/referencia/%{id}")
 
 
+  match "/lista/:id" => "shelves#auto", :as => :autoshelf
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout
   match "/enter/:id" => "sessions#enter", :as => :enter
@@ -31,5 +32,4 @@ Bookcamp::Application.routes.draw do
   match "/buscar/:term" => "books#search", :as => :search
   match "/explorar" => "app#app", :as => :app
   match "/seccion/:id" => "app#section", :as => :section
-  match "/lista/:id" => "app#lists", :as => :list
 end

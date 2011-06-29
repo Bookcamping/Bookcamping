@@ -2,11 +2,16 @@ class ShelvesController < ApplicationController
   respond_to :html, :js, :json
   expose(:shelves) { current_camp.shelves }
   expose(:shelf)
+  expose(:autoshelf) { AutoShelf.find(params[:id], current_camp)}
 
   def browse
   end
 
   def index
+  end
+  
+  def auto
+    
   end
 
   def show

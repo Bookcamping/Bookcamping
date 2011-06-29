@@ -3,13 +3,15 @@
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
       <%= form.input :body, :as => :text %>
       <%= text_field_tag :email %>
-      <% if current_user? %>
-          <%= content_tag :p, t('.anonymous_comment'), :class => 'notice' %>
-          <%= check_box_tag :anonymous %> <%= t('.force_anonymous') %><br/><br/>
-      <% else %>
-          <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') %>
-      <% end %>
-      <%= button_submit_tag 'Comentar' %>
+      <div class="anonymous">
+        <% if current_user? %>
+            <%= content_tag :p, t('.anonymous_comment'), :class => 'notice' %>
+            <%= check_box_tag :anonymous %> <%= t('.force_anonymous') %>
+        <% else %>
+            <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') %>
+        <% end %>
+      </div>
+      <%= form.submit 'Comentar' %>
   <% end %>
   <ul class="comments">
     <% comments.each do |comment| %>
@@ -20,9 +22,9 @@
                 <span class="time">hace <%= time_ago_in_words comment.created_at %></span>
               </div>
               <%= comment.body %>
-              <% if current_user?(:admin) || current_user?(:super)%>
-              <%= link_to 'Borrar comentario', [comment.resource, comment], :method => :delete,
-                  :confirm => '¿Segura de que quieres borrar este comentario?' %>
+              <% if current_user?(:admin) || current_user?(:super) %>
+                  <%= link_to 'Borrar comentario', [comment.resource, comment], :method => :delete,
+                              :confirm => '¿Segura de que quieres borrar este comentario?' %>
               <% end %>
           <% end %>
         </li>

@@ -6,7 +6,7 @@ class Library
     @user = user
     @sections = {}
     @count = camp.books.count
-    root = section("#{camp.name[1..-1]} (#{@count})")
+    root = section("#{camp.name} (#{@count})")
     add(root, 'ultimas', 'list')
     add(root, 'comentadas', 'list')
     add(root, 'valoradas', 'list')

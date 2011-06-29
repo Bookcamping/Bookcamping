@@ -1,0 +1,10 @@
+<div class="books container">
+  <% books.each do |book| %>
+      <%= div_for book, :style => "background-color: #{background};" do %>
+          <div class="content">
+            <h3><%= link_to book.title, (shelf ? [shelf, book] : book) %></h3>
+            <%= book.date %> <%= book.authors %> <%= book.editor %>
+          </div>
+      <% end %>
+  <% end %>
+</div>

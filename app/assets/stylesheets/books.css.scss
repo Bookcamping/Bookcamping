@@ -1,15 +1,39 @@
 
+div#sidebar {
+    div.book {
+        padding: 0 10px;
+        h1 {font-size: 18px;}
 
-div.book {
-    div.media {text-align:center;}
+        div.media {text-align:center;}
 
-    form {
-        width: 100%;
-        div.input {
-            label {display: none;}
+
+        div.actions {
+            width: 100%; overflow: hidden;
+            margin: 10px 0;
+            a {
+                display: block; float: left;
+                padding: 1px 10px; margin-right: 5px;
+                border: 2px solid black;
+                color: black; font-weight: bold;
+             }
+        }
+
+        form {
+            width: 100%; overflow: hidden;
             input#email {display: none;}
-            textarea {width: 90%;}
+
+            .anonymous {font-size: 80%;}
+            input[type=submit] {float: right; margin-top: 10px;}
+            div.input {
+                label {display: none;}
+                textarea {width: 98%; height: 4em;}
+            }
+        }
+
+        ul.comments {
+            font-size: 90%;
+            li {padding-top: 5px; margin-top: 10px; border-top: 1px solid black;}
+            a {color: black; font-weight: bold;}
         }
     }
-
 }
