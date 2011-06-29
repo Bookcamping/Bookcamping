@@ -31,6 +31,10 @@ class Book < ActiveRecord::Base
     self.update_attribute("#{name}_marks", value)
   end
 
+  def to_param
+    limited = title.split[0..2].join(' ')
+    "#{self.id}-#{limited.parameterize}"
+  end
 
 
 end

@@ -24,6 +24,8 @@ class Shelf < ActiveRecord::Base
   end
 
   def to_param
-    "#{self.id}-#{self.name.parameterize}"
+    limited = name.split[0..2].join(' ')
+    "#{self.id}-#{limited.parameterize}"
   end
+
 end

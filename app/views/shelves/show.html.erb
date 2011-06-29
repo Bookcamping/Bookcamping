@@ -1,19 +1,2 @@
 
-<%= div_for shelf do %>
-    <div class="info">
-      <%= title shelf.name %>
-      Creada por <%= shelf.user.name %> y modificada hace <%= time_ago_in_words shelf.updated_at %>
-    </div>
-
-
-
-    <div class="books container">
-      <% shelf.books.each do |book| %>
-          <%= div_for book, :style => "background-color: #{shelf.background};" do %>
-              <div class="content">
-                <h3><%= link_to book.title, book %></h3>
-              </div>
-          <% end %>
-      <% end %>
-    </div>
-<% end %>
+<%= render shelf %>
