@@ -1,7 +1,7 @@
 <% if shelf? %>
     <%= render shelf %>
 <% else %>
-    <h1>Incluído en las siguientes listas</h1>
+    <h1>Incluído en</h1>
     <%= render :partial => 'shelves/shelves', :object => book.shelves %>
 <% end %>
 

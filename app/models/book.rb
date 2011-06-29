@@ -9,13 +9,13 @@ class Book < ActiveRecord::Base
   serialize :marks
 
   scope :titled, where('title != null')
-  scope :search, lambda {|term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
+  scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 
   has_paper_trail :meta => {
       :title => Proc.new { |book| book.title }
   }
 
-  attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media, :license_id
+  attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media, :license_id, :include_in_shelf_id
   attr_accessible :user_id, :as => :super
   attr_accessor :include_in_shelf_id
 
@@ -26,10 +26,8 @@ class Book < ActiveRecord::Base
 
 
   after_create do
-    if include_in_shelf_id.present?
-      shelf = Shelf.find include_in_shelf_id
-      shelf.add_book self, self.current_user
-    end
+    shelf = Shelf.find include_in_shelf_id
+    shelf.add_book self, self.user
   end
 
   def bookmark_count(name)

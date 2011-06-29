@@ -10,6 +10,11 @@
 </head>
 <body>
 <div id="page">
+  <div id="flash">
+    <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
+  </div>
+
+
   <div id="session">
     <div class="user">
       <% if current_user %>
@@ -27,9 +32,6 @@
     <div class="search">
       &nbsp;
     </div>
-  </div>
-  <div id="flash">
-    <%= content_tag :span, "#{flash[:notice]} &rArr;".html_safe, :class => 'notice' if flash[:notice].present? %>
   </div>
 
   <div id="header">

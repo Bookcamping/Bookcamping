@@ -1,6 +1,6 @@
 <%= simple_form_for book do |form| %>
     <% if book.new_record? %>
-        <%= form.input :include_in_shelf_id, :collection => Shelf.all, :include_blank => false %>
+        <%= form.input :include_in_shelf_id, :collection => current_camp.shelves, :include_blank => false %>
     <% end %>
     <%= form.input :title %>
     <%= form.input :authors %>

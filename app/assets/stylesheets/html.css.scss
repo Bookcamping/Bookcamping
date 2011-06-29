@@ -26,3 +26,10 @@ form {
         input[type=text], textarea {width: 400px; border: 1px solid black; padding: 2px;}
     }
 }
+
+a.back {
+    display: block;
+    width: 79px; height: 25px; margin-top: 10px;
+    overflow: hidden; text-indent: -1000px;
+    background: url('/assets/ui3/back.png') no-repeat;
+}
