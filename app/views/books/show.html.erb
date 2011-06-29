@@ -1,6 +1,30 @@
 <%= render shelf if shelf? %>
 
 <% content_for :sidebar do %>
-    <%= title book.title %>
-    <%= image_tag(book.license.icon) %>
+    <%= div_for book do %>
+        <div class="info">
+          <%= title book.title %>
+          <%= image_tag(book.license.icon) %>
+          <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
+          <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
+          <% if book.editor.present? %>
+              / <%= content_tag :span, book.editor, :class => 'editor' %>
+          <% end %>
+        </div>
+        <div class="description">
+          <%= render_description book %>
+        </div>
+        <% if book.url.present? %>
+            <div class="download_url">
+              <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url) %>
+            </div>
+        <% end %>
+        <% if book.media? %>
+            <div class="media">
+              <%= render_media book %>
+            </div>
+        <% end %>
+         <%= render_comments(book.comments, Comment.new(:resource => book)) %>
+
+    <% end %>
 <% end %>

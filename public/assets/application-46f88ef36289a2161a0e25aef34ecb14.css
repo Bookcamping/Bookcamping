@@ -1,0 +1,191 @@
+/*
+ * FIXME: Introduce SCSS & Sprockets
+*/
+
+/* Copyright (c) 2010, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: http://developer.yahoo.com/yui/license.html version: 3.3.0 build: 3167 */
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+/* line 4, /home/dani/Recortable/GoCamping/app/assets/stylesheets/books.css.scss */
+div.book div.media {
+  text-align: center;
+}
+/* line 4, /home/dani/Recortable/GoCamping/app/assets/stylesheets/html.css.scss */
+html {
+  font-family: "Kreon", arial, serif;
+}
+
+/* line 8, /home/dani/Recortable/GoCamping/app/assets/stylesheets/html.css.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 9, /home/dani/Recortable/GoCamping/app/assets/stylesheets/html.css.scss */
+a:hover {
+  text-decoration: underline;
+}
+/* line 4, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 6, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#page {
+  width: 1025px;
+  margin: 0 auto;
+}
+/* line 9, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#page div#session {
+  width: 1025px;
+  height: 25px;
+  color: white;
+  font-family: "Cousine", arial, serif;
+  font-size: 12px;
+  background: url("/assets/ui3/session.png") no-repeat;
+}
+/* line 17, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#page div#center {
+  width: 674px;
+  float: left;
+  border-top: 6px solid black;
+  margin-bottom: 30px;
+}
+/* line 23, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#page div#sidebar {
+  width: 336px;
+  float: left;
+  margin-left: 15px;
+  border-top: 6px solid black;
+}
+
+/* line 31, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#session {
+  margin: 30px 0 0 0;
+}
+/* line 33, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#session a {
+  color: white;
+}
+/* line 34, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#session .user {
+  padding: 7px 0 0 20px;
+}
+
+/* line 39, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#header {
+  margin: 20px 0;
+}
+/* line 41, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#header h1 {
+  width: 1025px;
+  height: 116px;
+  overflow: hidden;
+  text-indent: -1000px;
+  background: url("/assets/ui3/bookcamping.png") no-repeat;
+}
+
+/* line 51, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#sidebar #sidecontent div.buttons {
+  margin-top: 16px;
+  width: 336px;
+  height: 145px;
+  background: url("/assets/ui3/sidebuttons.png") no-repeat;
+}
+/* line 56, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#sidebar #sidecontent div.buttons a {
+  display: block;
+  float: left;
+  width: 168px;
+  margin-top: 23px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+}
+/* line 64, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#sidebar #sidecontent div.main {
+  color: white;
+  background-color: black;
+  padding: 30px 20px;
+}
+/* line 69, /home/dani/Recortable/GoCamping/app/assets/stylesheets/layout.css.scss */
+div#sidebar #sidecontent div.footer {
+  width: 336px;
+  height: 15px;
+  background: url("/assets/ui3/sidefooter.png") no-repeat;
+}
+/* line 4, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves {
+  width: 100%;
+}
+/* line 7, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.shelf {
+  width: 674px;
+  height: 63px;
+}
+/* line 9, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.shelf a {
+  color: black;
+}
+/* line 11, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.shelf td.main {
+  width: 550px;
+  background: url("/assets/ui3/shelf.png") no-repeat;
+  padding: 0 50px 0 30px;
+}
+/* line 15, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.shelf td.main .name {
+  font-weight: bold;
+}
+/* line 18, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.shelf td.count {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+/* line 22, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.shelf td.count div {
+  margin-left: -10px;
+}
+/* line 26, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+table.shelves tr.spacer {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 5px;
+}
+
+/* line 33, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+div.shelf div.info {
+  padding: 3px 0;
+  border-bottom: 2px solid black;
+}
+/* line 37, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+div.shelf div.info h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* line 41, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+div.shelf div.books div.book {
+  float: left;
+  width: 109px;
+  height: 143px;
+  background: url("/assets/ui3/book.png") no-repeat;
+  margin-left: -3px;
+  margin-right: 6px;
+  margin-bottom: 3px;
+}
+/* line 49, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+div.shelf div.books div.book div.content {
+  font-size: 13px;
+  margin: 20px 6px 3px 15px;
+  height: 114px;
+  overflow: hidden;
+}
+/* line 55, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+div.shelf div.books div.book div.content a {
+  color: black;
+}
+/* line 56, /home/dani/Recortable/GoCamping/app/assets/stylesheets/shelves.css.scss */
+div.shelf div.books div.book div.content h3 {
+  font-weight: bold;
+}
