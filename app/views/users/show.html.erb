@@ -1,8 +1,6 @@
-<%= lists_div 2 do %>
-    <%= render_info %>
     <div class="list users">
       <div class="nav">
-        <%= link_to "&larr; Volver".html_safe, users_path %>
+        <%= link_to "Volver".html_safe, users_path %>
       </div>
       <%= title user.name %>
       <div class="nav">
@@ -31,4 +29,3 @@
           </ul>
       <% end %>
     </div>
-<% end %>
