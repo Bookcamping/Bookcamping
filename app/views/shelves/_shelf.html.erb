@@ -11,5 +11,10 @@
       <%= title shelf.name %>
       Creada por <%= shelf.user.name %> y modificada hace <%= time_ago_in_words shelf.updated_at %>
     </div>
+    <div class="actions">
+      <%= link_to 'Editar', [:edit, shelf] if can? :edit, shelf %>
+      <%= link_to 'Borrar', shelf, :method => :delete,
+                  :confirm => "¿Estas segura de borrar la lista '#{shelf.name}'?" if can? :destroy, shelf %>
+    </div>
     <%= render_books shelf.books, shelf.background, shelf %>
 <% end %>

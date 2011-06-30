@@ -1,31 +1,21 @@
-    <div class="list users">
-      <div class="nav">
-        <%= link_to "Volver".html_safe, users_path %>
-      </div>
-      <%= title user.name %>
-      <div class="nav">
-        <%= button_group do %>
-            <%= edit_button_link_to 'Editar', [:edit, user] if can? :edit, user %>
-        <% end %>
-      </div>
-      <h2><%= current_user == user ? 'Tus' : 'Sus' %> <%= current_model %>s (<%= books.size %>)</h2>
-      <ul>
-        <% books.each do |book| %>
-            <li><%= link_to "&rArr; #{book.title}".html_safe, book %></li>
-        <% end %>
-      </ul>
+<%= link_to 'Volver', root_path, :class => 'back' %>
+<%= title user.name %>
+<div class="actions">
+  <%= link_to 'Editar', [:edit, user] if can? :edit, user %>
+</div>
+<h2><%= current_user == user ? 'Tus' : 'Sus' %> <%= current_model %>s (<%= books.size %>)</h2>
+<%= render_books user.books, '#efefef' %>
 
-      <% if current_user? :super %>
-          <h2>Información de administración</h2>
-          <ul>
-            <li><label>Vicio: </label><%= user.login_count %></li>
-            <li><label>Hace: </label><%= time_ago_in_words user.last_login_at if user.last_login_at? %></li>
-            <li><label>Rol: </label><%= user.rol %></li>
-            <li><label>Provider: </label><%= user.provider %></li>
-            <li><label>Uid: </label><%= user.uid %></li>
-            <% user.memberships.each do |ms| %>
-            <li><label>En <%= ms.camp.name %></label> - <%= ms.rol %></li>
-            <% end %>
-          </ul>
+<% if current_user? :super %>
+    <h2>Información de administración</h2>
+    <ul>
+      <li><label>Vicio: </label><%= user.login_count %></li>
+      <li><label>Hace: </label><%= time_ago_in_words user.last_login_at if user.last_login_at? %></li>
+      <li><label>Rol: </label><%= user.rol %></li>
+      <li><label>Provider: </label><%= user.provider %></li>
+      <li><label>Uid: </label><%= user.uid %></li>
+      <% user.memberships.each do |ms| %>
+          <li><label>En <%= ms.camp.name %></label> - <%= ms.rol %></li>
       <% end %>
-    </div>
+    </ul>
+<% end %>

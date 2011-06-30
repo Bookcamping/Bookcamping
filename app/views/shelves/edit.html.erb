@@ -1,7 +1,3 @@
-<%= lists_div 2 do %>
-    <%= render 'layouts/intro' %>
-    <div class="list">
-      <%= title t('.title') %>
-      <%= render :partial => 'form' %>
-    </div>
-<% end %>
+<%= link_to 'Volver', shelf, :class => 'back' %>
+<%= title t('.title') %>
+<%= render :partial => 'form' %>

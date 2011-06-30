@@ -43,3 +43,14 @@ a.back {
     overflow: hidden; text-indent: -1000px;
     background: url('/assets/ui3/back.png') no-repeat;
 }
+
+div.actions {
+    width: 100%; overflow: hidden;
+    margin: 10px 0;
+    a {
+        display: block; float: left;
+        padding: 1px 10px; margin-right: 5px;
+        border: 2px solid black;
+        color: black; font-weight: bold;
+     }
+}
