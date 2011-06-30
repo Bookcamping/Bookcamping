@@ -48,7 +48,7 @@ div#session {
              background: transparent; margin: 0; border: 0;
             height: 20px; width: 170px;}
          input[type=text]:focus {outline: none;}
-         input[type=submit] {margin-left: 25px; padding: 5px 0;}
+         input[type=submit] {margin-left: 25px; padding: 5px 0; font-family: $f-session;}
     }
 }
 
