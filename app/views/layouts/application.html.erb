@@ -32,7 +32,10 @@
       <% end %>
     </div>
     <div class="search">
-      &nbsp;
+      <%= form_tag '/buscar' do %>
+          <%= text_field_tag :term %>
+          <%= submit_tag 'Buscar' %>
+      <% end %>
     </div>
   </div>
 

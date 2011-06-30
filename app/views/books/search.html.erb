@@ -1,14 +1,5 @@
-<% title t('.title') %>
+<%= title t('.title') %>
+<h2>'<%= params[:term] %>' (<%= search_results.size %>)</h2>
+<br/>
 
-<%= lists_div 3 do %>
-    <%= render 'layouts/intro' %>
-    <%= render_shelves shelves %>
-    <div class="list shelf search-results">
-      <h1>Buscar '<span id="search-term"><%= params[:term] %></span>'</h1>
-
-      <div class="list_info info">
-        <%= search_results.count %> <%= current_camp.model_name %>s.
-      </div>
-      <%= render_book_list search_results %>
-    </div>
-<% end %>
+<%= render_books search_results, '#AAA' %>

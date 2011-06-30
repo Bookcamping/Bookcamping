@@ -34,10 +34,21 @@ div#flash {
 }
 
 div#session {
+    width: 100%; overflow: hidden;
     margin: 10px 0 0 0;
     a {color: white;}
     .user {
+        float: left;
         padding: 7px 0 0 20px;
+    }
+
+    .search {
+        float: right; width: 271px; padding: 0; margin: 0;
+        input[type=text] {
+             background: transparent; margin: 0; border: 0;
+            height: 20px; width: 170px;}
+         input[type=text]:focus {outline: none;}
+         input[type=submit] {margin-left: 25px; padding: 5px 0;}
     }
 }
 
