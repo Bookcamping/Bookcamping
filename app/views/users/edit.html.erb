@@ -1,14 +1,9 @@
-<%= lists_div 2 do %>
-    <%= render_info %>
-    <div class="list">
-      <%= title(t('.title'), :h2) %>
-      <%= simple_form_for user do |form| %>
-          <%= form.input :name %>
-          <%= form.input :rol %>
-          <%= form.input :provider %>
-          <%= form.input :uid, :as => :text %>
-          <%= button_submit_tag 'Guardar' %>
-          <%= link_to 'Cancelar', users_path %>
-      <% end %>
-    </div>
+<%= title(t('.title')) %>
+<%= simple_form_for user do |form| %>
+    <%= form.input :name %>
+    <%= form.input :rol %>
+    <%= form.input :provider %>
+    <%= form.input :uid, :as => :text %>
+    <%= button_submit_tag 'Guardar' %>
+    <%= link_to 'Cancelar', users_path %>
 <% end %>
