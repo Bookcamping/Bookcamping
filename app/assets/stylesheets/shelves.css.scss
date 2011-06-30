@@ -19,7 +19,7 @@ table.shelves {
             text-align: center;
             font-weight: bold;
             color: white;
-            div {margin-left: -10px;}
+            a {display: block; margin-left: -10px;}
         }
     }
 
@@ -64,7 +64,17 @@ div.shelf {
 
 div.books {
     div.book {
-        float: left;
+            float: left;
+
+            div.content {
+                overflow: hidden;
+                font-size: 13px;
+                a {color: black;}
+                h3 {font-weight: bold;text-transform: uppercase;}
+            }
+    }
+
+    div.bookcamping {
         width: 109px; height: 143px;
         background: url('/assets/ui3/book.png') no-repeat;
         margin-left: -3px;
@@ -72,15 +82,20 @@ div.books {
         margin-bottom: 3px;
 
         div.content {
-            font-size: 13px;
             margin: 20px 8px 3px 15px;
             height: 114px;
-            overflow: hidden;
 
-            a {color: black;}
-            h3 {font-weight: bold;text-transform: uppercase;}
         }
+    }
 
+    div.videocamping {
+        width: 129px; height: 106px;
+        background: url('/assets/ui3/video.png') no-repeat;
+        margin-right: 5px;
+        div.content {
+            margin: 5px 3px 15px 25px;
+            height: 80px;
+        }
     }
 }
 

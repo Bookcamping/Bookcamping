@@ -10,10 +10,11 @@
           <span class="user">Por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
         </td>
         <td class="count">
-          <div>
-            <%= shelf.books_count %><br/>
-            <%= current_model %>s
-            </div>
+          <%= link_to shelf do %>
+              <%= shelf.books_count %>
+              <br/>
+              <%= current_model %>s
+          <% end %>
         </td>
       </tr>
   <% end %>
