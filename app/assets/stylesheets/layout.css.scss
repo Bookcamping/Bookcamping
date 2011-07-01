@@ -52,10 +52,24 @@ div#session {
     }
 }
 
+div#go-camping {
+    width: 100%; overflow: hidden;
+    margin-top: 8px; margin-bottom: -32px;
+    a {
+        display: block; overflow: hidden; text-indent: -1000px;
+        float: right;
+         height: 27px;
+    }
+    a.go-videocamping {width: 129px;background: url('/assets/ui3/go-videocamping.png') no-repeat; }
+    a.go-bookcamping {width: 123px; background: url('/assets/ui3/go-bookcamping.png') no-repeat; }
+}
+
+
 div#header {
     margin: 20px 0;
+    a {display: block; height: 125px;}
     h1 {
-        width: 1025px; height: 125px; overflow: hidden;
+        width: 1025px; height: 125px; overflow: hidden; margin: 0;
         text-indent: -1000px;
         background: url('/assets/ui3/bookcamping.png') no-repeat;
     }
