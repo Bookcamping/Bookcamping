@@ -2,7 +2,14 @@
   <% books.each do |book| %>
       <%= div_for book, :style => "background-color: #{background};", :class => current_camp.name do %>
           <div class="content">
-            <h3><%= link_to book.title, (shelf ? [shelf, book] : book) %></h3>
+            <div class="emblems">
+              <%= image_tag book.license.icon %>
+            </div>
+            <h3>
+              <% if book.url.present? %>&dArr;
+              <% end %>
+              <%= link_to book.title, (shelf ? [shelf, book] : book) %>
+            </h3>
 
             <%= book.date %> <%= book.authors %> <%= book.editor %>
           </div>

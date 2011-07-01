@@ -4,7 +4,10 @@ div#sidebar {
         padding: 0 10px;
         h1 {font-size: 18px;}
 
-        div.media {text-align:center;}
+        div.media {
+            text-align:center;
+            img {width: 100%;}
+         }
         div.social {margin-top:10px;}
 
 

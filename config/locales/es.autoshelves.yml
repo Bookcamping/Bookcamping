@@ -5,4 +5,9 @@ es:
       comentadas: 'Más comentados'
       valoradas: 'Más valorados'
       deseadas: 'Más deseados'
-  
+    description:
+      ultimas: 'Éstas son las últimas %{limit} incorporaciones a nuestra biblioteca virtual'
+      comentadas: 'Éstas son las %{limit} referencias más comentadas'
+      valoradas: 'Éstas son las %{limit} referencias más valoradas'
+      deseadas: 'Éstas son las %{limit} referencias más deseadas'
+

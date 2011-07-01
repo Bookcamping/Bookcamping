@@ -23,6 +23,10 @@ class AutoShelf
     I18n.t("autoshelf.name.#{@name}")
   end
 
+  def description
+    I18n.t("autoshelf.description.#{@name}", :limit => LIMIT)
+  end
+
   def books
     case @name
       when 'ultimas'

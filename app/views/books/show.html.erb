@@ -22,7 +22,7 @@
                       :confirm => "¿Quieres borrar '#{book.title}'?" if can? :destroy, book %>
         </div>
         <div class="description">
-          <%= render_description book %>
+          <%= markdown book.description %>
         </div>
         <% if book.url.present? %>
             <div class="download_url">

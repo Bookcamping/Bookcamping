@@ -68,6 +68,11 @@ div.books {
     div.book {
             float: left;
 
+            div.emblems {
+                width: 12px; height: 12px;
+                float: left; padding-right: 3px;
+                img {width: 100%;}
+            }
             div.content {
                 overflow: hidden;
                 font-size: 13px;
@@ -84,8 +89,8 @@ div.books {
         margin-bottom: 3px;
 
         div.content {
-            margin: 20px 8px 3px 15px;
-            height: 114px;
+            margin: 22px 8px 3px 15px;
+            height: 110px;
 
         }
     }

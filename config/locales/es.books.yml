@@ -5,7 +5,7 @@ es:
     new:
       title: "Añadir %{model}"
     notice:
-      create: "Otras más! Grrracias."
+      create: "Otra más! Grrracias por tu aportación."
     show:
       edit: "Editar"
     book:

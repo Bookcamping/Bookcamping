@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629100820) do
+ActiveRecord::Schema.define(:version => 20110701132823) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -123,13 +123,14 @@ ActiveRecord::Schema.define(:version => 20110629100820) do
     t.integer  "user_id"
     t.string   "name",           :limit => 200
     t.string   "slug",           :limit => 50
-    t.string   "description",    :limit => 512
     t.integer  "books_count",                   :default => 0
     t.integer  "comments_count",                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "camp_id"
     t.string   "color",          :limit => 16
+    t.text     "description"
+    t.string   "rol",            :limit => 32
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"

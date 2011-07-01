@@ -8,7 +8,7 @@
         <%#= link_to "Añadir #{current_model}", new_book_path, :class => 'add' %>
         <%= link_to 'Volver', shelves_path, :class => 'back' %>
       </div>
-      <%= title shelf.name %>
+      <h1><%= link_to_unless_current shelf.name, shelf %></h1>
       Creada por <%= shelf.user.name %> y modificada hace <%= time_ago_in_words shelf.updated_at %>
     </div>
     <div class="actions">

@@ -1,5 +1,6 @@
 <%= simple_form_for shelf do |form| %>
     <%= form.input :name %>
+    <%= form.input :description %>
     <%= form.input :color  %>
     <p>Colores de ejemplo: <%= Shelf::COLORS.join(' ') %></p>
     <%= form.input :slug if current_user? :admin %>

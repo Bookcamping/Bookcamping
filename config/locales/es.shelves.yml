@@ -17,6 +17,7 @@ es:
     labels:
       name: "Nombre"
       slug: "Nombre corto"
+      description: "Descripción"
     hints:
       name: "Tienes 200 caracteres"
       slug: "Sirve para poner enlaces a esta lista. Sólo letras y números (sin espacios). 50 caracteres."

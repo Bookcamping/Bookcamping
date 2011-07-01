@@ -1,0 +1,14 @@
+
+<div id="sidecontent">
+  <div class="buttons">
+    <%= link_to "Añadir #{current_model}", new_shelf_book_path(shelf) %>
+    <%= link_to 'Editar lista', edit_shelf_path %>
+  </div>
+  <div class="main">
+    <h2><%= shelf.name %></h2>
+
+    <%= markdown shelf.description %>
+
+  </div>
+  <div class="footer"></div>
+</div>
