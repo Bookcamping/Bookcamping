@@ -1,7 +1,7 @@
 <%= simple_form_for book do |form| %>
     <% if book.new_record? %>
         <%= form.input :include_in_shelf_id, :collection => current_camp.shelves, :include_blank => false %>
-        <p>&nbsp;&uArr;&nbsp;<strong>Presta atención!</strong> Selecciona bien dónde quieres poner esta referencia.</p>
+        <p class="important">&nbsp;&uArr;&nbsp;<strong>Presta atención!</strong> Selecciona bien dónde quieres poner esta referencia.</p>
     <% end %>
     <%= form.input :title %>
     <%= form.input :authors %>

@@ -26,7 +26,7 @@
         </div>
         <% if book.url.present? %>
             <div class="download_url">
-              <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url) %>
+              <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url, :class => 'important') %>
             </div>
         <% end %>
         <% if book.media? %>

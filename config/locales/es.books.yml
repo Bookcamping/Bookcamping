@@ -25,7 +25,7 @@ es:
   simple_form:
     labels:
       book:
-        include_in_shelf_id: 'Inluído en la lista'
+        include_in_shelf_id: "Elije en qué lista pondrías tu libro"
         title: "Título"
         authors: "Autoras"
         editor: "Editorial / Editora"
