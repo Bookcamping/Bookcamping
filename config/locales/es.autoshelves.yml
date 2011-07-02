@@ -1,10 +1,10 @@
 es:
   autoshelf:
     name:
-      ultimas: 'Últimas adquisiciones'
-      comentadas: 'Más comentados'
-      valoradas: 'Más valorados'
-      deseadas: 'Más deseados'
+      ultimas: 'Últimas apropiaciones'
+      comentadas: 'Más comentadas'
+      valoradas: 'Más valoradas'
+      deseadas: 'Más deseadas'
     description:
       ultimas: 'Éstas son las últimas %{limit} incorporaciones a nuestra biblioteca virtual'
       comentadas: 'Éstas son las %{limit} referencias más comentadas'
