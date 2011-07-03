@@ -5,13 +5,9 @@ module BooksHelper
     render :partial => 'books/books', :locals => {:books => books, :background => background , :shelf => shelf}
   end
 
-  def render_description(book, limit = nil)
-    text = limit ? truncate(book.description, :length => limit) : book.description
-    #text = auto_link(text)
-    text = text.gsub(/(#\w+)/, '<a>\0</a>')
-    text = RDiscount.new(text, :smart).to_html.html_safe
-    text = text.sub(/<em>[^<]*<\/em>/, '<a href="' + url_for(book) + '">\0</a>') unless book.title?
-    text
+  def license_type_icon(book)
+    name = book.license.license_type
+    image_tag("/assets/ui3/license_icons/#{name}.png", :class => 'license-type')
   end
 
   def render_book(book, ctx = :book)

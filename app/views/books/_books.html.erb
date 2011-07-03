@@ -3,15 +3,15 @@
       <%= div_for book, :style => "background-color: #{background};", :class => current_camp.name do %>
           <div class="content">
             <div class="emblems">
-              <%= image_tag book.license.icon %>
+              <%= license_type_icon book %>
+              <%= image_tag('/assets/ui3/download-arrow-alt.png', :class => 'download') if book.url.present? %>
             </div>
-            <h3>
-              <% if book.url.present? %>&dArr;
-              <% end %>
-              <%= link_to book.title, (shelf ? [shelf, book] : book) %>
-            </h3>
-
-            <%= book.date %> <%= book.authors %> <%= book.editor %>
+            <div class="cover">
+              <h3>
+                <%= link_to book.title, (shelf ? [shelf, book] : book) %>
+              </h3>
+              <%= book.date %> <%= book.authors %> <%= book.editor %>
+            </div>
           </div>
       <% end %>
   <% end %>
