@@ -13,7 +13,7 @@
     </div>
     <div class="actions">
       <%= link_to 'Volver', shelves_path, :class => 'back' %>
-      <%= link_to "Añadir #{current_model}", new_shelf_book_path(shelf) %>
+      <%#= link_to "Añadir #{current_model}", new_shelf_book_path(shelf) %>
       <%= link_to 'Editar', [:edit, shelf] if can? :edit, shelf %>
       <%= link_to 'Borrar', shelf, :method => :delete,
                   :confirm => "¿Estas segura de borrar la lista '#{shelf.name}'?" if can? :destroy, shelf %>
