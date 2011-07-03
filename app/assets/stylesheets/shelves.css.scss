@@ -40,7 +40,7 @@ div.shelf {
         div.count {
             float: right; width: 64px; height: 44px;
             text-align: center; padding: 10px 0;
-            background-color: black; color: white;
+            background-color: white; color: black;
             font-weight: bold;
         }
 
@@ -83,25 +83,25 @@ div.books {
     }
 
     div.bookcamping {
-        width: 109px; height: 143px;
-        background: url('/assets/ui3/book.png') no-repeat;
+        width: 126px; height: 143px;
+        background: url('/assets/ui3/librosolapa.png') no-repeat;
         margin-left: -3px;
-        margin-right: 6px;
+        margin-right: 10px;
         margin-bottom: 3px;
 
         div.content {
-            margin: 22px 8px 3px 15px;
+            margin: 22px 20px 5px 15px;
             height: 110px;
 
         }
     }
 
     div.videocamping {
-        width: 129px; height: 106px;
-        background: url('/assets/ui3/video.png') no-repeat;
-        margin-right: 5px;
+        width: 149px; height: 114px;
+        background: url('/assets/ui3/videosolapa.png') no-repeat;
+        margin-right: 15px;
         div.content {
-            margin: 5px 3px 15px 25px;
+            margin: 9px 3px 15px 25px;
             height: 80px;
         }
     }

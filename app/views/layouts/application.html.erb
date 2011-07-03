@@ -22,13 +22,16 @@
       <% if current_user %>
           <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
           Hola <%= current_user.name %>!
-          <%= link_to "Salir", signout_path %>
+          <%= link_to "Salir", signout_path(:from => request.fullpath) %>
           <% if current_user.super? %>
               <%= link_to current_camp.subdomain, [:edit, current_camp] if current_user.super? %>
           <% end %>
       <% else %>
           Entrar
-          con: <%= link_to "Twitter", "/auth/twitter" %> <%= link_to "Google", "/auth/google" %> <%= link_to "Facebook", "/auth/facebook" %>
+          con:
+          <%= link_to "Twitter", login_path('twitter', :from => request.fullpath) %>
+          <%= link_to "Google", login_path('google', :from => request.fullpath) %>
+          <%= link_to "Facebook", login_path('facebook', :from => request.fullpath) %>
       <% end %>
     </div>
     <div class="search">

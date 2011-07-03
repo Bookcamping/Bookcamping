@@ -6,6 +6,7 @@ class ShelfItemsController < ApplicationController
   expose(:shelf_item)
 
   def new
+    authorize! :new, ShelfItem
   end
 
   def create

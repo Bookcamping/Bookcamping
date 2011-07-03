@@ -43,7 +43,7 @@ es:
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
   shelf_items:
     new:
-      title: "Añadir a una lista"
+      title: "Gestionar listas de '%{title}'"
     notice:
       create: "Añadido a la lista."
       destroy: "Fuera de la lista!"

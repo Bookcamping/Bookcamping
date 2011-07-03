@@ -1,18 +1,19 @@
-<%= lists_div 2 do %>
-    <%= render_info %>
-    <div class="list">
-      <%= title t('.title') %>
-      <h2>La referencia '<%= book.title %>' está actualmente en la/s lista/s:</h2>
-      <ul>
-        <% book.shelf_items.each do |item| %>
-        <li><%= item.shelf.name %></li>
-        <% end %>
-      </ul>
+<%= title t('.title', :title => book.title) %>
+<%= link_to 'Volver', book, :class => 'back' %>
+<h2>Está actualmente en la/s lista/s:</h2>
+<ul>
+  <% book.shelf_items.each do |item| %>
+      <li>
+        <%= item.shelf.name %>
+        <%= link_to '&lArr; Quitar de esta lista'.html_safe, [book, item], :method => :delete,
+                    :confirm => "¿Quieres quitarlo de la lista '#{item.shelf.name}'?" %>
+      </li>
+  <% end %>
+</ul>
 
-      <%= simple_form_for [book, shelf_item] do |form| %>
-          <%= form.association :shelf, :collection => book.camp.shelves, :include_blank => false %>
-          <%= button_submit_tag 'Añadir' %>
-          <%= link_to 'Cancelar', book %>
-      <% end %>
-    </div>
+<h2>Añadir esta referencia a la siguiente lista:</h2>
+<%= simple_form_for [book, shelf_item] do |form| %>
+    <%= form.association :shelf, :include_blank => false,
+                         :collection => book.camp.shelves.select { |s| !book.shelves.include?(s) } %>
+    <%= button_submit_tag 'Añadir' %>
 <% end %>

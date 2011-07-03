@@ -1,14 +1,19 @@
+<% title book.title %>
+
 <% if shelf? %>
     <%= render shelf %>
 <% else %>
-    <h1>Incluído en</h1>
+    <h1>Listas en las que está incluído</h1>
+    <div class="actions">
+      <%= link_to 'Gestionar listas', new_book_shelf_item_path(book) if can? :new, ShelfItem %>
+    </div>
     <%= render :partial => 'shelves/shelves', :object => book.shelves %>
 <% end %>
 
 <% content_for :sidebar do %>
     <%= div_for book do %>
         <div class="info">
-          <%= title book.title %>
+          <h1><%= link_to_unless_current book.title, book %></h1>
           <%= image_tag(book.license.icon) %>
           <%= content_tag :span, book.date, :class => 'date' if book.date.present? %>
           <%= content_tag :span, book.authors, :class => 'authors' if book.authors.present? %>
