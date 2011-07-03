@@ -4,11 +4,21 @@ div#sidebar {
         padding: 0 10px;
         h1 {font-size: 18px;}
 
+        div.author {margin-top: 5px;}
         div.media {
             text-align:center;
             img {width: 100%;}
          }
         div.social {margin-top:10px;}
+
+        a.download {
+            display: block;
+            width: 248px;height:33px;
+            margin: 2px auto;
+            overflow: hidden; text-indent: -10000px;
+            background: url('/assets/ui3/download.png') no-repeat;
+        }
+
 
 
         form {

@@ -51,8 +51,8 @@ div.actions {
         position: relative;
         overflow: visible;
         display: inline-block;
-        padding: 3px 10px;
-        margin: 0;
+        line-height: 1.3em;
+        margin: 0; padding: 2px 5px 0 5px;
         border: 2px solid black;
         color: black; font-weight: bold;
      }
@@ -62,6 +62,7 @@ div.actions {
 .important {background-color: yellow;}
 
 div.markdown {
+    font-size: 15px; line-height: 19px;
     p {margin: 5px 0;}
     em {font-weight: bold;}
     strong {font-style: italic;}

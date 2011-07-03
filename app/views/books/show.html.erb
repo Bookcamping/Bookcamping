@@ -21,6 +21,9 @@
               / <%= content_tag :span, book.editor, :class => 'editor' %>
           <% end %>
         </div>
+        <div class="author">
+            Por <%= link_to book.user.name, book.user %>
+        </div>
         <div class="actions">
           <%= link_to 'Editar', [:edit, book] if can? :edit, book %>
           <%= link_to 'Borrar', book, :method => :delete,
@@ -31,7 +34,7 @@
         </div>
         <% if book.url.present? %>
             <div class="download_url">
-              <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url, :class => 'important') %>
+              <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url, :class => 'important download') %>
             </div>
         <% end %>
         <% if book.media? %>
