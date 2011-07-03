@@ -3,6 +3,7 @@
 
 table.shelves {
     width: 100%;
+    margin-top: 10px;
 
     tr.shelf {
         width: 674px; height: 63px;
@@ -66,6 +67,8 @@ div.shelf {
 }
 
 div.books {
+    width: 720px;
+
     div.book {
             float: left;
 
@@ -96,7 +99,7 @@ div.books {
         width: 126px; height: 143px;
         background: url('/assets/ui3/librosolapa.png') no-repeat;
         margin-left: -3px;
-        margin-right: 10px;
+        margin-right: 13px;
         margin-bottom: 3px;
 
         div.content {
@@ -108,10 +111,11 @@ div.books {
     div.videocamping {
         width: 149px; height: 114px;
         background: url('/assets/ui3/videosolapa.png') no-repeat;
-        margin-right: 15px;
+        margin-left: -6px;
+        margin-right: 32px;
 
         div.content {
-            div.cover {left: 26px; top: 10px; bottom: 28px; right: 22px; }
+            div.cover {left: 26px; top: 12px; bottom: 28px; right: 22px; }
             div.emblems {left: 128px;top: 10px; width: 19px;height:75px;}
         }
     }
