@@ -34,7 +34,7 @@
         </div>
         <% if book.url.present? %>
             <div class="download_url">
-              <%= link_to("¿Lo quieres? ¡Lo tienes! &rArr; Descargar!".html_safe, book.url, :class => 'important download') %>
+              <%= link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, book.url, :class => 'important download') %>
             </div>
         <% end %>
         <% if book.media? %>

@@ -11,7 +11,9 @@ div#sidebar {
          }
         div.social {margin-top:10px;}
 
-        a.download {
+        a.download {display: block; text-align: center;}
+
+        a.NOdownload {
             display: block;
             width: 248px;height:33px;
             margin: 2px auto;

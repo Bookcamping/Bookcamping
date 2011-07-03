@@ -1,25 +1,24 @@
 Bookcamp::Application.routes.draw do
   root :to => 'shelves#index'
 
-  match "/reticula" => "shelves#browse", :as => :browse
-  match "/estadisticas" => "books#statistics", :as => :statistics
+  scope :path_names => {:new => 'nueva', :edit => 'modificar'} do
+    resources :shelves, :path => 'listas' do
+      resources :books, :path => 'referencia', :only => [:show, :new]
+    end
 
-  resources :shelves, :path => 'listas' do
-    resources :books, :path => 'referencia', :only => [:show, :new]
+    resources :camps, :path => 'campamentos'
+    resources :licenses, :path => 'licencias'
+
+    resources :books, :path => 'referencia' do
+      get :view, :on => :member
+      resources :comments
+      resources :shelf_items, :path => 'incluidos'
+      resources :bookmarks, :path => 'marcar'
+    end
+
+    resources :users, :path => 'colaboradorxs'
+    resources :versions, :path => 'actividad'
   end
-
-  resources :camps, :path => 'campamentos'
-  resources :licenses, :path => 'licencias'
-
-  resources :books, :path => 'referencia' do
-    get :view, :on => :member
-    resources :comments
-    resources :shelf_items, :path => 'incluidos'
-    resources :bookmarks, :path => 'marcar'
-  end
-
-  resources :users, :path => 'colaboradorxs'
-  resources :versions, :path => 'actividad'
 
   match "/libros/:id" => redirect("/referencia/%{id}")
 
