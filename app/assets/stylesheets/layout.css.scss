@@ -88,8 +88,9 @@ div#sidebar {
             background: url('/assets/ui3/sidebuttons.png') no-repeat;
 
             a {
-                display: block; float: left; width: 168px;
-                margin-top: 23px;
+                display: block; float: left; width: 166px;
+                margin-top: 1px; height: 55px; padding-top: 6px;
+                line-height: 54px;
                 text-align: center; font-weight: bold; color: black;
                 text-transform: uppercase;
              }

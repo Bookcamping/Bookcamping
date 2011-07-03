@@ -48,8 +48,11 @@ div.actions {
     width: 100%; overflow: hidden;
     margin: 10px 0;
     a {
-        display: block; float: left;
-        padding: 1px 10px; margin-right: 5px;
+        position: relative;
+        overflow: visible;
+        display: inline-block;
+        padding: 3px 10px;
+        margin: 0;
         border: 2px solid black;
         color: black; font-weight: bold;
      }
