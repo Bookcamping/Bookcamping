@@ -1,9 +1,14 @@
 <%= simple_form_for shelf do |form| %>
     <%= form.input :name %>
     <%= form.input :description %>
-    <%= form.input :color  %>
-    <p>Colores de ejemplo: <%= Shelf::COLORS.join(' ') %></p>
+    <%= form.input :color %>
+    <p>Colores propuestos (debes incluir el #):<br/>
+      <% Shelf::COLORS.each do |color| %>
+          <span style="background-color: <%= color %>;"> <%= color %> </span>
+      <% end %>
+    </p>
+
     <%= form.input :slug if current_user? :admin %>
     <%= form.association :user if current_user? :super %>
-    <%=form.submit 'Guardar' %>
+    <%= form.submit 'Guardar' %>
 <% end %>
