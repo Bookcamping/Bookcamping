@@ -86,7 +86,8 @@ div.books {
                 }
 
                 div.emblems {
-                    img.download {position: absolute; bottom: 0;}
+                    img {position: absolute;left:0;}
+                    img.download {bottom: 0;}
                 }
             }
     }
