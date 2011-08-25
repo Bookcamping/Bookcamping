@@ -13,8 +13,17 @@
   <%= stylesheet_link_tag "backend" %>
   </head>
   <body class="backend">
+<div class="topbar">
+<div class="fill"><div class="container">
+<h3><%= link_to 'Bookcamping admin', backend_root_path %></h3>
+<ul>
+<li><%= link_to 'Referencias', backend_books_path %></li>
+<li><%= link_to 'Participantxs', backend_users_path %></li>
+</ul>
+</div></div>
+</div>
     <div class="container">
-<%= yield %>
+<div class="page"><%= yield %></div>
     </div>
   </body>
 </html>

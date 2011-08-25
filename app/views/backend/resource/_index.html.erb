@@ -1,4 +1,9 @@
-<table>
+<h1><%= resource_class.name %></h1>
+<div class="pagination">
+  <%= paginate collection %>
+</div>
+
+<table class="common-table zebra-striped">
   <thead>
     <tr>
       <% attributes.each do |attribute| %>

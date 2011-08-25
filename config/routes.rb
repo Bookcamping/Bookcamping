@@ -23,6 +23,7 @@ Bookcamp::Application.routes.draw do
   namespace :backend do
     root to: 'books#index'
     resources :books
+    resources :users
   end
 
 

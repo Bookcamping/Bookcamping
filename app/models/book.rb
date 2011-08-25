@@ -7,6 +7,8 @@ class Book < ActiveRecord::Base
   has_many :bookmarks, :dependent => :destroy
   belongs_to :license
   serialize :marks
+  delegate :name, to: :license, prefix: true
+
 
   scope :titled, where('title != null')
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
@@ -46,3 +48,4 @@ class Book < ActiveRecord::Base
 
 
 end
+

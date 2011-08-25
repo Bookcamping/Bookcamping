@@ -6,10 +6,19 @@ html {background-color: #efefef; }
 
 body.backend {
   background-color: #efefef;
-  div.container {
+
+  div.page {
     overflow: hidden;
-    border: 1px solid red;
+    padding: 10px;
+    margin: 40px 0 10px 0;
     background-color: white;
   }
+}
+
+div.navigation {
+  li {
+    span {float: left;}
+  }
+
 }
 
