@@ -20,6 +20,12 @@ Bookcamp::Application.routes.draw do
     resources :versions, :path => 'actividad'
   end
 
+  namespace :backend do
+    root to: 'books#index'
+    resources :books
+  end
+
+
   match "/libros/:id" => redirect("/referencia/%{id}")
 
 
@@ -34,3 +40,4 @@ Bookcamp::Application.routes.draw do
   match "/seccion/:id" => "app#section", :as => :section
   match "/entrar/:id" => "sessions#new", :as => :login
 end
+

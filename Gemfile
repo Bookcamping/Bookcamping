@@ -1,15 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc6'
 #gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-1-stable'
 #gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
 
 # Asset template engines
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+end
 gem 'jquery-rails'
 
+gem 'inherited_resources'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'css3buttons'
@@ -26,7 +29,9 @@ gem 'acts_as_list'
 #gem 'rdiscount'
 gem 'redcarpet'
 gem 'kaminari'
+gem 'has_scope'
 gem 'rails_autolink'
+gem 'responders'
 
 #gem 'prawn'
 #gem 'prawnto'
@@ -53,3 +58,4 @@ group :test, :development do
   gem 'turn', :require => false
   gem 'yaml_db'
 end
+
