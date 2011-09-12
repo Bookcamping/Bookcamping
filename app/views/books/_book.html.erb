@@ -2,7 +2,9 @@
     <%= link_to "&larr; Volver".html_safe, browse_book_path(book.shelves.first, book), :class => 'back' if ctx == :book %>
     <div class="info">
       <%= content_tag :h3, link_to(book.title, book) %>
-      <div class="license"><%= book.license_id? ? image_tag(book.license.icon) : '<Licencia desconocida>' %></div>
+      <div class="license">
+        <%= book.license_id? ? license_type_icon(book.license) : '<Licencia desconocida>' %>
+      </div>
       <% if ctx == :book %>
           <div>
             <%= button_group do %>

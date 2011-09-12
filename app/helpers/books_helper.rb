@@ -7,7 +7,7 @@ module BooksHelper
 
   def license_type_icon(book)
     name = book.license.license_type
-    image_tag("/assets/ui3/license_icons/#{name}.png", :class => 'license-type')
+    image_tag("/images/ui3/license_icons/#{name}.png", :class => 'license-type')
   end
 
   def render_book(book, ctx = :book)
