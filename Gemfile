@@ -11,6 +11,7 @@ end
 
 gem 'jquery-rails'
 
+gem 'inherited_resources'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'css3buttons'
@@ -27,7 +28,9 @@ gem 'acts_as_list'
 #gem 'rdiscount'
 gem 'redcarpet'
 gem 'kaminari'
+gem 'has_scope'
 gem 'rails_autolink'
+gem 'responders'
 
 #gem 'prawn'
 #gem 'prawnto'
@@ -39,7 +42,6 @@ gem 'exception_notification', :require => 'exception_notifier'
 # heroku
 group :production do
 #  gem 'pg'
- # gem "therubyracer-heroku", "~> 0.8.1.pre3"
 end
 
 group :test, :development do
@@ -54,3 +56,4 @@ group :test, :development do
   gem 'turn', :require => false
   gem 'yaml_db'
 end
+

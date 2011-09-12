@@ -1,0 +1,24 @@
+// Place all the styles related to the backend/application controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {background-color: #efefef; }
+
+body.backend {
+  background-color: #efefef;
+
+  div.page {
+    overflow: hidden;
+    padding: 10px;
+    margin: 40px 0 10px 0;
+    background-color: white;
+  }
+}
+
+div.navigation {
+  li {
+    span {float: left;}
+  }
+
+}
+
