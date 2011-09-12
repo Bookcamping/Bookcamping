@@ -44,6 +44,10 @@ namespace :deploy do
   end
 end
 
+after 'deploy:update_code' do
+  run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+end
+
 namespace :mysql do
   desc "Backup the remote production database"
   task :backup, :roles => :db, :only => { :primary => true } do
