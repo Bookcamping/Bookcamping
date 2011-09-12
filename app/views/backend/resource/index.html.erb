@@ -1,4 +1,7 @@
+<h1><%= resource_class.name %></h1>
+<div class="pagination">
+  <%= paginate collection %>
+</div>
 
-
-<%= render 'index', attributes: attributes %>
+<%= render 'index', attributes: resource_class.attribute_names %>
 

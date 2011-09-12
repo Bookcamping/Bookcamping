@@ -1,2 +1,8 @@
-<%= render 'index', attributes: [:title, :authors, :license_name] %>
+<h1><%= resource_class.name %></h1>
+<div class="pagination">
+  <%= paginate collection %>
+</div>
+
+
+<%= render 'index', attributes: [:id, :title, :authors, :license_name, :created_at] %>
 

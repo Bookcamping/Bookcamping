@@ -21,9 +21,11 @@ Bookcamp::Application.routes.draw do
   end
 
   namespace :backend do
-    root to: 'books#index'
+    root to: 'stats#show'
+    resource :stats
     resources :books
     resources :users
+    resources :versions
   end
 
 

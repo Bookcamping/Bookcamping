@@ -17,8 +17,6 @@ class ApplicationController < ActionController::Base
     render :partial => 'books/list_as_grid', :locals => {:name => name, :books => books, :shelf => shelf}
   end
 
-
-
   def info_for_paper_trail
     {:user_name => current_user? ? current_user.name : 'Anónimx',
      :camp_id => current_camp.id}

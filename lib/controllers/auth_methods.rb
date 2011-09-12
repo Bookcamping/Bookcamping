@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Controllers
   module AuthMethods
     protected
@@ -27,9 +29,10 @@ module Controllers
     end
 
     def require_admin
-      unless current_user
-        store_location
-        redirect_to login_path
+      if current_user
+        raise CanCan::AccessDenied unless current_user.admin?
+      elsif store_location
+        redirect_to root_path
       end
     end
 

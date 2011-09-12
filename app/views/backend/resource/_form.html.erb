@@ -1,0 +1,6 @@
+<%= simple_form_for [:backend, resource], html: {class: 'form-stacked'} do |f| %>
+    <% attributes.each do |attr| %>
+        <%= f.input attr %>
+    <% end %>
+    <%= f.submit 'Guardar' %>
+<% end %>

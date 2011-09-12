@@ -6,6 +6,7 @@ html {background-color: #efefef; }
 
 body.backend {
   background-color: #efefef;
+  padding-top: 10px;
 
   div.page {
     overflow: hidden;
@@ -14,11 +15,7 @@ body.backend {
     background-color: white;
   }
 }
-
-div.navigation {
-  li {
-    span {float: left;}
-  }
-
+form {
+    div.input {margin-top: 15px;}
+    .hint {display: block;}
 }
-

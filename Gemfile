@@ -37,7 +37,7 @@ gem 'responders'
 #gem 'nokogiri'
 
 gem 'exception_notification', :require => 'exception_notifier'
-#gem 'newrelic_rpm'
+gem 'newrelic_rpm'
 
 # heroku
 group :production do
