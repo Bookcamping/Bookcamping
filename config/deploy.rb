@@ -14,7 +14,7 @@ set :deploy_via, :remote_cache
 set :scm_verbose, false
 
 
-role :app, "recortable.net"
+role :clientapp, "recortable.net"
 role :web, "recortable.net"
 role :db,  "recortable.net", :primary => true
 
@@ -35,7 +35,7 @@ after "deploy", "deploy:cleanup"
 # Configuration Tasks
 namespace :config do
   desc "copy shared configurations to current"
-  task :copy_shared_configurations, :roles => [:app] do
+  task :copy_shared_configurations, :roles => [:clientapp] do
     %w[database.yml amazon_s3.yml].each do |f|
       run "ln -nsf #{shared_path}/config/#{f} #{release_path}/config/#{f}"
     end
@@ -45,13 +45,13 @@ end
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
-  task :restart, :roles => :app, :except => { :no_release => true } do
+  task :restart, :roles => :clientapp, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
   end
 
   [:start, :stop].each do |t|
     desc "#{t} task is a no-op with mod_rails"
-    task t, :roles => :app do ; end
+    task t, :roles => :clientapp do ; end
   end
 end
 

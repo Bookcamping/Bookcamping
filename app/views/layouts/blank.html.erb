@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %> <%= current_camp.name %> </title>
+  <link rel="Shortcut Icon" href="/assets/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller.class.name %>">
+<%= yield %>
+<%= render 'layouts/js' %>
+<%= render 'layouts/ga' %>
+</body>
+</html>

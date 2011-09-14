@@ -1,6 +1,5 @@
 
 callback = (data) ->
-    console.log(data)
     $("#" + data.book_id + "-" + data.name).text(data.count).parent().addClass('notice')
     notice = $("<div class='notice'>#{data.message}</div>")
     $("#messages").append(notice)

@@ -1,1 +1,1 @@
-//= require_tree ./app
+//= require_tree ./clientapp

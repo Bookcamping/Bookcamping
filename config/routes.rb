@@ -32,6 +32,7 @@ Bookcamp::Application.routes.draw do
 
   match "/libros/:id" => redirect("/referencia/%{id}")
 
+  match "/mapa" => 'maps#show'
 
   match "/lista/:id" => "shelves#auto", :as => :autoshelf
   match "/auth/:provider/callback" => "sessions#create"
