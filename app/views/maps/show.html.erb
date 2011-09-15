@@ -1,9 +1,11 @@
 <div id="playground">
   <div class="draggable">
-    <%= image_tag 'bookcamping-mapa.jpg', alt: 'mapa bookcamping',
-                  width: "2200", height: "1616" %>
+    <!--img src="https://s3-eu-west-1.amazonaws.com/bookcamping/map/bookcamping-mapa.jpg"
+         alt="Mapa #bookcamping" width="2200" height="1616" /-->
+    <%= image_tag 'bookcamping-mapa-web.jpg', alt: 'mapa bookcamping',
+                  width: "1400", height: "1028" %>
 
-    <a href="/" style="left:51px;top:54px;width:538px;height:137px;">#bookcamping</a>
+    <a href="/" style="left:40px;top:45px;width:342px;height:80px;">#bookcamping</a>
 
     <% @lists.each do |list| %>
     <%= link_to list.name, list, style: @map[list.id] %>
