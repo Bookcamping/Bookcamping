@@ -3,13 +3,58 @@ body.MapsController {
     div#playground {
         position: fixed; left: 0; top: 0; right: 0; bottom: 0;
         overflow: hidden;
+        z-index: 500;
+
+        div.draggable {
+            img {position: absolute; left:0; top: 0;}
+
+            a {
+                position: absolute;
+                display: block;
+                overflow: hidden;
+                text-indent: -1000px;
+                z-index: 1000;
+                border-radius: 2px;
+                border: 1px solid transparent;
+                background-image: url(/images/transparent.gif)
+            }
+
+            a:hover {
+                border: 1px solid white;
+                box-shadow: 0px 0px 8px black;
+            }
+
+            #linker {
+                position: absolute;
+                border: 1px solid red;
+                z-index: 1000;
+            }
+
+        }
 
         img {
            -moz-user-select: -moz-none;
            -khtml-user-select: none;
            -webkit-user-select: none;
            user-select: none;
+           z-index: 600;
         }
 
+    }
+
+    .devui-draggable {cursor: default;}
+
+    .ui-draggable {
+        cursor: grab;
+        cursor: -moz-grab;
+        cursor: -webkit-grab;
+        cursor: url(https://mail.google.com/mail/images/2/openhand.cur), default !important;
+    }
+
+    .ui-draggable-dragging {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+        cursor: url(https://mail.google.com/mail/images/2/closedhand.cur), default !important;
     }
 }
