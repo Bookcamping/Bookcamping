@@ -61,7 +61,7 @@
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
-        <!-- a id="go-map" href="/mapa">Ver mapa</a-->
+        <%= link_to 'Mapa bookcamping', '/mapa', id: 'go-map' if current_camp.id == 1 %>
       </div>
 
     </div>
