@@ -51,7 +51,7 @@
   </div>
   <div id="header">
     <a href="/">
-      <h1 id="logo" style="background-image: url('/images/ui3/<%= current_camp.name %>.png')"><%= current_camp.name[1..-1] %></h1>
+      <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
     </a>
   </div>
   <div id="main">
@@ -61,6 +61,7 @@
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
+        <!-- a id="go-map" href="/mapa">Ver mapa</a-->
       </div>
 
     </div>
