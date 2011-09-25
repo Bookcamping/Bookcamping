@@ -1,3 +1,5 @@
+# Image explorer module
+
 
 
 prepareDraggable = (playground, draggable) ->
@@ -9,17 +11,31 @@ prepareDraggable = (playground, draggable) ->
   $(draggable).css {left: 0, top: 0}
   $(draggable).draggable({containment: [x1, y1, x2, y2]})
 
-$.fn.mapper = (options) ->
-  @defaultOptions = {draggableSelector: '.draggable' }
+
+
+# Let explore $(this) using the mouse-drag action of the touch device
+$.fn.imageExplore = (options) ->
+  @defaultOptions = {viewportId: 'viewport' }
   settings = $.extend({}, this.defaultOptions, options);
   this.each ->
-    playground = $(this)
-    draggable = $("> #{settings.draggableSelector}", playground)
-    img = $("> img", draggable)
-    draggable.css {width: img.width(), height: img.height()}
-    prepareDraggable(playground, draggable)
+    mapDiv = $(this)
+
+    # Create a fixed viewport to hold the map
+    viewport = mapDiv.wrap('<div />').parent().attr('id', settings.viewportId)
+    viewport.css({position: 'fixed', overflow: 'hidden', left: 0, top: 0})
+
+    img = $("> img", mapDiv)
+    imageDimensions = {width: img.width(), height: img.height()}
+    mapDiv.css(imageDimensions)
+    if $("html.touch").length # touch device
+      viewport.css {position: 'absolute'}
+      viewport.css(imageDimensions)
+    else # mouse device
+      viewport.css({right: 0, bottom: 0})
+      prepareDraggable(viewport, mapDiv)
 
 
+# Implements the RED box
 $.fn.linker = (draggable) ->
   this.each ->
     position = null
@@ -44,5 +60,5 @@ $.fn.linker = (draggable) ->
 
 
 $ ->
-  $('#playground').mapper()
+  $('#map').imageExplore()
   $('#linker').linker('#playground > .draggable')

@@ -1,17 +1,15 @@
-<div id="playground">
-  <div class="draggable">
-    <!--img src="https://s3-eu-west-1.amazonaws.com/bookcamping/map/bookcamping-mapa.jpg"
-         alt="Mapa #bookcamping" width="2200" height="1616" /-->
-    <%= image_tag 'mapa-web3.jpg', alt: 'mapa #bookcamping',
-                  width: "1700", height: "1249" %>
+<div id="map">
+  <!--img src="https://s3-eu-west-1.amazonaws.com/bookcamping/map/bookcamping-mapa.jpg"
+alt="Mapa #bookcamping" width="2200" height="1616" /-->
+  <%= image_tag 'mapa-web3.jpg', alt: 'mapa #bookcamping',
+                width: "1700", height: "1249" %>
 
-    <a href="/" style="left:50px;top:54px;width:407px;height:100px;">#bookcamping</a>
+  <a href="/" style="left:50px;top:54px;width:407px;height:100px;">#bookcamping</a>
 
-    <% @lists.each do |list| %>
-    <%= link_to list.name, list, style: @map[list.id] %>
-    <% end %>
+  <% @lists.each do |list| %>
+      <%= link_to list.name, list, style: @map[list.id] %>
+  <% end %>
 
-    <%= content_tag :div, raw('&nbsp'), id: 'linker' if Rails.env.development? %>
-  </div>
+  <%= content_tag :div, raw('&nbsp'), id: 'linker' if Rails.env.development? %>
 </div>
 
