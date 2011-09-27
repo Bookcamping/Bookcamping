@@ -25,11 +25,9 @@ gem 'omniauth'
 gem 'ancestry'
 gem 'paper_trail'
 gem 'acts_as_list'
-#gem 'rdiscount'
 gem 'redcarpet'
 gem 'kaminari'
 gem 'has_scope'
-gem 'rails_autolink'
 gem 'responders'
 
 #gem 'prawn'
@@ -55,5 +53,11 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'turn', :require => false
   gem 'yaml_db'
+  gem "rspec-rails", ">= 2.6.1"
+  gem "factory_girl_rails", ">= 1.1.0", :group => :test
+  gem "cucumber-rails", ">= 1.0.2", :group => :test
+  gem "capybara", ">= 1.0.1", :group => :test
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
 end
 
