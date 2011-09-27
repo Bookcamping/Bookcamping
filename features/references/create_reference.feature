@@ -9,8 +9,7 @@ Feature: Create a new reference
     And a section named "Cajón"
     And I'm authenticated as "Jess"
 
-  @current
-  Scenario: Add a new reference
+  Scenario: Create a new reference
     When I go to new reference page
     And I select "Cajón" from "book[include_in_shelf_id]"
     And fill in "book[title]" with "Codigo fuente: la remezcla"

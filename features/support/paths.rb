@@ -14,8 +14,13 @@ module NavigationHelpers
       when /^"(.*)" reference page$/i
         book_path(Book.find_by_title($1))
 
-      when /^"(.*)" section page$/i
+      when /^"([^"]*)" section page$/i
         shelf_path(Shelf.find_by_name($1))
+
+      when /^"([^"]*)" at "([^"]*)" section page$/i
+        book = Book.find_by_title!($1)
+        section = Shelf.find_by_name!($2)
+        shelf_book_path(section, book)
 
       when /^sections page$/
         shelves_path
