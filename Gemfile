@@ -59,5 +59,6 @@ group :test, :development do
   gem "capybara", ">= 1.0.1", :group => :test
   gem "spork", "> 0.9.0.rc"
   gem "guard-spork"
+  gem "guard-cucumber"
 end
 
