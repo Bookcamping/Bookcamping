@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def enter
-    if Rails.env.development? or (current_user and current_user.super?)
+    if not Rails.env.production? or (current_user and current_user.super?)
       self.current_user = User.find params[:id]
     end
     redirect_to stored_or(root_path)

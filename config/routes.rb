@@ -37,7 +37,7 @@ Bookcamp::Application.routes.draw do
   match "/lista/:id" => "shelves#auto", :as => :autoshelf
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout
-  match "/enter/:id" => "sessions#enter", :as => :enter
+  match "/enter/:id" => "sessions#enter", :as => :enter unless Rails.env.production?
   match "/gocamp/:id" => "camps#enter", :as => :gocamp
   match "/buscar/:term" => "books#search", :as => :search
   match "/buscar" => "books#search"

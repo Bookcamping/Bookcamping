@@ -17,9 +17,14 @@ module NavigationHelpers
       when /^"(.*)" section page$/i
         shelf_path(Shelf.find_by_name($1))
 
-
       when /^sections page$/
         shelves_path
+
+      when /^new section page$/
+        new_shelf_path
+
+      when /^new reference page$/
+        new_book_path
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

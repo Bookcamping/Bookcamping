@@ -17,7 +17,6 @@ class Ability
 
   def user=(user )
     @user = user || User.new
-    puts "### USER #{@user.to_json} ES USER: #{user?}"
   end
 
   def anonymous?
