@@ -18,6 +18,7 @@ end
 
 Spork.each_run do
   FactoryGirl.reload
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
   #FactoryGirl.definition_file_paths = [File.join(Rails.root, 'spec', 'factories')]
   #FactoryGirl.find_definitions
 end

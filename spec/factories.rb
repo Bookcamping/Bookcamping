@@ -2,22 +2,27 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :camp do
-    name 'camp'
+    name 'Camp'
   end
 
   factory :license do
-    name 'creative_commons'
+    name 'CreativeCommons'
   end
 
   factory :user do
-    name 'user'
+    name 'User'
   end
-
 
   factory :book do
     user
     camp
     license
-    title 'book'
+    title 'Book'
+  end
+
+  factory :shelf do
+    camp
+    user
+    name 'Shelf'
   end
 end

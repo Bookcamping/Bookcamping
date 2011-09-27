@@ -53,8 +53,10 @@ class Book < ActiveRecord::Base
 
 
   after_create do
-    shelf = Shelf.find include_in_shelf_id
-    shelf.add_book self, self.user
+    if include_in_shelf_id
+      shelf = Shelf.find include_in_shelf_id
+      shelf.add_book self, self.user
+    end
   end
 
   def bookmark_count(name)
