@@ -1,0 +1,1 @@
+*Every reference should be in a section of a camping*

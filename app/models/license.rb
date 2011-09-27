@@ -1,5 +1,17 @@
+# License
+#
+#create_table "licenses", :force => true do |t|
+#  t.string   "name",       :limit => 300 REQUIRED
+#  t.string   "url",        :limit => 500
+#  t.string   "icon",       :limit => 300
+#  t.boolean  "open"
+#  t.datetime "created_at"
+#  t.datetime "updated_at"
+#end
 class License < ActiveRecord::Base
   has_many :books
+
+  validates :name, presence: true
 
   def license_type
     if self.id == 1

@@ -1,3 +1,28 @@
+# Book - TODO: Rename to reference
+#
+# SCHEMA
+#  create_table "books", :force => true do |t|
+#    t.integer  "user_id" REQUIRED
+#    t.integer  "camp_id" REQUIRED
+#    t.integer  "license_id" REQUIRED
+#    t.string   "title",            :limit => 300 REQUIRED
+#    t.integer  "book_list_id"
+#    t.string   "authors",          :limit => 100
+#    t.string   "editor",           :limit => 100
+#    t.text     "description"
+#    t.string   "url",              :limit => 300
+#    t.datetime "created_at"
+#    t.datetime "updated_at"
+#    t.integer  "comments_count",   :default => 0
+#    t.string   "glasslevel",       :limit => 50
+#    t.string   "license",          :limit => 50
+#    t.string   "media",            :limit => 1024
+#    t.string   "media_type",       :limit => 32
+#    t.string   "date",             :limit => 40
+#    t.string   "marks",            :limit => 300
+#    t.integer  "like_it_marks",    :default => 0
+#    t.integer  "read_later_marks", :default => 0
+#  end
 class Book < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user

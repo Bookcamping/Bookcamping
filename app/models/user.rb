@@ -1,7 +1,22 @@
+# User
+#
+#create_table "users", :force => true do |t|
+#  t.string   "name" REQUIRED
+#  t.string   "provider"
+#  t.string   "uid"
+#  t.string   "email"
+#  t.string   "rol",           :limit => 10
+#  t.datetime "created_at"
+#  t.datetime "updated_at"
+#  t.integer  "login_count",                 :default => 0
+#  t.datetime "last_login_at"
+#end
 class User < ActiveRecord::Base
   has_many :book_lists
   has_many :books
   has_many :memberships
+
+  validates :name, presence: true
 
   def self.create_with_omniauth(auth)
     create! do |user|

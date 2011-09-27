@@ -5,6 +5,8 @@
 # files.
 
 require 'cucumber/rails'
+require 'factory_girl'
+require 'factory_girl/step_definitions'
 require 'spork'
 
 Spork.prefork do
@@ -13,6 +15,13 @@ Spork.prefork do
   require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
   require 'cucumber/rails/rspec'
 end
+
+Spork.each_run do
+  FactoryGirl.reload
+  #FactoryGirl.definition_file_paths = [File.join(Rails.root, 'spec', 'factories')]
+  #FactoryGirl.find_definitions
+end
+
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
