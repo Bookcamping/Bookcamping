@@ -40,7 +40,7 @@ class Shelf < ActiveRecord::Base
 
 
   def add_book(book, user)
-    ShelfItem.create!(:shelf_id => self.id, :book_id => book.id, :user_id => user.id)
+    ShelfItem.create!(shelf: self, book: book, user: user)
   end
 
   def background

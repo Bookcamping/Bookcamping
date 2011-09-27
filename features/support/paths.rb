@@ -19,7 +19,7 @@ module NavigationHelpers
 
 
       when /^sections page$/
-        shelfs_path
+        shelves_path
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

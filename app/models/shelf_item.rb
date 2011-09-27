@@ -1,3 +1,15 @@
+# ShelfItem
+# A item stored inside a section
+#
+# SCHEMA
+#create_table "shelf_items", :force => true do |t|
+#  t.integer  "shelf_id"
+#  t.integer  "book_id"
+#  t.integer  "user_id"
+#  t.datetime "created_at"
+#  t.integer  "camp_id"
+#end
+#
 class ShelfItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :shelf
@@ -16,7 +28,8 @@ class ShelfItem < ActiveRecord::Base
 
   protected
   def add_book_to_shelf
-    shelf.update_attribute(:books_count, (shelf.books_count + 1))
+    current = shelf.books_count
+    shelf.update_attribute(:books_count, current + 1)
   end
 
   def remove_book_from_shelf
