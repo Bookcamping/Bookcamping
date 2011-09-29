@@ -2,7 +2,7 @@
     <%= form.input :title %>
     <%= form.input :url %>
     <%= form.input :file %>
-    <%= form.input :content_type, include_blank: false, collection:
+    <%#= form.input :content_type, include_blank: false, collection:
             tc('media_bite.content_types', MediaBite::CONTENT_TYPES) %>
     <div class="actions">
       <%= form.submit class: 'btn primary' %>

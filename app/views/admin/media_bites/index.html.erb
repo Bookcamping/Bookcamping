@@ -3,3 +3,17 @@
 <div class="buttons">
   <%= link_to '+ Añadir', new_admin_media_bite_path, class: 'btn primary' %>
 </div>
+
+<div id="media_bites">
+  <% @media_bites.each do |media_bite| %>
+      <%= div_for media_bite do %>
+          <% if media_bite.image_file? %>
+              <%= image_tag media_bite.file_url(:thumb), class: 'thumb' %>
+          <% end %>
+
+          <h3><%= media_bite.title %></h3>
+          <div class="content_type"><%= media_bite.content_type %></div>
+          <div class="file"><%= media_bite.file %></div>
+      <% end %>
+  <% end %>
+</div>

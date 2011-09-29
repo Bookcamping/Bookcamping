@@ -22,5 +22,9 @@ class MediaBite < ActiveRecord::Base
   validates :camp_id, presence: true
   validates :user_id, presence: true
   validates :title, presence: true
-  validates :content_type, presence: true
+  #validates :content_type, presence: true
+
+  def image_file?
+    file.present? and file_url =~ /\.(?:jpg|jpeg|gif|png)$/
+  end
 end

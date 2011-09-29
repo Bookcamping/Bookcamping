@@ -13,6 +13,6 @@ CarrierWave.configure do |config|
     :aws_secret_access_key  => s3_secret_access_key,
     :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
   }
-
+   config.fog_directory  = s3_bucket
 
 end

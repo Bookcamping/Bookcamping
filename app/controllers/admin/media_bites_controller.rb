@@ -8,6 +8,6 @@ class Admin::MediaBitesController < Admin::ResourceController
     @media_bite.camp = current_camp
     @media_bite.user = current_user
     @media_bite.save
-    respond_with @media_bite
+    respond_with @media_bite, location: [:admin, @media_bite]
   end
 end

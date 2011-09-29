@@ -1,9 +1,12 @@
 # encoding: utf-8
 
 class MediaUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MimeTypes
+  include CarrierWave::RMagick
+
+  process :set_content_type
 
   # Include RMagick or ImageScience support:
-  include CarrierWave::RMagick
   # include CarrierWave::ImageScience
 
   # Choose what kind of storage to use for this uploader:

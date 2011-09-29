@@ -1,6 +1,6 @@
 <%= title "Ver  #{resource_class.model_name.human}" %>
 
-<%= link_to raw('&larr; Volver'), [:backend, resource_class] %>
+<%= link_to raw('&larr; Volver'), [:admin, resource_class] %>
 
 <dl>
   <% resource_class.attribute_names.each do |attr| %>
