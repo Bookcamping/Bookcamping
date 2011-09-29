@@ -1,8 +1,8 @@
-<%= title 'Estadísticas' %>
+<%= title "Estadísticas para ##{current_camp.name}" %>
 
 <dl>
   <dt>Número de referencias:</dt>
-  <dd><%= Book.count %></dd>
+  <dd><%= current_camp.books.count %></dd>
   <dt>Número de participantxs:</dt>
-  <dd><%= User.count %></dd>
+  <dd><%= current_camp.memberships.count %></dd>
 </dl>

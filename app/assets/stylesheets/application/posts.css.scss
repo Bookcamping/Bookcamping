@@ -5,7 +5,19 @@
 div.post {
     padding: 5px 0;
     div.author {text-style: italic;}
-    div.body {margin-top: 10px;}
+    div.body {
+        margin-top: 10px;
+
+        .markdown {
+            p {margin: 0.5em 0;}
+            h1 {font-size: 20px; margin: 0.5em 0 0 0;}
+            h2 {font-size: 18px; margin: 0.5em 0 0 0;}
+            h3 {font-size: 16px; margin: 0.5em 0 0.5em 0;}
+            h4, h5, h6 {font-size: 14px; margin: 0.5em 0 0.5em 0;}
+            a {background-color: yellow;}
+        }
+
+    }
     div.visibility {float: right;}
 }
 

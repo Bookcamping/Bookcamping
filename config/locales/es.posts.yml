@@ -20,4 +20,4 @@ es:
       author: 'Es la firma del post, para separarlo de la persona que escribe el post'
       published_at: 'Sirve, básicamente, para ordenar entradas: de más reciente a más antigüa'
       visibility: 'Permite tener borradores o entradas sólo visibles por las administradoras'
-      body: 'Podéis usar textile'
+      body: 'Podéis usar markdown'

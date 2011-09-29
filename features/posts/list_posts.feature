@@ -13,7 +13,6 @@ Feature: List posts
     Then I should see "Post1"
     Then I should see "Post2"
 
-  @current
   Scenario: List public blog posts
     Given a blog post titled "Post1"
     And last post is "public"

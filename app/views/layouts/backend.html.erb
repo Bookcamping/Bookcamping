@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bookcamp backend</title>
+  <title><%= yield :title %> :: <%= current_camp.name %> backend</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -16,7 +16,7 @@
 <div class="topbar">
   <div class="fill">
     <div class="container">
-      <h3><%= link_to 'Bookcamping admin', backend_root_path %></h3>
+      <h3><%= link_to "##{current_camp.name} backend", backend_root_path %></h3>
       <ul>
         <li><%= link_to 'Estadísticas', backend_stats_path %></li>
         <li><%= link_to 'References', backend_books_path %></li>

@@ -8,7 +8,6 @@ Feature: Edit post
     And I'm authenticated as "Dani"
     And I'm and admin
 
-  @current
   Scenario: I should be able to edit post
     Given a blog post titled "Entrada"
     When I go to "Entrada" post page
@@ -16,7 +15,6 @@ Feature: Edit post
     When I follow "Editar entrada"
     Then I should be on edit "Entrada" post page
 
-  @current
   Scenario: Edit a post
     Given a blog post titled "Uno"
     When I go to edit "Uno" post page

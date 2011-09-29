@@ -19,7 +19,6 @@ module NavigationHelpers
       when /^new reference page$/
         new_book_path
 
-
       # SECTION
       when /^"([^"]*)" section page$/i
         shelf_path(Shelf.find_by_name($1))
@@ -48,6 +47,9 @@ module NavigationHelpers
       when /^edit "([^"]*)" post page$/i
         edit_post_path(Post.find_by_title!($1))
 
+      # BACKEND
+      when /^backend references$/
+        backend_books_path
 
       else
         begin
