@@ -22,6 +22,7 @@ class Camp < ActiveRecord::Base
   has_many :users, through: :memberships
   has_many :versions
   has_many :posts
+  has_many :medias, class_name: 'Media'
 
   validates :name, presence: true
 end

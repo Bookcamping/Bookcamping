@@ -1,0 +1,27 @@
+
+
+<table class="common-table zebra-striped">
+  <thead>
+    <tr>
+      <% attributes.each do |attribute| %>
+        <th><%= resource_class.human_attribute_name(attribute) %></th>
+      <% end %>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collection.each do |resource| %>
+      <tr>
+      <% attributes.each do |attribute| %>
+        <td><%= resource.public_send(attribute).to_s.truncate(20) %></td>
+      <% end %>
+      <td>
+        <%= link_to 'show', resource_path(resource) %>
+        <%= link_to 'edit', edit_resource_path(resource) %>
+        <%=  link_to 'destroy', resource_path(resource), method: :delete, confirm: "Are you sure?" %>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,13 @@
+<div class="alert-message block-message error">
+  <p><strong>Cuidado con lo que haces!</strong> Modificar algunos de estos valores puede significar
+    que bookcamping deje de funcionar.<br/></p>
+
+  <div class="alert-actions">
+    <%= link_to 'Vale, sácame de aqui!', [:backend, resource_class], class: 'btn small' %>
+  </div>
+</div>
+
+<%= title "Editar #{resource_class.model_name.human}" %>
+
+<%= render 'form', attributes: attributes %>
+

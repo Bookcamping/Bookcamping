@@ -1,0 +1,7 @@
+<%= title "#{resource_class.name}s" %>
+<div class="pagination">
+  <%= paginate collection %>
+</div>
+
+<%= render 'index', attributes: resource_class.attribute_names %>
+
