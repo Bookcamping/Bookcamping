@@ -6,6 +6,6 @@ When /^I'm authenticated as "([^"]*)"$/ do |name|
 end
 
 
-When /^I'm and admin$/ do
+When /^I'm an admin$/ do
   @current_user.update_attribute(:rol, 'admin')
 end

@@ -1,3 +1,32 @@
 // Place all the styles related to the admin/application controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    padding-top: 50px;
+}
+
+form {
+    div.input {margin: 10px 0 10px 0;}
+    span.hint {display: block; color: gray;margin: 3px 0 5px 0;font-style:italic;}
+    label {
+        display: block;
+        float: none;
+        width: auto;
+        font-weight: bold;
+        text-align: left;
+        line-height: 20px;
+        padding-top: 0;
+    }
+    input, textarea {width: 500px;}
+    div.actions {padding-left: 10px;}
+
+    div.input.datetime {
+        select {width: 80px;}
+    }
+}
+
+div.buttons {
+    margin: 10px 0;
+    width: 100%; overflow: hidden;
+}

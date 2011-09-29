@@ -11,7 +11,7 @@ Feature: Backend scoped by camp
 
   Scenario: Show references only on my camp
     Given I'm authenticated as "Admin"
-    And I'm and admin
+    And I'm an admin
     And I'm at camp "Camp1"
     When I go to backend references
     Then I should see "Book1"

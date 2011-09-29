@@ -8,6 +8,7 @@ Given /^a camp$/ do
 end
 
 Given /^I'm at camp "([^"]*)"$/ do |name|
-  @camp = Camp.find_by_name!(name)
+  @camp = Camp.find_by_name(name)
+  @camp ||= FactoryGirl.create(:camp, name: name)
   visit gocamp_path(@camp.id)
 end

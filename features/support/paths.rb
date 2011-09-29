@@ -50,9 +50,9 @@ module NavigationHelpers
     # ADMIN
       # MEDIA
       when /^admin media list page$/
-        admin_media_path
+        admin_media_bites_path
 
-      # BACKEND
+    # BACKEND
       when /^backend references$/
         backend_books_path
 

@@ -1,6 +1,6 @@
-class CreateMedia < ActiveRecord::Migration
+class CreateMediaBites < ActiveRecord::Migration
   def change
-    create_table :media do |t|
+    create_table :media_bites do |t|
       t.belongs_to :camp
       t.belongs_to :user
       t.string :title, limit: 200

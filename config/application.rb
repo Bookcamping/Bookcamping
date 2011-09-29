@@ -45,10 +45,5 @@ module Bookcamp
       Dir[Rails.root + 'lib/controllers/*.rb'].each { |f| load File.expand_path(f) }
       Dir[Rails.root + 'lib/models/*.rb'].each { |f| load File.expand_path(f) }
     end
-
-    Inflector.inflections do |inflect|
-      inflect.irregular 'media', 'media'
-    end
-
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110929131635) do
+ActiveRecord::Schema.define(:version => 20110929155853) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20110929131635) do
     t.datetime "updated_at"
   end
 
-  create_table "media", :force => true do |t|
+  create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
     t.string   "title",        :limit => 200

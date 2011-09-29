@@ -6,7 +6,7 @@ Feature: Create post
   Background:
     Given a camp named "bookcamping"
     And I'm authenticated as "Dani"
-    And I'm and admin
+    And I'm an admin
 
   Scenario: I'm able to create a new post
     When I go to posts page

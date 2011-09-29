@@ -6,7 +6,7 @@ Feature: Edit post
   Background:
     Given a camp named "bookcamping"
     And I'm authenticated as "Dani"
-    And I'm and admin
+    And I'm an admin
 
   Scenario: I should be able to edit post
     Given a blog post titled "Entrada"

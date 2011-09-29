@@ -10,15 +10,16 @@
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <%= stylesheet_link_tag "backend" %>
+  <%= stylesheet_link_tag "admin" %>
 </head>
 <body class="backend">
 <div class="topbar">
   <div class="fill">
     <div class="container">
-      <h3><%= link_to "##{current_camp.name} admin", backend_root_path %></h3>
+      <h3><%= link_to "##{current_camp.name} admin", admin_root_path %></h3>
       <ul>
-        <li><%= link_to 'Media', backend_posts_path %></li>
+        <li><%= link_to 'Blog', admin_posts_path %></li>
+        <li><%= link_to 'Media', admin_media_bites_path %></li>
       </ul>
     </div>
   </div>

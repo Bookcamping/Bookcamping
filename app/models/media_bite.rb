@@ -11,12 +11,13 @@
 #   t.text :rendered
 #   t.timestamps
 # end
-class Media < ActiveRecord::Base
+class MediaBite < ActiveRecord::Base
   mount_uploader :file, MediaUploader
 
   belongs_to :camp
   belongs_to :user
 
+  CONTENT_TYPES = ['file', 'url/link']
 
   validates :camp_id, presence: true
   validates :user_id, presence: true

@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      media_bite: 'media'
+
+  media_bite:
+    content_types:
+      file: 'Fichero'
+      url/link: 'Enlace'
+  
