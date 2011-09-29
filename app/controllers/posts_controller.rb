@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   respond_to :html, :json
-  expose(:posts) { current_camp.posts.order('published_at DESC') }
+  expose(:posts) do
+    posts = (current_user and current_user.admin?) ? current_camp.posts : current_camp.posts.public
+    posts.order('published_at DESC')
+  end
   expose(:post)
 
   def index

@@ -9,7 +9,7 @@ module Controllers
     end
 
     def current_user?(rol = nil)
-      current_user.present? and (rol.nil? or current_user.rol == rol.to_s)
+      current_user.present? and (rol.nil? or current_user.send("#{rol}?"))
     end
 
     def require_super

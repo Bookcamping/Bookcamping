@@ -10,8 +10,8 @@ describe Shelf do
 
   it "sould have books" do
     shelf = FactoryGirl.create(:shelf)
-    book = FactoryGirl.create(:book)
-    shelf.add_book book, book.user
+    FactoryGirl.create(:book, include_in_shelf_id: shelf.id)
+    shelf.reload
     shelf.books.count.should == 1
     shelf.books_count.should == 1
   end

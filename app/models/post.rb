@@ -17,6 +17,8 @@ class Post < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
 
+  scope :public, where(visibility: 'public')
+
   VISIBILITIES = [:public, :draft, :private]
 
   validates :camp_id, presence: true

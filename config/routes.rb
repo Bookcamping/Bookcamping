@@ -29,6 +29,7 @@ Bookcamp::Application.routes.draw do
     resources :licenses
     resources :books
     resources :users
+    resources :posts
     resources :versions
   end
 

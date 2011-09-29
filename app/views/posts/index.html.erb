@@ -6,11 +6,18 @@
   <% end %>
 
   <% posts.each do |post| %>
-      <%= div_for post do %>
+      <%= div_for post, class: post.visibility do %>
+          <div class="visibility"><%= t"post.visibilities.#{post.visibility}" if current_user? :admin %></div>
           <h2><%= link_to post.title, post %></h2>
+
           <div class="author">Por <%= post.author %></div>
-          <div class="body summary"><%= markdown post.body, 40 %></div>
-          <div class="read_more"><%= link_to 'leer más...', post %></div>
+          <div class="body summary"><%= markdown post.body, 200 %></div>
+          <div class="actions">
+            <%= link_to 'leer más...', post, class: 'read_more' %>
+            <% if can? :edit, post %>
+                <%= link_to 'editar', [:edit, post], class: 'read_more' %>
+            <% end %>
+          </div>
       <% end %>
   <% end %>
 </div>

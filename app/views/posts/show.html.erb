@@ -5,7 +5,8 @@
 
 <%= title post.title %>
 
-<%= div_for post do %>
+<%= div_for post, class: post.visibility do %>
+    <div class="visibility"><%= t("post.visibilities.#{post.visibility}") if current_user? :admin %></div>
     <div class="author">Por <%= post.author %></div>
     <div class="body"><%= markdown post.body %></div>
 <% end %>

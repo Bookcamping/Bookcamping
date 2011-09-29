@@ -14,7 +14,7 @@ module ApplicationHelper
   # TRANSLATED COLLECTION
   def tc(prefix, collection)
     collection.map do |item|
-      I18n.t "#{prefix}.#{item}"
+      [I18n.t("#{prefix}.#{item}"), item]
     end
   end
 

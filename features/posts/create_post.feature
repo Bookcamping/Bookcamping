@@ -19,7 +19,7 @@ Feature: Create post
     When I go to new post page
     And I fill in "post[title]" with "Primer Post"
     And I fill in "post[author]" with "Bartebly"
-    And I fill in "post[visibility]" with "public"
+    And I select "public" from "post[visibility]"
     And I fill in "post[body]" with "Mi primer text."
     # TODO: ver por qué no funciona "Guardar entrada"
     And I press "submit_post"

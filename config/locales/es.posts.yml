@@ -2,7 +2,7 @@ es:
   post:
     visibilities:
       public: 'Público'
-      private: 'Private'
+      private: 'Privado'
       draft: 'Borrador'
 
   activerecord:
