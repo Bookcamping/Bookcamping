@@ -30,6 +30,10 @@ gem 'kaminari'
 gem 'has_scope'
 gem 'responders'
 
+gem 'fog'
+gem 'carrierwave'
+gem 'rmagick'
+
 #gem 'prawn'
 #gem 'prawnto'
 #gem 'nokogiri'

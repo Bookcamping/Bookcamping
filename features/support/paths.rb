@@ -47,6 +47,10 @@ module NavigationHelpers
       when /^edit "([^"]*)" post page$/i
         edit_post_path(Post.find_by_title!($1))
 
+      # MEDIA
+      when /^media list page$/
+        media_path
+
       # BACKEND
       when /^backend references$/
         backend_books_path

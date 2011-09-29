@@ -35,4 +35,11 @@ FactoryGirl.define do
     visibility :public
     published_at Time.now
   end
+
+  factory :media do
+    camp
+    user
+    title 'Media title'
+    content_type 'text'
+  end
 end

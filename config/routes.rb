@@ -23,6 +23,11 @@ Bookcamp::Application.routes.draw do
     resources :versions, :path => 'actividad'
   end
 
+  namespace :admin do
+    root to: 'media#index'
+    resources :media
+  end
+
   namespace :backend do
     root to: 'stats#show'
     resource :stats

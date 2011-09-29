@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110929083741) do
+ActiveRecord::Schema.define(:version => 20110929131635) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -95,6 +95,18 @@ ActiveRecord::Schema.define(:version => 20110929083741) do
     t.string   "url",        :limit => 500
     t.string   "icon",       :limit => 300
     t.boolean  "open"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media", :force => true do |t|
+    t.integer  "camp_id"
+    t.integer  "user_id"
+    t.string   "title",        :limit => 200
+    t.string   "file",         :limit => 300
+    t.string   "content_type", :limit => 32
+    t.string   "url",          :limit => 300
+    t.text     "rendered"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

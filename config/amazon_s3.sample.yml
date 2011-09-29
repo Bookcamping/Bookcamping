@@ -1,0 +1,16 @@
+development:
+  bucket: bookasite
+  access_key_id:
+  secret_access_key:
+
+test:
+  bucket: bookasite-dev
+  access_key_id:
+  secret_access_key:
+
+
+production:
+  bucket: bookasite
+  access_key_id:
+  secret_access_key:
+

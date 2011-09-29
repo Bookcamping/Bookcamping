@@ -1,0 +1,6 @@
+/*
+ *= require_self
+ *= require .lib/bootstrap.min.css
+ *= require_directory ./admin
+*/
+
