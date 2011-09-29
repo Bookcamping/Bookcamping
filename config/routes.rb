@@ -1,6 +1,7 @@
 Bookcamp::Application.routes.draw do
   root :to => 'shelves#index'
 
+  # THIS IS PUBLIC
   scope :path_names => {:new => 'nueva', :edit => 'modificar'} do
     resources :shelves, :path => 'listas' do
       resources :books, :path => 'referencia', :only => [:show, :new]
@@ -15,6 +16,8 @@ Bookcamp::Application.routes.draw do
       resources :shelf_items, :path => 'incluidos'
       resources :bookmarks, :path => 'marcar'
     end
+
+    resources :posts, :path => 'blog'
 
     resources :users, :path => 'colaboradorxs'
     resources :versions, :path => 'actividad'

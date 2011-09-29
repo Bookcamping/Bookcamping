@@ -1,0 +1,11 @@
+<div class="actions">
+  <%= link_to 'Volver', posts_path, class: 'back' %>
+  <%= link_to 'Editar entrada', edit_post_path(post) if can? :manage, post %>
+</div>
+
+<%= title post.title %>
+
+<%= div_for post do %>
+    <div class="author">Por <%= post.author %></div>
+    <div class="body"><%= markdown post.body %></div>
+<% end %>

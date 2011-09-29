@@ -1,0 +1,8 @@
+<%= simple_form_for post do |form| %>
+    <%= form.input :title %>
+    <%= form.input :author %>
+    <%= form.input :visibility, collection: tc('post.visibilities', Post::VISIBILITIES), include_blank: false %>
+    <%= form.input :published_at %>
+    <%= form.input :body %>
+    <%= form.submit id: 'submit_post' %>
+<% end %>

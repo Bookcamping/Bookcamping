@@ -8,12 +8,19 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+      # HOME
       when /^the home\s?page$/
         '/'
 
+      # REFERENCE
       when /^"(.*)" reference page$/i
         book_path(Book.find_by_title($1))
 
+      when /^new reference page$/
+        new_book_path
+
+
+      # SECTION
       when /^"([^"]*)" section page$/i
         shelf_path(Shelf.find_by_name($1))
 
@@ -28,14 +35,19 @@ module NavigationHelpers
       when /^new section page$/
         new_shelf_path
 
-      when /^new reference page$/
-        new_book_path
+      # POSTS
+      when /^posts page$/
+        posts_path
 
-      # Add more mappings here.
-      # Here is an example that pulls values out of the Regexp:
-      #
-      #   when /^(.*)'s profile page$/i
-      #     user_profile_path(User.find_by_login($1))
+      when /^new post page$/
+        new_post_path
+
+      when /^"([^"]*)" post page$/i
+        post_path(Post.find_by_title!($1))
+
+      when /^edit "([^"]*)" post page$/i
+        edit_post_path(Post.find_by_title!($1))
+
 
       else
         begin

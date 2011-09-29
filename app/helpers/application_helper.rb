@@ -11,6 +11,14 @@ module ApplicationHelper
     content_tag(:div, Redcarpet.new(text, *options).to_html.html_safe, :class => 'markdown')
   end
 
+  # TRANSLATED COLLECTION
+  def tc(prefix, collection)
+    collection.map do |item|
+      I18n.t "#{prefix}.#{item}"
+    end
+  end
+
+
   def current_model
     current_camp.model_name
   end

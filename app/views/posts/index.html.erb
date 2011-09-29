@@ -1,0 +1,16 @@
+<div id="posts">
+  <% if can? :manage, Post %>
+      <div class="actions">
+        <%= link_to 'Crear entrada', new_post_path %>
+      </div>
+  <% end %>
+
+  <% posts.each do |post| %>
+      <%= div_for post do %>
+          <h2><%= link_to post.title, post %></h2>
+          <div class="author">Por <%= post.author %></div>
+          <div class="body summary"><%= markdown post.body, 40 %></div>
+          <div class="read_more"><%= link_to 'leer más...', post %></div>
+      <% end %>
+  <% end %>
+</div>

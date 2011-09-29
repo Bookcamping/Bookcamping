@@ -1,6 +1,11 @@
 When /^I'm authenticated as "([^"]*)"$/ do |name|
   Given "a camp"
-  user = User.find_by_name name
-  user ||= FactoryGirl.create(:user, name: name)
-  visit enter_path(user.id)
+  @current_user = User.find_by_name name
+  @current_user ||= FactoryGirl.create(:user, name: name)
+  visit enter_path(@current_user.id)
+end
+
+
+When /^I'm and admin$/ do
+  @current_user.update_attribute(:rol, 'admin')
 end

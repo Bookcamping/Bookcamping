@@ -1,0 +1,23 @@
+es:
+  post:
+    visibilities:
+      public: 'Público'
+      private: 'Private'
+      draft: 'Borrador'
+
+  activerecord:
+    models:
+      post: 'entrada'
+
+  simple_form:
+    labels:
+      title: 'Título'
+      author: 'Autora'
+      visibility: 'Visibilidad'
+      published_at: 'Fecha de publicación'
+      body: 'Texto'
+    hints:
+      author: 'Es la firma del post, para separarlo de la persona que escribe el post'
+      published_at: 'Sirve, básicamente, para ordenar entradas: de más reciente a más antigüa'
+      visibility: 'Permite tener borradores o entradas sólo visibles por las administradoras'
+      body: 'Podéis usar textile'

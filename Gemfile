@@ -44,8 +44,8 @@ end
 
 group :test, :development do
   # Pretty printed test output
-  gem 'unicorn'
-  #  gem "thin"
+  #gem 'unicorn'
+  gem "thin"
   gem 'sqlite3'
   gem 'mysql2'
   gem 'oink'

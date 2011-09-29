@@ -9,7 +9,6 @@ Feature: Show reference in section
     And a book titled "Reference 2" inside section "My section"
     And a book titled "Reference 3" inside section "My section"
 
-  @current
   Scenario: Visit a reference inside a section
     When I go to "My section" section page
     And follow "Reference 1"

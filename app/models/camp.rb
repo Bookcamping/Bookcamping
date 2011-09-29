@@ -21,6 +21,7 @@ class Camp < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
   has_many :versions
+  has_many :posts
 
   validates :name, presence: true
 end

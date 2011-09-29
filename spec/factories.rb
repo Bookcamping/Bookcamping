@@ -25,4 +25,14 @@ FactoryGirl.define do
     user
     name 'Shelf'
   end
+
+  factory :post do
+    camp
+    user
+    title 'Post Title'
+    body 'Post body.'
+    author '#bookcamping'
+    visibility :public
+    published_at Time.now
+  end
 end

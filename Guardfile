@@ -9,6 +9,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/spec_helper.rb')
   #watch('spec/factories.rb')
   watch(%r{^spec/support/.+\.rb$})
+  watch('reload_spork.txt')
 end
 
 #guard 'cucumber', :cli => '--drb --format progress --no-profile --tags ~@wip' do
