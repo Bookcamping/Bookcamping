@@ -1,0 +1,3 @@
+class CuratedShelf < Shelf
+end
+

@@ -15,6 +15,8 @@
 class Camp < ActiveRecord::Base
   has_many :shelves
   has_many :camp_shelves
+  has_many :curated_shelves
+  has_many :user_shelves
   has_many :shelf_items
   has_many :books
   has_many :comments

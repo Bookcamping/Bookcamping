@@ -27,6 +27,8 @@ Bookcamp::Application.routes.draw do
     root to: 'posts#index'
     resources :posts, path: 'blog'
     resources :media_bites, path: 'media'
+    resources :camp_shelves, path: 'listas'
+    resources :curated_shelves, path: 'comisariadas'
   end
 
   namespace :backend do
@@ -36,6 +38,7 @@ Bookcamp::Application.routes.draw do
     resources :books
     resources :users
     resources :posts
+    resources :shelves
     resources :versions
   end
 

@@ -1,0 +1,8 @@
+<div id="shelves">
+  <% shelves.each do |shelf| %>
+      <%= div_for shelf, class: 'shelf' do %>
+          <h3><%= shelf.name %></h3>
+          <span class="book_count"><%= shelf.books_count %> referencias.</span>
+      <% end %>
+  <% end %>
+</div>
