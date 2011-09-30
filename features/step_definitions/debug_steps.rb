@@ -5,7 +5,12 @@ Then /^debug page$/ do
 end
 
 Given /^debug sql on$/ do
+  @logger = ActiveRecord::Base.logger
   ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
+
+Given /^debug sql off$/ do
+  ActiveRecord::Base.logger = @logger
 end
 
 Then /^debug a shelf named "([^"]*)"$/ do |name|

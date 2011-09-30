@@ -65,6 +65,15 @@ module NavigationHelpers
       when /^edit "([^"]*)" admin post page$/i
         edit_admin_post_path(Post.find_by_title!($1))
 
+      # CAMP SHELVES
+      when /^admin camp shelves page$/
+        admin_camp_shelves_path
+
+      # CURATED SHELVES
+      when /^admin curated shelves page$/
+        admin_curated_shelves_path
+
+
 
     # BACKEND
       when /^backend references$/

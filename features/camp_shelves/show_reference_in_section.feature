@@ -9,7 +9,6 @@ Feature: Show reference in section
     Given a user's shelf named "My shelf"
     And the reference titled "Reference 1" inside shelf "My shelf"
 
-  @current
   Scenario: Visit a reference inside a camp's shelf
     When I go to "My section" camp's shelf page
     And follow "Reference 1"

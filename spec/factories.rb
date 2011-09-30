@@ -25,10 +25,11 @@ FactoryGirl.define do
     user
     name 'Shelf'
 
-    factory :camp_shelf do
+    factory :camp_shelf, :parent => :shelf do
     end
-
-    factory :user_shelf do
+    factory :user_shelf, :parent => :shelf do
+    end
+    factory :curated_shelf, :parent => :shelf do
     end
   end
 
