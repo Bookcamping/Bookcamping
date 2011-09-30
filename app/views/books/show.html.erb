@@ -1,13 +1,13 @@
 <% title book.title %>
 
-<% if shelf? %>
+<% if shelf.present? %>
     <%= render shelf %>
 <% else %>
     <h1>Listas en las que está incluído</h1>
     <div class="actions">
       <%= link_to 'Gestionar listas', new_book_shelf_item_path(book) if can? :new, ShelfItem %>
     </div>
-    <%= render :partial => 'shelves/shelves', :object => book.shelves %>
+    <%= render :partial => 'shelves/shelves', :object => book.camp_shelves %>
 <% end %>
 
 <% content_for :sidebar do %>

@@ -27,8 +27,12 @@ class Book < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
   has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
+
   has_many :shelf_items, :include => :shelf, :dependent => :destroy
+
   has_many :shelves, :through => :shelf_items
+  has_many :camp_shelves, through: :shelf_items
+
   has_many :bookmarks, :dependent => :destroy
   belongs_to :license
   serialize :marks

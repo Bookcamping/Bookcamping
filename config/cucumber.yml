@@ -5,6 +5,7 @@ std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip
 %>
 default: --drb --format pretty --strict --tags @current
 all: --drb --format progress --strict --tags ~@wip
+detailed: --drb --format pretty --strict --tags ~@wip
 nodefault: <%= std_opts %> features
 autotest: --drb --color --format progress --strict
 wip: --drb -tags @wip:3 --wip features

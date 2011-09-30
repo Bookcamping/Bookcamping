@@ -13,6 +13,7 @@
 class ShelfItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :shelf
+  belongs_to :camp_shelf, :foreign_key => :shelf_id
   belongs_to :book
 
   validates :user_id, :presence => true

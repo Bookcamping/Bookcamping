@@ -10,7 +10,7 @@ module NavigationHelpers
 
       # HOME
       when /^the home\s?page$/
-        '/'
+        root_path
 
       # REFERENCE
       when /^"(.*)" reference page$/i
@@ -20,19 +20,19 @@ module NavigationHelpers
         new_book_path
 
       # SECTION
-      when /^"([^"]*)" section page$/i
-        shelf_path(Shelf.find_by_name($1))
+      when /^"([^"]*)" camp's shelf page$/i
+        camp_shelf_path(CampShelf.find_by_name!($1))
 
-      when /^"([^"]*)" at "([^"]*)" section page$/i
+      when /^"([^"]*)" at "([^"]*)" camp's shelf page$/i
         book = Book.find_by_title!($1)
-        section = Shelf.find_by_name!($2)
-        shelf_book_path(section, book)
+        section = CampShelf.find_by_name!($2)
+        camp_shelf_book_path(section, book)
 
-      when /^sections page$/
-        shelves_path
+      when /^camp's shelves page$/
+        camp_shelves_path
 
-      when /^new section page$/
-        new_shelf_path
+      when /^new camp shelf page$/
+        new_camp_shelf_path
 
       # POSTS
       when /^posts page$/

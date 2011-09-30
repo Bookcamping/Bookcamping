@@ -1,0 +1,3 @@
+class CampShelf < Shelf
+end
+

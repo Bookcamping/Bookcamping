@@ -16,12 +16,12 @@ class CreateCamps < ActiveRecord::Migration
     Camp.create!(:subdomain => 'video', :name => '#videocamp')
 
     add_column :books, :camp_id, :integer
-    add_column :shelves, :camp_id, :integer
+    add_column :camp_shelves, :camp_id, :integer
     add_column :shelf_items, :camp_id, :integer
     add_column :comments, :camp_id, :integer
     add_column :versions, :camp_id, :integer
     add_index :books, :camp_id
-    add_index :shelves, :camp_id
+    add_index :camp_shelves, :camp_id
     add_index :shelf_items, :camp_id
     add_index :comments, :camp_id
     add_index :versions, :camp_id

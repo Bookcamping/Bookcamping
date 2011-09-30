@@ -8,6 +8,7 @@ Feature: Home Page
   Scenario: Unauthenticated visitor sees home page
     When I am on the home page
     Then I should see "myCamping"
+    # TODO: WINDOW'S TITLE -> Then I should see "Listas myCamping"
     #Then I should see "Entrar con twitter"
 
 

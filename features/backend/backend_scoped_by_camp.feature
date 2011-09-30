@@ -9,6 +9,7 @@ Feature: Backend scoped by camp
     And a camp named "Camp2"
     And a book titled "Book2"
 
+  @current
   Scenario: Show references only on my camp
     Given I'm authenticated as "Admin"
     And I'm an admin

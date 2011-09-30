@@ -1,3 +1,4 @@
+
 <%= div_for shelf do %>
     <div class="info">
       <div class="count" >
@@ -12,7 +13,7 @@
       Creada por <%= shelf.user.name %> y modificada hace <%= time_ago_in_words shelf.updated_at %>
     </div>
     <div class="actions">
-      <%= link_to 'Volver', shelves_path, :class => 'back' %>
+      <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
       <%#= link_to "Añadir #{current_model}", new_shelf_book_path(shelf) %>
       <%= link_to 'Editar', [:edit, shelf] if can? :edit, shelf %>
       <%= link_to 'Borrar', shelf, :method => :delete,

@@ -1,0 +1,2 @@
+module Admin::CampShelvesHelper
+end

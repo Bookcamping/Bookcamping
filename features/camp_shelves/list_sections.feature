@@ -5,8 +5,8 @@ Feature: List Sections
 
   @wip
   Scenario: List all sections
-    Given a section named "Primera"
-    Given a section named "Segunda"
-    When I go to sections page
+    Given a camp's shelf named "Primera"
+    Given a camp's shelf named "Segunda"
+    When I go to camp's shelves page
     Then I should see "Primera"
     Then I should see "Segunda"

@@ -1,6 +1,6 @@
 class CreateShelves < ActiveRecord::Migration
   def change
-    create_table :shelves do |t|
+    create_table :camp_shelves do |t|
       t.belongs_to :user
       t.string :name, :limit => 200
       t.string :slug, :limit => 50

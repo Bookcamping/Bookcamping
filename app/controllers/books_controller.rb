@@ -1,11 +1,10 @@
 class BooksController < ApplicationController
   respond_to :html, :js, :json
-  expose(:shelves) { current_camp.shelves }
-  expose(:shelf?) { params[:shelf_id].present? }
-  expose(:shelf) { shelves.find params[:shelf_id] if shelf? }
+
+  expose(:shelf) { load_shelf }
+  expose(:shelf?) { shelf.present? }
   expose(:books) { current_camp.books }
   expose(:book)
-
 
   def index
     redirect_to shelf? ? shelf : root_path
@@ -30,7 +29,6 @@ class BooksController < ApplicationController
 
   def show
     respond_with :book
-    #redirect_to browse_book_path(book.shelves.first, book)
   end
 
   def new
@@ -61,5 +59,15 @@ class BooksController < ApplicationController
     authorize! :destroy, book
     book.destroy
     respond_with book, :location => root_path
+  end
+
+  protected
+  def load_shelf
+    params.each do |name, value|
+      if name =~ /(.*_?shelf)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
   end
 end

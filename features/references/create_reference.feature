@@ -6,7 +6,7 @@ Feature: Create a new reference
   Background:
     Given a camp named "#bookcamping"
     And a license named "Public domain"
-    And a section named "Cajón"
+    And a camp's shelf named "Cajón"
     And I'm authenticated as "Jess"
 
   Scenario: Create a new reference

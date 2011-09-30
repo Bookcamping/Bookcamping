@@ -1,13 +1,13 @@
 Given /^a book titled "([^"]*)"$/ do |title|
   Given "a camp"
-  Given "a section"
+  Given "a shelf"
   book = FactoryGirl.create(:book, title: title, camp: @camp,
-                            include_in_shelf_id: @section.id)
+                            include_in_shelf_id: @shelf.id)
 end
 
-When /^a book titled "([^"]*)" inside section "([^"]*)"$/ do |title, section|
+When /^a book titled "([^"]*)" inside shelf "([^"]*)"$/ do |title, section|
   Given "a camp"
-  section = @camp.shelves.find_by_name section
+  shelf = @camp.shelves.find_by_name!(section)
   FactoryGirl.create(:book, title: title, camp: @camp,
-                     include_in_shelf_id: section.id)
+                     include_in_shelf_id: shelf.id)
 end

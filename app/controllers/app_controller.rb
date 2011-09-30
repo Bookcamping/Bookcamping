@@ -1,7 +1,7 @@
 class AppController < ApplicationController
   expose(:library) { Library.new(current_camp, current_user) }
   expose(:section_name) { ['bookcamping', 'videocamping', 'listas', 'libreria'].include?(params[:id]) ? params[:id] : nil }
-  expose(:shelves) { current_camp.shelves }
+  expose(:camp_shelves) { current_camp.shelves }
 
   def app
   end

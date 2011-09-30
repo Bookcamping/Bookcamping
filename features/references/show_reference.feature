@@ -4,9 +4,10 @@ Feature: Show reference
   I want to go to the show reference page
 
   Background:
-    Given a section named "Feminismos"
-    Given a book titled "Teoría King Kong" inside section "Feminismos"
+    Given a camp's shelf named "Feminismos"
+    Given a book titled "Teoría King Kong" inside shelf "Feminismos"
 
+  @current
   Scenario: Visitor views a book
     When I go to "Teoría King Kong" reference page
     Then I should see "Teoría King Kong"

@@ -1,6 +1,6 @@
 class AddColorToShelves < ActiveRecord::Migration
   def change
-    add_column :shelves, :color, :string, :limit => 16
+    add_column :camp_shelves, :color, :string, :limit => 16
 
 
     index = 0

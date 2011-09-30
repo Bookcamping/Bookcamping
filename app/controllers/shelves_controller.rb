@@ -1,17 +1,20 @@
 class ShelvesController < ApplicationController
   respond_to :html, :js, :json
+
   expose(:shelves) { current_camp.shelves }
   expose(:shelf)
-  expose(:autoshelf) { AutoShelf.find(params[:id], current_camp)}
+
+  # SEARCH
+  expose(:autoshelf) { AutoShelf.find(params[:id], current_camp) }
 
   def browse
   end
 
   def index
   end
-  
+
   def auto
-    
+
   end
 
   def show
@@ -48,7 +51,6 @@ class ShelvesController < ApplicationController
       flash[:notice] = t('shelves.notice.not_empty')
       respond_with shelf
     end
-
   end
 
 end

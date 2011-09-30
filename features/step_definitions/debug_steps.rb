@@ -8,25 +8,33 @@ Given /^debug sql on$/ do
   ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
 
-Then /^debug a section named "([^"]*)"$/ do |name|
-  @section = Shelf.find_by_name name
-  puts "SECTION #{name}"
-  puts @section.inspect
-  puts "BOOKS #{@section.books.count}"
-  @section.books.each {|b| puts b.inspect}
+Then /^debug a shelf named "([^"]*)"$/ do |name|
+  shelf = Shelf.find_by_name name
+  puts "SHELF #{name}"
+  puts shelf.inspect
+  puts "BOOKS #{shelf.books.count}"
+  shelf.books.each {|b| puts b.inspect}
 end
 
-Then /^debug section items$/ do
+Then /^debug shelf items$/ do
   puts "SECTION ITEMS (#{ShelfItem.count})"
   ShelfItem.all.each do |item|
     puts item.inspect
   end
 end
 
-Then /^debug sections$/ do
-  puts "SECTIONS (#{Shelf.count})"
-  Shelf.all.each do |section|
-    puts section.inspect
+Then /^debug shelves$/ do
+  puts "SHELVES (#{Shelf.count})"
+  Shelf.all.each do |shelf|
+    puts shelf.inspect
+  end
+end
+
+
+Then /^debug camp shelves$/ do
+  puts "CAMP SHELVES (#{CampShelf.count})"
+  CampShelf.all.each do |shelf|
+    puts shelf.inspect
   end
 end
 

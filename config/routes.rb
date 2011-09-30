@@ -1,9 +1,9 @@
 Bookcamp::Application.routes.draw do
-  root :to => 'shelves#index'
+  root :to => 'camp_shelves#index'
 
   # THIS IS PUBLIC
   scope :path_names => {:new => 'nueva', :edit => 'modificar'} do
-    resources :shelves, :path => 'listas' do
+    resources :camp_shelves, :path => 'listas' do
       resources :books, :path => 'referencia', :only => [:show, :new]
     end
 

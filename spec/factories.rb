@@ -24,6 +24,9 @@ FactoryGirl.define do
     camp
     user
     name 'Shelf'
+
+    factory :camp_shelf do
+    end
   end
 
   factory :post do

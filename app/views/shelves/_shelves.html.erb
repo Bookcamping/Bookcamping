@@ -6,7 +6,7 @@
       </tr>
       <tr class="shelf" style="background-color: <%= shelf.background %>;">
         <td class="main">
-          <span class="name"><%= link_to shelf.name, shelf %></span>
+          <span class="name"><%= link_to shelf.name, camp_shelf_path(shelf) %></span>
           <span class="user">Por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
         </td>
         <td class="count">
