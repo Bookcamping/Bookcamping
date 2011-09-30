@@ -9,7 +9,7 @@ Feature: List Media
     And I'm an admin
 
   Scenario: List media
-    Given a "url/image" media with title "My Image" and "link" of "http://link.to"
+    Given a media with title "My Image" and "link" is "http://link.to"
     When I go to admin media list page
     Then I should see "My Image"
     And I should see "http://link.to"

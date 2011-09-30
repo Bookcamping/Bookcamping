@@ -42,3 +42,10 @@ When /^debug posts$/ do
     puts post.inspect
   end
 end
+
+Given /^debug media bites$/ do
+  puts "MEDIA BITES (#{MediaBite.count})"
+  MediaBite.all.each do |media|
+    puts media.inspect
+  end
+end

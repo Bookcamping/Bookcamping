@@ -6,10 +6,14 @@ Feature: Render media in blog posts
   Background:
     Given I'm at camp "testcamping"
 
-  @current
+  @wip
   Scenario:
-    Given a media with title "MyStuff" and "file_content" is "my_image.jpg"
-    Given a post with title "MyPost" and "body" is "#{MEDIA:1}"
+    Given a media with title "MyStuff"
+    Given last media has file "my_file.jpg"
+    Given debug media bites
+    Given a post with title "MyPost" and "body" is "My stuff is: #{MEDIA:1}"
     When debug posts
     When I go to "MyPost" post page
+    Then debug page
+    Then I should see "My stuff is: "
     Then I should see "<img"

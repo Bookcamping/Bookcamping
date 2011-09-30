@@ -9,3 +9,7 @@ Given /^a media with title "([^"]*)"$/ do |title|
   Given "a camp"
   @media = FactoryGirl.create(:media_bite, title: title, camp: @camp)
 end
+
+Given /^last media has file "([^"]*)"$/ do |file|
+  @media.update_attribute(:file_content, file)
+end
