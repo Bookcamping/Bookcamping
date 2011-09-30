@@ -10,9 +10,8 @@ Feature: List Media
 
   @current
   Scenario: List media
-    Given a "url/image" media with title "My Image" and "url" of "http://go.to/image.jpg"
+    Given a "url/image" media with title "My Image" and "url_content" of "http://go.to/image.jpg"
     When I go to admin media list page
-    Then debug page
     Then I should see "My Image"
     And I should see "url/image"
     And I should see "http://go.to/image.jpg"

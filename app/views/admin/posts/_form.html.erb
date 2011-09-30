@@ -5,6 +5,22 @@
     <%= form.input :published_at %>
     <%= form.input :body %>
     <div class="actions">
-      <%= form.submit class: 'btn primary' %>
+      <%= form.submit id: 'submit_post' %>
+    </div>
+<% end %>
+
+<% content_for :sidebar do %>
+    <div id="sidecontent">
+      <div class="main">
+        <h1>Markdown</h1>
+        <ul>
+          <li># Título grande</li>
+          <li>## Título mediano</li>
+          <li>### Título pequeño</li>
+          <li><strong>*negrita*</strong></li>
+          <li><em>__cursiva__</em></li>
+        </ul>
+      </div>
+      <div class="footer"></div>
     </div>
 <% end %>

@@ -1,19 +1,25 @@
-<%= admin_title resource_class %>
 
-<div class="buttons">
-  <%= link_to '+ Añadir', new_admin_media_bite_path, class: 'btn primary' %>
+<div class="actions">
+  <%= link_to '+ Añadir/subir media', new_admin_media_bite_path %>
 </div>
+
+<%= admin_title resource_class, "Media 'jammin" %>
 
 <div id="media_bites">
   <% @media_bites.each do |media_bite| %>
       <%= div_for media_bite do %>
+          <h1><%= media_bite.title %>
+            <small><%= media_bite.content_type %></small>
+          </h1>
           <% if media_bite.image_file? %>
               <%= image_tag media_bite.file_url(:thumb), class: 'thumb' %>
           <% end %>
-
-          <h3><%= media_bite.title %></h3>
-          <div class="content_type"><%= media_bite.content_type %></div>
-          <div class="file"><%= media_bite.file %></div>
+          <span class="file"><%= media_bite.file %></span>
+          <div class="links">
+            <%= link_to 'Editar', [:edit, :admin, media_bite] %> |
+            <%= link_to 'Borrar', [:admin, media_bite], method: :delete,
+            confirm: "Borrar '#{media_bite.title}' ¿Estás segura? No se puede deshacer"%>
+          </div>
       <% end %>
   <% end %>
 </div>

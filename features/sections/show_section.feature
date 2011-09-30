@@ -6,7 +6,7 @@ Feature: Show section
   Background:
     Given a camp named "bookcamping"
 
-  Scenario: View references in section
+  Scenario: Show references in section
     Given a section named "Cultura Libre"
     And a book titled "Código fuente" inside section "Cultura Libre"
     And a book titled "Zemos98" inside section "Cultura Libre"

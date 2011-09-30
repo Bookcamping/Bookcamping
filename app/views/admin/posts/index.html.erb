@@ -1,19 +1,27 @@
-<%= admin_title resource_class %>
+<div class="actions">
+  <%= link_to 'Volver', posts_path, class: 'back' %>
+  <%= link_to '+ Añadir entrada', new_admin_post_path %>
+</div>
+
+<%= admin_title resource_class, 'Administración del blog' %>
 
 <div class="pagination">
   <%= paginate collection %>
 </div>
+
 <div id="posts">
   <% collection.each do |post| %>
-      <%= div_for post do %>
-          <h3><%= post.title %>
+      <%= div_for post, class: post.visibility do %>
+          <h1><%= post.title %>
             <small><%= post.visibility %></small>
-          </h3>
+          </h1>
+          <div class="author">Por <%= post.author %></div>
           <div class="body"><%= markdown post.body, 100 %></div>
           <div class="links">
-            <%= link_to 'Ver en la web', post %> |
             <%= link_to 'Editar', [:edit, :admin, post] %> |
-            <%= link_to 'Borrar', [:edit, :admin, post] %>
+            <%= link_to 'Ver en la web', post %> |
+            <%= link_to 'Borrar', [:admin, post], method: :delete,
+                        confirm: "¿Seguro que quieres borrar el post '#{post.title}'? No se puede deshacer!" %>
           </div>
       <% end %>
   <% end %>

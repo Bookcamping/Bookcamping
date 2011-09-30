@@ -19,11 +19,16 @@ class Post < ActiveRecord::Base
 
   scope :public, where(visibility: 'public')
 
-  VISIBILITIES = [:public, :draft, :private]
+  VISIBILITIES = [:draft, :private, :public]
 
   validates :camp_id, presence: true
   validates :user_id, presence: true
   validates :author, presence: true
   validates :title, presence: true
   validates :visibility, presence: true
+
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+
 end

@@ -1,32 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <title><%= yield :title %> :: <%= current_camp.name %> admin</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title><%= yield :title %> <%= current_camp.name %> </title>
+  <link rel="Shortcut Icon" href="/images/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cousine&v1' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "application" %>
   <%= stylesheet_link_tag "admin" %>
+  <!--link href="/iconic.css" media="screen" rel="stylesheet" type="text/css"/-->
+  <%= csrf_meta_tags %>
 </head>
-<body class="backend">
-<div class="topbar">
-  <div class="fill">
+<body>
+<div id="page">
+  <div id="flash">
+    <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
+  </div>
+
+
+  <div id="session">
+    <div class="user">
+      <strong><%= "##{current_camp.name} admin"%></strong>
+      <%= link_to 'blog', admin_posts_path %>
+      <%= link_to 'media', admin_media_bites_path %>
+
+    </div>
+  </div>
+
+  <div id="go-camping">
+    <% if current_camp.name == 'bookcamping' %>
+        <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
+    <% else %>
+        <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
+    <% end %>
+  </div>
+  <div id="header">
+    <a href="/">
+      <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
+    </a>
+  </div>
+  <div id="main">
     <div class="container">
-      <h3><%= link_to "##{current_camp.name} admin", admin_root_path %></h3>
-      <ul>
-        <li><%= link_to 'Blog', admin_posts_path %></li>
-        <li><%= link_to 'Media', admin_media_bites_path %></li>
-      </ul>
+      <div id="center">
+        <%= yield %>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="page"><%= yield %></div>
-</div>
+
+<%= render 'layouts/js' %>
+<%= render 'layouts/ga' %>
+
+<div style="display:none">GoCamping 2011/06/15</div>
 </body>
 </html>
-

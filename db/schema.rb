@@ -103,10 +103,14 @@ ActiveRecord::Schema.define(:version => 20110929155853) do
     t.integer  "camp_id"
     t.integer  "user_id"
     t.string   "title",        :limit => 200
-    t.string   "file",         :limit => 300
     t.string   "content_type", :limit => 32
-    t.string   "url",          :limit => 300
-    t.text     "rendered"
+    t.string   "file_content", :limit => 300
+    t.string   "render_as",    :limit => 32
+    t.string   "position",     :limit => 16
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "url_content",  :limit => 300
+    t.text     "text_content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

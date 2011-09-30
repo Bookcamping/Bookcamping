@@ -1,7 +1,8 @@
 module Admin::ApplicationHelper
-  def admin_title(resource_class)
+  def admin_title(resource_class, title = nil)
+    title ||= "#{resource_class.name}s"
     count = resource_class.send(:count)
-    content_for(:title) { "#{resource_class.name}s" }
-    content_tag(:h1, raw("#{resource_class.name}s <small>#{count}</small>"))
+    content_for(:title) { title }
+    content_tag(:h1, raw("#{title} <small>(#{count})</small>"))
   end
 end

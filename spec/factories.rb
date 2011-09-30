@@ -36,7 +36,7 @@ FactoryGirl.define do
     published_at Time.now
   end
 
-  factory :media_bites do
+  factory :media_bite do
     camp
     user
     title 'Media title'

@@ -1,0 +1,11 @@
+<div id="sidecontent">
+  <div class="main">
+    <h1>Últimas entradas</h1>
+    <ul id="latest-posts">
+      <% posts.each do |post| %>
+      <li><h3><%= link_to post.title, post %></h3></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="footer"></div>
+</div>

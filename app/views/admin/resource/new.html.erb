@@ -1,3 +1,6 @@
+<div class="actions">
+  <%= link_to 'Volver', [:admin, resource_class], class: 'back' %>
+</div>
 <%= title "Añadir #{resource_class.model_name.human}" %>
 
 <%= render 'form', attributes: attributes %>

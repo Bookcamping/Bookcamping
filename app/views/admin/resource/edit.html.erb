@@ -1,6 +1,8 @@
+<div class="actions">
+  <%= link_to 'Volver', [:admin, resource_class], class: 'back' %>
+</div>
 
 <%= title "Editar #{resource_class.model_name.human}" %>
 
-<%= link_to raw('&larr; Volver'), [:admin, resource_class] %>
 <%= render 'form', attributes: attributes %>
 

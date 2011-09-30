@@ -1,12 +1,9 @@
 <div class="actions">
-  <%= link_to 'Volver', posts_path, class: 'back' %>
-  <%= link_to 'Editar entrada', edit_post_path(post) if can? :manage, post %>
+  <%= link_to 'Volver', root_path, class: 'back' %>
+  <%= link_to 'Administrar blog', admin_posts_path if can? :manage, post %>
+  <%= link_to 'Editar entrada', [:edit, :admin, post] if can? :manage, post %>
 </div>
 
-<%= title post.title %>
+<%= render :partial => 'show' %>
 
-<%= div_for post, class: post.visibility do %>
-    <div class="visibility"><%= t("post.visibilities.#{post.visibility}") if current_user? :admin %></div>
-    <div class="author">Por <%= post.author %></div>
-    <div class="body"><%= markdown post.body %></div>
-<% end %>
+<%= content_for(:sidebar) { render 'sidebar'} %>

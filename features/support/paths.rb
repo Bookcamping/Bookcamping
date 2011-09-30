@@ -38,19 +38,27 @@ module NavigationHelpers
       when /^posts page$/
         posts_path
 
-      when /^new post page$/
-        new_post_path
-
       when /^"([^"]*)" post page$/i
         post_path(Post.find_by_title!($1))
-
-      when /^edit "([^"]*)" post page$/i
-        edit_post_path(Post.find_by_title!($1))
 
     # ADMIN
       # MEDIA
       when /^admin media list page$/
         admin_media_bites_path
+
+      # POSTS
+      when /^admin posts page$/
+        admin_posts_path
+
+      when /^new admin post page$/
+        new_admin_post_path
+
+      when /^"([^"]*)" admin post page$/i
+        admin_post_path(Post.find_by_title!($1))
+
+      when /^edit "([^"]*)" admin post page$/i
+        edit_admin_post_path(Post.find_by_title!($1))
+
 
     # BACKEND
       when /^backend references$/
