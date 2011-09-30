@@ -25,8 +25,8 @@ Bookcamp::Application.routes.draw do
 
   namespace :admin do
     root to: 'posts#index'
-    resources :posts, path: :blog
-    resources :media_bites
+    resources :posts, path: 'blog'
+    resources :media_bites, path: 'media'
   end
 
   namespace :backend do

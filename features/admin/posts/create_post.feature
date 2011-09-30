@@ -22,7 +22,6 @@ Feature: Create post
     And I fill in "post[body]" with "Mi primer text."
     # TODO: ver por qué no funciona "Guardar entrada"
     And I press "submit_post"
-    Then debug page
     Then I should be on "Primer Post" admin post page
     And I should see "Primer Post"
     And I should see "Bartebly"

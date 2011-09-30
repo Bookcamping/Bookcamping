@@ -29,7 +29,6 @@ class ShelfItem < ActiveRecord::Base
   protected
   def add_book_to_shelf
     current = shelf.books_count
-    puts "UPDATING books_count of #{shelf.name} - current #{current}"
     shelf.update_attribute(:books_count, current + 1)
   end
 

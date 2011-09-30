@@ -9,10 +9,9 @@ Feature: List Media
     And I'm an admin
 
   Scenario: List media
-    Given a "url/image" media with title "My Image" and "url_content" of "http://go.to/image.jpg"
+    Given a "url/image" media with title "My Image" and "link" of "http://link.to"
     When I go to admin media list page
     Then I should see "My Image"
-    And I should see "url/image"
-    And I should see "http://go.to/image.jpg"
+    And I should see "http://link.to"
 
 

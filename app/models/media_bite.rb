@@ -45,7 +45,7 @@ class MediaBite < ActiveRecord::Base
         "<a href='#{link}'>#{img}</a>"
       end
     else
-      "<a href='#'>#{media.title}</a>"
+      "<a href='#'>#{title}</a>"
     end
   end
 

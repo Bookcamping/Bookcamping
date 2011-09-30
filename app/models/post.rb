@@ -50,12 +50,11 @@ class Post < ActiveRecord::Base
   end
 
   def add_media_used(media)
-    @used_media ||= []
-    @used_media << media
+    used_media << media
   end
 
   def used_media
-    @used_media
+    @used_media ||= []
   end
 
 end

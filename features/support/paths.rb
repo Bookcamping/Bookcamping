@@ -46,8 +46,11 @@ module NavigationHelpers
       when /^admin media list page$/
         admin_media_bites_path
 
-      when /^new admin media bite page$/
+      when /^new admin media page$/
         new_admin_media_bite_path
+
+      when /^"([^"]*)" admin media page$/i
+        admin_media_bite_path(MediaBite.find_by_title!($1))
 
       # POSTS
       when /^admin posts page$/

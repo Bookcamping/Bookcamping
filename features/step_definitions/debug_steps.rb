@@ -36,3 +36,9 @@ Then /^debug books$/ do
     puts book.inspect
   end
 end
+When /^debug posts$/ do
+  puts "POSTS (#{Post.count})"
+  Post.all.each do |post|
+    puts post.inspect
+  end
+end

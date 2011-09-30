@@ -1,4 +1,3 @@
-
 <div class="actions">
   <%= link_to '+ Añadir/subir media', new_admin_media_bite_path %>
 </div>
@@ -15,12 +14,14 @@
               <%= image_tag media_bite.file_content_url(:thumb), class: 'thumb' %>
           <% end %>
           <h2>Corta y pega en el post: <%= media_bite.inline_code %></h2>
-          <span class="file"><%= media_bite.file_content %></span>
-          <span class="url"><%= media_bite.url_content %></span>
+          <ul class="properties">
+            <li class="file"><label>Fichero: </label><%= media_bite.file_content %></li>
+            <li class="link"><label>Enlace: </label><%= media_bite.link %></li>
+          </ul>
           <div class="links">
             <%= link_to 'Editar', [:edit, :admin, media_bite] %> |
             <%= link_to 'Borrar', [:admin, media_bite], method: :delete,
-            confirm: "Borrar '#{media_bite.title}' ¿Estás segura? No se puede deshacer"%>
+                        confirm: "Borrar '#{media_bite.title}' ¿Estás segura? No se puede deshacer" %>
           </div>
       <% end %>
   <% end %>
