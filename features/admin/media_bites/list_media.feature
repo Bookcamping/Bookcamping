@@ -8,7 +8,6 @@ Feature: List Media
     And I'm authenticated as "admin"
     And I'm an admin
 
-  @current
   Scenario: List media
     Given a "url/image" media with title "My Image" and "url_content" of "http://go.to/image.jpg"
     When I go to admin media list page

@@ -22,8 +22,9 @@ Feature: Create post
     And I select "Público" from "post[visibility]"
     And I fill in "post[body]" with "Mi primer text."
     # TODO: ver por qué no funciona "Guardar entrada"
-    Then I should be on "Primer Post" admin post page
     And I press "submit_post"
+    Then debug page
+    Then I should be on "Primer Post" admin post page
     And I should see "Primer Post"
     And I should see "Bartebly"
     And I should see "Mi primer text."
