@@ -46,6 +46,9 @@ module NavigationHelpers
       when /^admin media list page$/
         admin_media_bites_path
 
+      when /^new admin media bite page$/
+        new_admin_media_bite_path
+
       # POSTS
       when /^admin posts page$/
         admin_posts_path

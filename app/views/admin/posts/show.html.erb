@@ -1,7 +1,7 @@
 <div class="actions">
   <%= link_to 'Volver', admin_posts_path, class: 'back' %>
-  <%= link_to 'Administrar blog', admin_posts_path if can? :manage, @post %>
   <%= link_to 'Editar entrada', [:edit, :admin, @post] if can? :manage, @post %>
+  <%= link_to 'Ver en la web', @post if @post.public? %>
 </div>
 
 <div id="posts">

@@ -14,7 +14,6 @@ Feature: Create post
     And I follow "Añadir entrada"
     Then I should be on new admin post page
 
-  @current
   Scenario: Create a new post
     When I go to new admin post page
     And I fill in "post[title]" with "Primer Post"

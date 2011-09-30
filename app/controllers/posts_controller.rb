@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   expose(:post) { params[:id].present? ? posts.find(params[:id]) : posts.first }
 
   def index
-    render action: :show
   end
 
   def show

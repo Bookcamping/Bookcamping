@@ -27,6 +27,10 @@ class Post < ActiveRecord::Base
   validates :title, presence: true
   validates :visibility, presence: true
 
+  def public?
+    self.visibility == 'public'
+  end
+
   def to_param
     "#{id}-#{title.parameterize}"
   end

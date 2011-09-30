@@ -1,8 +1,8 @@
 <%= simple_form_for [:admin, @media_bite] do |form| %>
     <%= form.input :title %>
-    <%= form.input :url %>
-    <%= form.input :file %>
+    <%= form.input :url_content %>
+    <%= form.input :content_file %>
     <%#= form.input :content_type, include_blank: false, collection:
             tc('media_bite.content_types', MediaBite::CONTENT_TYPES) %>
-    <%= form.submit %>
+    <%= form.submit id: 'submit_media_bite' %>
 <% end %>
