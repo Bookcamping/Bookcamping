@@ -49,4 +49,8 @@ class MediaBite < ActiveRecord::Base
     end
   end
 
+  def inline_code
+    "#\{MEDIA:#{to_param}}"
+  end
+
 end

@@ -38,7 +38,7 @@ class Post < ActiveRecord::Base
   def render_body(options = {})
     options.reverse_merge!(thumb: false)
 
-    body.gsub /#\{IMAGE:([^}]*)}/ do
+    body.gsub /#\{MEDIA:\s*([^}]*)\s*}/ do
       media = MediaBite.find_by_id $1
       if media
         add_media_used(media)

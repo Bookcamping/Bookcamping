@@ -9,6 +9,7 @@
 
 <ul class="properties">
   <li><label>Posición en el post: </label><%= t("media_bite.positions.#{@media_bite.position}") %></li>
+  <li><label>Enlaza con: </label><%= link_to @media_bite.link, @media_bite.link %></li>
 </ul>
 <% if @media_bite.image_file? %>
     <%= image_tag @media_bite.file_content_url, alt: @media_bite.title %>

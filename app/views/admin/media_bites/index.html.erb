@@ -14,7 +14,7 @@
           <% if media_bite.image_file? %>
               <%= image_tag media_bite.file_content_url(:thumb), class: 'thumb' %>
           <% end %>
-          <h2>Corta y pega en el post: #{IMAGE:<%= media_bite.to_param %>}</h2>
+          <h2>Corta y pega en el post: <%= media_bite.inline_code %></h2>
           <span class="file"><%= media_bite.file_content %></span>
           <span class="url"><%= media_bite.url_content %></span>
           <div class="links">

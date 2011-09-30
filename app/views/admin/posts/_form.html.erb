@@ -22,7 +22,14 @@
           <li><em>__cursiva__</em></li>
         </ul>
       </div>
-      <div class="footer"></div>
+      <div class="footer">
+      </div>
+      <h2>Imágenes disponibles:</h2>
+      <ul>
+        <% media_bites.each do |media| %>
+        <li><%= link_to media.title, [:admin, media] %>: <%= media.inline_code %></li>
+        <% end %>
+      </ul>
     </div>
 <% end %>
 
