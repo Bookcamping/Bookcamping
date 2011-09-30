@@ -1,0 +1,3 @@
+class UserShelf < Shelf
+end
+

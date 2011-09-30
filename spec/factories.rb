@@ -27,6 +27,9 @@ FactoryGirl.define do
 
     factory :camp_shelf do
     end
+
+    factory :user_shelf do
+    end
   end
 
   factory :post do

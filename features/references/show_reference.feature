@@ -7,7 +7,6 @@ Feature: Show reference
     Given a camp's shelf named "Feminismos"
     Given a book titled "Teoría King Kong" inside shelf "Feminismos"
 
-  @current
   Scenario: Visitor views a book
     When I go to "Teoría King Kong" reference page
     Then I should see "Teoría King Kong"
