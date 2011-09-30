@@ -14,6 +14,7 @@ Feature: Create post
     And I follow "Añadir entrada"
     Then I should be on new admin post page
 
+  @current
   Scenario: Create a new post
     When I go to new admin post page
     And I fill in "post[title]" with "Primer Post"
@@ -21,8 +22,8 @@ Feature: Create post
     And I select "Público" from "post[visibility]"
     And I fill in "post[body]" with "Mi primer text."
     # TODO: ver por qué no funciona "Guardar entrada"
-    And I press "submit_post"
     Then I should be on "Primer Post" admin post page
+    And I press "submit_post"
     And I should see "Primer Post"
     And I should see "Bartebly"
     And I should see "Mi primer text."

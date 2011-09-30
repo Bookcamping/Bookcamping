@@ -14,7 +14,8 @@
           <% if media_bite.image_file? %>
               <%= image_tag media_bite.file_url(:thumb), class: 'thumb' %>
           <% end %>
-          <span class="file"><%= media_bite.file %></span>
+          <span class="file"><%= media_bite.file_content %></span>
+          <span class="url"><%= media_bite.url_content %></span>
           <div class="links">
             <%= link_to 'Editar', [:edit, :admin, media_bite] %> |
             <%= link_to 'Borrar', [:admin, media_bite], method: :delete,
