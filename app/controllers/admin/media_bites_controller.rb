@@ -7,7 +7,6 @@ class Admin::MediaBitesController < Admin::ResourceController
     @media_bite = MediaBite.new params[:media_bite]
     @media_bite.camp = current_camp
     @media_bite.user = current_user
-    @media_bite.save
-    respond_with @media_bite, location: admin_media_bites_path
+    create!
   end
 end

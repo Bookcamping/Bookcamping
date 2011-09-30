@@ -102,7 +102,9 @@ ActiveRecord::Schema.define(:version => 20110929155853) do
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
-    t.string   "title",        :limit => 200
+    t.string   "title",        :limit => 100
+    t.string   "caption",      :limit => 300
+    t.string   "link",         :limit => 300
     t.string   "content_type", :limit => 32
     t.string   "file_content", :limit => 300
     t.string   "render_as",    :limit => 32

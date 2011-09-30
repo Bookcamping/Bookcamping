@@ -16,12 +16,13 @@
 #    t.timestamps
 # end
 class MediaBite < ActiveRecord::Base
-  mount_uploader :content_file, MediaUploader
+  mount_uploader :file_content, MediaUploader
 
   belongs_to :camp
   belongs_to :user
 
   CONTENT_TYPES = ['file', 'url/link']
+  POSITIONS = [:left, :center, :right]
 
   validates :camp_id, presence: true
   validates :user_id, presence: true
@@ -29,6 +30,23 @@ class MediaBite < ActiveRecord::Base
   #validates :content_type, presence: true
 
   def image_file?
-    content_file.present? and content_file =~ /\.(?:jpg|jpeg|gif|png)$/
+    file_content.present? and file_content_url =~ /\.(?:jpg|jpeg|gif|png)$/
   end
+
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+
+  def render_media(options)
+    if image_file?
+      url = options[:thumb] ? file_content.url(:thumb) : file_content.url
+      img = "<img src='#{url}' alt='#{title}' class='#{position}'/>"
+      if link.present?
+        "<a href='#{link}'>#{img}</a>"
+      end
+    else
+      "<a href='#'>#{media.title}</a>"
+    end
+  end
+
 end

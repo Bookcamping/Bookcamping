@@ -1,7 +1,8 @@
 <%= simple_form_for [:admin, @post] do |form| %>
     <%= form.input :title %>
     <%= form.input :author %>
-    <%= form.input :visibility, collection: tc('post.visibilities', Post::VISIBILITIES), include_blank: false %>
+    <%= form.input :visibility, include_blank: false,
+                   collection: tc('post.visibilities', Post::VISIBILITIES) %>
     <%= form.input :published_at %>
     <%= form.input :body %>
     <div class="actions">

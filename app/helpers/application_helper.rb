@@ -7,7 +7,8 @@ module ApplicationHelper
   def markdown(text, limit = nil)
     text = '' if text.blank?
     text =  truncate(text, :length => limit) if limit.present?
-    options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
+    # REMOVED_OPTIONS: :filter_html,
+    options = [:hard_wrap,  :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
     content_tag(:div, Redcarpet.new(text, *options).to_html.html_safe, :class => 'markdown')
   end
 

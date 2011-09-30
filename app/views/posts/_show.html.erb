@@ -1,5 +1,5 @@
 <%= div_for post, class: post.visibility do %>
     <%= title post.title %>
     <div class="author">Por <%= post.author %></div>
-    <div class="body"><%= markdown post.body %></div>
+    <div class="body"><%= markdown post.render_body %></div>
 <% end %>

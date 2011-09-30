@@ -9,12 +9,18 @@ div.post {
         margin-top: 10px;
 
         .markdown {
+            width: 100%; overflow: hidden;
             p {margin: 0.5em 0;}
             h1 {font-size: 20px; margin: 0.5em 0 0 0;}
             h2 {font-size: 18px; margin: 0.5em 0 0 0;}
             h3 {font-size: 16px; margin: 0.5em 0 0.5em 0;}
             h4, h5, h6 {font-size: 14px; margin: 0.5em 0 0.5em 0;}
             a {background-color: yellow;}
+
+            img.left {float: left; margin: 0 5px 0 5px;}
+            img.right {float: right; margin: 0 0 5px 5px;}
+            img.center {display: block; margin: 5px auto;}
+
         }
 
     }

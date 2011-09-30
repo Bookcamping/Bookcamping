@@ -5,6 +5,27 @@
 </div>
 
 <div id="posts">
-    <%= render :partial => 'posts/show', locals: {post: @post} %>
+  <%= render :partial => 'posts/show', locals: {post: @post} %>
 </div>
+
+<%= content_for :sidebar do %>
+    <div id="sidecontent">
+      <div class="main">
+        <h1>Imágenes utilizadas en este post</h1>
+        <ul id="used-media">
+          <% @post.used_media.each do |media| %>
+              <li>
+                <h3><%= media.title %>
+                  <small>
+                    <%= link_to 'editar', [:edit, :admin, media] %>
+                  </small>
+                </h3>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="footer"></div>
+    </div>
+
+<% end %>
 

@@ -1,7 +1,11 @@
 <%= simple_form_for [:admin, @media_bite] do |form| %>
     <%= form.input :title %>
-    <%= form.input :url_content %>
-    <%= form.input :content_file %>
+    <%= form.input :caption %>
+    <%= form.input :link %>
+    <%= form.input :position, include_blank: false,
+                   collection: tc('media_bite.positions', MediaBite::POSITIONS) %>
+
+    <%= form.input :file_content %>
     <%#= form.input :content_type, include_blank: false, collection:
             tc('media_bite.content_types', MediaBite::CONTENT_TYPES) %>
     <%= form.submit id: 'submit_media_bite' %>

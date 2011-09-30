@@ -35,4 +35,27 @@ class Post < ActiveRecord::Base
     "#{id}-#{title.parameterize}"
   end
 
+  def render_body(options = {})
+    options.reverse_merge!(thumb: false)
+
+    body.gsub /#\{IMAGE:([^}]*)}/ do
+      media = MediaBite.find_by_id $1
+      if media
+        add_media_used(media)
+        media.render_media(options)
+      else
+        "*{ERROR: Media '#{$1}' no encontrado!}*"
+      end
+    end
+  end
+
+  def add_media_used(media)
+    @used_media ||= []
+    @used_media << media
+  end
+
+  def used_media
+    @used_media
+  end
+
 end
