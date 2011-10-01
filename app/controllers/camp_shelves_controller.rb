@@ -4,4 +4,8 @@ class CampShelvesController < ShelvesController
   # ALIASES
   expose(:shelves) { camp_shelves }
   expose(:shelf) { camp_shelf }
+
+  def new
+
+  end
 end

@@ -24,6 +24,7 @@ FactoryGirl.define do
     camp
     user
     name 'Shelf'
+    visibility 'public'
 
     factory :camp_shelf, :parent => :shelf do
     end
