@@ -18,9 +18,10 @@ class BooksController < ApplicationController
   def statistics
   end
 
-  expose(:search_results) { current_camp.books.search params[:term] }
+  expose(:search_results) { RefSearch.new(current_camp.books).search(params[:term]) }
 
   def search
+
   end
 
   def view

@@ -6,11 +6,21 @@ search = (term) ->
         window.location = url
 
 jQuery ->
-    $("div.search input[type=text]").change ->
+    $("div.search form").submit (e) ->
+      e.preventDefault()
+      e.stopPropagation()
+      search $(this).val()
+      false
+
+    $("div.search input[type=text]").change (e) ->
+        e.preventDefault()
+        e.stopPropagation()
         search $(this).val()
+        false
 
     $("div.search a").click ->
         search $("div.search input[type=text]").val()
         false
 
     $("div.search-results").highlight($("#search-term").text());
+

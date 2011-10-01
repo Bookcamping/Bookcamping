@@ -12,6 +12,10 @@ module NavigationHelpers
       when /^the home\s?page$/
         root_path
 
+      # SEARCH
+      when /^"(.*)" search results page$/i
+        search_path($1)
+
       # REFERENCE
       when /^"(.*)" reference page$/i
         book_path(Book.find_by_title($1))

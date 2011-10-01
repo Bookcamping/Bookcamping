@@ -8,7 +8,6 @@ Feature: Create camp shelf
     And I'm authenticated as "admin"
     And I'm an admin
 
-  @current
   Scenario: Create a new camp shelf (using admin)
     When I go to new admin camp shelf page
     And I fill in "camp_shelf[name]" with "MyList"
