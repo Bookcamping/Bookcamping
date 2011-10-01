@@ -56,14 +56,14 @@ es:
     index:
       title: "ACTIVIDAD"
     events:
-      create: 'añadido'
-      update: 'modificado'
-      destroy: 'borrado'
+      create: 'Añadida'
+      update: 'Modificada'
+      destroy: 'Borrada'
     models:
-      Book: 'la entrada'
-      Comment: 'un comentario'
-      Shelf: 'la lista'
-      Bookmark: 'una marca a'
+      Book: 'referencia'
+      Comment: 'comentario'
+      Shelf: 'lista'
+      Bookmark: 'marcado'
   books:
     book:
       download: "Descargar!"

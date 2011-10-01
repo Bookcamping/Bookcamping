@@ -1,0 +1,15 @@
+<%= div_for version do %>
+    <% title = version.title ? version.title : '<sin título>' %>
+    <h3> <%= title %>
+      <small><%= t("versions.models.#{version.item_type}") %></small>
+    </h3>
+    <h5 class="user">
+      <span class="action">
+        <%= t("versions.events.#{version.event}") %>
+      </span>
+      <% if version.whodunnit.present? %>
+          por <%= link_to version.user_name, user_path(version.whodunnit) %>
+      <% end %>
+      <small>hace <%= time_ago_in_words version.created_at %></small>
+    </h5>
+<% end %>

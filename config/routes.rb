@@ -24,7 +24,8 @@ Bookcamp::Application.routes.draw do
   end
 
   namespace :admin do
-    root to: 'posts#index'
+    root to: 'versions#index'
+    resources :versions, path: 'actividad'
     resources :posts, path: 'blog'
     resources :media_bites, path: 'media'
     resources :camp_shelves, path: 'listas'
