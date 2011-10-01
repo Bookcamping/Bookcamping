@@ -42,7 +42,7 @@ module NavigationHelpers
         post_path(Post.find_by_title!($1))
 
     # ADMIN
-      # MEDIA
+      # ADMIN MEDIA
       when /^admin media list page$/
         admin_media_bites_path
 
@@ -52,7 +52,7 @@ module NavigationHelpers
       when /^"([^"]*)" admin media page$/i
         admin_media_bite_path(MediaBite.find_by_title!($1))
 
-      # POSTS
+      # ADMIN POSTS
       when /^admin posts page$/
         admin_posts_path
 
@@ -65,9 +65,15 @@ module NavigationHelpers
       when /^edit "([^"]*)" admin post page$/i
         edit_admin_post_path(Post.find_by_title!($1))
 
-      # CAMP SHELVES
+      # ADMIN CAMP SHELVES
       when /^admin camp shelves page$/
         admin_camp_shelves_path
+
+      when /^new admin camp shelf page$/
+        new_admin_camp_shelf_path
+
+      when /^"([^"]*)" admin camp shelf page$/i
+        admin_camp_shelf_path(CampShelf.find_by_name!($1))
 
       # CURATED SHELVES
       when /^admin curated shelves page$/

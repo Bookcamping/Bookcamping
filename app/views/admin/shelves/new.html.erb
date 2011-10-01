@@ -1,0 +1,7 @@
+<%= title 'Añadir lista' %>
+
+<%= simple_form_for [:admin, shelf] do |form| %>
+    <%= form.input :name %>
+    <%= form.input :description %>
+    <%= form.submit id: 'shelf_submit' %>
+<% end %>

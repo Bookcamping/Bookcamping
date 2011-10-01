@@ -29,3 +29,7 @@ Given /^a user's shelf named "([^"]*)"$/ do |name|
     @user_shelf ||= FactoryGirl.create(:user_shelf, name: name, camp: @camp)
 end
 
+Then /^should exist a camp shelf named "([^"]*)"$/ do |name|
+  shelf = CampShelf.find_by_name(name)
+  shelf.should_not == nil
+end

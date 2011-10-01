@@ -8,7 +8,7 @@ Feature: List camp shelves features
     And I'm authenticated as "admin"
     And I'm an admin
 
-  @current
+  @wip
   Scenario: Only show camp shelves
     Given debug sql on
     Given a camp's shelf named "CampShelf"
