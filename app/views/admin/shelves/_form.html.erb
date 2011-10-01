@@ -2,7 +2,7 @@
     <%= form.input :name %>
     <%= form.input :description %>
     <%= form.input :slug  %>
-    <%= form.association :user  %>
+    <%= form.association :user, :collection => current_camp.users.order('name ASC')  %>
     <%= form.input :visibility, include_blank: false,
                    collection: tc('shelf.visibilities', Shelf::VISIBILITIES) %>
     <%= form.input :color %>
