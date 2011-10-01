@@ -6,4 +6,7 @@ class Admin::CuratedShelvesController < Admin::ShelvesController
   expose(:shelves) { curated_shelves }
   expose(:shelf) { curated_shelf }
 
+  def show
+
+  end
 end

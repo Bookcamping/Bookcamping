@@ -1,0 +1,8 @@
+<div class="actions">
+  <%= link_to 'Volver', admin_curated_shelves_path, class: 'back' %>
+  <%= link_to 'Editar', [:edit, :admin, shelf] %>
+</div>
+<h2>Lista comisariada</h2>
+<%= render 'show' %>
+
+<% content_for(:sidebar) { render 'sidebar' } %>

@@ -1,10 +1,4 @@
-<%= title "Lista '#{shelf.name}'" %>
-
-<dl class="properties">
-  <dt>Nombre:</dt>
-  <dd><%= shelf.name %></dd>
-  <dt>Autora:</dt>
-  <dd><%= shelf.user.name %></dd>
-  <dt>Descripción:</dt>
-  <dd><%= shelf.description %></dd>
-</dl>
+<div class="actions">
+  <%= link_to 'Editar', [:edit, :admin, shelf] %>
+</div>
+<%= render 'show' %>

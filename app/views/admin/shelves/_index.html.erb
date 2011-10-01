@@ -8,6 +8,9 @@
           <span class="author">Por <%= shelf.user.name %>.</span>
           <span class="book_count"><%= shelf.books_count %> referencias.</span>
           <span class="updated_at">Modificada hace <%= time_ago_in_words shelf.updated_at %>.</span>
+          <div class="links">
+            <%= link_to 'Editar', [:edit, :admin, shelf] %>
+          </div>
       <% end %>
   <% end %>
 </div>
