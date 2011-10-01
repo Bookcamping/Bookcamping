@@ -31,6 +31,8 @@ class Shelf < ActiveRecord::Base
   validates :camp_id, :presence => true
   validates :user_id, :presence => true
   validates :name, presence: true, uniqueness: true
+  validates :visibility, presence: true
+
 
   COLORS = ['#db533d', '#86475e', '#afa9ad', '#e9c54b', '#64a353',
             '#c36d3b', '#ee8587', '#357391', '#67c095', '#4eaea8', '#f15a5b',
@@ -38,6 +40,7 @@ class Shelf < ActiveRecord::Base
             '#a0a96a', '#f68b1f', '#a5932b', '#c14f52', '#738f57', '#e18256',
             '#dbb727', '#008eb0', '#967448', '#c2c76c']
 
+  VISIBILITIES = [:private, :public]
 
   def add_book(book, user)
     ShelfItem.create!(shelf: self, book: book, user: user)

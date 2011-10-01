@@ -3,5 +3,7 @@
 <%= simple_form_for [:admin, shelf] do |form| %>
     <%= form.input :name %>
     <%= form.input :description %>
+    <%= form.input :visibility, include_blank: false,
+                   collection: tc('shelf.visibilities', Shelf::VISIBILITIES) %>
     <%= form.submit id: 'shelf_submit' %>
 <% end %>

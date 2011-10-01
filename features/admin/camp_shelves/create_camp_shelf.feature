@@ -13,6 +13,7 @@ Feature: Create camp shelf
     When I go to new admin camp shelf page
     And I fill in "camp_shelf[name]" with "MyList"
     And I fill in "camp_shelf[description]" with "My list description."
+    And I select "Pública" from "camp_shelf[visibility]"
     When I press "shelf_submit"
     Then I am on "MyList" admin camp shelf page
     Then I should see "MyList"
