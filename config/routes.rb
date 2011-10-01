@@ -32,6 +32,13 @@ Bookcamp::Application.routes.draw do
     resources :curated_shelves, path: 'comisariadas'
   end
 
+  namespace :personal, path: 'mi' do
+    root to: redirect('/mi/perfil')
+    resource :user, path: 'perfil'
+    resources :books, path: 'biblioteca'
+    resources :user_shelves, path: 'estanterias'
+  end
+
   namespace :backend do
     root to: 'stats#show'
     resource :stats

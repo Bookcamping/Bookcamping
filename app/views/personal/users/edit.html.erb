@@ -1,0 +1,11 @@
+<div class="actions">
+  <%= link_to 'Volver', personal_user_path, class: 'back' %>
+</div>
+
+<%= title "Editar perfil" %>
+
+<%= simple_form_for [:personal, user] do |form| %>
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.submit id: 'submit_user' %>
+<% end %>

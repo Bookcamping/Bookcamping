@@ -10,6 +10,7 @@
           <span class="updated_at">Modificada hace <%= time_ago_in_words shelf.updated_at %>.</span>
           <div class="links">
             <%= link_to 'Editar', [:edit, :admin, shelf] %>
+            <%= link_to 'Ver en la web', shelf if shelf.visible_public? %>
           </div>
       <% end %>
   <% end %>

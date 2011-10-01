@@ -55,4 +55,8 @@ class Shelf < ActiveRecord::Base
     "#{self.id}-#{limited.parameterize}"
   end
 
+  def visible_public?
+    false
+  end
+
 end
