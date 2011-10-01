@@ -32,6 +32,7 @@ module Controllers
       if current_user
         raise CanCan::AccessDenied unless current_user.admin?
       elsif store_location
+        flash[:notice] = 'Es necesario que te identifiques primero.'
         redirect_to root_path
       end
     end

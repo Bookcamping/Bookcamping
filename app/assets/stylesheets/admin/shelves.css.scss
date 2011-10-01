@@ -1,6 +1,15 @@
 
 div#shelves {
     div.shelf {
-        margin: 10px 0;
+        line-height: 1.2em;
+        margin: 15px 0;
+        h3 {}
+        .description {display: block; color: #333;}
+        .book_count {font-weight: bold;}
     }
+
+}
+
+form.camp_shelf, form.curated_shelf, form.user_shelf {
+    textarea {height: 4em;}
 }

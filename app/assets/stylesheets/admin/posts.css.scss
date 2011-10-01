@@ -1,6 +1,7 @@
 
 div#posts {
-    div.post {padding: 5px; margin-bottom: 10px;border:1px solid trasparent;}
-    .private {background-color:  #f9dce1;}
-    .draft {background-color:  #ffff8a;}
+    div.post {
+        padding: 5px; margin-bottom: 10px;
+        border-bottom:0px solid #000;
+    }
 }

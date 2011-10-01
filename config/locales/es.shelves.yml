@@ -1,4 +1,10 @@
 es:
+  activerecord:
+    models:
+      camp_shelf: 'lista'
+      curated_shelf: 'lista comisariada'
+      user_shelf: 'estantería'
+
   shelves:
     index:
       title: "Listas"
@@ -19,6 +25,7 @@ es:
       slug: "Nombre corto"
       description: "Descripción"
       visibility: 'Tipo'
+      user: '¿A quién pertenece?'
     hints:
       name: "Tienes 200 caracteres"
       slug: "Sirve para poner enlaces a esta lista. Sólo letras y números (sin espacios). 50 caracteres."
@@ -28,3 +35,15 @@ es:
     visibilities:
       public: 'Pública'
       private: 'Privada'
+
+  camp_shelves:
+    simple_form:
+      hints:
+        slug: 'Supongo que todas deberían pertenecer a bookcamping, ¿no?'
+
+  curated_shelves:
+    simple_form:
+      labels:
+        user: '¿Quién es la comisaria de ésta lista?'
+      hints:
+        slug: 'La comisaria podrá editar esta lista a su antojo'

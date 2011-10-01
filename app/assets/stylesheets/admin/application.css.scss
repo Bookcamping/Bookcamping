@@ -2,3 +2,9 @@
 
 div.links a {font-size: 12px;}
 
+small.visibility {text-shadow: 1px 1px 1px #AAA;}
+.visibility.public {color: green;}
+.visibility.private {color: #9416bc;}
+.visibility.draft {color: yellow;}
+
+

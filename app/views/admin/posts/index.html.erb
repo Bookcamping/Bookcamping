@@ -12,12 +12,12 @@
 <div id="posts">
   <% collection.each do |post| %>
       <%= div_for post, class: post.visibility do %>
-          <h1><%= link_to post.title, [:admin, post] %>
-            <small><%= t("post.visibilities.#{post.visibility}") %></small>
-          </h1>
-          <h5 class="author">Por <%= post.author %>
-            <small>Hace <%= time_ago_in_words post.published_at %></small>
-          </h5>
+          <h2><%= link_to post.title, [:admin, post] %>
+            <small class="visibility <%= post.visibility %>"><%= t("post.visibilities.#{post.visibility}") %></small>
+          </h2>
+          <h6 class="author">Por <%= post.author %>
+            <small>Publicado hace <%= time_ago_in_words post.published_at %></small>
+          </h6>
           <div class="body"><%= markdown post.render_body(thumb: true), 200 %></div>
           <div class="links">
             <%= link_to 'Editar', [:edit, :admin, post] %> |

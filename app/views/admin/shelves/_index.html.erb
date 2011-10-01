@@ -1,9 +1,13 @@
 <div id="shelves">
   <% shelves.each do |shelf| %>
       <%= div_for shelf, class: 'shelf' do %>
-          <h3><%= link_to shelf.name, [:admin, shelf] %></h3>
+          <h3><%= link_to shelf.name, [:admin, shelf] %>
+            <small class="visibility <%= shelf.visibility %>"><%= t("shelf.visibilities.#{shelf.visibility}") %></small>
+          </h3>
+          <span class="description"><%= shelf.description %></span>
           <span class="author">Por <%= shelf.user.name %>.</span>
           <span class="book_count"><%= shelf.books_count %> referencias.</span>
+          <span class="updated_at">Modificada hace <%= time_ago_in_words shelf.updated_at %>.</span>
       <% end %>
   <% end %>
 </div>

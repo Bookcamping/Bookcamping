@@ -4,14 +4,13 @@ class Admin::ShelvesController < Admin::ApplicationController
   expose(:shelf)
 
   def show
-
+    respond_with shelf
   end
-
 
   def create
     shelf.user = current_user
     shelf.camp = current_camp
     flash[:notice] = t('.create') if shelf.save
-    respond_with shelf
+    respond_with shelf, location: [:admin, shelf]
   end
 end
