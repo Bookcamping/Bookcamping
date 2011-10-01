@@ -14,6 +14,6 @@
 <h2>Añadir esta referencia a la siguiente lista:</h2>
 <%= simple_form_for [book, shelf_item] do |form| %>
     <%= form.association :shelf, :include_blank => false,
-                         :collection => book.camp.shelves.select { |s| !book.shelves.include?(s) } %>
+                         :collection => book.camp.camp_shelves.select { |s| !book.shelves.include?(s) } %>
     <%= button_submit_tag 'Añadir' %>
 <% end %>
