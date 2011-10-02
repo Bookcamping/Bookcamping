@@ -9,12 +9,12 @@ h1.logo-videocamping {
 }
 
 div#go-camping {
-    a.go-videocamping {width: 119px; height: 25px; background: url(<%= asset_path 'go-videocamping.png' %>) no-repeat; }
-    a.go-bookcamping {width: 129px; height: 25px; background: url(<%= asset_path 'go-bookcamping.png' %>) no-repeat; }
+    a.go-videocamping {width: 119px; height: 25px; background: url('/images/go-videocamping.png') no-repeat; }
+    a.go-bookcamping {width: 129px; height: 25px; background: url('/images/go-bookcamping.png') no-repeat; }
 }
 
 a#go-map {
     display: block; margin-top: 20px;
     padding-top: 82px; overflow: visible;
-    background: url(<%= asset_path 'go-map.png' %>) no-repeat;
+    background: url('/images/go-map.png') no-repeat;
 }
