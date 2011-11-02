@@ -38,6 +38,7 @@ $.fn.imageExplore = (options) ->
 # Implements the RED box
 $.fn.linker = (draggable) ->
   this.each ->
+    console.log('setup linker')
     position = null
     linker = $(this)
     linker.text('listo.').css({left: '10px', top: '10px', width: '200px', height: '2em'})
@@ -61,4 +62,4 @@ $.fn.linker = (draggable) ->
 
 $ ->
   $('#map').imageExplore()
-  $('#linker').linker('#playground > .draggable')
+  $('#linker').linker('#map')
