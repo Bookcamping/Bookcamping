@@ -61,6 +61,7 @@
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
+        <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' if current_camp.id == 1 %>
         <%= link_to image_tag('/images/mapa-mini.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' if current_camp.id == 1 %>
       </div>
 
