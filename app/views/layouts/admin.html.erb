@@ -25,8 +25,8 @@
       <%= link_to "listas", admin_camp_shelves_path %> |
       <%= link_to 'comisariadas', admin_curated_shelves_path %> |
       <%= link_to 'blog', admin_posts_path %> |
-      <%= link_to 'media', admin_media_bites_path %>
-      <%= link_to 'noticias', admin_notices_path %> |
+      <%= link_to 'media', admin_media_bites_path %> |
+      <%= link_to 'anuncios', admin_notices_path %> |
     </div>
     <div class="search">
       <%= form_tag '/buscar' do %>
@@ -61,7 +61,7 @@
   </div>
 </div>
 
-<%= render 'layouts/js' %>
+<%= javascript_include_tag "admin" %>
 <%= render 'layouts/ga' %>
 
 <div style="display:none">GoCamping 2011/06/15</div>

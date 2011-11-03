@@ -9,6 +9,12 @@ class Admin::NoticesController < Admin::ResourceController
     new!
   end
 
+  def create
+    @notice = Notice.new(params[:notice])
+    @notice.level = 'anuncio'
+    create!
+  end
+
   def edit
     edit!
   end

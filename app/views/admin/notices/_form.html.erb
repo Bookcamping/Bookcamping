@@ -1,0 +1,6 @@
+
+<%= simple_form_for [:admin, resource] do |form| %>
+    <%= form.input :body, as: :text %>
+    <%= form.input :published_at %>
+    <%= form.submit 'Guardar anuncio' %>
+<% end %>

@@ -32,7 +32,7 @@ Bookcamp::Application.routes.draw do
     resources :media_bites, path: 'media'
     resources :camp_shelves, path: 'listas'
     resources :curated_shelves, path: 'comisariadas'
-    resources :notices, path: 'noticias'
+    resources :notices, path: 'anuncios'
   end
 
   namespace :personal, path: 'mi' do
