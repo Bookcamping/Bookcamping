@@ -1,0 +1,19 @@
+<div class="actions">
+  <%= link_to '+ Añadir noticia', new_admin_notice_path %>
+</div>
+
+<%= admin_title resource_class, 'Noticias' %>
+
+<div class="pagination">
+  <%= paginate collection %>
+</div>
+
+<ul id="notices">
+  <% collection.each do |notice| %>
+  <li class="<%= notice.level %>">
+    <%= link_to 'Editar', [:edit, :admin, notice], class: 'action' %>
+    <p><%= raw notice.body %></p>
+  </li>
+  <% end %>
+</ul>
+

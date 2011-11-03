@@ -1,0 +1,12 @@
+
+ul#notices {
+    li {
+        width: 100%; overflow: hidden;
+        margin: 5px 0;
+
+        p {margin: 2px 0 2px 5px;}
+        a.action {float: right; margin-right: 5px;}
+    }
+
+    li.anuncio {background-color: yellow;}
+}

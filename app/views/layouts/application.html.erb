@@ -12,6 +12,9 @@
 </head>
 <body>
 <div id="page">
+  <div id="notices">
+
+  </div>
   <div id="flash">
     <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
   </div>
@@ -63,11 +66,15 @@
         <%= yield :sidebar %>
         <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' if current_camp.id == 1 %>
         <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' if current_camp.id == 1 %>
+        <div id="goteo" name="goteo">
+          <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
+        </div>
       </div>
 
     </div>
   </div>
 </div>
+2
 
 <%= render 'layouts/js' %>
 <%= render 'layouts/ga' %>

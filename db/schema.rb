@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111001095016) do
+ActiveRecord::Schema.define(:version => 20111103161614) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -121,6 +121,14 @@ ActiveRecord::Schema.define(:version => 20111001095016) do
     t.integer  "user_id"
     t.integer  "camp_id"
     t.string   "rol",        :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notices", :force => true do |t|
+    t.string   "body",         :limit => 500
+    t.string   "level",        :limit => 32
+    t.date     "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

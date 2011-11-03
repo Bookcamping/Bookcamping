@@ -33,6 +33,17 @@ div#page {
 
 }
 
+div#notices {
+    position: absolute; top: 0; height: 1.8em; width: $s-width; margin: 0 auto;
+
+    p {
+        margin: 0.2em 0; width: 96%; padding: 0.2em 2%;
+        background-color: #67c095;
+    }
+    p.anuncio {background-color: #67c095;}
+    p.importante {background-color: #c00; color: white;}
+}
+
 div#flash {
     margin-top: 5px;
     .notice {width: 100%; background-color: yellow; text-align: center; padding: 0 10px;}
@@ -112,5 +123,6 @@ div#sidebar {
         }
     }
 
+    #goteo {margin: 20px 0; padding: 20px 43px 0 45px; background-color:  #e7e7e7;}
     #go-blog {display: block; margin-top: 20px;}
 }

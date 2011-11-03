@@ -21,6 +21,8 @@ Bookcamp::Application.routes.draw do
 
     resources :users, :path => 'colaboradorxs'
     resources :versions, :path => 'actividad'
+
+    resources :notices, only: [:index]
   end
 
   namespace :admin do
@@ -30,6 +32,7 @@ Bookcamp::Application.routes.draw do
     resources :media_bites, path: 'media'
     resources :camp_shelves, path: 'listas'
     resources :curated_shelves, path: 'comisariadas'
+    resources :notices, path: 'noticias'
   end
 
   namespace :personal, path: 'mi' do
