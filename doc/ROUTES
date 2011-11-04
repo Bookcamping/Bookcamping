@@ -1,0 +1,198 @@
+                    root        /                                                      {:controller=>"camp_shelves", :action=>"index"}
+     new_camp_shelf_book GET    /listas/:camp_shelf_id/referencia/nueva(.:format)      {:action=>"new", :controller=>"books"}
+         camp_shelf_book GET    /listas/:camp_shelf_id/referencia/:id(.:format)        {:action=>"show", :controller=>"books"}
+            camp_shelves GET    /listas(.:format)                                      {:action=>"index", :controller=>"camp_shelves"}
+                         POST   /listas(.:format)                                      {:action=>"create", :controller=>"camp_shelves"}
+          new_camp_shelf GET    /listas/nueva(.:format)                                {:action=>"new", :controller=>"camp_shelves"}
+         edit_camp_shelf GET    /listas/:id/modificar(.:format)                        {:action=>"edit", :controller=>"camp_shelves"}
+              camp_shelf GET    /listas/:id(.:format)                                  {:action=>"show", :controller=>"camp_shelves"}
+                         PUT    /listas/:id(.:format)                                  {:action=>"update", :controller=>"camp_shelves"}
+                         DELETE /listas/:id(.:format)                                  {:action=>"destroy", :controller=>"camp_shelves"}
+                licenses GET    /licencias(.:format)                                   {:action=>"index", :controller=>"licenses"}
+                         POST   /licencias(.:format)                                   {:action=>"create", :controller=>"licenses"}
+             new_license GET    /licencias/nueva(.:format)                             {:action=>"new", :controller=>"licenses"}
+            edit_license GET    /licencias/:id/modificar(.:format)                     {:action=>"edit", :controller=>"licenses"}
+                 license GET    /licencias/:id(.:format)                               {:action=>"show", :controller=>"licenses"}
+                         PUT    /licencias/:id(.:format)                               {:action=>"update", :controller=>"licenses"}
+                         DELETE /licencias/:id(.:format)                               {:action=>"destroy", :controller=>"licenses"}
+               view_book GET    /referencia/:id/view(.:format)                         {:action=>"view", :controller=>"books"}
+           book_comments GET    /referencia/:book_id/comments(.:format)                {:action=>"index", :controller=>"comments"}
+                         POST   /referencia/:book_id/comments(.:format)                {:action=>"create", :controller=>"comments"}
+        new_book_comment GET    /referencia/:book_id/comments/nueva(.:format)          {:action=>"new", :controller=>"comments"}
+       edit_book_comment GET    /referencia/:book_id/comments/:id/modificar(.:format)  {:action=>"edit", :controller=>"comments"}
+            book_comment GET    /referencia/:book_id/comments/:id(.:format)            {:action=>"show", :controller=>"comments"}
+                         PUT    /referencia/:book_id/comments/:id(.:format)            {:action=>"update", :controller=>"comments"}
+                         DELETE /referencia/:book_id/comments/:id(.:format)            {:action=>"destroy", :controller=>"comments"}
+        book_shelf_items GET    /referencia/:book_id/incluidos(.:format)               {:action=>"index", :controller=>"shelf_items"}
+                         POST   /referencia/:book_id/incluidos(.:format)               {:action=>"create", :controller=>"shelf_items"}
+     new_book_shelf_item GET    /referencia/:book_id/incluidos/nueva(.:format)         {:action=>"new", :controller=>"shelf_items"}
+    edit_book_shelf_item GET    /referencia/:book_id/incluidos/:id/modificar(.:format) {:action=>"edit", :controller=>"shelf_items"}
+         book_shelf_item GET    /referencia/:book_id/incluidos/:id(.:format)           {:action=>"show", :controller=>"shelf_items"}
+                         PUT    /referencia/:book_id/incluidos/:id(.:format)           {:action=>"update", :controller=>"shelf_items"}
+                         DELETE /referencia/:book_id/incluidos/:id(.:format)           {:action=>"destroy", :controller=>"shelf_items"}
+          book_bookmarks GET    /referencia/:book_id/marcar(.:format)                  {:action=>"index", :controller=>"bookmarks"}
+                         POST   /referencia/:book_id/marcar(.:format)                  {:action=>"create", :controller=>"bookmarks"}
+       new_book_bookmark GET    /referencia/:book_id/marcar/nueva(.:format)            {:action=>"new", :controller=>"bookmarks"}
+      edit_book_bookmark GET    /referencia/:book_id/marcar/:id/modificar(.:format)    {:action=>"edit", :controller=>"bookmarks"}
+           book_bookmark GET    /referencia/:book_id/marcar/:id(.:format)              {:action=>"show", :controller=>"bookmarks"}
+                         PUT    /referencia/:book_id/marcar/:id(.:format)              {:action=>"update", :controller=>"bookmarks"}
+                         DELETE /referencia/:book_id/marcar/:id(.:format)              {:action=>"destroy", :controller=>"bookmarks"}
+                   books GET    /referencia(.:format)                                  {:action=>"index", :controller=>"books"}
+                         POST   /referencia(.:format)                                  {:action=>"create", :controller=>"books"}
+                new_book GET    /referencia/nueva(.:format)                            {:action=>"new", :controller=>"books"}
+               edit_book GET    /referencia/:id/modificar(.:format)                    {:action=>"edit", :controller=>"books"}
+                    book GET    /referencia/:id(.:format)                              {:action=>"show", :controller=>"books"}
+                         PUT    /referencia/:id(.:format)                              {:action=>"update", :controller=>"books"}
+                         DELETE /referencia/:id(.:format)                              {:action=>"destroy", :controller=>"books"}
+                   posts GET    /blog(.:format)                                        {:action=>"index", :controller=>"posts"}
+                         POST   /blog(.:format)                                        {:action=>"create", :controller=>"posts"}
+                new_post GET    /blog/nueva(.:format)                                  {:action=>"new", :controller=>"posts"}
+               edit_post GET    /blog/:id/modificar(.:format)                          {:action=>"edit", :controller=>"posts"}
+                    post GET    /blog/:id(.:format)                                    {:action=>"show", :controller=>"posts"}
+                         PUT    /blog/:id(.:format)                                    {:action=>"update", :controller=>"posts"}
+                         DELETE /blog/:id(.:format)                                    {:action=>"destroy", :controller=>"posts"}
+                   users GET    /colaboradorxs(.:format)                               {:action=>"index", :controller=>"users"}
+                         POST   /colaboradorxs(.:format)                               {:action=>"create", :controller=>"users"}
+                new_user GET    /colaboradorxs/nueva(.:format)                         {:action=>"new", :controller=>"users"}
+               edit_user GET    /colaboradorxs/:id/modificar(.:format)                 {:action=>"edit", :controller=>"users"}
+                    user GET    /colaboradorxs/:id(.:format)                           {:action=>"show", :controller=>"users"}
+                         PUT    /colaboradorxs/:id(.:format)                           {:action=>"update", :controller=>"users"}
+                         DELETE /colaboradorxs/:id(.:format)                           {:action=>"destroy", :controller=>"users"}
+                versions GET    /actividad(.:format)                                   {:action=>"index", :controller=>"versions"}
+                         POST   /actividad(.:format)                                   {:action=>"create", :controller=>"versions"}
+             new_version GET    /actividad/nueva(.:format)                             {:action=>"new", :controller=>"versions"}
+            edit_version GET    /actividad/:id/modificar(.:format)                     {:action=>"edit", :controller=>"versions"}
+                 version GET    /actividad/:id(.:format)                               {:action=>"show", :controller=>"versions"}
+                         PUT    /actividad/:id(.:format)                               {:action=>"update", :controller=>"versions"}
+                         DELETE /actividad/:id(.:format)                               {:action=>"destroy", :controller=>"versions"}
+                 notices GET    /notices(.:format)                                     {:action=>"index", :controller=>"notices"}
+              admin_root        /admin(.:format)                                       {:controller=>"admin/versions", :action=>"index"}
+          admin_versions GET    /admin/actividad(.:format)                             {:action=>"index", :controller=>"admin/versions"}
+                         POST   /admin/actividad(.:format)                             {:action=>"create", :controller=>"admin/versions"}
+       new_admin_version GET    /admin/actividad/new(.:format)                         {:action=>"new", :controller=>"admin/versions"}
+      edit_admin_version GET    /admin/actividad/:id/edit(.:format)                    {:action=>"edit", :controller=>"admin/versions"}
+           admin_version GET    /admin/actividad/:id(.:format)                         {:action=>"show", :controller=>"admin/versions"}
+                         PUT    /admin/actividad/:id(.:format)                         {:action=>"update", :controller=>"admin/versions"}
+                         DELETE /admin/actividad/:id(.:format)                         {:action=>"destroy", :controller=>"admin/versions"}
+             admin_posts GET    /admin/blog(.:format)                                  {:action=>"index", :controller=>"admin/posts"}
+                         POST   /admin/blog(.:format)                                  {:action=>"create", :controller=>"admin/posts"}
+          new_admin_post GET    /admin/blog/new(.:format)                              {:action=>"new", :controller=>"admin/posts"}
+         edit_admin_post GET    /admin/blog/:id/edit(.:format)                         {:action=>"edit", :controller=>"admin/posts"}
+              admin_post GET    /admin/blog/:id(.:format)                              {:action=>"show", :controller=>"admin/posts"}
+                         PUT    /admin/blog/:id(.:format)                              {:action=>"update", :controller=>"admin/posts"}
+                         DELETE /admin/blog/:id(.:format)                              {:action=>"destroy", :controller=>"admin/posts"}
+       admin_media_bites GET    /admin/media(.:format)                                 {:action=>"index", :controller=>"admin/media_bites"}
+                         POST   /admin/media(.:format)                                 {:action=>"create", :controller=>"admin/media_bites"}
+    new_admin_media_bite GET    /admin/media/new(.:format)                             {:action=>"new", :controller=>"admin/media_bites"}
+   edit_admin_media_bite GET    /admin/media/:id/edit(.:format)                        {:action=>"edit", :controller=>"admin/media_bites"}
+        admin_media_bite GET    /admin/media/:id(.:format)                             {:action=>"show", :controller=>"admin/media_bites"}
+                         PUT    /admin/media/:id(.:format)                             {:action=>"update", :controller=>"admin/media_bites"}
+                         DELETE /admin/media/:id(.:format)                             {:action=>"destroy", :controller=>"admin/media_bites"}
+      admin_camp_shelves GET    /admin/listas(.:format)                                {:action=>"index", :controller=>"admin/camp_shelves"}
+                         POST   /admin/listas(.:format)                                {:action=>"create", :controller=>"admin/camp_shelves"}
+    new_admin_camp_shelf GET    /admin/listas/new(.:format)                            {:action=>"new", :controller=>"admin/camp_shelves"}
+   edit_admin_camp_shelf GET    /admin/listas/:id/edit(.:format)                       {:action=>"edit", :controller=>"admin/camp_shelves"}
+        admin_camp_shelf GET    /admin/listas/:id(.:format)                            {:action=>"show", :controller=>"admin/camp_shelves"}
+                         PUT    /admin/listas/:id(.:format)                            {:action=>"update", :controller=>"admin/camp_shelves"}
+                         DELETE /admin/listas/:id(.:format)                            {:action=>"destroy", :controller=>"admin/camp_shelves"}
+   admin_curated_shelves GET    /admin/comisariadas(.:format)                          {:action=>"index", :controller=>"admin/curated_shelves"}
+                         POST   /admin/comisariadas(.:format)                          {:action=>"create", :controller=>"admin/curated_shelves"}
+ new_admin_curated_shelf GET    /admin/comisariadas/new(.:format)                      {:action=>"new", :controller=>"admin/curated_shelves"}
+edit_admin_curated_shelf GET    /admin/comisariadas/:id/edit(.:format)                 {:action=>"edit", :controller=>"admin/curated_shelves"}
+     admin_curated_shelf GET    /admin/comisariadas/:id(.:format)                      {:action=>"show", :controller=>"admin/curated_shelves"}
+                         PUT    /admin/comisariadas/:id(.:format)                      {:action=>"update", :controller=>"admin/curated_shelves"}
+                         DELETE /admin/comisariadas/:id(.:format)                      {:action=>"destroy", :controller=>"admin/curated_shelves"}
+           admin_notices GET    /admin/anuncios(.:format)                              {:action=>"index", :controller=>"admin/notices"}
+                         POST   /admin/anuncios(.:format)                              {:action=>"create", :controller=>"admin/notices"}
+        new_admin_notice GET    /admin/anuncios/new(.:format)                          {:action=>"new", :controller=>"admin/notices"}
+       edit_admin_notice GET    /admin/anuncios/:id/edit(.:format)                     {:action=>"edit", :controller=>"admin/notices"}
+            admin_notice GET    /admin/anuncios/:id(.:format)                          {:action=>"show", :controller=>"admin/notices"}
+                         PUT    /admin/anuncios/:id(.:format)                          {:action=>"update", :controller=>"admin/notices"}
+                         DELETE /admin/anuncios/:id(.:format)                          {:action=>"destroy", :controller=>"admin/notices"}
+             admin_camps GET    /admin/campamentos(.:format)                           {:action=>"index", :controller=>"admin/camps"}
+          new_admin_camp GET    /admin/campamentos/new(.:format)                       {:action=>"new", :controller=>"admin/camps"}
+         edit_admin_camp GET    /admin/campamentos/:id/edit(.:format)                  {:action=>"edit", :controller=>"admin/camps"}
+              admin_camp GET    /admin/campamentos/:id(.:format)                       {:action=>"show", :controller=>"admin/camps"}
+                         PUT    /admin/campamentos/:id(.:format)                       {:action=>"update", :controller=>"admin/camps"}
+           personal_root        /mi(.:format)                                          {:to=>#<Proc:0xbebb9f4@/home/dani/.rvm/gems/ruby-1.9.2-p180@rails31/gems/actionpack-3.1.0/lib/action_dispatch/routing/redirection.rb:85 (lambda)>}
+           personal_user POST   /mi/perfil(.:format)                                   {:action=>"create", :controller=>"personal/users"}
+       new_personal_user GET    /mi/perfil/new(.:format)                               {:action=>"new", :controller=>"personal/users"}
+      edit_personal_user GET    /mi/perfil/edit(.:format)                              {:action=>"edit", :controller=>"personal/users"}
+                         GET    /mi/perfil(.:format)                                   {:action=>"show", :controller=>"personal/users"}
+                         PUT    /mi/perfil(.:format)                                   {:action=>"update", :controller=>"personal/users"}
+                         DELETE /mi/perfil(.:format)                                   {:action=>"destroy", :controller=>"personal/users"}
+          personal_books GET    /mi/biblioteca(.:format)                               {:action=>"index", :controller=>"personal/books"}
+                         POST   /mi/biblioteca(.:format)                               {:action=>"create", :controller=>"personal/books"}
+       new_personal_book GET    /mi/biblioteca/new(.:format)                           {:action=>"new", :controller=>"personal/books"}
+      edit_personal_book GET    /mi/biblioteca/:id/edit(.:format)                      {:action=>"edit", :controller=>"personal/books"}
+           personal_book GET    /mi/biblioteca/:id(.:format)                           {:action=>"show", :controller=>"personal/books"}
+                         PUT    /mi/biblioteca/:id(.:format)                           {:action=>"update", :controller=>"personal/books"}
+                         DELETE /mi/biblioteca/:id(.:format)                           {:action=>"destroy", :controller=>"personal/books"}
+   personal_user_shelves GET    /mi/estanterias(.:format)                              {:action=>"index", :controller=>"personal/user_shelves"}
+                         POST   /mi/estanterias(.:format)                              {:action=>"create", :controller=>"personal/user_shelves"}
+ new_personal_user_shelf GET    /mi/estanterias/new(.:format)                          {:action=>"new", :controller=>"personal/user_shelves"}
+edit_personal_user_shelf GET    /mi/estanterias/:id/edit(.:format)                     {:action=>"edit", :controller=>"personal/user_shelves"}
+     personal_user_shelf GET    /mi/estanterias/:id(.:format)                          {:action=>"show", :controller=>"personal/user_shelves"}
+                         PUT    /mi/estanterias/:id(.:format)                          {:action=>"update", :controller=>"personal/user_shelves"}
+                         DELETE /mi/estanterias/:id(.:format)                          {:action=>"destroy", :controller=>"personal/user_shelves"}
+            backend_root        /backend(.:format)                                     {:controller=>"backend/stats", :action=>"show"}
+           backend_stats POST   /backend/stats(.:format)                               {:action=>"create", :controller=>"backend/stats"}
+       new_backend_stats GET    /backend/stats/new(.:format)                           {:action=>"new", :controller=>"backend/stats"}
+      edit_backend_stats GET    /backend/stats/edit(.:format)                          {:action=>"edit", :controller=>"backend/stats"}
+                         GET    /backend/stats(.:format)                               {:action=>"show", :controller=>"backend/stats"}
+                         PUT    /backend/stats(.:format)                               {:action=>"update", :controller=>"backend/stats"}
+                         DELETE /backend/stats(.:format)                               {:action=>"destroy", :controller=>"backend/stats"}
+        backend_licenses GET    /backend/licenses(.:format)                            {:action=>"index", :controller=>"backend/licenses"}
+                         POST   /backend/licenses(.:format)                            {:action=>"create", :controller=>"backend/licenses"}
+     new_backend_license GET    /backend/licenses/new(.:format)                        {:action=>"new", :controller=>"backend/licenses"}
+    edit_backend_license GET    /backend/licenses/:id/edit(.:format)                   {:action=>"edit", :controller=>"backend/licenses"}
+         backend_license GET    /backend/licenses/:id(.:format)                        {:action=>"show", :controller=>"backend/licenses"}
+                         PUT    /backend/licenses/:id(.:format)                        {:action=>"update", :controller=>"backend/licenses"}
+                         DELETE /backend/licenses/:id(.:format)                        {:action=>"destroy", :controller=>"backend/licenses"}
+           backend_books GET    /backend/books(.:format)                               {:action=>"index", :controller=>"backend/books"}
+                         POST   /backend/books(.:format)                               {:action=>"create", :controller=>"backend/books"}
+        new_backend_book GET    /backend/books/new(.:format)                           {:action=>"new", :controller=>"backend/books"}
+       edit_backend_book GET    /backend/books/:id/edit(.:format)                      {:action=>"edit", :controller=>"backend/books"}
+            backend_book GET    /backend/books/:id(.:format)                           {:action=>"show", :controller=>"backend/books"}
+                         PUT    /backend/books/:id(.:format)                           {:action=>"update", :controller=>"backend/books"}
+                         DELETE /backend/books/:id(.:format)                           {:action=>"destroy", :controller=>"backend/books"}
+           backend_users GET    /backend/users(.:format)                               {:action=>"index", :controller=>"backend/users"}
+                         POST   /backend/users(.:format)                               {:action=>"create", :controller=>"backend/users"}
+        new_backend_user GET    /backend/users/new(.:format)                           {:action=>"new", :controller=>"backend/users"}
+       edit_backend_user GET    /backend/users/:id/edit(.:format)                      {:action=>"edit", :controller=>"backend/users"}
+            backend_user GET    /backend/users/:id(.:format)                           {:action=>"show", :controller=>"backend/users"}
+                         PUT    /backend/users/:id(.:format)                           {:action=>"update", :controller=>"backend/users"}
+                         DELETE /backend/users/:id(.:format)                           {:action=>"destroy", :controller=>"backend/users"}
+           backend_posts GET    /backend/posts(.:format)                               {:action=>"index", :controller=>"backend/posts"}
+                         POST   /backend/posts(.:format)                               {:action=>"create", :controller=>"backend/posts"}
+        new_backend_post GET    /backend/posts/new(.:format)                           {:action=>"new", :controller=>"backend/posts"}
+       edit_backend_post GET    /backend/posts/:id/edit(.:format)                      {:action=>"edit", :controller=>"backend/posts"}
+            backend_post GET    /backend/posts/:id(.:format)                           {:action=>"show", :controller=>"backend/posts"}
+                         PUT    /backend/posts/:id(.:format)                           {:action=>"update", :controller=>"backend/posts"}
+                         DELETE /backend/posts/:id(.:format)                           {:action=>"destroy", :controller=>"backend/posts"}
+         backend_shelves GET    /backend/shelves(.:format)                             {:action=>"index", :controller=>"backend/shelves"}
+                         POST   /backend/shelves(.:format)                             {:action=>"create", :controller=>"backend/shelves"}
+       new_backend_shelf GET    /backend/shelves/new(.:format)                         {:action=>"new", :controller=>"backend/shelves"}
+      edit_backend_shelf GET    /backend/shelves/:id/edit(.:format)                    {:action=>"edit", :controller=>"backend/shelves"}
+           backend_shelf GET    /backend/shelves/:id(.:format)                         {:action=>"show", :controller=>"backend/shelves"}
+                         PUT    /backend/shelves/:id(.:format)                         {:action=>"update", :controller=>"backend/shelves"}
+                         DELETE /backend/shelves/:id(.:format)                         {:action=>"destroy", :controller=>"backend/shelves"}
+        backend_versions GET    /backend/versions(.:format)                            {:action=>"index", :controller=>"backend/versions"}
+                         POST   /backend/versions(.:format)                            {:action=>"create", :controller=>"backend/versions"}
+     new_backend_version GET    /backend/versions/new(.:format)                        {:action=>"new", :controller=>"backend/versions"}
+    edit_backend_version GET    /backend/versions/:id/edit(.:format)                   {:action=>"edit", :controller=>"backend/versions"}
+         backend_version GET    /backend/versions/:id(.:format)                        {:action=>"show", :controller=>"backend/versions"}
+                         PUT    /backend/versions/:id(.:format)                        {:action=>"update", :controller=>"backend/versions"}
+                         DELETE /backend/versions/:id(.:format)                        {:action=>"destroy", :controller=>"backend/versions"}
+                                /libros/:id(.:format)                                  {:to=>#<Proc:0xb4aba7c@/home/dani/.rvm/gems/ruby-1.9.2-p180@rails31/gems/actionpack-3.1.0/lib/action_dispatch/routing/redirection.rb:85 (lambda)>}
+                    mapa        /mapa(.:format)                                        {:controller=>"maps", :action=>"show"}
+               autoshelf        /lista/:id(.:format)                                   {:controller=>"shelves", :action=>"auto"}
+                                /auth/:provider/callback(.:format)                     {:controller=>"sessions", :action=>"create"}
+                 signout        /salir(.:format)                                       {:controller=>"sessions", :action=>"destroy"}
+                   enter        /enter/:id(.:format)                                   {:controller=>"sessions", :action=>"enter"}
+                  gocamp        /gocamp/:id(.:format)                                  {:controller=>"camps", :action=>"enter"}
+                  search        /buscar/:term(.:format)                                {:controller=>"books", :action=>"search"}
+                  buscar        /buscar(.:format)                                      {:controller=>"books", :action=>"search"}
+                     app        /explorar(.:format)                                    {:controller=>"app", :action=>"app"}
+                 section        /seccion/:id(.:format)                                 {:controller=>"app", :action=>"section"}
+                   login        /entrar/:id(.:format)                                  {:controller=>"sessions", :action=>"new"}

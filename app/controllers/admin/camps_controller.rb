@@ -1,7 +1,12 @@
-class CampsController < ApplicationController
-  respond_to :html, :json
+class Admin::CampsController < Admin::ApplicationController
+  before_filter :require_super
+  respond_to :html
   expose(:camps) { Camp.all }
   expose(:camp)
+
+  def index
+
+  end
 
   def enter
     if Rails.env.development?

@@ -7,7 +7,6 @@ Bookcamp::Application.routes.draw do
       resources :books, :path => 'referencia', :only => [:show, :new]
     end
 
-    resources :camps, :path => 'campamentos'
     resources :licenses, :path => 'licencias'
 
     resources :books, :path => 'referencia' do
@@ -33,6 +32,7 @@ Bookcamp::Application.routes.draw do
     resources :camp_shelves, path: 'listas'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
+    resources :camps, :path => 'campamentos', except: [:create, :destroy]
   end
 
   namespace :personal, path: 'mi' do

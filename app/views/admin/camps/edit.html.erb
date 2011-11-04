@@ -1,10 +1,11 @@
 <%= title t('title') %>
-<%= simple_form_for camp do |form| %>
+
+<%= simple_form_for [:admin, camp] do |form| %>
     <%= form.input :name %>
     <%= form.input :model_name %>
     <%= form.input :show_media_on_lists %>
     <%= form.input :line1, :as => :text %>
     <%= form.input :line2, :as => :text %>
     <%= form.input :origin, :as => :text %>
-    <%= button_submit_tag 'Guardar' %>
+    <%= form.submit 'Guardar' %>
 <% end %>

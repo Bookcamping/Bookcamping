@@ -1,4 +1,4 @@
-class Personal::UsersController < User::ApplicationController
+class Personal::UsersController < Personal::ApplicationController
   respond_to :html, :json
   expose(:user) { current_user }
 
