@@ -17,7 +17,6 @@ Bookcamp::Application.routes.draw do
     end
 
     resources :posts, :path => 'blog'
-
     resources :users, :path => 'colaboradorxs'
     resources :versions, :path => 'actividad'
 

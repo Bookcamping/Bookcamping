@@ -69,8 +69,10 @@
         <div id="goteo" name="goteo">
           <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
         </div>
-        <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' if current_camp.id == 1 %>
-        <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' if current_camp.id == 1 %>
+        <% if current_camp.id == 1 %>
+            <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' unless current_page?(posts_path)%>
+            <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' %>
+        <% end %>
       </div>
 
     </div>
