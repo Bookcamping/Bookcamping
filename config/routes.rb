@@ -18,8 +18,6 @@ Bookcamp::Application.routes.draw do
 
     resources :posts, :path => 'blog'
     resources :users, :path => 'colaboradorxs'
-    resources :versions, :path => 'actividad'
-
     resources :notices, only: [:index]
   end
 
@@ -32,6 +30,7 @@ Bookcamp::Application.routes.draw do
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
     resources :camps, :path => 'campamentos', except: [:create, :destroy]
+    resources :books, path: 'referencias'
   end
 
   namespace :personal, path: 'mi' do

@@ -1,0 +1,24 @@
+<%= title 'Últimas referencias' %>
+
+<div class="pagination"> <%= paginate results %></div>
+
+<table id="books">
+  <thead>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Título</td>
+            <td>Lic.</td>
+            <td>Enlace</td>
+          </tr>
+  </thead>
+  <tbody>
+  <% results.each do |book| %>
+  <tr>
+    <td class="timeago"><%= time_ago_in_words book.updated_at %></td>
+    <td><%= link_to book.title.upcase, book %></td>
+    <td><%= image_tag(book.license.icon) %></td>
+    <td><%= truncate book.url %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

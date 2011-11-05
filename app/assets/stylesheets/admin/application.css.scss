@@ -7,4 +7,10 @@ small.visibility {text-shadow: 1px 1px 1px #AAA;}
 .visibility.private {color: #9416bc;}
 .visibility.draft {color: yellow;}
 
+thead td {font-weight: bold;}
 
+
+div.pagination {
+    ul {width: 100%; overflow: hidden; margin: 5px 0;}
+    li {float: left; margin-right: 5px;}
+}

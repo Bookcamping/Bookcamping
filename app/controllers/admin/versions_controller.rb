@@ -12,6 +12,7 @@ class Admin::VersionsController < Admin::ApplicationController
       when 'Book'
         redirect_to book_path(version.item_id)
       when 'Comment'
+
         comment = Comment.find version.item_id
         redirect_to comment.resource
       when 'Bookmark'

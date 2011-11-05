@@ -11,6 +11,8 @@
     <%= form.input :date %>
     <%= form.association :license, :include_blank => false %>
     <%= form.input :url %>
+    <p class="important">&nbsp;&uArr;&nbsp;No queremos ser una web de enlaces ilegales (ya existen).
+      <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por favor, no pongas enlace si no es libre.</p>
     <%= form.input :media %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>
