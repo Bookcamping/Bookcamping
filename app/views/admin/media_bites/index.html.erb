@@ -15,8 +15,7 @@
           <% end %>
           <h2>Corta y pega en el post: <%= media_bite.inline_code %></h2>
           <ul class="properties">
-            <li class="file"><label>Fichero: </label><%= media_bite.file_content %></li>
-            <li class="link"><label>Enlace: </label><%= media_bite.link %></li>
+            <li class="link"><label>Enlaza con: </label><%= media_bite.link %></li>
           </ul>
           <div class="links">
             <%= link_to 'Editar', [:edit, :admin, media_bite] %> |
