@@ -3,7 +3,7 @@
         <%= form.input :include_in_shelf_id, :as => :hidden %>
     <% elsif book.new_record? %>
         <%= form.input :include_in_shelf_id, :collection => current_camp.camp_shelves, :include_blank => false %>
-        <p class="important">&nbsp;&uArr;&nbsp;<strong>Presta atención!</strong> Selecciona bien dónde quieres poner esta referencia.</p>
+        <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Presta atención!</strong> Selecciona bien dónde quieres poner esta referencia.</p>
     <% end %>
     <%= form.input :title %>
     <%= form.input :authors %>
@@ -11,8 +11,8 @@
     <%= form.input :date %>
     <%= form.association :license, :include_blank => false %>
     <%= form.input :url %>
-    <p class="important">&nbsp;&uArr;&nbsp;No queremos ser una web de enlaces ilegales (ya existen).
-      <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por favor, no pongas enlace si no es libre.</p>
+    <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Recuerda!</strong> Si es de una editorial privativa (texto licenciado con copyright)
+      <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no enlaces el archivo, limítate a hacer la referencia/reseña. ¡Gracias!</p>
     <%= form.input :media %>
     <%= form.input :description, :as => :text %>
     <%= form.association :user if current_user? :super %>

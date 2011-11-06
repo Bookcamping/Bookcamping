@@ -38,7 +38,6 @@ es:
       book:
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito / creado / imaginado?"
-        url: "Pon sólo el enlace de descarga gratuita! (si lo hubiese). Otros enlaces en Notas"
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
   shelf_items:
