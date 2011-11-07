@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   respond_to :html, :js, :json
-  expose(:book) { current_camp.books.find params[:book_id]}
-  expose(:comments) { book.comments }
+  expose(:book) { current_camp.books.find params[:book_id] if params[:book_id].present? }
+  expose(:post) { current_camp.posts.find params[:post_id] if params[:post_id].present? }
+  expose(:parent) { book ? book : post }
+  expose(:comments) { parent.comments }
   expose(:comment)
 
   def create

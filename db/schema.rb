@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111103161614) do
+ActiveRecord::Schema.define(:version => 20111107105403) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -136,13 +136,14 @@ ActiveRecord::Schema.define(:version => 20111103161614) do
   create_table "posts", :force => true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
-    t.string   "author",       :limit => 100
-    t.string   "title",        :limit => 300
+    t.string   "author",         :limit => 100
+    t.string   "title",          :limit => 300
     t.text     "body"
-    t.string   "visibility",   :limit => 16
+    t.string   "visibility",     :limit => 16
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "comments_count",                :default => 0
   end
 
   create_table "shelf_items", :force => true do |t|

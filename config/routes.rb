@@ -16,7 +16,9 @@ Bookcamp::Application.routes.draw do
       resources :bookmarks, :path => 'marcar'
     end
 
-    resources :posts, :path => 'blog'
+    resources :posts, :path => 'blog' do
+      resources :comments
+    end
     resources :users, :path => 'colaboradorxs'
     resources :notices, only: [:index]
   end

@@ -49,7 +49,7 @@ es:
       create: "Gracias por tu comentario."
     comments:
       comments: "Comentar"
-      login_before_comment: "Sería mejor que te identificases antes, aunque puedes comentar de forma anónima."
+      login_before_comment: "Preferiríamos que te identificases ('Entrar' en la parte superior), aunque también puedes comentar de forma anónima."
       anonymous_comment: "Aunque preferimos los comentarios firmados, para mantener tu privacidad puedes hacerlo de manera anónima."
       force_anonymous: "Comentar de forma anónima"
   versions:

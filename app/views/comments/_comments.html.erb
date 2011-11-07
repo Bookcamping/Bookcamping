@@ -1,7 +1,7 @@
 <div class="comments section">
   <h3><%= t('.comments') %></h3>
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
-      <%= form.input :body, :as => :text %>
+      <%= form.input :body, as: :text, label: false %>
       <%= text_field_tag :email %>
       <div class="anonymous">
         <% if current_user? %>

@@ -32,7 +32,7 @@
         <div class="description">
           <%= markdown book.description %>
         </div>
-        <% if book.url.present? %>
+        <% if book.url.present? and book.license.libre? %>
             <div class="download_url">
               <%= link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, book.url, :class => 'important download') %>
             </div>

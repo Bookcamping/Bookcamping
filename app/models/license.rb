@@ -25,4 +25,8 @@ class License < ActiveRecord::Base
     end
   end
 
+  def libre?
+    self.id != 1 and self.id != 9
+  end
+
 end

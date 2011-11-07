@@ -1,3 +1,14 @@
+# Comment
+#
+#  t.integer  "user_id"
+#  t.integer  "resource_id"
+#  t.string   "resource_type"
+#  t.string   "ancestry"
+#  t.string   "body",          :limit => 512
+#  t.datetime "created_at"
+#  t.datetime "updated_at"
+#  t.integer  "camp_id"
+#
 class Comment < ActiveRecord::Base
   belongs_to :resource, :polymorphic => true
   belongs_to :camp
@@ -7,9 +18,8 @@ class Comment < ActiveRecord::Base
   after_destroy :update_comments_count
 
   has_paper_trail :meta => {
-      :title => Proc.new {|comment| comment.resource.title}
+      :title => Proc.new { |comment| comment.resource.title }
   }
-
 
   scope :direct, :conditions => where(:ancestry => nil)
 
@@ -20,9 +30,11 @@ class Comment < ActiveRecord::Base
 
   protected
   def update_comments_count
-    PaperTrail.enabled = false
-    self.resource.update_attribute(:comments_count, self.resource.comments.count)
-    PaperTrail.enabled = true
+    if self.resource.respond_to?(:comments_count)
+      PaperTrail.enabled = false
+      self.resource.update_attribute(:comments_count, self.resource.comments.count)
+      PaperTrail.enabled = true
+    end
   end
 
 end

@@ -16,6 +16,7 @@
 class Post < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
+  has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
 
   scope :public, where(visibility: 'public')
 
