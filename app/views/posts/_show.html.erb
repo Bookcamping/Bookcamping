@@ -2,7 +2,9 @@
     <%= title post.title %>
     <div class="author">Por <%= post.author %></div>
     <div class="body"><%= markdown post.render_body %></div>
+    <br/>
+    <br/>
     <%= render 'social/social' %>
-    <%= render partial: 'comments/comments', locals: {comments: comments, new_comment: new_comment} %>
+    <%= render_comments comments, new_comment %>
 <% end %>
 

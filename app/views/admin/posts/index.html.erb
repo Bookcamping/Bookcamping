@@ -29,3 +29,22 @@
       <% end %>
   <% end %>
 </div>
+
+<% content_for :sidebar do %>
+    <div id="sidecontent">
+      <div class="main">
+        <h1>Últimos comentarios al blog</h1>
+        <ul>
+          <% last_comments.each do |comment| %>
+              <li>
+                <%= link_to 'Comentario', [:admin, comment] %> de <%= comment_author(comment) %>
+                hace <%= time_ago_in_words comment.created_at %>
+                en <%= link_to truncate(comment.resource.title), [:admin, comment.resource] %> por
+              </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="footer">
+      </div>
+    </div>
+<% end %>

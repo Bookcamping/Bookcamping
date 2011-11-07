@@ -1,25 +1,25 @@
 Bookcamp::Application.routes.draw do
-  root :to => 'camp_shelves#index'
+  root to: 'camp_shelves#index'
 
   # THIS IS PUBLIC
-  scope :path_names => {:new => 'nueva', :edit => 'modificar'} do
-    resources :camp_shelves, :path => 'listas' do
-      resources :books, :path => 'referencia', :only => [:show, :new]
+  scope path_names: {new: 'nueva', edit: 'modificar'} do
+    resources :camp_shelves, path: 'listas' do
+      resources :books, path: 'referencia', only: [:show, :new]
     end
 
-    resources :licenses, :path => 'licencias'
+    resources :licenses, path: 'licencias'
 
-    resources :books, :path => 'referencia' do
-      get :view, :on => :member
+    resources :books, path: 'referencia' do
+      get :view, on: :member
       resources :comments
-      resources :shelf_items, :path => 'incluidos'
-      resources :bookmarks, :path => 'marcar'
+      resources :shelf_items, path: 'incluidos'
+      resources :bookmarks, path: 'marcar'
     end
 
-    resources :posts, :path => 'blog' do
+    resources :posts, path: 'blog' do
       resources :comments
     end
-    resources :users, :path => 'colaboradorxs'
+    resources :users, path: 'colaboradorxs'
     resources :notices, only: [:index]
   end
 
@@ -31,8 +31,9 @@ Bookcamp::Application.routes.draw do
     resources :camp_shelves, path: 'listas'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
-    resources :camps, :path => 'campamentos', except: [:create, :destroy]
+    resources :camps, path: 'campamentos', except: [:create, :destroy]
     resources :books, path: 'referencias'
+    resources :comments, path: 'comentarios'
   end
 
   namespace :personal, path: 'mi' do
