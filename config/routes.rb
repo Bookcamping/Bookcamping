@@ -82,10 +82,8 @@ Bookcamp::Application.routes.draw do
   match "/salir" => "public/sessions#destroy", :as => :signout
   match "/entrar/:id" => "public/sessions#new", :as => :login
 
-  match "/buscar/:term" => "books#search", :as => :search
-  match "/buscar" => "books#search"
-  match "/explorar" => "app#app", :as => :app
-  match "/seccion/:id" => "app#section", :as => :section
+  match "/buscar/:term" => "references/books#search", :as => :search
+  match "/buscar" => "references/books#search"
 
   ['mapa', 'cuatrocientoscuatro', 'quinientos'].each do |name|
     match "/#{name}" => "public/screens##{name}"
