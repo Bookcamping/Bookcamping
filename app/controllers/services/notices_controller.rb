@@ -1,4 +1,4 @@
-class NoticesController < ApplicationController
+class Services::NoticesController < ApplicationController
   respond_to :json
 
   def index

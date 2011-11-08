@@ -1,0 +1,28 @@
+<% content_for :head do %>
+    <style type="text/css">
+        #error_info {
+            display: none;
+        }
+
+        #center {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+        }
+
+        #center img {position: absolute; left: -500px; top: -303px;}
+    </style>
+<% end %>
+
+<% title 'Algo ha ido mal' %>
+
+<div id="center">
+  <a href="/">
+    <img id="error" src="/images/errors/500.jpg" width="1000" height="607"/>
+  </a>
+</div>
+<div id="error_info">
+  <h1>Algo ha ido mal.</h1>
+
+  <p>¡Pero estamos trabajando para solucionarlo!</p>
+</div>

@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Public::SessionsController < ApplicationController
 
   def new
     store_location(params[:from]) if params[:from]

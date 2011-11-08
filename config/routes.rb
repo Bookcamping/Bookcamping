@@ -45,7 +45,6 @@ Bookcamp::Application.routes.draw do
   end
 
 
-
   namespace :admin do
     root to: 'versions#index'
     resources :versions, path: 'actividad'
@@ -78,17 +77,23 @@ Bookcamp::Application.routes.draw do
   match "/libros/:id" => redirect("/referencia/%{id}")
   match "/lista/:id" => redirect("/estanteria/%{id}")
 
-  match "/mapa" => 'maps#show'
-
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout
-  match "/enter/:id" => "sessions#enter", :as => :enter unless Rails.env.production?
-  match "/gocamp/:id" => "camps#enter", :as => :gocamp
   match "/buscar/:term" => "books#search", :as => :search
   match "/buscar" => "books#search"
   match "/explorar" => "app#app", :as => :app
   match "/seccion/:id" => "app#section", :as => :section
   match "/entrar/:id" => "sessions#new", :as => :login
+
+  ['mapa', 'cuatrocientoscuatro', 'quinientos'].each do |name|
+    match "/#{name}" => "public/screens##{name}"
+  end
+
+
+  # Backdoors used in test and development
+  match "/enter/:id" => "sessions#enter", :as => :enter unless Rails.env.production?
+  match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp unless Rails.env.production?
+
 end
 

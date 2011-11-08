@@ -1,46 +1,43 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NO ENCONTRADO #campr </title>
-    <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css"/>
-    <script src="/assets/application.js" type="text/javascript"></script>
+  <title>Algo ha ido mal :: bookcamping </title>
+  <link rel="Shortcut Icon" href="/assets/ui3/bookcamping-mini.ico" type="image/x-icon"/>
+      <style type="text/css">
+        #error_info {
+            display: none;
+        }
+
+        #center {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+        }
+
+        #center img {position: absolute; left: -500px; top: -303px;}
+    </style>
+
 </head>
-<body>
-<div id="main">
-    <div class="container">
-        <div class="lists" style="width: 760px;">
-            <div class="intro list">
-                <h2><a href="/">#campr</a></h2>
+<body class="errors">
 
 
-                <h2>ELEMENTOS PARA ENTENDER C&Oacute;MO HEMOS LLEGADO HASTA AQU&Iacute; (PORQUE NO SALIMOS DE LA NADA)</h2>
-
-                <h2>&iquest;Y T&Uacute;, QU&Eacute; TE LLEVAR&Iacute;AS A TU PLAZA / ACAMPADA / VIDEOCAMP?</h2>
-
-                <p class="credits">
-                    #campr surge a partir
-                    de <a
-                        href="http://entornodeposibilidades.blogspot.com/2011/05/bookcamp-si-no-quieres-ser-como-ellos.html">Entorno
-                    de posibilidades</a>
-                    <br/>
-                    Es <a href="https://github.com/recortable/Bookcamp">c&oacute;digo libre</a>
-
-                </p>
-
-                <!--a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-text="#bookcamping" data-lang="es" data-counturl="http://bookcamp.ccc">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script-->
-            </div>
-            <div class="list">
-                <h1>ALGO HA IDO MAL...</h1>
-                <p style="padding: 10px;">No siempre va todo bien... estamos en constante desarrollo y pronto resolveremos el problema. Puedes intentarlo de nuevo.</p>
-                <h2><a href="/">&larr; Volver</a></h2>
-            </div>
-        </div>
-    </div>
+<div id="center">
+  <a href="/">
+    <img id="error" src="/images/errors/500.jpg" width="1000" height="607"/>
+  </a>
 </div>
-<script type="text/javascript">
+<div id="error_info">
+  <h1>Algo ha ido mal.</h1>
 
+  <p>¡Pero estamos trabajando para solucionarlo!</p>
+</div>
+
+<script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-11032039-5']);
+    _gaq.push(['_setDomainName', '.bookcamp.cc']);
+    _gaq.push(['_setAllowHash', 'false']);
     _gaq.push(['_trackPageview']);
 
     (function() {
@@ -54,4 +51,5 @@
 
 </script>
 </body>
-</html> 
+</html>
+

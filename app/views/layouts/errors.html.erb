@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %> :: <%= current_camp.name %> </title>
+  <link rel="Shortcut Icon" href="/assets/ui3/bookcamping-mini.ico" type="image/x-icon"/>
+  <%= yield :head %>
+</head>
+<body class="errors">
+<%= yield %>
+<%= render 'layouts/ga' %>
+</body>
+</html>
+

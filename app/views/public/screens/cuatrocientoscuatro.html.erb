@@ -1,0 +1,28 @@
+<% content_for :head do %>
+    <style type="text/css">
+        #error_info {
+            display: none;
+        }
+
+        #center {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+        }
+
+        #center img {position: absolute; left: -500px; top: -303px;}
+    </style>
+<% end %>
+
+<% title '¿Dónde estamos?' %>
+
+<div id="center">
+  <a href="/">
+    <img id="error" src="/images/errors/404.jpg" width="1000" height="607"/>
+  </a>
+</div>
+<div id="error_info">
+  <h1>La página que buscas no ha sido encontrada.</h1>
+
+  <p>O ha sido movida o nunca existió. Comprueba la URL.</p>
+</div>
