@@ -58,6 +58,7 @@ Bookcamp::Application.routes.draw do
   end
 
 
+  match "/listas" => redirect("/estanterias")
   match "/listas/:id" => redirect("/estanterias/%{id}")
   match "/libros/:id" => redirect("/referencia/%{id}")
   match "/lista/:id" => redirect("/estanteria/%{id}")
