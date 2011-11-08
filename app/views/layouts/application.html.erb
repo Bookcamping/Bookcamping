@@ -27,8 +27,8 @@
       <% if current_user %>
           <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
           Hola <%= current_user.name %>!
-          <%= link_to 'Estanterías', personal_user_shelves_path %> |
-          <%= link_to 'Mi biblioteca', personal_books_path %> |
+          <%= link_to 'Estanterías', camp_shelves_path %> |
+          <%= link_to 'Listas', personal_user_shelves_path %> |
           <%= link_to 'Perfil', personal_user_path %> >
           <%= link_to "Salir", signout_path(:from => request.fullpath) %>
       <% else %>

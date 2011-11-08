@@ -1,13 +1,11 @@
 
-<%= div_for shelf do %>
+<%= div_for shelf, class: 'shelf' do %>
     <div class="info">
       <div class="count" >
         <%= shelf.books_count %><br/>
         <%= current_model %>s
       </div>
       <div class="controls">
-        <%#= link_to "Añadir #{current_model}", new_book_path, :class => 'add' %>
-
       </div>
       <h1><%= link_to_unless_current shelf.name, shelf %></h1>
       Creada por <%= shelf.user.name %> y modificada hace <%= time_ago_in_words shelf.updated_at %>

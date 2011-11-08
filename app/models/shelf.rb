@@ -1,19 +1,18 @@
 # Shelf
 #
-# SCHEMA
-#create_table "shelves", :force => true do |t|
-#  t.integer  "camp_id" # REQUIRED
-#  t.integer  "user_id" # REQUIRED
-#  t.string   "name",           :limit => 200 # REQUIRED
+#  t.integer  "user_id"
+#  t.string   "name",           :limit => 200
 #  t.string   "slug",           :limit => 50
 #  t.integer  "books_count",                   :default => 0
 #  t.integer  "comments_count",                :default => 0
 #  t.datetime "created_at"
 #  t.datetime "updated_at"
+#  t.integer  "camp_id"
 #  t.string   "color",          :limit => 16
 #  t.text     "description"
 #  t.string   "rol",            :limit => 32
-#end
+#  t.string   "type",           :limit => 32
+#  t.string   "visibility",     :limit => 16
 #
 class Shelf < ActiveRecord::Base
   belongs_to :camp
@@ -30,7 +29,6 @@ class Shelf < ActiveRecord::Base
 
   validates :camp_id, :presence => true
   validates :user_id, :presence => true
-  validates :name, presence: true, uniqueness: true
   validates :visibility, presence: true
 
 
@@ -40,6 +38,7 @@ class Shelf < ActiveRecord::Base
             '#a0a96a', '#f68b1f', '#a5932b', '#c14f52', '#738f57', '#e18256',
             '#dbb727', '#008eb0', '#967448', '#c2c76c']
 
+  ROLES = []
   VISIBILITIES = [:private, :public]
 
   def add_book(book, user)
@@ -47,7 +46,7 @@ class Shelf < ActiveRecord::Base
   end
 
   def background
-    color? ? color : 'black'
+    color? ? color : '#db533d'
   end
 
   def to_param

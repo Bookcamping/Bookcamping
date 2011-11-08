@@ -22,7 +22,7 @@
           <% end %>
         </div>
         <div class="author">
-            Por <%= link_to book.user.name, book.user %>
+          Por <%= link_to book.user.name, book.user %>
         </div>
         <div class="actions">
           <%= link_to 'Editar', [:edit, book] if can? :edit, book %>
@@ -43,7 +43,10 @@
             </div>
         <% end %>
         <%= render 'social/social' %>
+        <div class="profile_shelves">
+          Le gusta a <%= book.like_it_marks %> personas.
+          Lo quieren leer <%= book.read_later_marks %> personas.
+        </div>
         <%= render_comments(book.comments, Comment.new(:resource => book)) %>
-
     <% end %>
 <% end %>

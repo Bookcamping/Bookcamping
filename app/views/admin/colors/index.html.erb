@@ -1,0 +1,8 @@
+<% title 'Colores' %>
+<h1>Colores<small> (<%= colors.size %>)</small></h1>
+
+<ul id="colors">
+  <% colors.each do |color| %>
+  <li style="background-color: <%= color.value %>;"><%= color.name %></li>
+  <% end %>
+</ul>

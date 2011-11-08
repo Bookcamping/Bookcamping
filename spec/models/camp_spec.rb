@@ -1,3 +1,4 @@
+require 'spec_helper'
 
 describe Camp do
   describe "relations" do

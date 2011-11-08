@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111107105403) do
+ActiveRecord::Schema.define(:version => 20111108090836) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(:version => 20111107105403) do
     t.string   "model_name",          :limit => 32
     t.string   "origin",              :limit => 256
     t.boolean  "show_media_on_lists",                :default => false
+  end
+
+  create_table "colors", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -152,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20111107105403) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.integer  "camp_id"
+    t.string   "mark",       :limit => 32
   end
 
   add_index "shelf_items", ["book_id"], :name => "index_shelf_items_on_book_id"

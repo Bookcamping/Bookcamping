@@ -17,7 +17,12 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :user_shelves
 
+
   validates :name, presence: true
+
+  def profile_shelves(camp)
+    ProfileShelf.where(:user_id => self.id).where(:camp_id => camp.id)
+  end
 
   def self.create_with_omniauth(auth)
     create! do |user|

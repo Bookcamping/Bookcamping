@@ -31,7 +31,7 @@ table.shelves {
     }
 }
 
-div.camp_shelf {
+div.shelf {
     div.info {
         width: 100%; overflow: hidden;
         padding: 3px 0;
@@ -62,6 +62,7 @@ div.camp_shelf {
 
 
         h1 {font-size: 16px; margin-top: 3px;}
+        h1.big {font-size: 32px;}
     }
 
 }

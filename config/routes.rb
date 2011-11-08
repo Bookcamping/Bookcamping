@@ -3,7 +3,7 @@ Bookcamp::Application.routes.draw do
 
   # THIS IS PUBLIC
   scope path_names: {new: 'nueva', edit: 'modificar'} do
-    resources :camp_shelves, path: 'listas' do
+    resources :camp_shelves, path: 'estanterias' do
       resources :books, path: 'referencia', only: [:show, :new]
     end
 
@@ -23,25 +23,28 @@ Bookcamp::Application.routes.draw do
     resources :notices, only: [:index]
   end
 
+  namespace :personal, path: 'mis' do
+    root to: redirect('/mis/datos')
+    resource :user, path: 'datos'
+    resources :books, path: 'referencias'
+    resources :user_shelves, path: 'listas'
+    resources :profile_shelves, path: 'marcas'
+  end
+
   namespace :admin do
     root to: 'versions#index'
     resources :versions, path: 'actividad'
     resources :posts, path: 'blog'
     resources :media_bites, path: 'media'
-    resources :camp_shelves, path: 'listas'
+    resources :camp_shelves, path: 'estanterias'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
     resources :camps, path: 'campamentos', except: [:create, :destroy]
     resources :books, path: 'referencias'
     resources :comments, path: 'comentarios'
+    resources :colors, path: 'colores'
   end
 
-  namespace :personal, path: 'mi' do
-    root to: redirect('/mi/perfil')
-    resource :user, path: 'perfil'
-    resources :books, path: 'biblioteca'
-    resources :user_shelves, path: 'estanterias'
-  end
 
   namespace :backend do
     root to: 'stats#show'
@@ -55,11 +58,14 @@ Bookcamp::Application.routes.draw do
   end
 
 
+  match "/listas/:id" => redirect("/estanterias/%{id}")
   match "/libros/:id" => redirect("/referencia/%{id}")
+  match "/lista/:id" => redirect("/estanteria/%{id}")
+  match "/estanteria/:id" => "shelves#auto", :as => :autoshelf
 
   match "/mapa" => 'maps#show'
 
-  match "/lista/:id" => "shelves#auto", :as => :autoshelf
+
   match "/auth/:provider/callback" => "sessions#create"
   match "/salir" => "sessions#destroy", :as => :signout
   match "/enter/:id" => "sessions#enter", :as => :enter unless Rails.env.production?
