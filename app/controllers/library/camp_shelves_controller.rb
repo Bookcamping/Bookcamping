@@ -10,4 +10,8 @@ class Library::CampShelvesController < ApplicationController
   def show
 
   end
+
+  def new
+    authorize! :manage, CampShelf
+  end
 end

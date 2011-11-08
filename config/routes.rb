@@ -78,13 +78,14 @@ Bookcamp::Application.routes.draw do
   match "/lista/:id" => redirect("/estanteria/%{id}")
 
 
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/salir" => "sessions#destroy", :as => :signout
+  match "/auth/:provider/callback" => "public/sessions#create"
+  match "/salir" => "public/sessions#destroy", :as => :signout
+  match "/entrar/:id" => "public/sessions#new", :as => :login
+
   match "/buscar/:term" => "books#search", :as => :search
   match "/buscar" => "books#search"
   match "/explorar" => "app#app", :as => :app
   match "/seccion/:id" => "app#section", :as => :section
-  match "/entrar/:id" => "sessions#new", :as => :login
 
   ['mapa', 'cuatrocientoscuatro', 'quinientos'].each do |name|
     match "/#{name}" => "public/screens##{name}"
@@ -92,7 +93,7 @@ Bookcamp::Application.routes.draw do
 
 
   # Backdoors used in test and development
-  match "/enter/:id" => "sessions#enter", :as => :enter unless Rails.env.production?
+  match "/enter/:id" => "public/sessions#enter", :as => :enter unless Rails.env.production?
   match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp unless Rails.env.production?
 
 end
