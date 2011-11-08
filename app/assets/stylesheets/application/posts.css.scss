@@ -26,21 +26,6 @@ div.post {
     }
     div.visibility {float: right;}
 
-    div.comments {
-        div.input {margin: 0;}
-        h3 {margin-top: 2em; padding-top: 5px; border-top: 1px solid black;}
-        textarea {width: 98%; height: 4em;}
-        #email {display: none;}
-        p.notice {font-size:80%; color: gray;}
-
-        ul.comments {
-            padding: 1em;
-            li {
-                margin: 0.5em 0;
-                div.info {color: gray;}
-            }
-        }
-    }
 
 }
 

@@ -1,14 +1,18 @@
 <div class="comments section">
-  <h3><%= t('.comments') %></h3>
+  <h3>Comentar</h3>
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
       <%= form.input :body, as: :text, label: false %>
       <%= text_field_tag :email %>
       <div class="anonymous">
         <% if current_user? %>
-            <%= content_tag :p, t('.anonymous_comment'), :class => 'notice' %>
-            <%= check_box_tag :anonymous %> <%= t('.force_anonymous') %>
+            <p class="notice">
+              Aunque preferimos los comentarios firmados (por eso del diálogo), para mantener tu privacidad puedes hacerlo de manera anónima.
+            </p>
+            <%= check_box_tag :anonymous %> Comentar de forma anónima
         <% else %>
-            <%= content_tag(:p, t('.login_before_comment'), :class => 'notice') %>
+            <p class="notice">
+              Preferiríamos que te identificases ('Entrar' en la parte superior), aunque también puedes comentar de forma anónima.
+            </p>
         <% end %>
       </div>
       <%= form.submit 'Comentar' %>
@@ -17,15 +21,11 @@
     <% comments.each do |comment| %>
         <li>
           <%= div_for comment do %>
-              <div class="info">
+              <div class="comment_info">
                 <span class="user"><%= comment.user.present? ? (link_to comment.user.name, "http://twitter.com/#!/#{comment.user.name}") : 'Anónimx' %></span>
                 <span class="time">hace <%= time_ago_in_words comment.created_at %></span>
               </div>
               <%= comment.body %>
-              <% if current_user?(:admin) || current_user?(:super) %>
-                  <%= link_to 'Borrar comentario', [comment.resource, comment], :method => :delete,
-                              :confirm => '¿Segura de que quieres borrar este comentario?' %>
-              <% end %>
           <% end %>
         </li>
     <% end %>

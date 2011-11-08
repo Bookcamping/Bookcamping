@@ -38,6 +38,7 @@ div.shelf {
         border-bottom: 2px solid black;
         margin-bottom: 10px;
 
+
         div.count {
             float: right; width: 64px; height: 44px;
             text-align: center; padding: 10px 0;
@@ -61,7 +62,8 @@ div.shelf {
         }
 
 
-        h1 {font-size: 16px; margin-top: 3px;}
+        h1 {font-size: 16px; margin-top: 0px; height: 40px;}
+        div.timestamps {margin-top: -3px;}
         h1.big {font-size: 32px;}
     }
 

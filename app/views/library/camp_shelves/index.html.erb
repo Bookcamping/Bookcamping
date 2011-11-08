@@ -1,0 +1,13 @@
+<% title 'Estanterías' %>
+
+
+<div id="autoshelves">
+  <% AutoShelf::NAMES.each do |name| %>
+      <%= link_to t("autoshelf.name.#{name}"), auto_shelf_path(name), :class => name %>
+  <% end %>
+</div>
+
+<%= render_shelves camp_shelves %>
+
+
+<%= content_for(:sidebar) { render 'sidebar' } %>

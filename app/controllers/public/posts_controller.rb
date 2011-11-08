@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Public::PostsController < ApplicationController
 
   expose(:posts) { current_camp.posts.public.order('published_at DESC')}
   expose(:post) { params[:id].present? ? posts.find(params[:id]) : posts.first }

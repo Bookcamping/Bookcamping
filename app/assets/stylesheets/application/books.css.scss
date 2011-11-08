@@ -2,6 +2,8 @@
 div#sidebar {
     div.book {
         padding: 0 10px;
+        border-bottom: 4px solid black;
+
         h1 {font-size: 18px;}
 
         div.author {margin-top: 5px;}
@@ -13,32 +15,26 @@ div#sidebar {
 
         a.download {display: block; text-align: center;}
 
-        a.NOdownload {
-            display: block;
-            width: 248px;height:33px;
-            margin: 2px auto;
-            overflow: hidden; text-indent: -10000px;
-            background: url('/assets/ui3/download.png') no-repeat;
-        }
-
-
-
-        form {
-            width: 100%; overflow: hidden;
-            input#email {display: none;}
-
-            .anonymous {font-size: 80%;}
-            input[type=submit] {float: right; margin-top: 10px;}
-            div.input {
-                label {display: none;}
-                textarea {width: 98%; height: 4em;}
-            }
-        }
-
-        ul.comments {
-            font-size: 90%;
-            li {padding-top: 5px; margin-top: 10px; border-top: 1px solid black;}
-            a {color: black; font-weight: bold;}
-        }
     }
+}
+
+// width: 647px
+div.book {
+    width: 100%; overflow: hidden;
+
+    div.row {width: 100%; overflow: hidden;}
+    div.left { width: 336px; float: left; }
+    div.right {  }
+
+    div.book_info {
+        padding-bottom: 5px;
+        border-bottom: 2px solid black;
+        margin-bottom: 10px;
+        h1 {margin: 5px 0 0 0;}
+        span {font-weight: bold;}
+        span.user {display: block; margin-top: 5px; font-weight: normal;}
+    }
+
+    div.social {margin-top: 15px;}
+
 }

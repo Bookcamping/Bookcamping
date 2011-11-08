@@ -1,35 +1,50 @@
 Bookcamp::Application.routes.draw do
-  root to: 'camp_shelves#index'
+  root to: redirect('/estanterias')
 
   # THIS IS PUBLIC
   scope path_names: {new: 'nueva', edit: 'modificar'} do
-    resources :camp_shelves, path: 'estanterias' do
-      resources :books, path: 'referencia', only: [:show, :new]
+
+    # Library
+    scope module: 'library' do
+      resources :camp_shelves, path: 'estanterias' do
+        resources :books, path: 'referencia', only: [:show, :new]
+      end
+      resources :auto_shelves, path: 'ver', only: [:show]
     end
 
-    resources :licenses, path: 'licencias'
-
-    resources :books, path: 'referencia' do
-      get :view, on: :member
-      resources :comments
-      resources :shelf_items, path: 'incluidos'
-      resources :bookmarks, path: 'marcar'
+    # References
+    scope module: 'references' do
+      resources :books, path: 'referencia', only: [:show, :new] do
+        resources :comments, only: [:create]
+      end
     end
 
-    resources :posts, path: 'blog' do
-      resources :comments
+    scope module: 'public' do
+      resources :posts, path: 'blog' do
+        resources :comments
+      end
     end
-    resources :users, path: 'colaboradorxs'
-    resources :notices, only: [:index]
+
+    namespace :personal, path: 'mis' do
+      root to: redirect('/mis/datos')
+      resource :user, path: 'datos'
+      resources :books, path: 'referencias'
+      resources :user_shelves, path: 'listas'
+      resources :profile_shelves, path: 'marcas'
+    end
+
+
+    scope module: 'social' do
+      resources :users, path: 'colaboradorxs'
+    end
+
+    scope module: 'services' do
+      resources :notices, only: [:index]
+    end
+
   end
 
-  namespace :personal, path: 'mis' do
-    root to: redirect('/mis/datos')
-    resource :user, path: 'datos'
-    resources :books, path: 'referencias'
-    resources :user_shelves, path: 'listas'
-    resources :profile_shelves, path: 'marcas'
-  end
+
 
   namespace :admin do
     root to: 'versions#index'
@@ -62,7 +77,6 @@ Bookcamp::Application.routes.draw do
   match "/listas/:id" => redirect("/estanterias/%{id}")
   match "/libros/:id" => redirect("/referencia/%{id}")
   match "/lista/:id" => redirect("/estanteria/%{id}")
-  match "/estanteria/:id" => "shelves#auto", :as => :autoshelf
 
   match "/mapa" => 'maps#show'
 

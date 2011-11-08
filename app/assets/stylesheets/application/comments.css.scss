@@ -1,0 +1,24 @@
+
+div.comments.section {
+    div.input {margin: 0;}
+    h3 {padding-top: 5px;}
+    textarea {width: 99%; height: 4em;}
+    #email {display: none;}
+    p.notice {font-size:80%; color: gray;}
+    input[type='submit'] {margin-top: 10px;}
+
+    ul.comments {
+        padding-top: 10px;
+        font-size: 80%;
+        li {
+            margin-bottom: 10px;
+            div.comment_info {
+                color: gray;
+                margin-bottom: 2px;
+
+                span.user {font-weight: bold;}
+
+            }
+        }
+    }
+}
