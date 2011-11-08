@@ -1,0 +1,5 @@
+<%= title "Añadir #{current_model}" %>
+<%= content_tag :h2, "En #{shelf.name}" if shelf.present? %>
+<%= render 'form' %>
+
+<%= content_for(:sidebar) { render 'sidebar'} %>

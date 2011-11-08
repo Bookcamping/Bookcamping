@@ -3,9 +3,7 @@
 <% content_for(:sidebar) do %>
     <%= div_for book do %>
         <% present book do |book_presenter| -%>
-            <div class="go-book">
-              <%= link_to 'Ver ficha completa', book %>
-            </div>
+              <%= link_to 'Ver ficha completa', book, class: 'go-book' %>
             <div class="info">
               <h1><%= book_presenter.linked_title %></h1>
               <%= book_presenter.license_icon %>

@@ -1,6 +1,4 @@
-class References::BooksController < ApplicationController
-  expose(:books) { current_camp.books }
-  expose(:book)
+class References::BooksController < Shared::BooksController
 
   def show
 
