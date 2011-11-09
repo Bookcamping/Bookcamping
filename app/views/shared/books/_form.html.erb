@@ -19,6 +19,5 @@
     </div>
     <%= form.input :media %>
     <%= form.input :description, :as => :text %>
-    <%= form.association :user if current_user? :super %>
     <%= form.submit 'Guardar' %>
 <% end %>

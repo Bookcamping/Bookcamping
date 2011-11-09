@@ -7,11 +7,11 @@ class Shared::BooksController < ApplicationController
   expose(:shelf) {}
 
   def new
-
+    authorize! :manage, Book
   end
 
   def edit
-
+    authorize! :edit, book
   end
 
   def create

@@ -1,5 +1,7 @@
 <% title book.title %>
 
+
+
 <%= div_for book do %>
     <% present book do |book_presenter| -%>
         <div class="book_info row">
@@ -11,6 +13,9 @@
               / <%= book_presenter.editor %>
           <% end %>
           <%= book_presenter.user %>
+        </div>
+        <div class="actions">
+          <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
         </div>
         <div class="content row">
           <div class="left media">
