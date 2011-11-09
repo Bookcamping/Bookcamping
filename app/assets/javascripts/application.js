@@ -4,3 +4,11 @@
 //= require jquery.highlight-3.js
 //= require jquery.pjax
 //= require_tree ./application
+
+    if (typeof console == "undefined" || typeof console.log == "undefined") {
+        console = {
+            log : function() {
+            }
+        };
+    }
+
