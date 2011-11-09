@@ -47,7 +47,7 @@ class BookPresenter < BasePresenter
   end
 
   def camp_shelves
-    h.render_shelves book.camp_shelves
+    h.render_shelves book.camp_shelves, book
   end
 
   def comments

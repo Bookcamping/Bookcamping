@@ -14,7 +14,13 @@ div#sidebar {
         div.social {margin-top:10px;}
 
         a.download {display: block; text-align: center;}
-        a.go-book {display: block; padding: 2px 0; background-color: black; color: white; font-weight: bold; text-align: center;}
+        a.go-book {
+            display: block; overflow: hidden;
+            width: 336px; height: 41px;
+            margin-left: -10px; margin-top: 3px;
+            text-indent: -1000px;
+            background-image: url('/images/verfichacompleta.png');
+        }
 
     }
 }
@@ -34,6 +40,10 @@ div.book {
         h1 {margin: 5px 0 0 0;}
         span {font-weight: bold;}
         span.user {display: block; margin-top: 5px; font-weight: normal;}
+    }
+
+    div.media {
+        img {width: 100%;}
     }
 
     div.social {margin-top: 15px;}

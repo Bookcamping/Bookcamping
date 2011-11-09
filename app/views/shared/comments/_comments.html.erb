@@ -1,5 +1,4 @@
 <div class="comments section">
-  <h3>Comentar</h3>
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
       <%= form.input :body, as: :text, label: false %>
       <%= text_field_tag :email %>
