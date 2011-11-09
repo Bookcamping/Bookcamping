@@ -1,2 +1,14 @@
 es:
+  activerecord:
+    models:
+      user: 'usuaria'
+
+  simple_form:
+    labels:
+      user:
+        email: 'Correo electrónico'
+
+    hints:
+      user:
+        name: 'Nombre con el que quieres aparecer en #bookcamping'
 

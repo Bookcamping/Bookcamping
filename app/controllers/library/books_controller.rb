@@ -5,7 +5,10 @@ class Library::BooksController < Shared::BooksController
   expose(:shelf) { camp_shelf }
 
   def show
-
+    if request.headers['X-PJAX']
+      render action: 'show_pjax', layout: false
+    end
   end
+
 end
 

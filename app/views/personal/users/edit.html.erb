@@ -4,8 +4,8 @@
 
 <%= title "Editar perfil" %>
 
-<%= simple_form_for [:personal, user] do |form| %>
+<%= simple_form_for(user, url: personal_user_path) do |form| %>
     <%= form.input :name %>
     <%= form.input :email %>
-    <%= form.submit id: 'submit_user' %>
+    <%= form.submit 'Guardar perfil', id: 'submit_user' %>
 <% end %>

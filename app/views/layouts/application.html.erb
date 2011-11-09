@@ -26,11 +26,9 @@
     <div class="user">
       <% if current_user %>
           <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
-          Hola <%= current_user.name %>!
+          <%= link_to "¡Hola #{current_user.name}!", personal_user_path %>
           <%= link_to 'Estanterías', camp_shelves_path %> |
-          <%= link_to 'Listas', personal_user_shelves_path %> |
-          <%= link_to 'Perfil', personal_user_path %> >
-          <%= link_to "Salir", signout_path(:from => request.fullpath) %>
+          <%= link_to 'Listas', personal_user_shelves_path %>
       <% else %>
           Entrar
           con:
@@ -66,15 +64,16 @@
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
-        <div id="goteo" name="goteo">
-          <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
+        <div id="sidebar_extra">
+          <div id="goteo" name="goteo">
+            <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
+          </div>
+          <% if current_camp.id == 1 %>
+              <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' unless current_page?(posts_path) %>
+              <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' %>
+          <% end %>
         </div>
-        <% if current_camp.id == 1 %>
-            <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' unless current_page?(posts_path)%>
-            <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' %>
-        <% end %>
       </div>
-
     </div>
   </div>
 </div>

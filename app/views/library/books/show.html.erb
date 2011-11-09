@@ -1,30 +1,9 @@
-<% title "#{book.title} en #{camp_shelf.name}" %>
+<% title "#{book.title} en #{truncate(camp_shelf.name)}" %>
 
 <% content_for(:sidebar) do %>
-    <%= div_for book do %>
-        <% present book do |book_presenter| -%>
-              <%= link_to 'Ver ficha completa', book, class: 'go-book' %>
-            <div class="info">
-              <h1><%= book_presenter.linked_title %></h1>
-              <%= book_presenter.license_icon %>
-              <%= book_presenter.date %>
-              <%= book_presenter.authors %>
-              <% if book.editor.present? %>
-                  / <%= book_presenter.editor %>
-              <% end %>
-            </div>
-            <div class="description">
-              <%= book_presenter.description %>
-            </div>
-            <% if book_presenter.download_visible? %>
-                <div class="download_url">
-                  <%= book_presenter.download_link %>
-                </div>
-            <% end %>
-            <%= book_presenter.media %>
-        <% end %>
-    <% end %>
+    <div data-pjax-container>
+      <%= render 'summary' %>
+    </div>
 <% end %>
-
 
 <%= render camp_shelf %>

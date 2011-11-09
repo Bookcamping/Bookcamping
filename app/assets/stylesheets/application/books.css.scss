@@ -1,6 +1,7 @@
 
-div#sidebar {
+div[data-pjax-container] {
     div.book {
+        background-color: white;
         padding: 0 10px;
         border-bottom: 4px solid black;
 

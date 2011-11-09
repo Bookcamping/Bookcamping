@@ -1,5 +1,5 @@
 Bookcamp::Application.routes.draw do
-  root to: redirect('/estanterias')
+  root to: "library/camp_shelves#index"
 
   # THIS IS PUBLIC
   scope path_names: {new: 'nueva', edit: 'modificar'} do
@@ -79,7 +79,7 @@ Bookcamp::Application.routes.draw do
 
 
   match "/auth/:provider/callback" => "public/sessions#create"
-  match "/salir" => "public/sessions#destroy", :as => :signout
+  match "/salir" => "public/sessions#destroy", :as => :logout
   match "/entrar/:id" => "public/sessions#new", :as => :login
 
   match "/buscar/:term" => "references/books#search", :as => :search

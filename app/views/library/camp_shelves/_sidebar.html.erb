@@ -1,13 +1,15 @@
 <div id="sidecontent">
-  <div class="buttons">
-    <%= link_to "Añadir #{current_model}", new_book_path %>
-    <%= link_to 'Añadir lista', new_camp_shelf_path %>
-  </div>
-  <div class="main">
-    <h2>DE LA PLAZA A LA NUBE</h2>
+  <div data-pjax-container>
+    <div class="buttons">
+      <%= link_to "Añadir #{current_model}", new_book_path %>
+      <%= link_to 'Añadir lista', personal_user_shelves_path %>
+    </div>
+    <div class="main">
+      <h2>DE LA PLAZA A LA NUBE</h2>
 
-    <p>Bienvenidas a <%= current_camp.name %>.cc, una biblioteca abierta y colaborativa nacida a la luz del 15 de
-      Mayo.</p>
+      <p>Bienvenidas a <%= current_camp.name %>.cc, una biblioteca abierta y colaborativa nacida a la luz del 15 de
+        Mayo.</p>
+    </div>
+    <div class="footer"></div>
   </div>
-  <div class="footer"></div>
 </div>

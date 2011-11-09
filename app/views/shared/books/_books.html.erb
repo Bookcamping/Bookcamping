@@ -8,7 +8,7 @@
             </div>
             <div class="cover">
               <h3>
-                <%= link_to book.title, (shelf ? [shelf, book] : book) %>
+                <%= link_to book.title, (shelf ? [shelf, book] : book), data: {pjax: '[data-pjax-container]'} %>
               </h3>
               <%= book.date %> <%= book.authors %> <%= book.editor %>
             </div>

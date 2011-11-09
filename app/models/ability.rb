@@ -13,6 +13,8 @@ class Ability
 
     can :manage, Book if user?
     cannot :destroy, Book unless admin?
+
+    can :edit, User, id: @user.id
   end
 
   def user=(user )
