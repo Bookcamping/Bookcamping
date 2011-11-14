@@ -1,18 +1,5 @@
 <div class="books container">
   <% books.each do |book| %>
-      <%= div_for book, :style => "background-color: #{background};", :class => current_camp.name do %>
-          <div class="content">
-            <div class="emblems">
-              <%= license_type_icon book %>
-              <%= image_tag('/images/ui3/download-arrow.png', :class => 'download') if book.url.present? %>
-            </div>
-            <div class="cover">
-              <h3>
-                <%= link_to book.title, (shelf ? [shelf, book] : book), data: {pjax: '[data-pjax-container]'} %>
-              </h3>
-              <%= book.date %> <%= book.authors %> <%= book.editor %>
-            </div>
-          </div>
-      <% end %>
+      <%= render_book_item book, background, [shelf, book] %>
   <% end %>
 </div>

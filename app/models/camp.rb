@@ -28,4 +28,13 @@ class Camp < ActiveRecord::Base
   has_many :media_bites
 
   validates :name, presence: true
+
+  module Scopes
+    def by_camp(camp)
+      where(camp_id: camp.id)
+    end
+  end
+  extend Scopes
+
+
 end

@@ -1,0 +1,15 @@
+<div class="info">
+  <div class="count">
+    <%= shelf.books_count %>
+    <br/>
+    <%= current_model %>s
+  </div>
+  <div class="controls">
+  </div>
+  <h1><%= shelf.name %></h1>
+
+  <div class="timestamps">
+    Creada por <%= shelf.user.name %>
+    y modificada hace <%= time_ago_in_words shelf.updated_at %>
+  </div>
+</div>

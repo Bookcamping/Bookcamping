@@ -9,11 +9,8 @@
 
 
 <table class="shelves">
-  <% profile_shelves.each do |shelf| %>
-      <%= render partial: 'shelf', object: shelf %>
-  <% end %>
-  <% user_shelves.each do |shelf| %>
-      <%= render partial: 'shelf', object: shelf %>
+  <% current_user.personal_shelves_for(current_camp).each do |shelf| %>
+      <%= render_shelf shelf, [:personal, shelf] %>
   <% end %>
 </table>
 

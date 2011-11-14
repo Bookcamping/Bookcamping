@@ -1,6 +1,8 @@
 # encoding: utf-8
 class Public::SessionsController < ApplicationController
 
+  expose(:redirect_url) { params[:from].present? ? params[:from] : '/'}
+
   def new
     if current_user?
       redirect_to personal_user_path
@@ -15,7 +17,7 @@ class Public::SessionsController < ApplicationController
     session ||= User::Session.new(request.env["omniauth.auth"])
     if session.create
       self.current_user = session.user
-      session.user.membership(current_camp)
+      User::MembershipSetup.new(current_camp, current_user).setup_membership
       redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
     else
       redirect_to login_path, notice: '¡No te hemos encontrado o la contraseña es incorrecta! Inténtalo de nuevo.'

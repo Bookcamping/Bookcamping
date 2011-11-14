@@ -24,7 +24,7 @@ module Controllers
       unless current_user
         store_location
         flash[:notice] = 'Es necesario que te identifiques primero.'
-        redirect_to login_path
+        redirect_to login_path(from: request.fullpath)
       end
     end
 

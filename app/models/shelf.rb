@@ -26,6 +26,10 @@ class Shelf < ActiveRecord::Base
       :user_name => Proc.new { |shelf| shelf.user.name }
   }
 
+  scope :public, where(visibility: :public)
+  scope :private, where(visibility: :private)
+
+  extend Camp::Scopes
 
   validates :camp_id, :presence => true
   validates :user_id, :presence => true

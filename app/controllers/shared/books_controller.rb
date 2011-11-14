@@ -1,10 +1,11 @@
 # encoding: utf-8
 class Shared::BooksController < ApplicationController
   respond_to :html, :json
+  before_filter :require_user, except: [:index, :show]
 
-  expose(:books) { current_camp.books }
-  expose(:book)
   expose(:shelf) {}
+  expose(:books) { shelf.books }
+  expose(:book)
 
   def new
     authorize! :manage, Book
@@ -15,10 +16,10 @@ class Shared::BooksController < ApplicationController
   end
 
   def create
+    authorize! :create, book
     book.user = current_user
     book.camp = current_camp
-    authorize! :create, book
-    flash[:notice] = "¡Referencia añadida! ¡Gracias!" if book.save
+    flash[:notice] = "¡Referencia añadida! ¡Gracias!" if current_user.add_book(book)
     respond_with book
   end
 

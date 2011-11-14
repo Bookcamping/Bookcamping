@@ -38,6 +38,7 @@ class Book < ActiveRecord::Base
   serialize :marks
   delegate :name, to: :license, prefix: true
 
+  extend Camp::Scopes
 
   scope :titled, where('title != null')
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
@@ -68,8 +69,13 @@ class Book < ActiveRecord::Base
   end
 
   def update_bookmark(name, delta)
-    value = self.send("#{name}_marks") + delta
-    self.update_attribute("#{name}_marks", value)
+    attr = "#{name}_marks"
+    if self.respond_to? attr
+      PaperTrail.enabled = false
+      value = self.send(attr) + delta
+      self.update_attribute(attr, value)
+      PaperTrail.enabled = true
+    end
   end
 
   def to_param

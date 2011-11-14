@@ -1,0 +1,10 @@
+<% title 'Colaboradoxs #bookcamping' %>
+<h1>Colaboradorxs #bookcamping <small><%= users.count %></small></h1>
+
+<div class="users">
+  <% users.each do |user| %>
+      <%= div_for user do %>
+          <%= link_to user.name, user %>
+      <% end %>
+  <% end %>
+</div>

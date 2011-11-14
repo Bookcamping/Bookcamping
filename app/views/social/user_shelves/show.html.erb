@@ -1,0 +1,9 @@
+<% title "#{user.name} > #{shelf.name}" %>
+<%= div_for shelf, class: 'shelf' do %>
+    <%= render_shelf_header shelf %>
+
+    <div class="actions">
+      <%= link_to 'Volver', shelf.user, :class => 'back' %>
+    </div>
+    <%= render_books shelf.books, shelf.background, shelf %>
+<% end %>

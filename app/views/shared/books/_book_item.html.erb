@@ -1,0 +1,14 @@
+<%= div_for book, style: "background-color: #{background_color};", class: current_camp.name do %>
+    <div class="content">
+      <div class="emblems">
+        <%= license_type_icon book %>
+        <%= image_tag('/images/ui3/download-arrow.png', :class => 'download') if book.url.present? %>
+      </div>
+      <div class="cover">
+        <h3>
+          <%= link_to book.title, book_link, data: {pjax: '[data-pjax-container]'} %>
+        </h3>
+        <%= book.date %> <%= book.authors %> <%= book.editor %>
+      </div>
+    </div>
+<% end %>

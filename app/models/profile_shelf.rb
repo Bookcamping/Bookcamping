@@ -7,21 +7,37 @@
 class ProfileShelf < Shelf
   validates :rol, presence: true
 
-  ROLES = [:like_it, :read_later]
-  TO_PARAM = {'like_it' => 'favoritos', 'read_later' => 'para_leer'}
+  ROLES = ['like_it', 'read_later', 'my_references']
+  PARAMS = ['favoritos', 'para_leer', 'aportaciones']
+  ROL_TO_PARAM = Hash[ROLES.zip(PARAMS)]
+  PARAM_TO_ROL = Hash[PARAMS.zip(ROLES)]
+
+  # Define some relation scopes
+  module Scopes
+    def by_rol(rol)
+      where(rol: rol).first
+    end
+
+    def by_param(param)
+      if PARAMS.include?(param)
+        by_rol(PARAM_TO_ROL[param])
+      else
+        by_rol('-')
+      end
+    end
+  end
+  extend Scopes
 
   def add_book(book, user)
     ShelfItem.create!(shelf: self, book: book, user: user)
-    PaperTrail.enabled = false
-    self.book.update_bookmark(self.name, 1)
-    PaperTrail.enabled = true
+    book.update_bookmark(self.rol, 1)
   end
 
   def remove_book(book, user)
   end
 
   def to_param
-    TO_PARAM[self.rol]
+    "#{ROL_TO_PARAM[self.rol]}"
   end
 
 end

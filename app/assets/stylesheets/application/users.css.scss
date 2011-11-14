@@ -1,0 +1,10 @@
+
+div.users {
+    width: 100%; overflow: hidden;
+
+    div.user {
+        float: left;
+        width: 100px; overflow: hidden; padding: 5px; margin: 0 2px 2px 0;
+        background-color: #efefef; border-radius: 5px;
+    }
+}

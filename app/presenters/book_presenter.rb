@@ -27,7 +27,8 @@ class BookPresenter < BasePresenter
   end
 
   def user
-    h.content_tag :span, "Por #{book.user.name}", class: 'user'
+    user = book.user
+    h.content_tag :span, h.link_to("Por #{user.name}", user), class: 'user'
   end
 
   def download_visible?
