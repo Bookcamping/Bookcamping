@@ -3,26 +3,17 @@
   <span>(<%= shelves.count + profile_shelves.count %>)</span>
 </h1>
 
+<div class="actions">
+  <%= link_to '+ Añadir lista', new_personal_user_shelf_path %>
+</div>
+
 
 <table class="shelves">
   <% profile_shelves.each do |shelf| %>
-      <tr class="spacer">
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr class="shelf" style="background-color: <%= shelf.background %>;">
-        <td class="main">
-          <span class="name"><%= link_to shelf.name, [:personal, shelf] %></span>
-          <span class="user"></span>
-        </td>
-        <td class="count">
-          <%= link_to [:personal, shelf] do %>
-              <%= shelf.books_count %>
-              <br/>
-              <%= current_model %>s
-          <% end %>
-        </td>
-      </tr>
+      <%= render partial: 'shelf', object: shelf %>
+  <% end %>
+  <% user_shelves.each do |shelf| %>
+      <%= render partial: 'shelf', object: shelf %>
   <% end %>
 </table>
 

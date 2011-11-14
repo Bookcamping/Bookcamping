@@ -1,9 +1,17 @@
 es:
   activerecord:
     models:
-      camp_shelf: 'lista'
+      camp_shelf: 'estantería'
       curated_shelf: 'lista comisariada'
-      user_shelf: 'estantería'
+      user_shelf: 'lista'
+
+    errors:
+      models:
+        user_shelf:
+          attributes:
+            name:
+              taken: 'No puedes tener dos listas con el mismo nombre'
+
 
   shelves:
     index:
@@ -29,7 +37,8 @@ es:
     hints:
       name: "Tienes 200 caracteres"
       slug: "Sirve para poner enlaces a esta lista. Sólo letras y números (sin espacios). 50 caracteres."
-  title: "Editar camping"
+      user_shelf:
+        name: 'Dale un nombre a tu lista. Tienes 200 caracters'
 
   shelf:
     visibilities:

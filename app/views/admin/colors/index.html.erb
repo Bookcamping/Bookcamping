@@ -1,8 +1,18 @@
 <% title 'Colores' %>
-<h1>Colores<small> (<%= colors.size %>)</small></h1>
+<h1>Colores
+  <small> (<%= colors.size %>)</small>
+</h1>
+
+<div class="actions">
+  <%= link_to '+ Añadir color', new_admin_color_path %>
+</div>
+
 
 <ul id="colors">
   <% colors.each do |color| %>
-  <li style="background-color: <%= color.value %>;"><%= color.name %></li>
+      <li style="background-color: <%= color.value %>;">
+        <%= color.name %>
+        <%= link_to '[editar]', [:edit, :admin, color] %>
+      </li>
   <% end %>
 </ul>

@@ -6,5 +6,16 @@ class AddInfoAndPasswordToUsers < ActiveRecord::Migration
     add_column :users, :description, :string, limit: 300
     add_column :users, :password_digest, :string
     add_column :users, :password_salt, :string
+    add_column :users, :twitter_uid, :string
+    add_column :users, :google_uid, :string
+    add_column :users, :facebook_uid, :string
+
+    PaperTrail.enabled = false
+    User.all.each do |user|
+      column = "#{user.provider}_uid"
+      user.send(column, user.uid)
+      user.save!
+    end
+
   end
 end

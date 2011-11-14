@@ -1,0 +1,7 @@
+<%= title shelf.name %>
+<p class="description"><%= shelf.description %></p>
+
+<div class="actions">
+  <%= link_to 'Volver', personal_user_shelves_path, class: 'back' %>
+  <%= link_to 'Editar lista', [:edit, :personal, shelf] %>
+</div>

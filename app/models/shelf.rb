@@ -17,8 +17,8 @@
 class Shelf < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
-  has_many :shelf_items, :dependent => :destroy
-  has_many :books, :through => :shelf_items
+  has_many :shelf_items, dependent: :destroy
+  has_many :books, through: :shelf_items
 
   has_paper_trail :meta => {
       :title => Proc.new { |shelf| shelf.name },
@@ -29,6 +29,7 @@ class Shelf < ActiveRecord::Base
 
   validates :camp_id, :presence => true
   validates :user_id, :presence => true
+  validates :name, presence: true
   validates :visibility, presence: true
 
 

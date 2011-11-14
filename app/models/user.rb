@@ -15,12 +15,13 @@ class User < ActiveRecord::Base
   has_many :book_lists
   has_many :books
   has_many :memberships
-  has_many :user_shelves
+  has_many :user_shelves, dependent: :destroy
+  has_many :profile_shelves, dependent: :destroy
 
 
   validates :name, presence: true
 
-  def profile_shelves(camp)
+  def profile_shelves_for(camp)
     ProfileShelf.where(:user_id => self.id).where(:camp_id => camp.id)
   end
 
