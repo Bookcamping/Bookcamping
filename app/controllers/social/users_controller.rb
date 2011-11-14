@@ -1,6 +1,6 @@
 class Social::UsersController < ApplicationController
   respond_to :html
-  expose(:users) { User.where('login_count > 1').order('updated_at DESC') }
+  expose(:users) { User.order('login_count DESC').limit(100) }
   expose(:user)
   expose(:shelves) { user.public_shelves }
 
