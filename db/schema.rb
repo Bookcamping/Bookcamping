@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108090836) do
+ActiveRecord::Schema.define(:version => 20111109080856) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -190,11 +190,21 @@ ActiveRecord::Schema.define(:version => 20111108090836) do
     t.string   "uid"
     t.string   "name"
     t.string   "email"
-    t.string   "rol",           :limit => 10
+    t.string   "rol",             :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "login_count",                 :default => 0
+    t.integer  "login_count",                    :default => 0
     t.datetime "last_login_at"
+    t.string   "twitter",         :limit => 150
+    t.boolean  "email_visible",                  :default => false
+    t.boolean  "twitter_visible",                :default => false
+    t.boolean  "email_confirmed",                :default => false
+    t.string   "description",     :limit => 300
+    t.string   "password_digest"
+    t.string   "password_salt"
+    t.string   "twitter_uid"
+    t.string   "google_uid"
+    t.string   "facebook_uid"
   end
 
   create_table "versions", :force => true do |t|

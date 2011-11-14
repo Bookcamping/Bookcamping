@@ -25,14 +25,6 @@ class User < ActiveRecord::Base
     ProfileShelf.where(:user_id => self.id).where(:camp_id => camp.id)
   end
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["user_info"]["name"]
-    end
-  end
-
   def super?
     self.rol == 'super'
   end

@@ -3,6 +3,9 @@
 2011/11/14
   * Se pueden añadir listas personales
   * Se pueden editar listas personales
+  * Las colaboradoras pueden editar sus datos personales
+  * Se pueden editar los colores
+  * Se puede entrar con nombre/contraseña (aunque aún no es práctico, puesto que no se pueden crear colaboradoras)
 
 2011/11/09
   * En la lista de referencias, el resúmen de la ficha se carga con pjax

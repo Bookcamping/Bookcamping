@@ -1,5 +1,22 @@
+<%= title user.name %>
 <div class="actions">
   <%= link_to 'Cerrar sesión', logout_path %>
   <%= link_to 'Editar datos', edit_personal_user_path %>
 </div>
-<%= title user.name %>
+
+<%= div_for user do %>
+    <% present user do |presenter| -%>
+        <div class="description"><%= presenter.description %></div>
+        <div class="email">
+          <label>Email: </label>
+          <%= presenter.email %>
+          <span class="visibility"><%= presenter.email_visibility %></span>
+        </div>
+        <div class="twitter">
+          <label>Twitter: </label>
+          <%= presenter.twitter %>
+          <span class="visibility"><%= presenter.twitter_visibility %></span>
+        </div>
+    <% end %>
+
+<% end %>

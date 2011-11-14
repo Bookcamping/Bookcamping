@@ -7,6 +7,7 @@ es:
     labels:
       user:
         email: 'Correo electrónico'
+        password: 'Contraseña'
 
     hints:
       user:

@@ -27,14 +27,16 @@
       <% if current_user %>
           <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
           <%= link_to "¡Hola #{current_user.name}!", personal_user_path %>
-          <%= link_to 'Estanterías', camp_shelves_path %> |
-          <%= link_to 'Listas', personal_user_shelves_path %>
+          <%= link_to 'Estanterías', camp_shelves_path %> /
+          <%= link_to 'Listas', personal_user_shelves_path %> /
+          <%= link_to 'Salir', logout_path %>
       <% else %>
-          Entrar
+          <%= link_to 'Entrar', login_path(from: request.fullpath) %>
           con:
-          <%= link_to "Twitter", login_path('twitter', :from => request.fullpath) %>
-          <%= link_to "Google", login_path('google', :from => request.fullpath) %>
-          <%= link_to "Facebook", login_path('facebook', :from => request.fullpath) %>
+          <%= link_to 'Santo y seña', login_path(from: request.fullpath) %> /
+          <%= link_to "Twitter", auth_path('twitter', :from => request.fullpath) %> /
+          <%= link_to "Google", auth_path('google', :from => request.fullpath) %> /
+          <%= link_to "Facebook", auth_path('facebook', :from => request.fullpath) %>
       <% end %>
     </div>
     <div class="search">

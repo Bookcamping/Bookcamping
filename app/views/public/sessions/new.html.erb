@@ -1,0 +1,15 @@
+<%= title 'Entrar a #bookcamping' %>
+
+<p>Puedes entrar a #bookcamping identificándote con cualquiera de estos servicios:</p>
+<div class="authorizations">
+  <%= link_to image_tag('authbuttons/twitter_64.png', :width => 64, :height => 64), auth_path('twitter') %>
+  <%= link_to image_tag('authbuttons/google_64.png', :width => 64, :height => 64), auth_path('google') %>
+  <%= link_to image_tag('authbuttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook') %>
+</div>
+<br/><br/>
+<p>También puedes utilizar tu nombre y contraseña.</p>
+<%= simple_form_for User.new, url: '/auth/password/callback' do |form| %>
+    <%= form.input :name %>
+    <%= form.input :password %>
+    <%= form.submit 'Entrar' %>
+<% end %>
