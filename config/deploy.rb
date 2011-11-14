@@ -1,14 +1,18 @@
 # SOURCES setup users: http://www.viget.com/extend/building-an-environment-from-scratch-with-capistrano-2/
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
+# Standard deploy assets tasks
+load 'deploy/assets'
+
+
 # default_run_options[:pty] = true
-set :application, "GoCamping"
+set :application, "Bookcamping"
 set :deploy_to, "/home/deploy/#{application}"
 set :user, "deploy"
 set :use_sudo, false
 
 set :scm, "git"
-set :repository,  "git://github.com/recortable/GoCamping.git"
+set :repository,  "git://github.com/Bookcamping/Bookcamping.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, false
@@ -55,8 +59,8 @@ namespace :deploy do
   end
 end
 
-# Assets management
-namespace :assets do
+# Assets management (deprecated)
+namespace :myassets do
   task :precompile, :roles => :web do
     run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:precompile"
   end
@@ -66,7 +70,7 @@ namespace :assets do
   end
 end
 
-after :deploy, "assets:precompile"
+#after :deploy, "assets:precompile"
 
 
 namespace :mysql do

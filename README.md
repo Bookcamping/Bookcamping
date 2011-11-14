@@ -1,10 +1,10 @@
-# Bookcamp
+# Bookcamping
 
-http://bookcamp.cc
+http://bookcamping.cc
 
-## ALGUNOS LIBROS PARA ENTENDER CÓMO HEMOS LLEGADO HASTA SOL (PORQUE NO SALIMOS DE LA NADA)
+Esta es la aplicación de las páginas http://bookcamping.cc y http://videocamping.cc
 
-## ¿Y TÚ, QUÉ LIBRO TE LLEVARÍAS A TU PLAZA / ACAMPADA / BOOKCAMP?
+La documentación de este proyecto se puede encontrar dentro de la carpeta /doc
 
 =============================
 
