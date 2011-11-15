@@ -14,6 +14,7 @@
 </head>
 <body>
 <div id="page">
+  <a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a>
   <div id="notices">
 
   </div>
@@ -31,11 +32,12 @@
           <%= link_to 'Listas', personal_user_shelves_path %> /
           <%= link_to 'Salir', logout_path %>
       <% else %>
+          <%= link_to 'Estanterías', camp_shelves_path %> /
           <%= link_to 'Entrar', login_path(from: request.fullpath) %>
           con:
-          <%= link_to 'Santo y seña', login_path(from: request.fullpath) %> /
-          <%= link_to "Twitter", auth_path('twitter', :from => request.fullpath) %> /
-          <%= link_to "Google", auth_path('google', :from => request.fullpath) %> /
+          <%= link_to 'Santo y seña', login_path(from: request.fullpath) %>
+          <%= link_to "Twitter", auth_path('twitter', :from => request.fullpath) %>
+          <%= link_to "Google", auth_path('google', :from => request.fullpath) %>
           <%= link_to "Facebook", auth_path('facebook', :from => request.fullpath) %>
       <% end %>
     </div>
@@ -83,6 +85,15 @@
 <%= render 'layouts/js' %>
 <%= render 'layouts/ga' %>
 
-<div style="display:none">GoCamping 2011/06/15</div>
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/usDFz8Bao3VqV27ttbTw.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
+
+<div style="display:none">(cc) Bookcamping 15 Noviembre 2011</div>
 </body>
 </html>
