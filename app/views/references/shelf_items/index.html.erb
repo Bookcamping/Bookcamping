@@ -1,0 +1,38 @@
+<%= title "Listas de '#{parent.title}'" %>
+
+<div class="shelf_management">
+  <h2>Está actualmente en:</h2>
+  <ul>
+    <% shelf_items.each do |shelf_item| %>
+        <li>
+          <%= link_to 'quitar', [book, shelf_item], method: :delete,
+                      confirm: '¿Segura?' if can? :manage, shelf_item.shelf %>
+          &rArr; <%= shelf_item.shelf.name %> (<%= shelf_item.shelf.user.name %>)
+        </li>
+    <% end %>
+  </ul>
+
+  <h2>Añadir a tus listas:</h2>
+  <ul>
+    <% current_user.personal_shelves_for(current_camp).each do |shelf| %>
+        <li>
+          <%= link_to 'añadir a', book_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
+                      method: :post if can? :manage, shelf %>
+          &rArr; <%= shelf.name %> (<%= shelf.user.name %>)
+        </li>
+    <% end %>
+  </ul>
+
+
+  <h2>Añadir a estanterías:</h2>
+  <ul>
+    <% current_camp.camp_shelves.each do |shelf| %>
+        <li>
+          <%= link_to 'añadir a', book_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
+                      method: :post if can? :manage, shelf %>
+          &rArr; <%= shelf.name %> (<%= shelf.user.name %>)
+        </li>
+    <% end %>
+  </ul>
+
+</div>

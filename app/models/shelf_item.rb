@@ -13,12 +13,13 @@
 class ShelfItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :shelf
-  belongs_to :camp_shelf, :foreign_key => :shelf_id
   belongs_to :book
+  belongs_to :camp
 
-  validates :user_id, :presence => true
-  validates :shelf_id, :presence => true
-  validates :book_id, :presence => true
+  validates :user_id, presence: true
+  validates :shelf_id, presence: true
+  validates :book_id, presence: true
+  validates :camp_id, presence: true
 
   after_create :add_book_to_shelf
   after_destroy :remove_book_from_shelf

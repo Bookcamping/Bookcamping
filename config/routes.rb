@@ -17,6 +17,7 @@ Bookcamp::Application.routes.draw do
     scope module: 'references' do
       resources :books, path: 'referencia' do
         resources :comments, only: [:create]
+        resources :shelf_items, path: 'listas'
       end
     end
 

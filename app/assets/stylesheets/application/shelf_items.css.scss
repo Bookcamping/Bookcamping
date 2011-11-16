@@ -1,0 +1,14 @@
+
+div.shelf_management {
+    ul {
+        border-top: 1px solid #efefef;
+        li {
+            margin: 5px 0;
+            padding: 5px;
+            border-bottom: 1px solid #efefef;
+
+            a {color: #ff4932;}
+            a:hover {color: black; background: yellow;}
+        }
+    }
+}
