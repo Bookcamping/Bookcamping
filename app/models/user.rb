@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     book.user = self
     User.transaction do
       book.save
-      self.profile_shelf.add_book(book, self)
+      self.profile_shelf.add_book(book)
       return true
     end
     return false
