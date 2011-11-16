@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
 
-  expose(:posts) { current_camp.posts.public.order('published_at DESC')}
+  expose(:posts) { Post.public.order('published_at DESC')}
   expose(:post) { params[:id].present? ? posts.find(params[:id]) : posts.first }
   expose(:comments) { post.comments }
   expose(:new_comment) { Comment.new(resource: post) }

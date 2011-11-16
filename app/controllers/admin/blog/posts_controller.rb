@@ -1,10 +1,10 @@
 class Admin::Blog::PostsController < Admin::ResourceController
-  expose(:media_bites) { current_camp.media_bites.order('updated_at DESC') }
+  expose(:media_bites) { MediaBite.order('updated_at DESC') }
   expose(:last_comments) { Comment.where(resource_type: 'Post').order('id DESC').limit(20) }
 
   def index
     page = params[:page].present? ? params[:page] : 1
-    @posts = current_camp.posts.order('published_at DESC').page(page)
+    @posts = Post.order('published_at DESC').page(page)
   end
 
   def create

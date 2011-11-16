@@ -2,7 +2,7 @@
   <%= link_to 'Administrar blog', admin_posts_path if can? :manage, post %>
 </div>
 
-<h3>#<%= current_camp.name %> blog</h3>
+<h3>#bookcamping blog</h3>
 <%= render :partial => 'show' %>
 
 <%= content_for(:sidebar) { render 'sidebar'} %>
