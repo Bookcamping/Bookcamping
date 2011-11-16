@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   def load_camp_from_request
     if request.domain == 'videocamping.cc'
       session[:camp_id] = 2
-    elsif request.subdomain.present? and request.subdomain == 'escucha'
+    elsif request.subdomain.present? and (request.subdomain == 'escucha' or request.subdomain == 'escuchamos')
       session[:camp_id] = 3
     end
     session[:camp_id] ||= 1
