@@ -1,12 +1,15 @@
 <div class="actions">
-  <%= link_to 'Volver', [:admin, :camp_shelves], class: 'back' %>
+  <%= link_to 'Volver', admin_camp_shelves_path, class: 'back' %>
 </div>
 
 
 <%= simple_form_for [:admin, camp_shelf] do |form| %>
     <%= form.input :name %>
     <%= form.input :description %>
+    <%= form.input :visibility, include_blank: false,
+                   collection: [['Pública', 'public'], ['Privada', 'private']] %>
     <%= form.input :color, collection: Color.collection, include_blank: false,
                    input_html: {class: 'color-select'} %>
     <%= form.submit  %>
 <% end %>
+
