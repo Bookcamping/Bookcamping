@@ -20,7 +20,7 @@ class Ability
     can :manage, Shelf do |shelf|
       if shelf.type == 'CampShelf'
         true
-      elsif shelf.user_id == user.id
+      elsif shelf.user_id == user.id and shelf.rol != 'my_references'
         true
       else
         false

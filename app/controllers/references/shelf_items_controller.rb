@@ -3,6 +3,7 @@ class References::ShelfItemsController < ApplicationController
   respond_to :html
 
   expose(:book) { Book.find params[:book_id] }
+  expose(:book_shelves) { book.shelves }
   expose(:parent) { book }
   expose(:shelf_items) { parent.shelf_items }
   expose(:shelf_item)

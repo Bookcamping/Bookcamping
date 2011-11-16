@@ -16,6 +16,7 @@
         </div>
         <div class="actions">
           <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
+          <%= link_to 'Gestionar listas', [book, :shelf_items] %>
         </div>
         <div class="content row">
           <div class="left media">

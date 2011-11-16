@@ -16,6 +16,9 @@ class ShelfItem < ActiveRecord::Base
   belongs_to :book
   belongs_to :camp
 
+  # Keep it!
+  belongs_to :camp_shelf, :foreign_key => :shelf_id
+
   validates :user_id, presence: true
   validates :shelf_id, presence: true
   validates :book_id, presence: true
