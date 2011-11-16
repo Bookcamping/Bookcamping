@@ -5,17 +5,7 @@ class ApplicationController < ActionController::Base
   include Controllers::AuthMethods
   helper_method :current_user, :current_user?
 
-  expose(:current_camp) do
-    if request.domain == 'videocamping.cc'
-      session[:camp_id] = 2
-    end
-    session[:camp_id] ||= 1
-    Camp.find session[:camp_id]
-  end
-
-  def render_grid(name, books, shelf = nil)
-    render :partial => 'books/list_as_grid', :locals => {:name => name, :books => books, :shelf => shelf}
-  end
+  expose(:current_camp) { load_camp_from_request }
 
   def info_for_paper_trail
     {:user_name => current_user? ? current_user.name : 'Anónimx',
@@ -35,5 +25,16 @@ class ApplicationController < ActionController::Base
     else
       redirect_to root_url, :notice => t('access_denied.no_user')
     end
+  end
+
+  protected
+  def load_camp_from_request
+    if request.domain == 'videocamping.cc'
+      session[:camp_id] = 2
+    elsif request.subdomain.present? and request.subdomain == 'escucha'
+      session[:camp_id] = 3
+    end
+    session[:camp_id] ||= 1
+    Camp.find session[:camp_id]
   end
 end

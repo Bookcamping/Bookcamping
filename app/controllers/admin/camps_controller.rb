@@ -8,6 +8,10 @@ class Admin::CampsController < Admin::ApplicationController
 
   end
 
+  def show
+
+  end
+
   def enter
     if Rails.env.development?
       session[:camp_id] = params[:id]

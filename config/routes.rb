@@ -61,7 +61,7 @@ Bookcamp::Application.routes.draw do
     resources :camp_shelves, path: 'estanterias'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
-    resources :camps, path: 'campamentos', except: [:create, :destroy]
+    resources :camps, path: 'campings', except: [:create, :destroy]
     resources :books, path: 'referencias'
     resources :comments, path: 'comentarios'
     resources :colors, path: 'colores'

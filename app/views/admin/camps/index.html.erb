@@ -1,7 +1,7 @@
-<%= title 'Campamentos' %>
+<%= title 'Campings' %>
 
 <ul>
   <% camps.each do |camp| %>
-      <li><%= link_to camp.name, edit_admin_camp_path(camp.id) %></li>
+      <li><%= link_to camp.name, [:admin, camp] %></li>
   <% end %>
 </ul>
