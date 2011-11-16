@@ -1,8 +1,10 @@
 <%= title user.name %>
 
-<div class="actions">
-  <%= link_to 'Volver', users_path, class: 'back' %>
-</div>
+<% present user do |presenter| -%>
+    <%= div_for user do %>
+        <%= presenter.render_info %>
+    <% end %>
+<% end %>
 
 
 <table class="shelves">

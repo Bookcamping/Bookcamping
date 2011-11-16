@@ -1,6 +1,15 @@
 class UserPresenter < BasePresenter
   presents :user
 
+  def show_private?
+    @options[:show_private]
+  end
+
+  def render_info
+    h.render partial: 'shared/users/info', locals: {presenter: self}
+  end
+
+
   def description
     user.description
   end
@@ -15,7 +24,7 @@ class UserPresenter < BasePresenter
 
 
   def twitter
-    h.link_to user.twitter, "http://twitter.com/#{user.twitter}" if user.twitter
+    h.link_to "@#{user.twitter}", "http://twitter.com/#{user.twitter}", target: '_blank' if user.twitter
   end
 
   def twitter_visibility

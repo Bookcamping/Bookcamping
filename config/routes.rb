@@ -1,4 +1,5 @@
 Bookcamp::Application.routes.draw do
+
   root to: "library/camp_shelves#index"
 
   # THIS IS PUBLIC
@@ -56,8 +57,6 @@ Bookcamp::Application.routes.draw do
   namespace :admin do
     root to: 'versions#index'
     resources :versions, path: 'actividad'
-    resources :posts, path: 'blog'
-    resources :media_bites, path: 'media'
     resources :camp_shelves, path: 'estanterias'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
@@ -65,6 +64,12 @@ Bookcamp::Application.routes.draw do
     resources :books, path: 'referencias'
     resources :comments, path: 'comentarios'
     resources :colors, path: 'colores'
+
+    scope module: 'blog' do
+      resources :posts, path: 'blog'
+      resources :media_bites, path: 'media'
+      #Mercury::Engine.routes
+    end
   end
 
 

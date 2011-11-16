@@ -1,4 +1,4 @@
-class Admin::MediaBitesController < Admin::ResourceController
+class Admin::Blog::MediaBitesController < Admin::ResourceController
   def index
     index!
   end

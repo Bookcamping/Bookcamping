@@ -10,6 +10,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+#gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git', ref: '4e4b9922705a3f9ccba432612d501f3b9dde1f53'
 
 gem 'inherited_resources'
 gem 'decent_exposure'

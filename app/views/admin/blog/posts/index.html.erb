@@ -39,7 +39,7 @@
               <li>
                 <%= link_to 'Comentario', [:admin, comment] %> de <%= comment_author(comment) %>
                 hace <%= time_ago_in_words comment.created_at %>
-                en <%= link_to truncate(comment.resource.title), [:admin, comment.resource] %> por
+                en <%= link_to truncate(comment.resource.title), [comment.resource] %> por
               </li>
           <% end %>
         </ul>

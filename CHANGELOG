@@ -1,5 +1,12 @@
 
 
+2011/11/15
+  * Mejora del css para el blog
+  * El enlace al usuario de los comentarios va al perfil
+  * Perfil de los usuarios mejorado
+  * Editar los posts utilizando wysiwyg (Mercury Editor)
+  * Por defecto todas las participantes muestran su cuenta de twitter
+
 2011/11/14
   * Empieza a existir la parte social
   * Se pueden añadir listas personales

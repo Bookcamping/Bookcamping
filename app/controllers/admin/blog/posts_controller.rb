@@ -1,4 +1,4 @@
-class Admin::PostsController < Admin::ResourceController
+class Admin::Blog::PostsController < Admin::ResourceController
   expose(:media_bites) { current_camp.media_bites.order('updated_at DESC') }
   expose(:last_comments) { Comment.where(resource_type: 'Post').order('id DESC').limit(20) }
 
@@ -11,6 +11,10 @@ class Admin::PostsController < Admin::ResourceController
     @post = Post.new params[:post]
     @post.user = current_user
     @post.camp = current_camp
-    create!
+    create! { [:admin, @post ] }
+  end
+
+  def update
+    update! { [:admin, @post] }
   end
 end

@@ -21,7 +21,7 @@
         <li>
           <%= div_for comment do %>
               <div class="comment_info">
-                <span class="user"><%= comment.user.present? ? (link_to comment.user.name, "http://twitter.com/#!/#{comment.user.name}") : 'Anónimx' %></span>
+                <span class="user"><%= comment.user.present? ? (link_to comment.user.name, comment.user) : 'Anónimx' %></span>
                 <span class="time">hace <%= time_ago_in_words comment.created_at %></span>
               </div>
               <%= comment.body %>

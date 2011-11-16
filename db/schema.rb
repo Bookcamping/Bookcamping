@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109080856) do
+ActiveRecord::Schema.define(:version => 20111116075829) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -132,6 +132,15 @@ ActiveRecord::Schema.define(:version => 20111109080856) do
     t.datetime "updated_at"
   end
 
+  create_table "mercury_images", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notices", :force => true do |t|
     t.string   "body",         :limit => 500
     t.string   "level",        :limit => 32
@@ -151,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20111109080856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comments_count",                :default => 0
+    t.string   "content_type",   :limit => 32
   end
 
   create_table "shelf_items", :force => true do |t|
@@ -205,6 +215,7 @@ ActiveRecord::Schema.define(:version => 20111109080856) do
     t.string   "twitter_uid"
     t.string   "google_uid"
     t.string   "facebook_uid"
+    t.boolean  "active",                         :default => false
   end
 
   create_table "versions", :force => true do |t|

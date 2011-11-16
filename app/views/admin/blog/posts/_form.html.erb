@@ -4,6 +4,7 @@
     <%= form.input :visibility, include_blank: false,
                    collection: tc('post.visibilities', Post::VISIBILITIES) %>
     <%= form.input :published_at %>
+    <%#= form.input :content_type, collection: Post::CONTENT_TYPES, include_blank: false %>
     <%= form.input :body %>
     <div class="actions">
       <%= form.submit id: 'submit_post' %>
@@ -19,7 +20,12 @@
           <li>## Título mediano</li>
           <li>### Título pequeño</li>
           <li><strong>*negrita*</strong></li>
-          <li><em>__cursiva__</em></li>
+          <li><em>**cursiva**</em></li>
+          <li>Reseñas: poniendo un &gt; delante del texto</li>
+          <li>Más información:
+            <a href="http://daringfireball.net/projects/markdown/syntax"
+            target="_blank">markdown syntax</a>
+          </li>
         </ul>
       </div>
       <div class="footer">
@@ -27,7 +33,7 @@
       <h2>Imágenes disponibles:</h2>
       <ul>
         <% media_bites.each do |media| %>
-        <li><%= link_to media.title, [:admin, media] %>: <%= media.inline_code %></li>
+            <li><%= link_to media.title, [:admin, media] %>: <%= media.inline_code %></li>
         <% end %>
       </ul>
     </div>

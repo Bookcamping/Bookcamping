@@ -1,0 +1,19 @@
+<div class="info">
+  <div class="description"><%= presenter.description %></div>
+
+  <% if  presenter.show_private? %>
+      <div class="email">
+        <label>Email: </label>
+        <%= presenter.email %>
+        <span class="visibility"><%= presenter.email_visibility %></span>
+      </div>
+      <div class="twitter">
+        <label>Twitter: </label>
+        <%= presenter.twitter %>
+        <span class="visibility"><%= presenter.twitter_visibility %></span>
+      </div>
+  <% else %>
+      <%= presenter.email %>
+      <%= presenter.twitter %>
+  <% end %>
+</div>
