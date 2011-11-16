@@ -64,6 +64,11 @@ class Book < ActiveRecord::Base
     end
   end
 
+  RESOURCES = [:BookReference, :VideoReference]
+  def resource_type
+    RESOURCES[camp_id - 1]
+  end
+
   def bookmark_count(name)
     self.send "#{name}_marks"
   end

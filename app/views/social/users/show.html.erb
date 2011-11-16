@@ -8,7 +8,7 @@
 
 
 <table class="shelves">
-  <% user.public_shelves_for(current_camp).each do |shelf| %>
+  <% user.public_shelves.each do |shelf| %>
       <%= render_shelf shelf, [user, shelf] %>
   <% end %>
 </table>

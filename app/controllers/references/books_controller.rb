@@ -1,7 +1,6 @@
 class References::BooksController < Shared::BooksController
   expose(:search_results) { RefSearch.new(current_camp.books).search(params[:term]) }
-  expose(:shelf) { current_camp }
-
+  expose(:current_camp) { book.camp }
   def show
 
   end

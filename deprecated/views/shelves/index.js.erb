@@ -1,8 +1,0 @@
-(function() {
-    var container;
-    <% shelves.each do |shelf| %>
-    container = $("#shelf-content-<%= shelf.id %>");
-    container.html('<%= j render :partial => 'browse_books', :locals => {:shelf => shelf} %>');
-    container.data('loaded', true).show();
-    <% end %>
-})();

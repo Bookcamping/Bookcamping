@@ -28,13 +28,11 @@ class ProfileShelf < Shelf
   end
   extend Scopes
 
-  def add_book(book, user)
-    ShelfItem.create!(shelf: self, book: book, user: user)
+  def add_book(book)
+    ShelfItem.create!(shelf: self, book: book, user: self.user)
     book.update_bookmark(self.rol, 1)
   end
 
-  def remove_book(book, user)
-  end
 
   def to_param
     "#{ROL_TO_PARAM[self.rol]}"

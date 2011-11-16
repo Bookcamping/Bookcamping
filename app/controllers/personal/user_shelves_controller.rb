@@ -1,6 +1,6 @@
 class Personal::UserShelvesController < Personal::ApplicationController
   respond_to :html
-  expose(:profile_shelves) { current_user.profile_shelves.by_camp(current_camp) }
+  expose(:profile_shelves) { current_user.profile_shelves }
   expose(:user_shelves) { current_user.user_shelves }
   expose(:user_shelf)
 

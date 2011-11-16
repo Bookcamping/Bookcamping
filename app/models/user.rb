@@ -44,12 +44,12 @@ class User < ActiveRecord::Base
   end
 
 
-  def personal_shelves_for(camp)
-    profile_shelves.by_camp(camp) + user_shelves.by_camp(camp)
+  def personal_shelves
+    profile_shelves + user_shelves
   end
 
-  def public_shelves_for(camp)
-    profile_shelves.by_camp(camp).public + user_shelves.by_camp(camp).public
+  def public_shelves
+    profile_shelves.public + user_shelves.public
   end
 
   def super?

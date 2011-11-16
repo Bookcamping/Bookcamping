@@ -22,7 +22,7 @@ class ShelfItem < ActiveRecord::Base
   validates :user_id, presence: true
   validates :shelf_id, presence: true
   validates :book_id, presence: true
-  validates :camp_id, presence: true
+  #validates :camp_id, presence: true
 
   after_create :add_book_to_shelf
   after_destroy :remove_book_from_shelf

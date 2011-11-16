@@ -1,5 +1,11 @@
 # Shelf
 #
+# Una lista en bookcamping. Puede ser de varios tipos:
+# CampShelf: una estantería. cada Camp(ing) tiene sus estanterías
+# ProfileShelf: listas personales especiales (no se pueden borrar)
+# UserShelf: listas personales
+# CuratedShelf: listas comisariadas (habría que pensar sobre ello)
+#
 #  t.integer  "user_id"
 #  t.string   "name",           :limit => 200
 #  t.string   "slug",           :limit => 50
@@ -13,6 +19,8 @@
 #  t.string   "rol",            :limit => 32
 #  t.string   "type",           :limit => 32
 #  t.string   "visibility",     :limit => 16
+#
+#
 #
 class Shelf < ActiveRecord::Base
   belongs_to :camp
@@ -29,10 +37,7 @@ class Shelf < ActiveRecord::Base
   scope :public, where(visibility: :public)
   scope :private, where(visibility: :private)
 
-  extend Camp::Scopes
-
-  validates :camp_id, :presence => true
-  validates :user_id, :presence => true
+  validates :user_id, presence: true
   validates :name, presence: true
   validates :visibility, presence: true
 
@@ -46,9 +51,6 @@ class Shelf < ActiveRecord::Base
   ROLES = []
   VISIBILITIES = [:private, :public]
 
-  def add_book(book, user)
-    ShelfItem.create!(shelf: self, book: book, user: user)
-  end
 
   def background
     color? ? color : '#db533d'

@@ -3,7 +3,7 @@ class Shared::BooksController < ApplicationController
   respond_to :html, :json
   before_filter :require_user, except: [:index, :show]
 
-  expose(:shelf) {}
+  expose(:shelf) { Site.new }
   expose(:books) { shelf.books }
   expose(:book)
 

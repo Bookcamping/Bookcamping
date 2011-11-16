@@ -17,7 +17,7 @@ class Public::SessionsController < ApplicationController
     session ||= User::Session.new(request.env["omniauth.auth"])
     if session.create
       self.current_user = session.user
-      User::MembershipSetup.new(current_camp, current_user).setup_membership
+#      User::MembershipSetup.new(current_camp, current_user).setup_membership
       redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
     else
       redirect_to login_path, notice: '¡No te hemos encontrado o la contraseña es incorrecta! Inténtalo de nuevo.'

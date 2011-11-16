@@ -8,7 +8,6 @@ class Social::UsersController < ApplicationController
   end
 
   def show
-    User::MembershipSetup.new(current_camp, user).setup_my_references
   end
 end
 

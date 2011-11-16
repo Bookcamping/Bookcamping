@@ -1,8 +1,0 @@
-<ul class="books">
-  <% books.each do |book| %>
-      <li>
-        <%= render_book book, :list %>
-      </li>
-  <% end %>
-  <%= content_tag :p, t('.empty_list', :model => current_camp.model_name), :class => 'info' if books.size == 0 %>
-</ul>
