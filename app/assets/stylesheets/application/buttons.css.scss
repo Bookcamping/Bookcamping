@@ -1,0 +1,41 @@
+
+h1.logo-bookcamping {
+    width: 1025px; height: 140px;
+    background: url('/images/logo-bookcamping.png') no-repeat;
+}
+h1.logo-videocamping {
+    width: 1025px; height: 140px;
+    background: url('/images/logo-videocamping.png') no-repeat;
+}
+
+div#go-camping {
+    a.go-videocamping {width: 119px; height: 25px; background: url('/images/go-videocamping.png') no-repeat; }
+    a.go-bookcamping {width: 129px; height: 25px; background: url('/images/go-bookcamping.png') no-repeat; }
+    a.go-blog {margin-right: -9px; width: 116px; height: 25px; background: url('/images/buttons/Blog.png') no-repeat;}
+    a.go-blog:hover {background-position: 0 -30px;}
+    a.go-atom {margin-right: 2px; width: 25px; height: 25px; background: url('/images/buttons/rss.png') no-repeat;}
+    a.go-atom:hover {background-position: 0 -30px;}
+}
+
+a#go-map {
+    display: block; margin-top: 20px;
+    padding-top: 82px; overflow: visible;
+    background: url('/images/buttons/MappingBookcamping.png') no-repeat;
+}
+a#go-map:hover {
+    background-position: 0 -83px;
+}
+
+div.book {
+    a.go-book {
+        display: block; overflow: hidden;
+        width: 335px; height: 39px;
+        margin-left: -10px; margin-top: 3px;
+        text-indent: -1000px;
+        background-image: url('/images/buttons/VerFichaCompleta.png');
+    }
+
+    a.go-book:hover {
+        background-position: 0 -45px;
+    }
+}

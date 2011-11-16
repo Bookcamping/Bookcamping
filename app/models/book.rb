@@ -64,7 +64,7 @@ class Book < ActiveRecord::Base
     end
   end
 
-  RESOURCES = [:BookReference, :VideoReference]
+  RESOURCES = [:BookReference, :VideoReference, :EscuchaReference]
   def resource_type
     RESOURCES[camp_id - 1]
   end

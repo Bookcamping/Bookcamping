@@ -55,6 +55,8 @@
     <% else %>
         <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
     <% end %>
+    <%= link_to 'blog', posts_path, class: 'go-blog' %>
+    <%= link_to 'atom', posts_path(format: :atom), class: 'go-atom' %>
   </div>
   <div id="header">
     <a href="/">

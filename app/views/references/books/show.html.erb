@@ -28,6 +28,13 @@
             </div>
           </div>
         </div>
+        <div class="content row">
+          <% if book_presenter.download_visible? %>
+              <div class="download_url">
+                <%= book_presenter.download_link %>
+              </div>
+          <% end %>
+        </div>
         <div class="camp_shelves row">
           <%= book_presenter.camp_shelves %>
         </div>
