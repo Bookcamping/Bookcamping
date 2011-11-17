@@ -12,7 +12,7 @@ class Site
   end
 
   def explore_users
-    User.where(active: true).order('updated_at DESC')
+    User.order('updated_at DESC').limit(20)
   end
 end
 

@@ -5,11 +5,18 @@
 <tr class="shelf" style="background-color: <%= shelf.background %>;">
   <td class="main">
     <span class="name"><%= link_to shelf.name, shelf_link %></span>
-    <span class="user"></span>
+    <% if shelf.type == 'CampShelf' %>
+        <span class="user">En #<%= link_to shelf.camp.name %></span>
+    <% else %>
+        <span class="user">Por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
+    <% end %>
+
   </td>
   <td class="count">
     <%= link_to shelf_link do %>
         <%= shelf.books_count %>
+        <br/>
+        <%= current_model %>s
     <% end %>
   </td>
 </tr>
