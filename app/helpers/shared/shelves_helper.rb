@@ -4,9 +4,9 @@ module Shared::ShelvesHelper
         {shelves: shelves, book: book}
   end
 
-  def render_shelf(shelf, link)
+  def render_shelf(shelf, shelf_link)
     render partial: 'shared/shelves/shelf', locals:
-        {shelf: shelf, link: link}
+        {shelf: shelf, shelf_link: shelf_link}
   end
 
   def render_shelf_header(shelf)

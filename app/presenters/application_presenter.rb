@@ -1,4 +1,8 @@
 class ApplicationPresenter < BasePresenter
+  def raw(text)
+    text.html_safe
+  end
+
   def markdown(text, limit = nil)
     text = '' if text.blank?
     text = truncate(text, :length => limit) if limit.present?

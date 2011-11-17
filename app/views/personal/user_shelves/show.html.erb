@@ -1,7 +1,15 @@
-in<%= title shelf.name %>
-<p class="description"><%= shelf.description %></p>
+<% title shelf.name %>
+<%= div_for shelf, class: 'shelf' do %>
+    <% present shelf do |presenter| %>
+        <%= presenter.header %>
+        <div class="actions">
+          <%= link_to 'Volver', personal_user_shelves_path, class: 'back' %>
+          <%= link_to 'Editar lista', [:edit, :personal, shelf] if can? :edit, shelf %>
+          <%= link_to 'Borrar lista', [:personal, shelf], method: :delete,
+              confirm: "¿Seguro que borrar la lista '#{shelf.name}'?" if can? :delete, shelf %>
+        </div>
+        <%= presenter.items %>
+    <% end %>
+<% end %>
 
-<div class="actions">
-  <%= link_to 'Volver', personal_user_shelves_path, class: 'back' %>
-  <%= link_to 'Editar lista', [:edit, :personal, shelf] %>
-</div>
+

@@ -4,11 +4,11 @@
 </tr>
 <tr class="shelf" style="background-color: <%= shelf.background %>;">
   <td class="main">
-    <span class="name"><%= link_to shelf.name, link %></span>
+    <span class="name"><%= link_to shelf.name, shelf_link %></span>
     <span class="user"></span>
   </td>
   <td class="count">
-    <%= link_to link do %>
+    <%= link_to shelf_link do %>
         <%= shelf.books_count %>
     <% end %>
   </td>

@@ -1,7 +1,13 @@
 
+<% present search_results,
+           {background_color: '#AAA', title: "Buscar '#{params[:term]}'"},
+           ReferencesPresenter do |presenter| %>
+    
+    <% title presenter[:title] %>
+    <h1><%= presenter.title %></h1>
+    
+    <%= presenter.render %>
+<% end %>
 
-<% title "Buscar '#{params[:term]}'" %>
-<h1>Buscar '<%= params[:term] %>'<small> <%= search_results.size %></small></h1>
 
-<%= render_presenter ReferencesPresenter, search_results, background_color: '#AAA' %>
 

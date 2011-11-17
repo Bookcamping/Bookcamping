@@ -1,15 +1,11 @@
-<%= div_for camp_shelf, class: 'shelf' do %>
-    <%= render_shelf_header camp_shelf %>
+<% present camp_shelf do |presenter| %>
+    <%= div_for camp_shelf, class: 'shelf' do %>
+        <%= presenter.header %>
 
-    <div class="actions">
-      <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
-    </div>
-    <div class="books container">
-      <% camp_shelf.books.each do |book| %>
-          <%= render_book_item book, [camp_shelf, book], camp_shelf.background %>
-      <% end %>
-    </div>
+        <div class="actions">
+          <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
+        </div>
+        
+        <%= presenter.items %>
+    <% end %>
 <% end %>
-
-
-

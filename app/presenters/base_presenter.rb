@@ -5,7 +5,7 @@ class BasePresenter
     @template = template
   end
 
-  def opt(name)
+  def[](name)
     @options[name]
   end
 

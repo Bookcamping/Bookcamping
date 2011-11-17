@@ -1,0 +1,20 @@
+<%= title 'Explorar #bookcamping' %>
+
+<h2>Listas más activas
+  <small><%= user_shelves.count %></small>
+</h2>
+
+<table class="shelves">
+  <% user_shelves.each do |shelf| %>
+      <%= render_shelf shelf, [shelf.user, shelf] %>
+  <% end %>
+</table>
+
+<h2>Usuarias más activas
+  <small><%= users.count %></small>
+</h2>
+<div class="users">
+  <% users.all.each do |user| %>
+      <%= link_to user.name, user %>
+  <% end %>
+</div>

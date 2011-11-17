@@ -33,11 +33,15 @@ class ShelfItem < ActiveRecord::Base
 
   protected
   def add_book_to_shelf
+    PaperTrail.enabled = false
     current = shelf.books_count
     shelf.update_attribute(:books_count, current + 1)
+    PaperTrail.enabled = true
   end
 
   def remove_book_from_shelf
+    PaperTrail.enabled = false
     shelf.update_attribute(:books_count, (shelf.books_count - 1))
+    PaperTrail.enabled = true
   end
 end

@@ -1,9 +1,11 @@
 <% title "#{user.name} > #{shelf.name}" %>
-<%= div_for shelf, class: 'shelf' do %>
-    <%= render_shelf_header shelf %>
+<% present shelf do |presenter| %>
+    <%= div_for shelf, class: 'shelf' do %>
+        <%= presenter.header %>
 
-    <div class="actions">
-      <%= link_to 'Volver', shelf.user, :class => 'back' %>
-    </div>
-    <%= render_books shelf.books, shelf.background, shelf %>
+        <div class="actions">
+          <%= link_to 'Volver', shelf.user, :class => 'back' %>
+        </div>
+        <%= presenter.items %>
+    <% end %>
 <% end %>

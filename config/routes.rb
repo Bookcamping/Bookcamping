@@ -31,7 +31,9 @@ Bookcamp::Application.routes.draw do
       root to: redirect('/mis/datos')
       resource :user, path: 'datos'
       resources :books, path: 'referencias'
-      resources :user_shelves, path: 'listas'
+      resources :user_shelves, path: 'listas' do
+        post :bulk_add, on: :collection
+      end
       resources :profile_shelves, path: 'marcas'
     end
 
@@ -46,6 +48,7 @@ Bookcamp::Application.routes.draw do
           resources :books, path: 'referencias', only: [:show, :index]
         end
       end
+      resource :explorer, path: 'explorar', only: [:show]
     end
 
     scope module: 'services' do

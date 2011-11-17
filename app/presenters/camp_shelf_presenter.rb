@@ -1,4 +1,3 @@
-class CampShelfPresenter < BasePresenter
-  presents :camp_shelf
+class CampShelfPresenter < ShelfPresenter
 end
 

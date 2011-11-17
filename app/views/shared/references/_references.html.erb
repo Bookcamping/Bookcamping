@@ -1,6 +1,18 @@
+<% if current_user? %>
+    <div id="selection">
+      <%= link_to 'Seleccionar', '#', class: 'select-references' %>
+      <div class="selection-controls" style="display: none">
+        Añadir <span class="select-text"></span> a la lista
+        <%= text_field_tag :shelf_name, '', data: {autocomplete_source: presenter.user_shelves_names} %>
+        <%= button_tag 'Añadir', disabled: true, data: {url: bulk_add_personal_user_shelves_path} %>
+        <%= link_to 'Cancelar', '#', class: 'cancel' %>
+      </div>
+      <div class="messages"></div>
+    </div>
+<% end %>
 <div class="books container">
   <% presenter.references.each do |book| %>
-      <%= div_for book, style: "background-color: #{presenter.opt(:background_color)};", class: book.resource_type do %>
+      <%= div_for book, style: "background-color: #{presenter.color};", class: book.resource_type do %>
           <div class="content">
             <div class="emblems">
               <%= license_type_icon book %>

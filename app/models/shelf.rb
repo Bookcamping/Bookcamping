@@ -25,7 +25,7 @@
 class Shelf < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
-  has_many :shelf_items, dependent: :destroy
+  has_many :shelf_items, dependent: :delete_all
   has_many :books, through: :shelf_items
 
   has_paper_trail :meta => {

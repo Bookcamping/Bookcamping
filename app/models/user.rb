@@ -20,6 +20,7 @@
 #  t.string   "twitter_uid"
 #  t.string   "google_uid"
 #  t.string   "facebook_uid"
+#  t.boolean  "active",                         :default => false
 #end
 class User < ActiveRecord::Base
   has_many :books

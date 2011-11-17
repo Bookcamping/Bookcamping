@@ -1,0 +1,50 @@
+
+div.book.unselected {
+    opacity: 0.5;
+}
+
+div#selection {
+    padding: 5px 10px 0 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 1px;
+
+    div.selection-controls {
+        input[type=text] {border: 1px solid #333; padding: 1px 2px;}
+    }
+
+    div.messages {
+        div {
+            padding: 3px 10px;
+            cursor: pointer;
+        }
+        a {text-decoration: underline;}
+
+        div.working { background-color: yellow; }
+        div.success { background-color: #adff2f; }
+    }
+
+}
+
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
+}
