@@ -5,6 +5,10 @@ class BasePresenter
     @template = template
   end
 
+  def opt(name)
+    @options[name]
+  end
+
   def self.presents(name)
     define_method(name) do
       @object

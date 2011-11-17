@@ -4,7 +4,7 @@
     <%= form.input :visibility, include_blank: false,
                    collection: tc('post.visibilities', Post::VISIBILITIES) %>
     <%= form.input :published_at %>
-    <%#= form.input :content_type, collection: Post::CONTENT_TYPES, include_blank: false %>
+    <%= form.input :content_type, collection: Post::CONTENT_TYPES, include_blank: false %>
     <%= form.input :body %>
     <div class="actions">
       <%= form.submit id: 'submit_post' %>

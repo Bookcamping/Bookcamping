@@ -27,6 +27,12 @@ module ApplicationHelper
     presenter
   end
 
+  def render_presenter(klass, object, options = {})
+    klass ||= "#{object.class}Presenter".constantize
+    presenter = klass.new(object, options, self)
+    presenter.render
+  end
+
 
   def current_model
     current_camp.model_name

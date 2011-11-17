@@ -1,5 +1,7 @@
-<%= title "Resultados de la búsqueda" %>
-<h2>'<%= params[:term] %>' (<%= search_results.size %>)</h2>
-<br/>
 
-<%= render_books search_results, '#AAA' %>
+
+<% title "Buscar '#{params[:term]}'" %>
+<h1>Buscar '<%= params[:term] %>'<small> <%= search_results.size %></small></h1>
+
+<%= render_presenter ReferencesPresenter, search_results, background_color: '#AAA' %>
+
