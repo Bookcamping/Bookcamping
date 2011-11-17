@@ -1,5 +1,6 @@
 
 2011/11/17
+  * Bug que impedía buscar sin hacer login
   * Seleccionar referencias y añadirlas a una lista
   * Explorar bookcamping
 

@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Shared::BooksController < ApplicationController
   respond_to :html, :json
-  before_filter :require_user, except: [:index, :show]
+  before_filter :require_user, only: [:new, :edit, :create, :update, :destroy]
 
   expose(:shelf) { Site.new }
   expose(:books) { shelf.books }
