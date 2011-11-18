@@ -40,33 +40,25 @@ div.shelf {
 
 
         div.count {
-            float: right; width: 64px; height: 44px;
-            text-align: center; padding: 10px 0;
+            float: right;
+            text-align: center; padding: 5px 10px;
             background-color: black; color: white;
             font-weight: bold;
         }
 
-        div.controls {
-            float: right; width: 122px; height: 58px;
-            margin-right: 10px;
-
-            a.add {
-                display: block;
-                height: 18px; padding: 3px 5px;
-                border: 2px solid black;
-                color: black;
-            }
-
-            a.back {margin: 0;}
-
-        }
-
-
-        h1 {font-size: 16px; margin-top: 0px; height: 40px;}
-        div.timestamps {margin-top: -3px;}
+        h1 {font-size: 24px; margin-top: 0px;}
+        div.timestamps {margin-top: -7px; margin-bottom: 10px; color: #444;}
         h1.big {font-size: 32px;}
     }
 
+}
+
+div.order {
+    margin: 20px 0 -10px 0;
+    padding-left: 0px;
+    color: black;
+    a {color: #888;}
+    a:hover {color: black;}
 }
 
 div.books {

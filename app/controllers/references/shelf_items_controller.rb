@@ -1,6 +1,10 @@
 # encoding: utf-8
+#
+# Gestionar listas de una referencia
+#
 class References::ShelfItemsController < ApplicationController
   respond_to :html
+  before_filter :require_user
 
   expose(:book) { Book.find params[:book_id] }
   expose(:book_shelves) { book.shelves }

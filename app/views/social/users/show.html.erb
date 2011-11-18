@@ -8,6 +8,9 @@
 
 
 <table class="shelves">
+  <% user.camp_shelves.each do |shelf| %>
+      <%= render_shelf shelf, shelf %>
+  <% end %>
   <% user.public_shelves.each do |shelf| %>
       <%= render_shelf shelf, [user, shelf] %>
   <% end %>

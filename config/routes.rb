@@ -109,6 +109,12 @@ Bookcamp::Application.routes.draw do
   end
 
 
+     constraints CanAccessResque do
+             mount Resque::Server, at: 'resque'
+                 end
+
+
+
   # Backdoors used in test and development
   match "/enter/:id" => "public/sessions#enter", :as => :enter unless Rails.env.production?
   match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp unless Rails.env.production?

@@ -25,9 +25,12 @@
 class User < ActiveRecord::Base
   has_many :books
   has_many :memberships, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   has_many :user_shelves, dependent: :destroy
   has_many :profile_shelves, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :camp_shelves
+
   has_one :profile_shelf, conditions: {rol: 'my_references'}
 
   scope :admin, conditions: {rol: 'admin'}

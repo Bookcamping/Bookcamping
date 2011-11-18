@@ -12,9 +12,10 @@
   <%= auto_discovery_link_tag :atom, posts_path(format: :atom) %>
   <%= auto_discovery_link_tag :rss, posts_path(format: :rss) %>
 </head>
+<%= render 'layouts/ga' %>
 <body>
 <div id="page">
-  <a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a>
+  <!-- a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a-->
   <div id="notices">
 
   </div>
@@ -35,11 +36,6 @@
       <% else %>
           <%= link_to 'Estanterías', camp_shelves_path %> /
           <%= link_to 'Entrar', login_path(from: request.fullpath) %>
-          con:
-          <%= link_to 'Santo y seña', login_path(from: request.fullpath) %>
-          <%= link_to "Twitter", auth_path('twitter', :from => request.fullpath) %>
-          <%= link_to "Google", auth_path('google', :from => request.fullpath) %>
-          <%= link_to "Facebook", auth_path('facebook', :from => request.fullpath) %>
       <% end %>
     </div>
     <div class="search">
@@ -86,16 +82,8 @@
 </div>
 
 <%= render 'layouts/js' %>
-<%= render 'layouts/ga' %>
 
-<script type="text/javascript">
-  var uvOptions = {};
-  (function() {
-    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/usDFz8Bao3VqV27ttbTw.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-  })();
-</script>
+<%#= render 'layouts/uservoice' %>
 
 <div style="display:none">(cc) Bookcamping 15 Noviembre 2011</div>
 </body>

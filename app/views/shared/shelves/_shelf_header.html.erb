@@ -1,14 +1,16 @@
 <div class="info">
   <div class="count">
-    <%= shelf.books_count %>
+    <%= shelf.books_count %> referencias
     <br/>
   </div>
-  <div class="controls">
-  </div>
   <h1><%= shelf.name %></h1>
-
   <div class="timestamps">
-    Creada por <%= shelf.user.name %>
+    Creada por <%= link_to shelf.user.name, shelf.user %>
     y modificada hace <%= time_ago_in_words shelf.updated_at %>
   </div>
+
+  <div class="description">
+    <%= shelf.description %>
+  </div>
+  
 </div>

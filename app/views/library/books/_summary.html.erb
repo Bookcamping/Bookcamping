@@ -1,23 +1,24 @@
-<%= div_for book do %>
-    <% present book do |book_presenter| -%>
+<%= div_for book, class: 'summary' do %>
+    <% present book do |presenter| -%>
         <%= link_to 'Ver ficha completa', book, class: 'go-book' %>
         <div class="info">
-          <h1><%= book_presenter.linked_title %></h1>
-          <%= book_presenter.license_icon %>
-          <%= book_presenter.date %>
-          <%= book_presenter.authors %>
+          <h1><%= presenter.linked_title %></h1>
+          <%= presenter.license_icon %>
+          <%= presenter.date %>
+          <%= presenter.authors %>
           <% if book.editor.present? %>
-              / <%= book_presenter.editor %>
+              / <%= presenter.editor %>
           <% end %>
         </div>
+        <%= presenter.user('Subido por ') %>
         <div class="description">
-          <%= book_presenter.description %>
+          <%= presenter.description %>
         </div>
-        <% if book_presenter.download_visible? %>
+        <% if presenter.download_visible? %>
             <div class="download_url">
-              <%= book_presenter.download_link %>
+              <%= presenter.download_link %>
             </div>
         <% end %>
-        <%= book_presenter.media %>
+        <%= presenter.media %>
     <% end %>
 <% end %>

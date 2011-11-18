@@ -1,5 +1,5 @@
 # encoding: utf-8
-class BookPresenter < BasePresenter
+class BookPresenter < ApplicationPresenter
   presents :book
 
   def linked_title
@@ -26,9 +26,9 @@ class BookPresenter < BasePresenter
     h.markdown book.description
   end
 
-  def user
+  def user(message = 'Por ')
     user = book.user
-    h.content_tag :span, h.link_to("Por #{user.name}", user), class: 'user'
+    h.content_tag :span, message.html_safe + h.link_to("#{user.name}", user), class: 'user'
   end
 
   def download_visible?

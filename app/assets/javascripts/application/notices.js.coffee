@@ -21,6 +21,6 @@ noticeTransition = ->
 
 
 
-jQuery ->
-  setTimeout loadNotices, 1000
+#jQuery ->
+  #setTimeout loadNotices, 1000
 

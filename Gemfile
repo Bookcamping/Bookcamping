@@ -35,11 +35,12 @@ gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'resque', :require => 'resque/server'  
+
 #gem 'prawn'
 #gem 'prawnto'
 #gem 'nokogiri'
 
-gem 'exception_notification', :require => 'exception_notifier'
 gem 'newrelic_rpm'
 
 # heroku
