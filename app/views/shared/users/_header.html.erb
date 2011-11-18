@@ -1,0 +1,22 @@
+<div class="header">
+  <div class="count">
+    <%= presenter.count %>
+  </div>
+  <h1><%= user.name %></h1>
+
+  <div class="properties">
+    <% if  presenter.show_private? %>
+        <label>Email: </label>
+        <%= presenter.email %>
+        <span class="visibility"><%= presenter.email_visibility %></span>
+        <label>Twitter: </label>
+        <%= presenter.twitter %>
+        <span class="visibility"><%= presenter.twitter_visibility %></span>
+    <% else %>
+        <%= presenter.email %>
+        <%= presenter.twitter %>
+    <% end %>
+  </div>
+
+  <div class="description"><%= presenter.description %></div>
+</div>

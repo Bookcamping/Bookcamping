@@ -29,8 +29,8 @@ class ReferencesPresenter < ApplicationPresenter
     [reference]
   end
 
-  def title
-    raw("#{self[:title]}<small> #{references.size}</small>")
+  def size
+    references.size
   end
 
   def user_shelves_names

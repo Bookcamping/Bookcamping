@@ -4,7 +4,10 @@
 <div class="users">
   <% users.each do |user| %>
       <%= div_for user do %>
-          <%= link_to user.name, user %>
+          <div class="avatar">&nbsp;</div>
+          <div class="name">
+            <%= link_to user.name, user %>
+          </div>
       <% end %>
   <% end %>
 </div>

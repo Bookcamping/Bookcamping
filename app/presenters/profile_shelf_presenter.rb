@@ -1,0 +1,3 @@
+class ProfileShelfPresenter < ShelfPresenter
+end
+

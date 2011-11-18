@@ -1,23 +1,11 @@
 <% title shelf.name %>
-
 <%= div_for shelf, class: 'shelf' do %>
-    <div class="info">
-      <div class="count">
-        <%= shelf.books_count %>
-        <br/>
-        <%= current_model %>s
-      </div>
-      <div class="controls">
-      </div>
-      <h1 class='big'><%= shelf.name %></h1>
-    </div>
-    <div class="actions">
-      <%= link_to 'Volver', personal_user_shelves_path, :class => 'back' %>
-    </div>
-
-    <div class="books container">
-      <% shelf.books.each do |book| %>
-          <%= render_book_item book, [book], shelf.background %>
-      <% end %>
-    </div>
+    <% present shelf do |presenter| %>
+        <%= presenter.header %>
+        <div class="actions">
+          <%= link_to 'Volver', personal_user_shelves_path, :class => 'back' %>
+        </div>
+        <%= presenter.references %>
+    <% end %>
 <% end %>
+

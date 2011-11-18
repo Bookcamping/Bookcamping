@@ -29,7 +29,7 @@ Bookcamp::Application.routes.draw do
 
     namespace :personal, path: 'mis' do
       root to: redirect('/mis/datos')
-      resource :user, path: 'datos'
+      resource :user, path: 'labores'
       resources :books, path: 'referencias'
       resources :user_shelves, path: 'listas' do
         post :bulk_add, on: :collection

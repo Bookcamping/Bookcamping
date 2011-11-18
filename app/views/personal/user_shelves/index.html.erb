@@ -1,7 +1,10 @@
-<% title "Estanterías" %>
-<h1>Listas
-  <span>(<%= shelves.count + profile_shelves.count %>)</span>
-</h1>
+<div class="header">
+  <%= title 'Mis listas' %>
+  <div class="properties">
+    Tienes <%= current_user.personal_shelves.public.count %> listas públicas
+    y <%= current_user.personal_shelves.private.count %> privada.
+  </div>
+</div>
 
 <div class="actions">
   <%= link_to '+ Añadir lista', new_personal_user_shelf_path %>

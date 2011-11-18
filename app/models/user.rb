@@ -27,9 +27,11 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :shelves, dependent: :restrict
   has_many :user_shelves, dependent: :destroy
   has_many :profile_shelves, dependent: :destroy
   has_many :camp_shelves
+  has_many :personal_shelves, class_name: 'Shelf', conditions: ["type = ? OR type = ?", 'UserShelf', 'ProfileShelf']
 
   has_one :profile_shelf, conditions: {rol: 'my_references'}
 
@@ -45,15 +47,6 @@ class User < ActiveRecord::Base
       return true
     end
     return false
-  end
-
-
-  def personal_shelves
-    profile_shelves + user_shelves
-  end
-
-  def public_shelves
-    profile_shelves.public + user_shelves.public
   end
 
   def super?

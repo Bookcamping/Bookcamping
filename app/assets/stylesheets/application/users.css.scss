@@ -4,7 +4,18 @@ div.users {
 
     div.user {
         float: left;
-        width: 100px; overflow: hidden; padding: 5px; margin: 0 2px 2px 0;
-        background-color: #efefef; border-radius: 5px;
+        width: 110px; height: 100px;
+        padding: 5px; margin: 0 11px 10px 0;
+        border: 1px solid black;
+        position: relative;
+
+        .name {
+            position: absolute;
+            display: block;
+            left: 0; right: 0; bottom: 2px;
+
+            overflow: hidden;
+            text-align: center;
+        }
     }
 }

@@ -9,8 +9,9 @@
         <span class="user">En&nbsp;#<%= shelf.camp.name %>, </span>
         <span class="user">creada&nbsp;por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
     <% else %>
-        <span class="user">De &nbsp;<%= link_to shelf.user.name, shelf.user %></span>
+        <span class="user">De&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
     <% end %>
+    <%= '(privada)' if shelf.visibility == 'private' %>
 
   </td>
   <td class="count">

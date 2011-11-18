@@ -1,12 +1,12 @@
-<%= title user.name %>
-<div class="actions">
-  <%= link_to 'Cerrar sesión', logout_path %>
-  <%= link_to 'Editar datos', edit_personal_user_path %>
-</div>
+<% title user.name %>
 
-<% present user, {show_private: true} do |presenter| -%>
+<% present user, {show_private: true, count: 'Actividad'} do |presenter| -%>
     <%= div_for user do %>
-        <%= presenter.render_info %>
+        <%= presenter.header %>
+        <div class="actions">
+          <%= link_to 'Cerrar sesión', logout_path %>
+          <%= link_to 'Editar datos', edit_personal_user_path %>
+        </div>
     <% end %>
 <% end %>
 

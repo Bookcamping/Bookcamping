@@ -5,8 +5,12 @@ class UserPresenter < BasePresenter
     @options[:show_private]
   end
 
-  def render_info
-    h.render partial: 'shared/users/info', locals: {presenter: self}
+  def header
+    h.render partial: 'shared/users/header', locals: {presenter: self}
+  end
+
+  def count
+    @options[:count] if @options[:count]
   end
 
 

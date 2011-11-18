@@ -1,18 +1,16 @@
-<%= title user.name %>
+<% title user.name %>
 
-<% present user do |presenter| -%>
+<% present user, {count: "#{shelves.size} listas" } do |presenter| -%>
     <%= div_for user do %>
-        <%= presenter.render_info %>
+        <%= presenter.header %>
     <% end %>
 <% end %>
 
 
 <table class="shelves">
-  <% user.camp_shelves.each do |shelf| %>
-      <%= render_shelf shelf, shelf %>
-  <% end %>
-  <% user.public_shelves.each do |shelf| %>
-      <%= render_shelf shelf, [user, shelf] %>
+  <% shelves.each do |shelf| %>
+      <% shelf_url = shelf.type == 'CampShelf' ? [shelf] : [user, shelf] %>
+      <%= render_shelf shelf, shelf_url %>
   <% end %>
 </table>
 

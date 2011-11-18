@@ -5,7 +5,6 @@ div.book.unselected {
 
 div#selection {
     padding: 5px 10px 0 10px;
-    border-bottom: 1px solid black;
     margin-bottom: 1px;
 
     div.selection-controls {
@@ -17,10 +16,10 @@ div#selection {
             padding: 3px 10px;
             cursor: pointer;
         }
-        a {text-decoration: underline;}
+        a {text-decoration: underline; color: white;}
 
-        div.working { background-color: yellow; }
-        div.success { background-color: #adff2f; }
+        div.working { color: yellow; background-color: black; }
+        div.success { color: #adff2f; background-color: black; }
     }
 
 }

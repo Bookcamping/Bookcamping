@@ -1,11 +1,16 @@
-
 <% present search_results,
-           {background_color: '#AAA', title: "Buscar '#{params[:term]}'"},
-           ReferencesPresenter do |presenter| %>
-    
-    <% title presenter[:title] %>
-    <h1><%= presenter.title %></h1>
-    
+           {background_color: '#AAA'}, ReferencesPresenter do |presenter| %>
+
+    <div class="header">
+      <%= title "Buscar '#{params[:term]}'" %>
+      <div class="properties">
+          <%= presenter.size %> referencias encontradas.
+      </div>
+    </div>
+    <div class="actions">
+      <%= link_to 'Seleccionar referencias', '#', class: 'select-references' if current_user? %>
+    </div>
+
     <%= presenter.render %>
 <% end %>
 
