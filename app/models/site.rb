@@ -3,6 +3,10 @@ class Site
     '#bookcamping'
   end
 
+  def camp_shelves(orderer = nil)
+    orderer ? orderer.order_by(CampShelf.scoped) : CampShelf.scoped
+  end
+
   def books
     Book.scoped
   end

@@ -1,4 +1,13 @@
 
+2011/11/18
+  * Sistema de cambiar el orden, oculto
+  * Se muestran las estanterías creadas en el perfil público (si las hubiese)
+  * La descripción aparece en la cabecera de la lista
+  * Limpieza de UI: fuera mensajes
+  * Login un poco mejorado
+  * Instalado torque para trabajos en cola
+  * Se puede seleccionar el orden en el que se muestran las estanterías
+
 2011/11/17
   * Bug que impedía buscar sin hacer login
   * Seleccionar referencias y añadirlas a una lista

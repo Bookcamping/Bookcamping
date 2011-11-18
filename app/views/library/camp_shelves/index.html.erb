@@ -7,10 +7,11 @@
   <% end %>
 </div>
 
+
 <div class="order">
-  <%= link_to_unless shelves_order == 'activas', 'Más activas primero', camp_shelves_path(o: 'activas') %>
-  <%= link_to_unless shelves_order == 'alfabetico', 'Alfabético', camp_shelves_path(o: 'alfabetico') %>
-  <%= link_to_unless shelves_order == 'original', 'Según fueron añadidas', camp_shelves_path(o: 'original') %>
+  <%# shelf_order.each do |param, name| %>
+      <%#= link_to_unless shelf_order.current?(param), name, camp_shelves_path(o: param) %>
+  <%# end %>
 </div>
 
 <%= render_shelves camp_shelves %>
