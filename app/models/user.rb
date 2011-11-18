@@ -24,16 +24,22 @@
 #end
 class User < ActiveRecord::Base
   has_many :books
-  has_many :memberships, dependent: :destroy
+  #has_many :memberships, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  # Shelves
   has_many :shelves, dependent: :restrict
-  has_many :user_shelves, dependent: :destroy
-  has_many :profile_shelves, dependent: :destroy
   has_many :camp_shelves
+  has_many :user_shelves, dependent: :destroy
   has_many :personal_shelves, class_name: 'Shelf', conditions: ["type = ? OR type = ?", 'UserShelf', 'ProfileShelf']
 
-  has_one :profile_shelf, conditions: {rol: 'my_references'}
+
+  # Profile shelves
+  has_one :like_it_shelf, class_name: 'UserShelf', conditions: {rol: 'like_it'}
+  has_one :read_later_shelf, class_name: 'UserShelf', conditions: {rol: 'read_later'}
+  has_one :my_references_shelf, class_name: 'UserShelf', conditions: {rol: 'my_references'}
+
+  has_many :profile_shelves, dependent: :destroy
 
   scope :admin, conditions: {rol: 'admin'}
 
