@@ -4,5 +4,9 @@ class Backend::ResourceController < Backend::ApplicationController
   has_scope :page, default: 1
   self.responder = Backend::Responder
 
+
+  def new
+
+  end
 end
 
