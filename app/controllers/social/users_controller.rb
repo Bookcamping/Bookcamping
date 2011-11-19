@@ -7,8 +7,11 @@ class Social::UsersController < ApplicationController
   expose(:shelf_order) { Shelf::Order.new(params[:o]) }
   expose(:shelves) { shelf_order.order user.shelves.public }
 
+  expose(:search) { Search.new(:users, users, params[:term]) }
+
   def index
   end
+
 
   def show
   end

@@ -1,8 +1,8 @@
-<% present search_results,
+<% present search.results,
            {background_color: '#AAA'}, ReferencesPresenter do |presenter| %>
 
     <div class="header">
-      <%= title "Buscar '#{params[:term]}'" %>
+      <%= title "Buscar '#{search.term}'" %>
       <div class="properties">
           <%= presenter.size %> referencias encontradas.
       </div>

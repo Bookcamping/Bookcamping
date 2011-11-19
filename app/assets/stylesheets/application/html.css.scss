@@ -37,12 +37,17 @@ form {
 
         input[type="text"], textarea, input[type="url"],
         input[type="email"], input[type="password"] {
-            width: 600px; border: 1px solid black; padding: 10px 2px 0 2px;
-            line-height: 1.4;
+            width: 600px;
         }
 
         select {height: 1.8em; line-height: 2em;}
     }
+
+    input[type="text"], textarea, input[type="url"],
+    input[type="email"], input[type="password"] {
+        border: 1px solid black; padding: 2px 2px 2px 2px;
+    }
+
 
     input[type="submit"] {
         padding: 4px 7px;
@@ -52,7 +57,7 @@ form {
      input[type="submit"]:active {background-color: white;color:black;}
 
 
-    span.error {color: #c00;}
+    span.error {color: #c00; display: block;}
 }
 
 a.back {

@@ -2,7 +2,7 @@
 class Personal::UsersController < Personal::ApplicationController
   before_filter :require_user, except: [:new, :create]
   respond_to :html, :json
-  expose(:user) { current_user ? current_user : User.new }
+  expose(:user) { current_user ? current_user : User.new(params[:user]) }
 
   def show
   end
@@ -14,7 +14,11 @@ class Personal::UsersController < Personal::ApplicationController
   end
 
   def create
-    flash[:notice] = 'Bienvenida a #bookcamping' if user.save
+    if user.save
+      flash[:notice] = 'Bienvenida a #bookcamping'
+      SetupUser.new(user).create_profile_shelves if new_user?
+      self.current_user = user
+    end
     respond_with user, location: personal_user_path
   end
 

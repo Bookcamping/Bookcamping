@@ -2,6 +2,11 @@ class User::Session
 
   def initialize(auth)
     @auth = auth
+    @new_user = false
+  end
+
+  def new_user?
+    @new_user
   end
 
   def create
@@ -15,6 +20,7 @@ class User::Session
 
     end
 
+    SetupUser.new(@user).create_profile_shelves if new_user?
     audit_user if @user.present?
     @user.present?
   end
@@ -46,6 +52,7 @@ class User::Session
       user.uid = @auth["uid"]
       user.name = @auth["user_info"]["name"]
     end
+    @new_user = true
   end
 
   def audit_user

@@ -42,6 +42,8 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true
+  validates :password, presence: true, unless: :auth_services?
+
 
   # Behaviours
   has_secure_password
