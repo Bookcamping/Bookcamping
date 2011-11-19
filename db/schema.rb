@@ -193,18 +193,18 @@ ActiveRecord::Schema.define(:version => 20111119193001) do
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"
 
   create_table "users", :force => true do |t|
-    t.string "name", :limit => 100
-    t.string "email"
-    t.string "rol", :limit => 10
+    t.string   "name",            :limit => 100
+    t.string   "email"
+    t.string   "rol",             :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "login_count", :default => 0
+    t.integer  "login_count",                    :default => 0
     t.datetime "last_login_at"
-    t.string "twitter", :limit => 150
-    t.boolean "email_visible", :default => false
-    t.boolean "twitter_visible", :default => false
-    t.boolean "email_confirmed", :default => false
-    t.string "description", :limit => 300
+    t.string   "twitter",         :limit => 150
+    t.boolean  "email_visible",                  :default => false
+    t.boolean  "twitter_visible",                :default => false
+    t.boolean  "email_confirmed",                :default => false
+    t.string   "description",     :limit => 300
     t.boolean  "active",                         :default => false
     t.string   "slug",            :limit => 100
   end

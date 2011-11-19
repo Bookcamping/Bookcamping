@@ -6,7 +6,6 @@ class Identity < ActiveRecord::Base
   validates :user_id, presence: true
   validates :provider, presence: true
   validates :uid, presence: true
-  validates :password_digest, presence: true, if: :bookcamping?
 
   def bookcamping?
     provider == 'bookcamping'
