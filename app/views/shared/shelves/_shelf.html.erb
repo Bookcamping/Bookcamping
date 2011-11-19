@@ -6,8 +6,8 @@
   <td class="main">
     <span class="name"><%= link_to shelf.name, shelf_link %></span>
     <% if shelf.type == 'CampShelf' -%>
-        <span class="user">En&nbsp;#<%= shelf.camp.name %>, </span>
-        <span class="user">creada&nbsp;por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
+        <span class="user">En&nbsp;#<%= shelf.camp.name %></span>
+        <span class="user">Iniciada&nbsp;por&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
     <% else %>
         <span class="user">De&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
     <% end %>
