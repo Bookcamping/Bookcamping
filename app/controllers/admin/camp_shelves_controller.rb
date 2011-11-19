@@ -1,5 +1,6 @@
 # encoding: utf-8
 class Admin::CampShelvesController < Admin::ShelvesController
+  expose_with_slug
   expose(:camp_shelves) { current_camp.camp_shelves }
   expose(:camp_shelf )
 
