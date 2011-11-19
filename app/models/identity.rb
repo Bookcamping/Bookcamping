@@ -27,9 +27,9 @@ class Identity < ActiveRecord::Base
 
   def self.identify_credentials(email, password)
     identity = Identity.find_by_uid(email)
-    puts "Buscando por #{email} y #{password}"
-    puts "ENCONTRADO #{identity.present?}"
-    identity.authorized?(password) ? identity : nil
+    if identity
+      identity.authorized?(password) ? identity : nil
+    end
   end
 
 end
