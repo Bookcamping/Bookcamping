@@ -1,5 +1,8 @@
 # Controller for CampShelf models
 class Library::CampShelvesController < ApplicationController
+
+  expose_with_slug
+
   expose(:on_member?) { params[:id].present? }
   expose(:current_camp) { on_member? ? camp_shelf.camp : load_camp_from_request }
   expose(:parent) { on_member? ? Site.new : current_camp }

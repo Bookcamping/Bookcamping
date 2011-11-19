@@ -5,6 +5,7 @@
 
 <%= simple_form_for [:admin, camp_shelf] do |form| %>
     <%= form.input :name %>
+    <%= form.input :slug %>
     <%= form.input :description %>
     <%= form.input :visibility, include_blank: false,
                    collection: [['Pública', 'public'], ['Privada', 'private']] %>

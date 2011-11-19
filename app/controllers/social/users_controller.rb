@@ -1,5 +1,7 @@
 class Social::UsersController < ApplicationController
   respond_to :html
+
+  expose_with_slug
   expose(:users) { User.order('login_count DESC').limit(100) }
   expose(:user)
   expose(:shelf_order) { Shelf::Order.new(params[:o]) }

@@ -1,6 +1,7 @@
 <div id="shelves">
   <% shelves.each do |shelf| %>
       <%= div_for shelf, class: 'shelf' do %>
+          <span class="slug"><%= shelf.slug %></span>
           <h3><%= link_to shelf.name, [:admin, shelf] %>
             <small class="visibility <%= shelf.visibility %>"><%= t("shelf.visibilities.#{shelf.visibility}") %></small>
           </h3>

@@ -12,7 +12,7 @@ class Site
   end
 
   def explore_user_shelves
-    UserShelf.order(:updated_at).limit(10)
+    UserShelf.order(:updated_at).public.limit(10)
   end
 
   def explore_users

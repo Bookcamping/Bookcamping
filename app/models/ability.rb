@@ -28,6 +28,9 @@ class Ability
     end
 #    can :manage, :all if admin?
 
+    cannot :destroy, UserShelf, :rol => 'read_later'
+    cannot :destroy, UserShelf, :rol => 'like_it'
+    cannot :destroy, UserShelf, :rol => 'my_references'
   end
 
   def user=(user)

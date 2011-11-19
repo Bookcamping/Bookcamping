@@ -7,7 +7,7 @@
           <%= link_to 'Editar lista', [:edit, :personal, shelf] if can? :edit, shelf %>
           <%= link_to 'Seleccionar referencias', '#', class: 'select-references' if current_user? %>
           <%= link_to 'Borrar lista', [:personal, shelf], method: :delete,
-              confirm: "¿Seguro que borrar la lista '#{shelf.name}'?" if can? :delete, shelf %>
+              confirm: "¿Seguro que borrar la lista '#{shelf.name}'?" if can? :destroy, shelf %>
         </div>
         <%= presenter.references %>
     <% end %>

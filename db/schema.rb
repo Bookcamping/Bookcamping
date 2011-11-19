@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118232543) do
+ActiveRecord::Schema.define(:version => 20111118235457) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(:version => 20111118232543) do
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
-    t.string   "name"
+    t.string   "name",            :limit => 100
     t.string   "email"
     t.string   "rol",             :limit => 10
     t.datetime "created_at"
@@ -204,7 +204,10 @@ ActiveRecord::Schema.define(:version => 20111118232543) do
     t.string   "google_uid"
     t.string   "facebook_uid"
     t.boolean  "active",                         :default => false
+    t.string   "slug",            :limit => 100
   end
+
+  add_index "users", ["slug"], :name => "index_users_on_slug"
 
   create_table "versions", :force => true do |t|
     t.string   "item_type",                 :null => false

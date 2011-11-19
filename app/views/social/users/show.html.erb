@@ -6,7 +6,6 @@
     <% end %>
 <% end %>
 
-
 <table class="shelves">
   <% shelves.each do |shelf| %>
       <% shelf_url = shelf.type == 'CampShelf' ? [shelf] : [user, shelf] %>

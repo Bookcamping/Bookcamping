@@ -24,7 +24,6 @@
 #end
 class User < ActiveRecord::Base
   has_many :books
-  #has_many :memberships, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   # Shelves
@@ -33,17 +32,21 @@ class User < ActiveRecord::Base
   has_many :user_shelves, dependent: :destroy
   has_many :personal_shelves, class_name: 'Shelf', conditions: ["type = ? OR type = ?", 'UserShelf', 'ProfileShelf']
 
-
   # Profile shelves
   has_one :like_it_shelf, class_name: 'UserShelf', conditions: {rol: 'like_it'}
   has_one :read_later_shelf, class_name: 'UserShelf', conditions: {rol: 'read_later'}
   has_one :my_references_shelf, class_name: 'UserShelf', conditions: {rol: 'my_references'}
 
-  has_many :profile_shelves, dependent: :destroy
-
+  # Scopes
   scope :admin, conditions: {rol: 'admin'}
 
+  # Validations
   validates :name, presence: true
+
+  # Callbacks
+  before_save do
+    update_slug
+  end
 
   def add_book(book)
     book.user = self
@@ -65,8 +68,12 @@ class User < ActiveRecord::Base
 
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    slug
   end
 
+  protected
+  def update_slug
+    self.slug = self.name.parameterize
+  end
 
 end

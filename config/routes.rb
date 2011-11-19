@@ -40,10 +40,6 @@ Bookcamp::Application.routes.draw do
 
     scope module: 'social' do
       resources :users, path: 'somos', only: [:index, :show] do
-        resources :profile_shelves, path: 'marcas', only: [:show] do
-          resources :books, path: 'referencias', only: [:show, :index]
-        end
-
         resources :user_shelves, path: 'listas', only: [:show] do
           resources :books, path: 'referencias', only: [:show, :index]
         end

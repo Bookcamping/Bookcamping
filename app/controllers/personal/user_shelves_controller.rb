@@ -1,5 +1,7 @@
 class Personal::UserShelvesController < Personal::ApplicationController
   respond_to :html, :json
+
+  expose_with_slug
   expose(:profile_shelves) { current_user.profile_shelves }
   expose(:user_shelves) { current_user.user_shelves }
   expose(:user_shelf)
@@ -26,7 +28,7 @@ class Personal::UserShelvesController < Personal::ApplicationController
   end
 
   def destroy
-    authorize! :delete, shelf
+    authorize! :destroy, shelf
     flash[:notice] = "Lista '#{shelf.name}' borrada." if shelf.destroy
     respond_with shelf, location: [:personal, shelf]
   end
@@ -46,7 +48,7 @@ class Personal::UserShelvesController < Personal::ApplicationController
     url = url_for [:personal, shelf]
     respond_with do |format|
       format.html { redirect_to url }
-      format.json { render json: {name: shelf.name, count: shelf.books_count, url: url}}
+      format.json { render json: {name: shelf.name, count: shelf.books_count, url: url} }
     end
   end
 end
