@@ -58,7 +58,7 @@ class Shelf < ActiveRecord::Base
 
   def to_param
     if slug.present?
-      slug
+      slug.parameterize
     else
       limited = name.split[0..2].join(' ')
       "#{self.id}-#{limited.parameterize}"
@@ -68,5 +68,6 @@ class Shelf < ActiveRecord::Base
   def visible_public?
     false
   end
+
 
 end

@@ -44,9 +44,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   # Callbacks
-  before_save do
-    update_slug
-  end
+  before_save :update_slug
+
 
   def add_book(book)
     book.user = self
