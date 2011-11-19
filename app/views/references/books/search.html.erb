@@ -1,5 +1,5 @@
-<% present_collection :references, search.results,
-                      {background_color: '#AAA'} do |presenter| %>
+<% present  search.results,
+                      {background_color: '#AAA'}, ReferencesPresenter do |presenter| %>
     <div class="header">
       <%= title "Buscar '#{search.term}'" %>
       <div class="properties">
