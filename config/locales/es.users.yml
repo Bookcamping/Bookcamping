@@ -2,6 +2,9 @@ es:
   activerecord:
     models:
       user: 'usuaria'
+    attributes:
+      user:
+        password_confirmation: 'Confirmar constraseña'
 
   simple_form:
     labels:
@@ -12,4 +15,5 @@ es:
     hints:
       user:
         name: 'Nombre con el que quieres aparecer en #bookcamping'
+        password_confirmation: 'Repite la contraseña'
 

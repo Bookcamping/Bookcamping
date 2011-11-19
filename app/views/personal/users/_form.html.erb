@@ -1,6 +1,10 @@
 <%= simple_form_for(user, url: personal_user_path) do |form| %>
     <%= form.input :name %>
     <%= form.input :description %>
+    <% unless user.auth_services? %>
+        <%= form.input :password %>
+        <%= form.input :password_confirmation %>
+    <% end %>
     <%= form.input :email %>
     <%= form.input :email_visible %>
     <%= form.input :twitter %>

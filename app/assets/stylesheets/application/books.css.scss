@@ -14,8 +14,7 @@ div[data-pjax-container] {
          }
         div.social {margin-top:10px;}
 
-        a.download {display: block; text-align: center;}
-
+        img.cover {width: 100%;}
     }
 }
 
@@ -41,7 +40,7 @@ div.book {
     }
 
     div.social {margin-top: 15px;}
-
+    a.download {display: block; text-align: center; margin: 5px 0;}
 }
 
 .summary {

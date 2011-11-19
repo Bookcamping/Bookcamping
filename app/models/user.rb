@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
     self.rol == 'admin' || self.rol == 'super'
   end
 
+  def auth_services?
+    twitter_uid.present? || google_uid.present? || facebook_uid.present?
+  end
+
 
   def to_param
     slug
