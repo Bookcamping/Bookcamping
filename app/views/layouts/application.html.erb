@@ -56,28 +56,38 @@
     <%= link_to 'atom', posts_path(format: :atom), class: 'go-atom' %>
   </div>
   <div id="header">
-    <a href="/">
-      <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
-    </a>
+    <% if current_publisher %>
+        <a href="/" class="publisher">
+          <img src="<%= "/images/#{current_publisher}/#{current_publisher}.jpg" %>" width="1025" height="140" />
+        </a>
+    <% else %>
+        <a href="/">
+          <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
+        </a>
+    <% end %>
   </div>
   <div id="main">
-    <div class="container">
-      <div id="center">
+    <% if false and current_publisher %>
         <%= yield %>
-      </div>
-      <div id="sidebar">
-        <%= yield :sidebar %>
-        <div id="sidebar_extra">
-          <div id="goteo" name="goteo">
-            <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
+    <% else %>
+        <div class="container">
+          <div id="center">
+            <%= yield %>
           </div>
-          <% if current_camp.id == 1 %>
-              <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' unless current_page?(posts_path) %>
-              <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' %>
-          <% end %>
+          <div id="sidebar">
+            <%= yield :sidebar %>
+            <div id="sidebar_extra">
+              <div id="goteo" name="goteo">
+                <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
+              </div>
+              <% if current_camp.id == 1 %>
+                  <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' unless current_page?(posts_path) %>
+                  <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' %>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 

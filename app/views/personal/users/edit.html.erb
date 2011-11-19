@@ -4,12 +4,4 @@
 
 <%= title "Editar perfil" %>
 
-<%= simple_form_for(user, url: personal_user_path) do |form| %>
-    <%= form.input :name %>
-    <%= form.input :description %>
-    <%= form.input :email %>
-    <%= form.input :email_visible %>
-    <%= form.input :twitter %>
-    <%= form.input :twitter_visible %>
-    <%= form.submit 'Guardar perfil', id: 'submit_user' %>
-<% end %>
+<%= render :partial => 'form' %>

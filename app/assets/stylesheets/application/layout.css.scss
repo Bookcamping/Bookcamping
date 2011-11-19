@@ -71,23 +71,26 @@ div#session {
 }
 
 div#go-camping {
+    z-index: 1000;
     width: 100%; overflow: hidden;
     margin-top: 8px; margin-bottom: -32px;
     a {
         display: block; overflow: hidden; text-indent: -1000px;
         float: right;
+        z-index: 1000;
     }
 }
 
 
 div#header {
     margin: 20px 0;
-    a {display: block; height: 125px;}
+    a {display: block; height: 125px; z-index: 0;}
+    a.publisher {width: $s-center; overflow: hidden;}
     h1 {
         overflow: hidden; margin: 0;
         text-indent: -1000px;
-
     }
+    z-index: 100;
 }
 
 h2 {margin-top: 30px; font-size: 20px; margin-bottom:10px;}

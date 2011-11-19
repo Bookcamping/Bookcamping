@@ -29,7 +29,7 @@ Bookcamp::Application.routes.draw do
 
     namespace :personal, path: 'mis' do
       root to: redirect('/mis/datos')
-      resource :user, path: 'labores'
+      resource :user, path: 'datos'
       resources :books, path: 'referencias'
       resources :user_shelves, path: 'listas' do
         post :bulk_add, on: :collection
@@ -83,6 +83,8 @@ Bookcamp::Application.routes.draw do
     resources :shelves
     resources :versions
   end
+
+  match "/clismon/pnh" => 'publishers/clismon#pnh'
 
 
   match "/listas" => redirect("/estanterias")

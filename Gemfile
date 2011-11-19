@@ -19,6 +19,7 @@ gem 'css3buttons'
 gem 'rails3-jquery-autocomplete'
 
 gem 'cancan'
+gem 'bcrypt-ruby', '~> 3.0.0'
 #gem 'meta_where'
 
 gem 'omniauth'

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user?
 
   expose(:current_camp) { load_camp_from_request }
+  expose(:current_publisher) { nil }
 
   def info_for_paper_trail
     {:user_name => current_user? ? current_user.name : 'Anónimx',

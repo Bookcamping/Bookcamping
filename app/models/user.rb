@@ -43,6 +43,9 @@ class User < ActiveRecord::Base
   # Validations
   validates :name, presence: true
 
+  # Behaviours
+  has_secure_password
+
   # Callbacks
   before_save :update_slug
 
