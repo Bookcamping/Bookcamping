@@ -28,7 +28,8 @@ Bookcamp::Application.routes.draw do
     end
 
     namespace :personal, path: 'mis' do
-      root to: redirect('/mis/datos')
+      root to: redirect('/mis/labores')
+      resources :versions, path: 'labores', only: [:index]
       resource :user, path: 'datos'
       resources :books, path: 'referencias'
       resources :user_shelves, path: 'listas' do
@@ -65,6 +66,7 @@ Bookcamp::Application.routes.draw do
     resources :books, path: 'referencias'
     resources :comments, path: 'comentarios'
     resources :colors, path: 'colores'
+    resources :users, path: 'somos'
 
     scope module: 'blog' do
       resources :posts, path: 'blog'

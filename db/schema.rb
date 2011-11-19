@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118235457) do
+ActiveRecord::Schema.define(:version => 20111119193001) do
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(:version => 20111118235457) do
   add_index "comments", ["camp_id"], :name => "index_comments_on_camp_id"
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "identities", :force => true do |t|
+    t.string   "uid"
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "licenses", :force => true do |t|
     t.string   "name",       :limit => 300
@@ -184,25 +193,18 @@ ActiveRecord::Schema.define(:version => 20111118235457) do
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"
 
   create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name",            :limit => 100
-    t.string   "email"
-    t.string   "rol",             :limit => 10
+    t.string "name", :limit => 100
+    t.string "email"
+    t.string "rol", :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "login_count",                    :default => 0
+    t.integer "login_count", :default => 0
     t.datetime "last_login_at"
-    t.string   "twitter",         :limit => 150
-    t.boolean  "email_visible",                  :default => false
-    t.boolean  "twitter_visible",                :default => false
-    t.boolean  "email_confirmed",                :default => false
-    t.string   "description",     :limit => 300
-    t.string   "password_digest"
-    t.string   "password_salt"
-    t.string   "twitter_uid"
-    t.string   "google_uid"
-    t.string   "facebook_uid"
+    t.string "twitter", :limit => 150
+    t.boolean "email_visible", :default => false
+    t.boolean "twitter_visible", :default => false
+    t.boolean "email_confirmed", :default => false
+    t.string "description", :limit => 300
     t.boolean  "active",                         :default => false
     t.string   "slug",            :limit => 100
   end

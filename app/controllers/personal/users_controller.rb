@@ -16,7 +16,7 @@ class Personal::UsersController < Personal::ApplicationController
   def create
     if user.save
       flash[:notice] = 'Bienvenida a #bookcamping'
-      SetupUser.new(user).create_profile_shelves if new_user?
+      User::SetupUser.create(user)
       self.current_user = user
     end
     respond_with user, location: personal_user_path

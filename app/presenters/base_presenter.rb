@@ -18,4 +18,9 @@ class BasePresenter
   def h
     @template
   end
+
+  def render(name, model)
+    #klazz = "#{name.to_s.camelcase}Presenter".constantize
+
+  end
 end

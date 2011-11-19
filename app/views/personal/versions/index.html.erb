@@ -1,0 +1,14 @@
+<% title user.name %>
+
+<% present user, {show_private: true, count: 'Actividad'} do |presenter| -%>
+    <%= div_for user do %>
+        <%= presenter.header %>
+        <div class="actions">
+          <%= link_to 'Cerrar sesión', logout_path %>
+          <%= link_to 'Editar datos', edit_personal_user_path %>
+        </div>
+        <%= presenter.render(:versions, versions) %>
+    <% end %>
+<% end %>
+
+

@@ -16,7 +16,7 @@
 <br/><br/>
 <p>También puedes utilizar el clásico santo y seña:</p>
 <%= simple_form_for User.new, url: '/auth/password/callback' do |form| %>
-    <%= form.input :name, hint: false %>
+    <%= form.input :email, hint: false %>
     <%= form.input :password %>
     <%= form.submit 'Entrar' %>
 <% end %>

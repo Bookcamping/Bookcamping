@@ -39,7 +39,7 @@ form {
         input[type="email"], input[type="password"] {
             width: 600px;
         }
-
+        input[type="checkbox"] {float: left; margin: 3px 5px 0 0;}
         select {height: 1.8em; line-height: 2em;}
     }
 

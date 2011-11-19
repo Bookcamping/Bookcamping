@@ -5,15 +5,25 @@ es:
     attributes:
       user:
         password_confirmation: 'Confirmar constraseña'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              taken: 'Lo sentimos, ese nombre está pillado. Tendrás que elegir otro.'
+            email:
+              taken: 'Hay otra persona registrada con ese email. Escríbenos a hola@bookcamping.cc para resolver la situación.'
 
   simple_form:
     labels:
       user:
         email: 'Correo electrónico'
         password: 'Contraseña'
+        twitter: 'Tu usuario en twitter'
+        description: 'Cuéntanos algo sobre ti'
 
     hints:
       user:
         name: 'Nombre con el que quieres aparecer en #bookcamping'
         password_confirmation: 'Repite la contraseña'
-
+        twitter: 'Opcional. Permitirá a otras encontrarte en esa red social.'

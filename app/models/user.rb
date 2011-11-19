@@ -1,30 +1,26 @@
 # User
 #
 #create_table "users", :force => true do |t|
-#  t.string   "provider"
-#  t.string   "uid"
-#  t.string   "name"
-#  t.string   "email"
-#  t.string   "rol",             :limit => 10
+#  t.string "name", :limit => 100
+#  t.string "email"
+#  t.string "rol", :limit => 10
 #  t.datetime "created_at"
 #  t.datetime "updated_at"
-#  t.integer  "login_count",                    :default => 0
+#  t.integer "login_count", :default => 0
 #  t.datetime "last_login_at"
-#  t.string   "twitter",         :limit => 150
-#  t.boolean  "email_visible",                  :default => false
-#  t.boolean  "twitter_visible",                :default => false
-#  t.boolean  "email_confirmed",                :default => false
-#  t.string   "description",     :limit => 300
-#  t.string   "password_digest"
-#  t.string   "password_salt"
-#  t.string   "twitter_uid"
-#  t.string   "google_uid"
-#  t.string   "facebook_uid"
+#  t.string "twitter", :limit => 150
+#  t.boolean "email_visible", :default => false
+#  t.boolean "twitter_visible", :default => false
+#  t.boolean "email_confirmed", :default => false
+#  t.string "description", :limit => 300
 #  t.boolean  "active",                         :default => false
+#  t.string   "slug",            :limit => 100
 #end
 class User < ActiveRecord::Base
-  has_many :books
+  has_many :identities, dependent: :destroy
+  has_many :books, dependent: :restrict
   has_many :comments, dependent: :destroy
+  has_many :versions, foreign_key: :whodunnit
 
   # Shelves
   has_many :shelves, dependent: :restrict
@@ -41,15 +37,18 @@ class User < ActiveRecord::Base
   scope :admin, conditions: {rol: 'admin'}
 
   # Validations
-  validates :name, presence: true
-  validates :password, presence: true, unless: :auth_services?
+  validates :name, presence: true, uniqueness: true
+  validates :email, presence: true, on: :create
+  validates :email, uniqueness: true, if: :email?
+  validates :password, presence: true, confirmation: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
 
-
-  # Behaviours
-  has_secure_password
+  #has_secure_password
 
   # Callbacks
   before_save :update_slug
+
+  attr_accessor :password, :password_confirmation
 
 
   def add_book(book)

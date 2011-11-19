@@ -1,13 +1,11 @@
 <%= simple_form_for(user, url: personal_user_path) do |form| %>
     <%= form.input :name %>
-    <%= form.input :description %>
-    <% unless user.auth_services? %>
-        <%= form.input :password %>
-        <%= form.input :password_confirmation %>
-    <% end %>
     <%= form.input :email %>
-    <%= form.input :email_visible %>
+    <% if user.new_record? %>
+      <%= form.input :password %>
+      <%= form.input :password_confirmation %>
+    <% end %>
     <%= form.input :twitter %>
-    <%= form.input :twitter_visible %>
+    <%= form.input :description, as: :text, row: 2 %>
     <%= form.submit 'Guardar perfil', id: 'submit_user' %>
 <% end %>
