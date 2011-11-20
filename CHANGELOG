@@ -1,4 +1,14 @@
 
+TAREAS
+* Ocultar el email de los usuarios y limpiar los campos de la base de datos
+* Buscar títulos similares
+* Pruebas!!
+
+2011/11/19
+  * Empezamos con los editores (/clismon/pnh)
+  * Sistema de autenticación interno: login con nombre y contraseña
+  * Dar de alta un nuevo usuario
+
 2011/11/18
   * Mejoras en el aspecto: headers comunes para listas y colaboradoras
   * Sistema de cambiar el orden, oculto
