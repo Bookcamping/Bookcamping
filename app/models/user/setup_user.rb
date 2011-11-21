@@ -1,15 +1,20 @@
 class User::SetupUser
+  def self.build_from_omniauth(omniauth)
+    user = User.new do |user|
+      user.name = omniauth['info']['name']
+      user.email = omniauth['info']['email']
+    end
+    user.identities << Identity.new(user: user, provider: omniauth['provider'], uid: omniauth['uid'])
+    user
+  end
+
   def self.create_from_omniauth(omniauth)
-    User.transaction do
-      user = User.create! do |user|
-        user.name = omniauth['info']['name']
-        user.email = omniauth['info']['email']
-        user.password = 'ignored, just pass validation'
-        user.password_confirmation = 'ignored, just pass validation'
-      end
-      Identity.create!(user: user, provider: omniauth['provider'], uid: omniauth['uid'])
+    user = build_from_omniauth(omniauth)
+    if user.save
+      user.identities.each {|i| i.save!}
       setup user
     end
+    user
   end
 
   def self.create(user)

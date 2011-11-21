@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true, uniqueness: true
-  validates :email, presence: true, on: :create
+  validates :email, presence: true, on: :create, unless: :twitter?
   validates :email, uniqueness: true, if: :email?
   validates :password, presence: true, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create

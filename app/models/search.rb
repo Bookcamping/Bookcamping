@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Search
   def initialize(search_type, collection, term)
     @search_type = search_type
@@ -9,8 +10,16 @@ class Search
     @term
   end
 
+  def error
+    if term.blank?
+      '¿Qué quieres buscar? Pon algo'
+    elsif term.length < 3
+      'El texto a buscar tiene que tener, al menos, tres letras'
+    end
+  end
+
   def results
-    if term.length > 2
+    if term.present? and term.length > 2
       match = "%#{term}%"
       if @search_type == :books
         @collection.where('title LIKE ? OR authors LIKE ? OR editor LIKE ?', match, match, match)

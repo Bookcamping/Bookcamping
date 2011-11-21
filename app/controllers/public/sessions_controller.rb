@@ -28,9 +28,14 @@ class Public::SessionsController < ApplicationController
       audit_user(current_user)
       redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
     elsif omniauth # Nuevo usuario con omniauth
-      self.current_user = User::SetupUser.create_from_omniauth(omniauth)
-      audit_user(current_user)
-      redirect_to edit_personal_user_path, notice: 'Por favor, completa tus datos.'
+      user = User::SetupUser.create_from_omniauth(omniauth)
+      if user.persisted?
+        self.current_user = user
+        audit_user(current_user)
+        redirect_to edit_personal_user_path, notice: 'Por favor, completa tus datos.'
+      else  
+        render 'edit'
+      end
     else # Usuario no encontrado
       redirect_to login_path, notice: '¡No te hemos encontrado! ¿Segura que estás dada de alta?'
     end

@@ -2,9 +2,14 @@
 TAREAS
 * Ocultar el email de los usuarios y limpiar los campos de la base de datos
 * Buscar títulos similares
+* Nofollow links
 * Pruebas!!
 
+2011/11/21
+  * Bug: buscar sin texto daba error
+
 2011/11/19
+  * Instalación de errcamping: trampa para errores
   * Empezamos con los editores (/clismon/pnh)
   * Sistema de autenticación interno: login con nombre y contraseña
   * Dar de alta un nuevo usuario

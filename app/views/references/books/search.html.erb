@@ -9,6 +9,9 @@
     <div class="actions">
       <%= link_to 'Seleccionar referencias', '#', class: 'select-references' if current_user? %>
     </div>
+    <% if search.error %>
+    <span class="error"><%= search.error %></span>
+    <% end %>
     <%= presenter.render %>
 <% end %>
 
