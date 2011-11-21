@@ -28,7 +28,7 @@ class BookPresenter < ApplicationPresenter
 
   def user(message = 'Por ')
     user = book.user
-    h.content_tag :span, message.html_safe + h.link_to("#{user.name}", user), class: 'user'
+    h.content_tag :span, message.html_safe + h.link_to("#{user.name}", user), class: 'user' if user
   end
 
   def download_visible?

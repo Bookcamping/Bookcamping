@@ -3,7 +3,7 @@
   <div class="description"></div>
 </div>
 <div class="actions">
-  <%= link_to 'Crear nuevo perfil', new_personal_user_path %>
+  <%#= link_to 'Crear nuevo perfil', new_personal_user_path %>
 </div>
 
 <p>La manera más fácil de entrar o registrarte en bookcamping es usando cualquiera
@@ -14,9 +14,11 @@
   <%= link_to image_tag('authbuttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url) %>
 </div>
 <br/><br/>
-<p>También puedes utilizar el clásico santo y seña:</p>
+<p>Próximamente podrás utilizar el clásico santo y seña</p>
+<!--
 <%= simple_form_for User.new, url: '/auth/password/callback' do |form| %>
     <%= form.input :email, hint: false %>
     <%= form.input :password %>
     <%= form.submit 'Entrar' %>
 <% end %>
+-->
