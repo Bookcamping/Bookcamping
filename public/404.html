@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
   <title>¿Dónde estamos? :: bookcamping </title>
   <link rel="Shortcut Icon" href="/assets/ui3/bookcamping-mini.ico" type="image/x-icon"/>
+  <style type="text/css">
+html {font-family: Kreon, arial, sans-serif;
+    font-size: 24px;}
+
+  div.description {
+    position: fixed; left: 0; right: 0;
+    bottom: 10px;
+    text-align: center;
+  }
+</style>
       <style type="text/css">
         #error_info {
             display: none;
@@ -32,21 +43,23 @@
   <p>O ha sido movida o nunca existió. Comprueba la URL.</p>
 </div>
 
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-11032039-5']);
-    _gaq.push(['_setDomainName', '.bookcamp.cc']);
-    _gaq.push(['_setAllowHash', 'false']);
-    _gaq.push(['_trackPageview']);
+<div class="description">
+Está página no existe o ha dejado de existir. Puedes utilizar el 
+<a href="/buscar">buscador</a> para tratar de encontrarla</diV>
 
-    (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11032039-8']);
+  _gaq.push(['_setDomainName', 'bookcamping.cc']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
 </script>
 </body>

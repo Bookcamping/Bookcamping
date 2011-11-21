@@ -1,5 +1,14 @@
 <% present  search.results,
                       {background_color: '#AAA'}, ReferencesPresenter do |presenter| %>
+<% if search.term.blank? %>
+    <div class="header">
+      <%= title 'Buscar referencias' %>
+    </div>
+    <%= form_tag '/buscar', method: :get do %>
+<%= text_field_tag :term %>
+<%= submit_tag 'Buscar' %>
+<% end %>
+<% else %>
     <div class="header">
       <%= title "Buscar '#{search.term}'" %>
       <div class="properties">
@@ -15,5 +24,5 @@
     <%= presenter.render %>
 <% end %>
 
-
+<% end %>
 

@@ -6,6 +6,8 @@ TAREAS
 * Pruebas!!
 
 2011/11/21
+  * /search muestra el buscador en vez de 0 resultados
+  * Mensaje en las pantallas de horror
   * Bug: algunas estanterías no se encontraban
   * Bug: algunos usuarios no se econtraban
   * Añadiendo deploys a errbit

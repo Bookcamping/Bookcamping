@@ -3,7 +3,6 @@
 
 # Standard deploy assets tasks
 load 'deploy/assets'
-load 'hoptoad/capistrano'
 
 # default_run_options[:pty] = true
 set :application, "Bookcamping"
@@ -103,3 +102,5 @@ namespace :mysql do
     # delete file
   end
 end
+
+

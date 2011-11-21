@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
   <title><%= yield :title %> :: <%= current_camp.name %> </title>
   <link rel="Shortcut Icon" href="/assets/ui3/bookcamping-mini.ico" type="image/x-icon"/>
+  <style type="text/css">
+html {font-family: Kreon, arial, sans-serif;
+    font-size: 24px;}
+
+  div.description {
+    position: fixed; left: 0; right: 0;
+    bottom: 10px;
+    text-align: center;
+  }
+</style>
   <%= yield :head %>
 </head>
 <body class="errors">
