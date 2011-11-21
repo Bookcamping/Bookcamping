@@ -14,11 +14,9 @@
   <%= link_to image_tag('authbuttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url) %>
 </div>
 <br/><br/>
-<p>Próximamente podrás utilizar el clásico santo y seña</p>
-<!--
+<p>También puedes utilizar el clásico santo y seña (en el caso de que tengas):</p>
 <%= simple_form_for User.new, url: '/auth/password/callback' do |form| %>
     <%= form.input :email, hint: false %>
     <%= form.input :password %>
     <%= form.submit 'Entrar' %>
 <% end %>
--->

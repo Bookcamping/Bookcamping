@@ -32,7 +32,8 @@ class Public::SessionsController < ApplicationController
       if user.persisted?
         self.current_user = user
         audit_user(current_user)
-        redirect_to edit_personal_user_path, notice: 'Por favor, completa tus datos.'
+       # redirect_to edit_personal_user_path, notice: 'Por favor, completa tus datos.'
+       redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
       else  
         render 'edit'
       end
