@@ -72,7 +72,7 @@ class BookPresenter < ApplicationPresenter
       link = h.content_tag(:div, h.link_to('&rArr; Ver en google video'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
     else
-      h.link_to(h.image_tag(book.media, class: 'cover'), book)
+      h.link_to(h.image_tag(book.media[0..200], class: 'cover'), book)
     end
   end
 
