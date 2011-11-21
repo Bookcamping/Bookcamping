@@ -85,6 +85,8 @@ Bookcamp::Application.routes.draw do
     resources :posts
     resources :shelves
     resources :versions
+    resources :identities
+
   end
 
   match "/clismon/pnh" => 'publishers/clismon#pnh'
