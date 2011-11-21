@@ -5,8 +5,5 @@ class Backend::ResourceController < Backend::ApplicationController
   self.responder = Backend::Responder
 
 
-  def new
-
-  end
 end
 
