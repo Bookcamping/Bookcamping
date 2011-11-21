@@ -6,6 +6,11 @@ TAREAS
 * Pruebas!!
 
 2011/11/21
+  * Bug: algunas estanterías no se encontraban
+  * Bug: algunos usuarios no se econtraban
+  * Añadiendo deploys a errbit
+  * Eliminar la autenticación por email hasta que esté resuelto
+  * Eliminar la validación del usuario hasta que se resuelva
   * Bug: buscar sin texto daba error
 
 2011/11/19
