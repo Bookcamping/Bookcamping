@@ -9,5 +9,6 @@ log/*.log
 tmp/**/*
 tmp/**
 public/uploads/**
+public/assets/**
 *.swp
 vim

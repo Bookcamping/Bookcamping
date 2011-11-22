@@ -103,4 +103,12 @@ namespace :mysql do
   end
 end
 
-
+namespace :assets do
+  desc "Precompile assets in a local file"
+  task :precompile_local do
+    run_locally 'rm -rf /public/assets/*'
+    with_env 'RAILS_ENV', 'production' do
+      run_locally 'bundle exec rake assets:precompile'
+    end
+  end
+end
