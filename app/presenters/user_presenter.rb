@@ -28,7 +28,7 @@ class UserPresenter < BasePresenter
 
 
   def twitter
-    h.link_to "@#{user.twitter}", "http://twitter.com/#{user.twitter}", target: '_blank' if user.twitter
+    h.link_to "@#{user.twitter}", "http://twitter.com/#{user.twitter}", target: '_blank' if user.twitter.present?
   end
 
   def twitter_visibility

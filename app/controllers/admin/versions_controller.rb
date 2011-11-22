@@ -22,5 +22,8 @@ class Admin::VersionsController < Admin::ApplicationController
     end
   end
 
-
+  def notify
+    ActivityMailer.last_site_activity(current_camp.id, current_user.id).deliver if current_user.email?
+    redirect_to admin_versions_path
+  end
 end

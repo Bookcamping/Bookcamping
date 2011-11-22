@@ -10,3 +10,4 @@ tmp/**/*
 tmp/**
 public/uploads/**
 *.swp
+vim

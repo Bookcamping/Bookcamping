@@ -72,6 +72,7 @@ group :test do
   gem "cucumber-rails", ">= 1.0.2"
   gem "factory_girl_rails", ">= 1.1.0"
   gem "capybara", ">= 1.0.1"
+  # gem 'mailcatcher'
 end
 
 

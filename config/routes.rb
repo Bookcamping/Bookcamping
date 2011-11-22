@@ -58,7 +58,9 @@ Bookcamp::Application.routes.draw do
 
   namespace :admin do
     root to: 'versions#index'
-    resources :versions, path: 'actividad'
+    resources :versions, path: 'actividad' do
+      post :notify, on: :collection
+    end
     resources :camp_shelves, path: 'estanterias'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'

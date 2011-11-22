@@ -55,4 +55,17 @@ Bookcamp::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # 1and1
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.1and1.es",
+      :port => 587,
+      :domain => 'bookcamping.cc',
+      :user_name => 'bookcamping@recortable.net'
+      :password => 'bookcamping-mail',
+      :authentication => 'plain'
+  }
+
+
 end

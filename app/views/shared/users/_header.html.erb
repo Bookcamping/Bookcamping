@@ -5,17 +5,8 @@
   <h1><%= user.name %></h1>
 
   <div class="properties">
-    <% if  presenter.show_private? %>
-        <label>Email: </label>
-        <%= presenter.email %>
-        <span class="visibility"><%= presenter.email_visibility %></span>
-        <label>Twitter: </label>
-        <%= presenter.twitter %>
-        <span class="visibility"><%= presenter.twitter_visibility %></span>
-    <% else %>
-        <%= presenter.email %>
-        <%= presenter.twitter %>
-    <% end %>
+    <%= presenter.email if  presenter.show_private? %>
+    <%= presenter.twitter %>
   </div>
 
   <div class="description"><%= presenter.description %></div>
