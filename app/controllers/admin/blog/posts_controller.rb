@@ -17,4 +17,8 @@ class Admin::Blog::PostsController < Admin::ResourceController
   def update
     update! { [:admin, @post] }
   end
+
+  def destroy
+    destroy! { [:admin, :posts] }
+  end
 end

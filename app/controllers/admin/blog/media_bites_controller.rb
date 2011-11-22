@@ -1,5 +1,6 @@
 class Admin::Blog::MediaBitesController < Admin::ResourceController
   def index
+    @media_bites = MediaBite.order('id DESC')
     index!
   end
 
@@ -9,4 +10,9 @@ class Admin::Blog::MediaBitesController < Admin::ResourceController
     @media_bite.user = current_user
     create!
   end
+
+  def destroy
+    destroy! { [:admin, :media_bites] }
+  end
+
 end
