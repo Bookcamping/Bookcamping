@@ -7,6 +7,7 @@ TAREAS
 
 
 2011/11/22
+  * precompile assets en local
   * Pruebas de email
   * Mailcatcher for development
 

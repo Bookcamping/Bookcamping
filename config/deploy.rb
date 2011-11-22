@@ -2,7 +2,7 @@
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
 # Standard deploy assets tasks
-# load 'deploy/assets'
+load 'deploy/assets'
 
 # default_run_options[:pty] = true
 set :application, "Bookcamping"
@@ -123,6 +123,6 @@ namespace :assets do
   end
 end
 
-before :deploy, 'assets:precompile_local'
-after 'deploy:finalize_update', 'assets:package_deploy'
+#before :deploy, 'assets:precompile_local'
+#after 'deploy:finalize_update', 'assets:package_deploy'
 
