@@ -17,6 +17,7 @@
 #  t.string   "slug",            :limit => 100
 #end
 class User < ActiveRecord::Base
+  include Users::Create
   has_many :identities, dependent: :destroy
   has_many :books, dependent: :restrict
   has_many :comments, dependent: :destroy
@@ -47,6 +48,7 @@ class User < ActiveRecord::Base
 
   # Callbacks
   before_save :update_slug
+  after_create :create_profile_shelves
 
   attr_accessor :password, :password_confirmation
 
@@ -69,13 +71,17 @@ class User < ActiveRecord::Base
     self.rol == 'admin' || self.rol == 'super'
   end
 
-  def auth_services?
-    twitter_uid.present? || google_uid.present? || facebook_uid.present?
+  def to_param
+    slug
   end
 
 
-  def to_param
-    slug
+  def identify_with(password)
+    id = identities.where(provider: 'bookcamping').first
+    id = identities.build(provider: 'bookcamping', uid: email) unless id
+    id.password = password
+    id.save
+    identities(true)
   end
 
   protected

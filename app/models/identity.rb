@@ -12,13 +12,11 @@ class Identity < ActiveRecord::Base
   end
 
   def authorized?(unencrypted_password)
-    BCrypt::Password.new(password_digest) == unencrypted_password
+    bookcamping? and password_digest == BCrypt::Password.create(unencrypted_password)
   end
 
-  def self.create_identity(user, unencrypted_password)
-    digest = BCrypt::Password.create(unencrypted_password)
-    Identity.create!(user: user, provider: 'bookcamping', uid: user.email,
-                     password_digest: digest)
+  def password=(unencrypted_password)
+    self.password_digest = BCrypt::Password.create(unencrypted_password)
   end
 
   def self.identify_omniauth(omniauth)

@@ -2,11 +2,21 @@
 TAREAS
 * Ocultar el email de los usuarios y limpiar los campos de la base de datos
 * Buscar títulos similares
-* Nofollow links
 * Pruebas!!
 
-
+2011/11/23
+  * Identidades en admin
+  * Se puede crear un usuario a través de admin
+  * Test de usuario
+  *
 2011/11/22
+  * Mejora del sistema de autenticación
+  * Identidades en admin
+  * El email siempre oculto
+  * bug: la zona de administración no borraba elementos
+  * Nofollow login links
+  * mejor navegación en la edición del blog
+  * bug: las admin no tenían permisos de editar posts
   * precompile assets en local
   * Pruebas de email
   * Mailcatcher for development

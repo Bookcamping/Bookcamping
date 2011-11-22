@@ -13,33 +13,29 @@ class Public::SessionsController < ApplicationController
     end
   end
 
-  def create
-    identity = nil
-    data = params[:user]
-    if data.present?
-      identity = Identity.identify_credentials(data[:email], data[:password])
-    elsif omniauth
-      identity = Identity.identify_omniauth(omniauth)
-    end
 
-    if identity.present? # Usuario encontrado
-      puts identity.inspect
-      self.current_user = identity.user
-      audit_user(current_user)
-      redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
-    elsif omniauth # Nuevo usuario con omniauth
-      user = User::SetupUser.create_from_omniauth(omniauth)
-      if user.persisted?
-        self.current_user = user
-        audit_user(current_user)
-       # redirect_to edit_personal_user_path, notice: 'Por favor, completa tus datos.'
-       redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
-      else  
-        @user = user
-        render 'edit'
+  def create_with_omniauth
+    identity = Identity.identify_omniauth(omniauth)
+    if identity
+      login_user(identity.user) 
+    else
+      user = User.new do |user|
+        user.name = omniauth['info']['name']
+        user.email = omniauth['info']['email']
+        user.twitter = omniauth['info']['nickname']
       end
-    else # Usuario no encontrado
-      redirect_to login_path, notice: '¡No te hemos encontrado! ¿Segura que estás dada de alta?'
+      user.save!
+      login_user(user)
+    end
+  end
+
+  def create
+    data = params[:user]
+    identity = Identity.identify_credentials(data[:email], data[:password])
+    if identity
+      login_user(identity.user)
+    else
+      redirect_to login_path, notice: 'No te hemos encontrado.'
     end
   end
 
@@ -61,22 +57,13 @@ class Public::SessionsController < ApplicationController
   end
 
   protected
-  def audit_user(user)
+  def login_user(user)
+    self.current_user = user
     user.last_login_at = Time.now
     user.login_count ||= 0
     user.login_count = user.login_count + 1
     user.save(:validate => false)
+    redirect_to stored_or(root_path), notice:
+      "¡Hola #{user.name}!"
   end
-
-  def add_missing_info(omniauth, user)
-    if user.twitter.blank? and omniauth['provider'] == 'twitter'
-      user.twitter = omniauth['info']['nickname']
-    end
-    if user.email.blank? and omniauth['user_info']['email'].present?
-      user.email = omniauth['info']['email']
-    end
-  end
-  
-  
-  
 end

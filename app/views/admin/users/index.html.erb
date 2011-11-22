@@ -1,4 +1,9 @@
-<h1>Participantes</h1>
+<div class="header">
+  <%= title 'Participantes' %>
+</div>
+<div class="actions">
+  <%= link_to 'Añadir', new_admin_user_path %>
+</div>
 
 <table>
   <% users.each do |user| %>
@@ -10,6 +15,7 @@
         <td><%= user.login_count %></td>
         <td>&nbsp;(<%= time_ago_in_words user.last_login_at if user.last_login_at %>)</td>
         <td>
+          <%= link_to 'Editar', [:edit, :admin, user] %>
           <%= link_to 'Borrar!', [:admin, user], method: :delete, confirm: "borrar #{user.name}" if Rails.env.development? %>
         </td>
       </tr>

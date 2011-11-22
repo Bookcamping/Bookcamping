@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
           r.attributes = params[name] unless request.get?
         end
       else
-        klass.new(params[name])
+        proxy.new(params[name])
       end
     end
   end

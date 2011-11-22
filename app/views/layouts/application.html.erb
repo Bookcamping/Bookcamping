@@ -35,7 +35,7 @@
           <%= link_to 'Salir', logout_path %>
       <% else %>
           <%= link_to 'Estanterías', camp_shelves_path %> /
-          <%= link_to 'Entrar', login_path(from: request.fullpath) %>
+          <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
       <% end %>
     </div>
     <div class="search">

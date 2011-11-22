@@ -11,6 +11,7 @@ FactoryGirl.define do
 
   factory :user do
     name 'User'
+    email { "#{name}@email.com" }
   end
 
   factory :book do

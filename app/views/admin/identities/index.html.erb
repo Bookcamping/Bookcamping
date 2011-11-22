@@ -1,0 +1,9 @@
+<div class="header">
+<%= title 'Identidades' %>
+</div>
+
+<ul>
+<% identities.each do |id| %>
+<li><%= id.provider %> / <%= id.user_id %></li>
+<% end %>
+</ul>

@@ -75,6 +75,7 @@ Bookcamp::Application.routes.draw do
       resources :media_bites, path: 'media'
       #Mercury::Engine.routes
     end
+    resources :identities, except: [:create, :destroy]
   end
 
 
@@ -101,7 +102,7 @@ Bookcamp::Application.routes.draw do
 
 
   match "/entrar" => "public/sessions#new", as: :login
-  match "/auth/:provider/callback" => "public/sessions#create"
+  match "/auth/:provider/callback" => "public/sessions#create_with_omniauth"
   match "/salir" => "public/sessions#destroy", :as => :logout
   match "/entrar/:id" => "public/sessions#new", :as => :auth
   match "/auth/failure" => "public/sessions#failure"

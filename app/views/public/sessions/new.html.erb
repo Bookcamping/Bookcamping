@@ -9,9 +9,9 @@
 <p>La manera más fácil de entrar o registrarte en bookcamping es usando cualquiera
   de estos (privativos) sistemas de identificación (pulsa sobre el que uses frecuentemente):</p>
 <div class="authorizations">
-  <%= link_to image_tag('authbuttons/twitter_64.png', :width => 64, :height => 64), auth_path('twitter', from: redirect_url) %>
-  <%= link_to image_tag('authbuttons/google_64.png', :width => 64, :height => 64), auth_path('google', from: redirect_url) %>
-  <%= link_to image_tag('authbuttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url) %>
+  <%= link_to image_tag('authbuttons/twitter_64.png', :width => 64, :height => 64), auth_path('twitter', from: redirect_url), rel: 'nofollow' %>
+  <%= link_to image_tag('authbuttons/google_64.png', :width => 64, :height => 64), auth_path('google', from: redirect_url), rel: 'nofollow'%>
+  <%= link_to image_tag('authbuttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url), rel: 'nofollow' %>
 </div>
 <br/><br/>
 <p>También puedes utilizar el clásico santo y seña (en el caso de que tengas):</p>

@@ -9,6 +9,7 @@ class Admin::CampShelvesController < Admin::ShelvesController
   expose(:shelf) { camp_shelf }
 
   def create
+    # TODO: hardcoded user
     shelf.user_id = 284
     shelf.camp = current_camp
     flash[:notice] = 'Estantería creada ¡A trabajar!' if shelf.save
