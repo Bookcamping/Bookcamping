@@ -62,7 +62,7 @@ Bookcamp::Application.configure do
       :address => "smtp.1and1.es",
       :port => 587,
       :domain => 'bookcamping.cc',
-      :user_name => 'bookcamping@recortable.net'
+      :user_name => 'bookcamping@recortable.net',
       :password => 'bookcamping-mail',
       :authentication => 'plain'
   }
