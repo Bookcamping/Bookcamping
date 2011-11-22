@@ -35,6 +35,7 @@ class Public::SessionsController < ApplicationController
        # redirect_to edit_personal_user_path, notice: 'Por favor, completa tus datos.'
        redirect_to stored_or(root_url), notice: "¡Hola #{current_user.name}!"
       else  
+        @user = user
         render 'edit'
       end
     else # Usuario no encontrado

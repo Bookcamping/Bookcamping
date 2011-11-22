@@ -6,4 +6,5 @@
 </div>
 
 
-<%= render :partial => 'personal/users/form' %>
+<%= render :partial => 'personal/users/form',
+  locals: {user: @user} %>
