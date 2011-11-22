@@ -2,7 +2,7 @@
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
 # Standard deploy assets tasks
-load 'deploy/assets'
+# load 'deploy/assets'
 
 # default_run_options[:pty] = true
 set :application, "Bookcamping"
@@ -103,6 +103,7 @@ namespace :mysql do
   end
 end
 
+# http://fernando.blat.es/post/12563486374/optimize-deploy-time-compiling-your-assets-locally
 namespace :assets do
   desc "Precompile assets in a local file"
   task :precompile_local do
@@ -110,5 +111,18 @@ namespace :assets do
     with_env 'RAILS_ENV', 'production' do
       run_locally 'bundle exec rake assets:precompile'
     end
+    run_locally "touch assets.tgz && rm assets.tgz"
+    run_locally "tar zcvf assets.tgz public/assets/"
+    run_locally "mv assets.tgz tmp/"
+  end
+
+  desc "Upload package and deploy"
+  task :package_deploy do
+    upload 'tmp/assets.tgz', "#{release_path}/assets.tgz"
+    run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
   end
 end
+
+before :deploy, 'assets:precompile_local'
+after 'deploy:finalize_update', 'assets:package_deploy'
+
