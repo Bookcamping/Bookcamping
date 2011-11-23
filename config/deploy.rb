@@ -131,8 +131,9 @@ end
 namespace :god do
   desc "Starts god by loading the config path"
   task :start do
-    run "god -c #{release_path}/config/god/app.god"
-    run "#{try_sudo} god start resque"
+    run "bootup_god -c #{release_path}/config/god/app.god"
+    run "cd #{release_path}; rvmsudo god start resque"
+#   run "#{try_sudo} bootup_god start resque"
   end
   
   desc "Stops god by running quit"

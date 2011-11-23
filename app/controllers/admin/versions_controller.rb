@@ -3,6 +3,9 @@ class Admin::VersionsController < Admin::ApplicationController
   expose(:versions) { current_camp.versions.order('id DESC').limit(50) }
   expose(:version)
 
+  def index
+  end
+
   def show
     case version.item_type
       when 'UserShelf'
@@ -22,8 +25,13 @@ class Admin::VersionsController < Admin::ApplicationController
     end
   end
 
-  def notify
+  def notify_camp_activity
     ActivityMailer.last_site_activity(current_camp.id, current_user.id).deliver if current_user.email?
+    redirect_to admin_versions_path
+  end
+
+  def notify
+    Activities.new(version).build
     redirect_to admin_versions_path
   end
 end

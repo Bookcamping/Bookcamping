@@ -4,7 +4,7 @@ class Library::BooksController < Shared::BooksController
   expose(:shelf) { camp_shelf }
   expose(:pajax?) { request.headers['X-PJAX'].present? }
   expose(:current_camp) { camp_shelf.camp }
-
+  
   def show
     if pajax?
       render action: 'show_pjax', layout: false

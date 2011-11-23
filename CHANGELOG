@@ -4,7 +4,12 @@ TAREAS
 * Buscar títulos similares
 * Pruebas!!
 
+
+2011/11/24
+  * Después de mucho probar, un observer y Activities lanzado en background: empezamos con los emails
+  *
 2011/11/23
+  * Notificaciones al grupo
   * Bug en identity
   * Intentar reducir la posibilidad de error en el alta automática
   * Clean shelves slug

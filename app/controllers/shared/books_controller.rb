@@ -37,5 +37,14 @@ class Shared::BooksController < ApplicationController
     respond_with book, :location => root_path
   end
 
+  protected
+  def notify_book_created
+    ActivityMailer.notify_reference(:created, book.id, current_user.id).deliver
+  end
+
+  def notify_book_updated
+    ActivityMailer.notify_reference(:updated, book.id, current_user.id).deliver
+  end
+
 end
 

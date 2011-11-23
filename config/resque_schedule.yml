@@ -1,0 +1,5 @@
+notify_version_to_bookcamping:
+  cron: "*/5 0 * * *"
+  class: NotifyVersions 
+  args: 
+  description: "Enviar email a bookcamping con los cambios"

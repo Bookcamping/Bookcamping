@@ -38,7 +38,8 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem 'resque', :require => 'resque/server'
-gem 'resque_mailer'
+#gem 'resque_mailer'
+#gem 'resque-scheduler'
 
 #gem 'prawn'
 #gem 'prawnto'

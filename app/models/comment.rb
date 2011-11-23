@@ -36,5 +36,4 @@ class Comment < ActiveRecord::Base
       PaperTrail.enabled = true
     end
   end
-
 end

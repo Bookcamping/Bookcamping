@@ -19,7 +19,7 @@ module Bookcamp
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
     # Activate observers that should always be running.
-    # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+    config.active_record.observers = :version_observer
 
     config.i18n.default_locale = :es
 

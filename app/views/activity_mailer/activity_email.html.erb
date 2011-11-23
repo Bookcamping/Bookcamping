@@ -1,0 +1,21 @@
+
+<% title = @version.title ? @version.title : '<sin título>' %>
+    <h3>
+      <%= link_to title, admin_version_url(@version, host: @host) %>
+      <small><%= t("versions.models.#{@version.item_type}") %></small>
+    </h3>
+    <h5 class="user">
+      <span class="action">
+        <%= t("versions.events.#{@version.event}") %>
+      </span>
+      <% if @version.whodunnit.present? %>
+          por <%= link_to @version.user_name, user_url(@version.user_name, host: @host) %>
+      <% end %>
+      <small>hace <%= time_ago_in_words @version.created_at %></small>
+    </h5>
+
+<p>más...</p>
+<p style="display:none">
+<%= debug @version %>
+</p>
+
