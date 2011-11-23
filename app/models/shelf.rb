@@ -34,13 +34,17 @@ class Shelf < ActiveRecord::Base
       :user_name => Proc.new { |shelf| shelf.user.name }
   }
 
+  # SCOPES
   scope :public, where(visibility: :public)
   scope :private, where(visibility: :private)
 
+  # VALIDATIONS
   validates :user_id, presence: true
   validates :name, presence: true
   validates :visibility, presence: true
 
+  # CALLBACKS
+  before_save :clean_slug
 
   COLORS = ['#db533d', '#86475e', '#afa9ad', '#e9c54b', '#64a353',
             '#c36d3b', '#ee8587', '#357391', '#67c095', '#4eaea8', '#f15a5b',
@@ -69,5 +73,8 @@ class Shelf < ActiveRecord::Base
     false
   end
 
-
+  protected
+  def clean_slug
+    self.slug = self.slug.parameterize if self.slug.present?
+  end
 end

@@ -24,7 +24,11 @@ class Public::SessionsController < ApplicationController
         user.email = omniauth['info']['email']
         user.twitter = omniauth['info']['nickname']
       end
-      user.save!
+      unless user.save
+        timestamp = (Time.now.to_f * 1000).to_i
+        user.name = "#{user.name}#{timestamp}"
+        user.save
+      end
       login_user(user)
     end
   end

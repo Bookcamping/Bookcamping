@@ -126,3 +126,17 @@ end
 #before :deploy, 'assets:precompile_local'
 #after 'deploy:finalize_update', 'assets:package_deploy'
 
+# https://gist.github.com/238268
+# http://stackoverflow.com/questions/1732415/how-to-deploy-resque-workers-in-production
+namespace :god do
+  desc "Starts god by loading the config path"
+  task :start do
+    run "god -c #{release_path}/config/god/app.god"
+    run "#{try_sudo} god start resque"
+  end
+  
+  desc "Stops god by running quit"
+  task :quit do
+    run "god quit"
+  end
+end

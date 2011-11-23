@@ -5,6 +5,8 @@ TAREAS
 * Pruebas!!
 
 2011/11/23
+  * Intentar reducir la posibilidad de error en el alta automática
+  * Clean shelves slug
   * Identidades en admin
   * Se puede crear un usuario a través de admin
   * Test de usuario
