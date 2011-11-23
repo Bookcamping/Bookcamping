@@ -8,6 +8,7 @@
 <table>
   <% users.each do |user| %>
       <tr>
+        <td><%= user.id %></td>
         <td><%= link_to user.name, user %></td>
         <td><% user.identities.each do |i|%><%= i.provider %><% end %></td>
         <td><%= user.email %></td>
