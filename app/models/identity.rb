@@ -12,7 +12,7 @@ class Identity < ActiveRecord::Base
   end
 
   def authorized?(unencrypted_password)
-    bookcamping? and password_digest == BCrypt::Password.create(unencrypted_password)
+    bookcamping? and BCrypt::Password.new(password_digest) == unencrypted_password
   end
 
   def password=(unencrypted_password)

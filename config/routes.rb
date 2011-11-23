@@ -101,6 +101,7 @@ Bookcamp::Application.routes.draw do
   match "/lista/:id" => redirect("/estanteria/%{id}")
 
 
+  match "/identificar" => "public/sessions#create"
   match "/entrar" => "public/sessions#new", as: :login
   match "/auth/:provider/callback" => "public/sessions#create_with_omniauth"
   match "/salir" => "public/sessions#destroy", :as => :logout

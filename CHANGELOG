@@ -5,6 +5,7 @@ TAREAS
 * Pruebas!!
 
 2011/11/23
+  * Bug en identity
   * Intentar reducir la posibilidad de error en el alta automática
   * Clean shelves slug
   * Identidades en admin
