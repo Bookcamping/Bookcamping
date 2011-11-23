@@ -7,7 +7,9 @@ TAREAS
 
 2011/11/24
   * Después de mucho probar, un observer y Activities lanzado en background: empezamos con los emails
-  *
+  * Bug que desactivaba el uso de versiones
+ 
+
 2011/11/23
   * Notificaciones al grupo
   * Bug en identity

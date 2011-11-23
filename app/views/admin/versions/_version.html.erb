@@ -13,5 +13,6 @@
           por <%= link_to version.user_name, user_path(version.whodunnit) %>
       <% end %>
       <small>hace <%= time_ago_in_words version.created_at %></small>
-    </h5><%= link_to '[perf]', [:notify, :admin, version], method: :post  unless false and version.processed? %>
+    </h5>
+    <%= link_to '[perf]', [:notify, :admin, version], method: :post  unless version.processed? %>
 <% end %>
