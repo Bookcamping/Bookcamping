@@ -29,6 +29,8 @@ class Public::SessionsController < ApplicationController
         user.name = "#{user.name}#{timestamp}"
         user.save
       end
+      Identity.create(user: user, provider: omniauth['provider'], uid: omniauth['uid'])
+
       login_user(user)
     end
   end

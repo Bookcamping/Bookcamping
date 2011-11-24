@@ -6,6 +6,7 @@ TAREAS
 
 
 2011/11/24
+  * Bug: no se guarda la autenticación de un nuevo usuario
   * Quitamos inherit_resources
   * Empezamos con Activities
   * Después de mucho probar, un observer y Activities lanzado en background: empezamos con los emails
