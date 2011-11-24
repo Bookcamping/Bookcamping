@@ -22,5 +22,9 @@ class Site
   def self.host
     Rails.env.production? ? 'http://bookcamping.cc' : 'localhost:3000'
   end
+
+  def self.tables
+    @tables ||= ActiveRecord::Base.connection.tables
+  end
 end
 

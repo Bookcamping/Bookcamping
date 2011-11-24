@@ -10,11 +10,8 @@ end
 gem 'jquery-rails'
 #gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git', ref: '4e4b9922705a3f9ccba432612d501f3b9dde1f53'
 
-gem 'inherited_resources'
 gem 'decent_exposure'
 gem 'simple_form'
-#gem 'css3buttons'
-#gem 'rails3-jquery-autocomplete'
 
 gem 'cancan'
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -30,16 +27,12 @@ gem 'paper_trail'
 gem 'acts_as_list'
 gem 'redcarpet'
 gem 'kaminari'
-gem 'has_scope'
-gem 'responders'
 
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
 
 gem 'resque', :require => 'resque/server'
-#gem 'resque_mailer'
-#gem 'resque-scheduler'
 
 #gem 'prawn'
 #gem 'prawnto'
