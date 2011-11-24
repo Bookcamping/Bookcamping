@@ -54,11 +54,12 @@ class Book < ActiveRecord::Base
   attr_accessible :user_id, :as => :super
   attr_accessor :include_in_shelf_id
 
+  # VALIDATIONS
   validates :user_id, :presence => true
   validates :camp_id, :presence => true
   validates :title, :presence => true
   validates :license_id, :presence => true
-  validates :include_in_shelf_id, presence: true, on: :create
+  # validates :include_in_shelf_id, presence: true, on: :create
 
   after_create do
     if include_in_shelf_id

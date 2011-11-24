@@ -1,8 +1,18 @@
-<%= title "Estadísticas para ##{current_camp.name}" %>
+<%= title "Estadísticas" %>
 
+<h2>Totales</h2>
 <dl>
   <dt>Número de referencias:</dt>
-  <dd><%= current_camp.books.count %></dd>
+  <dd><%= Book.count %></dd>
   <dt>Número de participantxs:</dt>
-  <dd><%= current_camp.memberships.count %></dd>
+  <dd><%= User.count %></dd>
 </dl>
+
+<% Camp.all.each do |camp| %>
+  <h2>En <%= camp.name %></h2>
+  <dl>
+    <dt>Referencias:</dt>
+    <dd><%= camp.books.count %></dd>
+  </dl>
+<% end %>
+

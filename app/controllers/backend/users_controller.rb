@@ -1,17 +1,7 @@
 class Backend::UsersController < Backend::ResourceController
+  expose_with_slug
+  expose_resource :user
+  #expose(:user) { params[:id].present? ? User.find_by_slug(params[:id]) : User.new(params[:user]) }
 
-  def show
-    load_user
-    show! 
-  end
-
-  def edit
-    load_user
-    edit!
-  end
-
-  def load_user
-    @user = User.find_by_slug params[:id]
-  end
 end
 

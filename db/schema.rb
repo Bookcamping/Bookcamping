@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123152343) do
+ActiveRecord::Schema.define(:version => 20111123223444) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "user_name"
+    t.string   "user_url"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.string   "action",        :limit => 16
+    t.string   "title",         :limit => 200
+    t.string   "url",           :limit => 200
+    t.datetime "activity_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "book_lists", :force => true do |t|
     t.integer  "user_id"

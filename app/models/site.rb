@@ -18,5 +18,9 @@ class Site
   def explore_users
     User.order('updated_at DESC').limit(20)
   end
+
+  def self.host
+    Rails.env.production? ? 'http://bookcamping.cc' : 'localhost:3000'
+  end
 end
 

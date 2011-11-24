@@ -10,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    name 'User'
+    sequence(:name) {|n| "user#{n}" } 
     email { "#{name}@email.com" }
   end
 
@@ -20,6 +20,15 @@ FactoryGirl.define do
     license
     title 'Book'
   end
+
+  factory :version do
+    event 'create'
+    whodunnit '1'
+    title 'title'
+    user_name 'user'
+    processed false
+  end
+    
 
   factory :shelf do
     camp

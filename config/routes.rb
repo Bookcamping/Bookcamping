@@ -83,14 +83,9 @@ Bookcamp::Application.routes.draw do
   namespace :backend do
     root to: 'stats#show'
     resource :stats
-    resources :licenses
-    resources :books
-    resources :users
-    resources :posts
-    resources :shelves
-    resources :versions
-    resources :identities
-
+    [:licenses, :books, :users, :posts, :shelves, :versions, :identities, :activities].each do |name|
+      resources name
+    end
   end
 
   match "/clismon/pnh" => 'publishers/clismon#pnh'
