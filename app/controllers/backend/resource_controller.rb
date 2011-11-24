@@ -15,6 +15,10 @@ class Backend::ResourceController < Backend::ApplicationController
     update!
   end
 
+  def search
+    search!
+  end
+
   def create!(url = nil)
     url ||= [:backend, resource]
     flash[:notice] = t(".notice.created") if resource.save
@@ -26,6 +30,15 @@ class Backend::ResourceController < Backend::ApplicationController
     flash[:notice] = t(".notice.updated") if resource.save
     respond_with resource, location: url
   end 
+
+  def search!
+   @search = {}
+     
+    @search[:column] = params[:column].present? ? params[:column] : 'id'
+    @search[:value] = params[:value].present? ? params[:value] : '-1'
+    condition = "#{@search[:column]} = ?"
+    @search[:results] = resource_class.where([condition, @search[:value]]).order('id DESC').page(page_param)
+  end
 
   def self.expose_resource(name)
     define_method :resource_name do

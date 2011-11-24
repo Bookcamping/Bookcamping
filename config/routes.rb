@@ -84,7 +84,9 @@ Bookcamp::Application.routes.draw do
     root to: 'stats#show'
     resource :stats
     [:licenses, :books, :users, :posts, :shelves, :versions, :identities, :activities].each do |name|
-      resources name
+      resources name do
+        get :search, on: :collection
+      end
     end
   end
 
