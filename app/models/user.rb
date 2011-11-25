@@ -78,10 +78,19 @@ class User < ActiveRecord::Base
 
   def identify_with(password)
     id = identities.where(provider: 'bookcamping').first
-    id = identities.build(provider: 'bookcamping', uid: email) unless id
+    id ||= identities.build(provider: 'bookcamping', uid: email) 
     id.password = password
     id.save
     identities(true)
+  end
+
+  def generate_recovery_identity
+    id = identities.where(provider: 'recovery').first
+    id ||= identities.build(provider: 'recovery')
+    id.uid = Digest::MD5.hexdigest("#{self.id}#{Time.now}")
+    id.save!
+    identities(true)
+    id
   end
 
   protected

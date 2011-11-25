@@ -1,0 +1,13 @@
+<div class="header">
+  <%= title 'Recuperar contraseña' %>
+  <% if params[:id] == 'enviada' %>
+    <p>Las instrucciones se te han enviado al correo electrónico.</p>
+  <% else %>
+    <p>No se ha encontrado a nadie con ese email.</p>
+  <% end %>
+</div>
+
+<div class="actions">
+  <%= link_to 'Volver', login_path, class: 'back' %>
+</div>
+

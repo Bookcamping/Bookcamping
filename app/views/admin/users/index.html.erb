@@ -5,6 +5,10 @@
   <%= link_to 'Añadir', new_admin_user_path %>
 </div>
 
+<div class="pagination">
+  <%= paginate users %>
+</div>
+
 <table>
   <% users.each do |user| %>
       <tr>

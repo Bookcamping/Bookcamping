@@ -25,7 +25,11 @@ Bookcamp::Application.routes.draw do
       resources :posts, path: 'blog' do
         resources :comments
       end
+      resources :password_recoveries, path: 'recuperar' do
+        post :change, on: :collection
+      end
     end
+    match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
     namespace :personal, path: 'mis' do
       root to: redirect('/mis/labores')

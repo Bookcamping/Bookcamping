@@ -19,4 +19,7 @@
     <%= form.input :email, hint: false %>
     <%= form.input :password %>
     <%= form.submit 'Entrar' %>
-<% end %>
+  <% end %>
+<div class="mini">
+  <%= link_to 'No recuerdo mi contraseña', new_password_recovery_path %>
+</div>

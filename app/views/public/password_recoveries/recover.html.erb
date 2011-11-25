@@ -1,0 +1,16 @@
+<div class="header">
+  <%= title 'Cambiar contraseña' %>
+</div>
+
+<p>Hola <%= identity.user.name %>,</p>
+
+<p>Introduce la nueva contraseña que quieres
+utilizar para entrar en #bookcamping</p>
+
+<%= form_tag change_password_recoveries_path do %>
+  <%= hidden_field_tag :user_id, identity.user.id %>
+  <%= password_field_tag :password %>
+  <%= submit_tag 'Cambiar contraseña' %>
+<% end %>
+
+

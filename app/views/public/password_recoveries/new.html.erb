@@ -1,0 +1,11 @@
+<%= title 'Recuperar contraseña' %>
+<p>Te enviaremos un correo electrónico
+con las instrucciones para recuperar
+tu contraseña.</p>
+
+<%= simple_form_for password_recovery do |form| %>
+<%= form.input :email %>
+<%= form.submit 'Enviar correo' %>
+<% end %>
+
+
