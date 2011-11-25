@@ -6,11 +6,11 @@
 <%= admin_title resource_class, 'Administración del blog' %>
 
 <div class="pagination">
-  <%= paginate collection %>
+  <%= paginate resources %>
 </div>
 
 <div id="posts">
-  <% collection.each do |post| %>
+  <% resources.each do |post| %>
       <%= div_for post, class: post.visibility do %>
           <h2><%= link_to truncate(post.title, length: 50), [:admin, post] %>
             <small class="visibility <%= post.visibility %>"><%= t("post.visibilities.#{post.visibility}") %></small>

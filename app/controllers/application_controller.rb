@@ -5,33 +5,14 @@ class ApplicationController < ActionController::Base
   include Controllers::AuthMethods
   helper_method :current_user, :current_user?
 
+  include ExposeResource
+
   expose(:current_camp) { load_camp_from_request }
   expose(:current_publisher) { nil }
 
   def info_for_paper_trail
     {:user_name => current_user? ? current_user.name : 'Anónimx',
      :camp_id => current_camp.id}
-  end
-
-  def self.expose_with_slug
-    default_exposure do |name|
-      collection = name.to_s.pluralize
-      if respond_to?(collection) && collection != name.to_s && send(collection).respond_to?(:scoped)
-        proxy = send(collection)
-      else
-        proxy = name.to_s.classify.constantize
-      end
-
-      if params.has_key?(:id)
-        shelf = proxy.find_by_slug(params[:id])
-        shelf ||= proxy.find(params[:id])
-        shelf.tap do |r|
-          r.attributes = params[name] unless request.get?
-        end
-      else
-        proxy.new(params[name])
-      end
-    end
   end
 
   rescue_from ActionView::TemplateError do |x|

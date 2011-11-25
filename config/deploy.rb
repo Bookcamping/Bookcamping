@@ -16,8 +16,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :scm_verbose, false
 
-
-role :clientapp, "recortable.net"
+role :app, "recortable.net"
 role :web, "recortable.net"
 role :db,  "recortable.net", :primary => true
 

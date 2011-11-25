@@ -1,24 +1,19 @@
 class Admin::Blog::PostsController < Admin::ResourceController
+  expose_resource :post
   expose(:media_bites) { MediaBite.order('updated_at DESC') }
   expose(:last_comments) { Comment.where(resource_type: 'Post').order('id DESC').limit(20) }
 
-  def index
-    page = params[:page].present? ? params[:page] : 1
-    @posts = Post.order('published_at DESC').page(page)
-  end
-
   def create
-    @post = Post.new params[:post]
-    @post.user = current_user
-    @post.camp = current_camp
-    create! { [:admin, @post ] }
+    post.user = current_user
+    post.camp = current_camp
+    create! [:admin, post ] 
   end
 
   def update
-    update! { [:admin, @post] }
+    update! [:admin, post] 
   end
 
   def destroy
-    destroy! { [:admin, :posts] }
+    destroy! [:admin, :posts] 
   end
 end
