@@ -20,7 +20,7 @@ class Site
   end
 
   def self.host
-    Rails.env.production? ? 'http://bookcamping.cc' : 'localhost:3000'
+    Rails.env.production? ? 'bookcamping.cc' : 'localhost:3000'
   end
 
   def self.tables

@@ -57,4 +57,4 @@
     end
   end
 
-  after "deploy:restart", "unicorn:reload"
+  #after "deploy:restart", "unicorn:reload"
