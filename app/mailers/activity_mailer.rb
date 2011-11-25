@@ -1,5 +1,4 @@
 class ActivityMailer < ActionMailer::Base
-  include Resque::Mailer if Rails.env.production?
   layout 'mail'
   default_url_options[:host] = "bookcamping.cc"
   default from: '#bookcamping <app@bookcamping.cc>'
