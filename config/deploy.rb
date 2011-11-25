@@ -6,7 +6,7 @@ load 'deploy/assets'
 
 # default_run_options[:pty] = true
 set :application, "Bookcamping"
-set :deploy_to, "/home/deploy/beta#{application}"
+set :deploy_to, "/home/deploy/#{application}"
 set :user, "deploy"
 set :use_sudo, false
 
