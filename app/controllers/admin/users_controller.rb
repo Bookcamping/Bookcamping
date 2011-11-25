@@ -2,7 +2,8 @@ class Admin::UsersController < Admin::ApplicationController
   respond_to :html
 
   expose_with_slug 
-  expose(:users) { User.order('updated_at DESC').limit(10)}
+  expose(:page_param) { params[:page].present? ? params[:page] : 1 }
+  expose(:users) { User.order('updated_at DESC').page(page_param)}
   expose(:user)
 
   def index

@@ -41,6 +41,8 @@ gem 'resque', :require => 'resque/server'
 gem 'newrelic_rpm'
 gem 'hoptoad_notifier'
 
+gem 'unicorn'
+
 # heroku
 group :production do
 #  gem 'pg'

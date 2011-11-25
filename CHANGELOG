@@ -5,6 +5,16 @@ TAREAS
 * Pruebas!!
 
 
+URGENTE
+  * Sessiones
+  * Invitaciones
+  * Reset password
+  * Cambiar contraseña
+  * Enviar email a problemáticas
+  * Generar passwords aleatorias
+  * Merge users!
+  
+  
 2011/11/24
   * Bug: no se guarda la autenticación de un nuevo usuario
   * Quitamos inherit_resources

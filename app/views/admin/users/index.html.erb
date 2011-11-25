@@ -9,12 +9,11 @@
   <% users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= link_to user.name, user %></td>
-        <td><% user.identities.each do |i|%><%= i.provider %><% end %></td>
-        <td><%= user.email %></td>
-        <td><%= user.twitter %></td>
-        <td><%= user.login_count %></td>
-        <td>&nbsp;(<%= time_ago_in_words user.last_login_at if user.last_login_at %>)</td>
+        <td>(<%= user.login_count %>)</td>
+        <td><%= link_to user.name, user %> /
+        <%= user.email %>
+        <br/>&nbsp;(<%= time_ago_in_words user.last_login_at if user.last_login_at %>)</td>
+        <td>[<% user.identities.each do |i|%><%= i.provider %><% end %>]</td>
         <td>
           <%= link_to 'Editar', [:edit, :admin, user] %>
           <%= link_to 'Borrar!', [:admin, user], method: :delete, confirm: "borrar #{user.name}" if Rails.env.development? %>
@@ -23,8 +22,4 @@
   <% end %>
 </table>
 
-<% content_for :sidebar do %>
-    <% Identity.order('id DESC').limit(4).each do |i| %>
-        <%= debug i %>
-    <% end %>
-<% end %>
+
