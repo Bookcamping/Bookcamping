@@ -7,6 +7,7 @@ class Social::UserShelvesController < ApplicationController
   expose(:shelf)
 
   def show
+    authorize! :show, shelf
   end
 end
 

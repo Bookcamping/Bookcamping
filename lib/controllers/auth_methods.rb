@@ -13,7 +13,7 @@ module Controllers
     end
 
     def require_super
-      if current_user
+      if current_user?
         raise CanCan::AccessDenied unless current_user.super?
       elsif store_location
         redirect_to login_path
@@ -21,7 +21,7 @@ module Controllers
     end
 
     def require_user
-      unless current_user
+      unless current_user?
         store_location
         flash[:notice] = 'Es necesario que te identifiques primero.'
         redirect_to login_path(from: request.fullpath)

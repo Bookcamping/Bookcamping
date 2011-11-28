@@ -5,7 +5,7 @@ namespace :mysql do
     filename = "#{application}.dump.#{Time.now.to_i}.sql.bz2"
     file = "/tmp/#{filename}"
     on_rollback { delete file }
-    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)['production']
+    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '../database.yml'))).result)['production']
     run "mysqldump -u #{db['username']} --password=#{db['password']} #{db['database']} | bzip2 -c > #{file}" do |ch, stream, data|
       puts data
     end
@@ -20,7 +20,7 @@ namespace :mysql do
     filename = "#{application}.dump.sql"
     file = "/tmp/#{filename}"
     on_rollback { delete file }
-    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)
+    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '../database.yml'))).result)
     production = db['production']
 
     pass_ops = !production['password'].nil? ? "--password=#{production['password']}" : ''

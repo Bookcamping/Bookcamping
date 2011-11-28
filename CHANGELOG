@@ -8,13 +8,20 @@ TAREAS
 URGENTE
   * Sessiones
   * Invitaciones
-  * Reset password
   * Cambiar contraseña
-  * Enviar email a problemáticas
-  * Generar passwords aleatorias
   * Merge users!
-  
-  
+  * DecentExposure para todos los controladores
+
+2011/11/28
+  * Bug: blog/blog.rss debería dar 404
+  * Bug: show in user_shelves should respond with 404
+ 
+2011/11/25
+  * Cambio de contraseña
+  * Recuperación de contraseña por email
+  * Generación de invitaciones
+
+ 
 2011/11/24
   * Bug: no se guarda la autenticación de un nuevo usuario
   * Quitamos inherit_resources

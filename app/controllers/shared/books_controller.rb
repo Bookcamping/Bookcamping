@@ -16,9 +16,9 @@ class Shared::BooksController < ApplicationController
   end
 
   def create
-    authorize! :create, book
     book.user = current_user
     book.camp = current_camp
+    authorize! :create, book
     flash[:notice] = "¡Referencia añadida! ¡Gracias!" if current_user.add_book(book)
     respond_with book
   end

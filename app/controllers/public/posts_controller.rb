@@ -15,5 +15,6 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    authorize! :show, post
   end
 end
