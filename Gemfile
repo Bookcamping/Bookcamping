@@ -41,18 +41,16 @@ gem 'resque', :require => 'resque/server'
 gem 'newrelic_rpm'
 gem 'hoptoad_notifier'
 
-gem 'unicorn'
-
 # heroku
 group :production do
 #  gem 'pg'
+  gem 'unicorn'
 end
 
 group :development do
   gem "thin"
   gem 'sqlite3'
   gem 'mysql2'
-  #gem 'unicorn'
   #gem 'mongrel', '1.2.0.pre2'
 end
 

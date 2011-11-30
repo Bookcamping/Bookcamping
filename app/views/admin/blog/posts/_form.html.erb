@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @post] do |form| %>
+<%= simple_form_for [:admin, post] do |form| %>
     <%= form.input :title %>
     <%= form.input :author %>
     <%= form.input :visibility, include_blank: false,
@@ -40,5 +40,5 @@
 <% end %>
 
 <!--
-<%#= debug @post.errors.inspect %>
+<%#= debug post.errors.inspect %>
 -->
