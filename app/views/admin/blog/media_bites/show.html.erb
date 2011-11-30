@@ -1,16 +1,16 @@
 <div class="actions">
   <%= link_to 'Volver', admin_media_bites_path, class: 'back' %>
-  <%= link_to 'Editar', [:edit, :admin, @media_bite] %>
-  <%= link_to 'Borrar', [:admin, @media_bite], method: :delete,
+  <%= link_to 'Editar', [:edit, :admin, media_bite] %>
+  <%= link_to 'Borrar', [:admin, media_bite], method: :delete,
               confirm: "¿Estás segura? No se puede deshacer!" %>
 </div>
 
-<%= title "Media: #{@media_bite.title}" %>
+<%= title "Media: #{media_bite.title}" %>
 
 <ul class="properties">
-  <li><label>Posición en el post: </label><%= t("media_bite.positions.#{@media_bite.position}") %></li>
-  <li><label>Enlaza con: </label><%= link_to @media_bite.link, @media_bite.link %></li>
+  <li><label>Posición en el post: </label><%= t("media_bite.positions.#{media_bite.position}") %></li>
+  <li><label>Enlaza con: </label><%= link_to media_bite.link, media_bite.link %></li>
 </ul>
-<% if @media_bite.image_file? %>
-    <%= image_tag @media_bite.file_content_url, alt: @media_bite.title %>
+<% if media_bite.image_file? %>
+    <%= image_tag media_bite.file_content_url, alt: media_bite.title %>
 <% end %>
