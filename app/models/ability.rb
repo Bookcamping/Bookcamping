@@ -33,6 +33,7 @@ class Ability
     cannot :destroy, UserShelf, :rol => 'my_references'
 
     can :manage, Post if user.admin?
+    can :read, Post
   end
 
   def user=(user)
