@@ -14,6 +14,7 @@ URGENTE
 
 2011/12/08
   * Crear test de integración
+  * Borrar ProfileShelf model
 
 2011/11/28
   * Bug: blog/blog.rss debería dar 404

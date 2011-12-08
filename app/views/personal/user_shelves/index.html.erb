@@ -1,8 +1,8 @@
 <div class="header">
   <%= title 'Mis listas' %>
   <div class="properties">
-    Tienes <%= current_user.personal_shelves.public.count %> listas públicas
-    y <%= current_user.personal_shelves.private.count %> privada.
+    Tienes <%= current_user.user_shelves.public.count %> listas públicas
+    y <%= current_user.user_shelves.private.count %> privada.
   </div>
 </div>
 
@@ -12,7 +12,7 @@
 
 
 <table class="shelves">
-  <% current_user.personal_shelves.each do |shelf| %>
+  <% current_user.user_shelves.each do |shelf| %>
       <%= render_shelf shelf, [:personal, shelf] %>
   <% end %>
 </table>

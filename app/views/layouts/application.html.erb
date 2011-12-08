@@ -28,7 +28,7 @@
     <div class="user">
       <% if current_user %>
           <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
-          <%= link_to "¡Hola #{current_user.name}!", personal_root_path %>
+          <%= link_to "¡Hola #{current_user.name}!", personal_user_path %>
           <%= link_to 'Estanterías', camp_shelves_path %> /
           <%= link_to 'Explorar', explorer_path %> /
           <%= link_to 'Mis Listas', personal_user_shelves_path %> /

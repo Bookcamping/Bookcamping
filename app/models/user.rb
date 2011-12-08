@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   has_many :shelves, dependent: :restrict
   has_many :camp_shelves
   has_many :user_shelves, dependent: :destroy
-  has_many :personal_shelves, class_name: 'Shelf', conditions: ["type = ? OR type = ?", 'UserShelf', 'ProfileShelf']
 
   # Profile shelves
   has_one :like_it_shelf, class_name: 'UserShelf', conditions: {rol: 'like_it'}

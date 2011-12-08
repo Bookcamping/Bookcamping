@@ -2,25 +2,7 @@
 #
 # Una lista en bookcamping. Puede ser de varios tipos:
 # CampShelf: una estantería. cada Camp(ing) tiene sus estanterías
-# ProfileShelf: listas personales especiales (no se pueden borrar)
 # UserShelf: listas personales
-# CuratedShelf: listas comisariadas (habría que pensar sobre ello)
-#
-#  t.integer  "user_id"
-#  t.string   "name",           :limit => 200
-#  t.string   "slug",           :limit => 50
-#  t.integer  "books_count",                   :default => 0
-#  t.integer  "comments_count",                :default => 0
-#  t.datetime "created_at"
-#  t.datetime "updated_at"
-#  t.integer  "camp_id"
-#  t.string   "color",          :limit => 16
-#  t.text     "description"
-#  t.string   "rol",            :limit => 32
-#  t.string   "type",           :limit => 32
-#  t.string   "visibility",     :limit => 16
-#
-#
 #
 class Shelf < ActiveRecord::Base
   belongs_to :camp
@@ -76,5 +58,13 @@ class Shelf < ActiveRecord::Base
   protected
   def clean_slug
     self.slug = self.slug.parameterize if self.slug.present?
+  end
+  
+  def add_reference(id, user_id)
+    PaperTrail.enabled = false
+    unless ShelfItem.where(shelf_id: self.id).where(book_id: id).first
+      ShelfItem.create!(shelf: self, book_id: id, user_id: user_id)
+    end
+    PaperTrail.enabled = true
   end
 end
