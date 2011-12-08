@@ -1,12 +1,20 @@
 <% title user.name %>
 
-<% present user, {show_private: true, count: 'Actividad'} do |presenter| -%>
-    <%= div_for user do %>
-        <%= presenter.header %>
-        <div class="actions">
-          <%= link_to 'Cerrar sesión', logout_path %>
-          <%= link_to 'Editar datos', edit_personal_user_path %>
-        </div>
+<% present user, {show_private: true, count: 'Datos'} do |presenter| -%>
+  <%= div_for user do %>
+    <%= presenter.header %>
+    <div class="actions">
+      <%= link_to 'Cerrar sesión', logout_path %>
+      <%= link_to 'Editar datos', edit_personal_user_path %>
+    </div>
+
+    <h3>Actualmente, puedes entrar con:</h3>
+    <% user.identities.each do |identity| %>
+      <%= identity.provider %>
     <% end %>
+    <br/>
+
+    <h3>Puedes añadir otras maneras de entrar:</h3>
+  <% end %>
 <% end %>
 

@@ -11,6 +11,8 @@ class Ability
     can :manage, Book if user?
     cannot :destroy, Book unless admin?
 
+    # User
+    can :read, User
     can :edit, User, id: user.id
 
     can :manage, ShelfItem do |item|
@@ -28,6 +30,8 @@ class Ability
     end
 #    can :manage, :all if admin?
 
+    # UserShelf
+    can :read, UserShelf
     cannot :destroy, UserShelf, :rol => 'read_later'
     cannot :destroy, UserShelf, :rol => 'like_it'
     cannot :destroy, UserShelf, :rol => 'my_references'

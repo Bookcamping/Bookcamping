@@ -1,3 +1,9 @@
+# encoding: utf-8
+#
+# Users::Create
+#
+# Extensiones para User relacionadas con la creación de usuarios
+#
 module Users::Create
 
  def create_profile_shelves

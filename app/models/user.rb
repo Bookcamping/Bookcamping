@@ -1,23 +1,9 @@
 # User
 #
-#create_table "users", :force => true do |t|
-#  t.string "name", :limit => 100
-#  t.string "email"
-#  t.string "rol", :limit => 10
-#  t.datetime "created_at"
-#  t.datetime "updated_at"
-#  t.integer "login_count", :default => 0
-#  t.datetime "last_login_at"
-#  t.string "twitter", :limit => 150
-#  t.boolean "email_visible", :default => false
-#  t.boolean "twitter_visible", :default => false
-#  t.boolean "email_confirmed", :default => false
-#  t.string "description", :limit => 300
-#  t.boolean  "active",                         :default => false
-#  t.string   "slug",            :limit => 100
-#end
+# 
 class User < ActiveRecord::Base
   include Users::Create
+  include Users::Identities
   has_many :identities, dependent: :destroy
   has_many :books, dependent: :restrict
   has_many :comments, dependent: :destroy
@@ -39,10 +25,10 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true, uniqueness: true
-#  validates :email, presence: true, on: :create, unless: :twitter?
-#  validates :email, uniqueness: true, if: :email?
-# validates :password, presence: true, confirmation: true, on: :create
-# validates :password_confirmation, presence: true, on: :create
+  #  validates :email, presence: true, on: :create, unless: :twitter?
+  #  validates :email, uniqueness: true, if: :email?
+  # validates :password, presence: true, confirmation: true, on: :create
+  # validates :password_confirmation, presence: true, on: :create
 
   #has_secure_password
 
@@ -51,7 +37,6 @@ class User < ActiveRecord::Base
   after_create :create_profile_shelves
 
   attr_accessor :password, :password_confirmation
-
 
   def add_book(book)
     book.user = self
@@ -75,23 +60,10 @@ class User < ActiveRecord::Base
     slug
   end
 
-
-  def identify_with(password)
-    id = identities.where(provider: 'bookcamping').first
-    id ||= identities.build(provider: 'bookcamping', uid: email) 
-    id.password = password
-    id.save
-    identities(true)
+  def self.by_param(param)
+    User.find_by_slug(param) || User.find(param)
   end
 
-  def generate_recovery_identity
-    id = identities.where(provider: 'recovery').first
-    id ||= identities.build(provider: 'recovery')
-    id.uid = Digest::MD5.hexdigest("#{self.id}#{Time.now}")
-    id.save!
-    identities(true)
-    id
-  end
 
   protected
   def update_slug

@@ -1,3 +1,8 @@
+# Password Recovery
+#
+# Es un modelo (sin backend en base de datos) que encapsula la operación de
+# recuperar contraseña
+# 
 class PasswordRecovery
   include ActiveModel::Validations
   include ActiveModel::Conversion
@@ -5,7 +10,10 @@ class PasswordRecovery
 
   attr_accessor :email
   attr_accessor :user, :id, :persisted
+  attr_accessor :status
   validates :email, presence: true
+
+  STATUS = [:valid, :user_not_found]
 
   def initialize(attributes = {})
     if attributes
@@ -22,10 +30,10 @@ class PasswordRecovery
       user = User.find_by_email(email)
       if user
         identity = user.generate_recovery_identity
-        self.id = 'enviada'
+        self.status = 'enviada'
         PasswordMailer.recovery_password(identity.id).deliver
       else
-        self.id = 'no-encontrada'
+        self.status = 'no-encontrada'
       end
     end
     self.persisted?

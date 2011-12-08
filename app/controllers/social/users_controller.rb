@@ -10,10 +10,12 @@ class Social::UsersController < ApplicationController
   expose(:search) { Search.new(:users, users, params[:term]) }
 
   def index
+    authorize! :read, User
   end
 
 
   def show
+    redirect_to user_user_shelves_path(user)
   end
 end
 
