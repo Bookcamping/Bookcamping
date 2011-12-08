@@ -1,6 +1,7 @@
-
-create_bookcamping if Camp.count == 0
-#create_licenses if License.count == 0
+# encoding: utf-8
+# Prepara la base de datos para tests
+# Utiliza datos de prueba si quieres montar un servidor de desarrollo en local
+#
 
 def create_bookcamping
   Camp.create!(name: 'bookcamping')
@@ -45,3 +46,8 @@ def create_licenses
   License.create(:name => 'Copyright', :url => 'http://en.wikipedia.org/wiki/Copyright',
                  :icon => '/assets/cr16.png', :open => false)
 end
+
+create_bookcamping if Camp.count == 0
+create_licenses if License.count == 0
+
+

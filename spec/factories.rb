@@ -16,7 +16,7 @@ FactoryGirl.define do
 
   factory :book do
     user
-    camp
+    camp_id 1
     license
     title 'Book'
   end
@@ -31,16 +31,19 @@ FactoryGirl.define do
     
 
   factory :shelf do
-    camp
+    camp_id 1
     user
     name 'Shelf'
     visibility 'public'
 
     factory :camp_shelf, :parent => :shelf do
+      type 'CampShelf'
     end
     factory :user_shelf, :parent => :shelf do
+      type 'UserShelf'
     end
     factory :curated_shelf, :parent => :shelf do
+      type 'CuratedShelf'
     end
   end
 

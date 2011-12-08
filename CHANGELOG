@@ -12,6 +12,11 @@ URGENTE
   * Merge users!
   * DecentExposure para todos los controladores
 
+2011/12/08
+  * Crear test de integración
+  *
+  *
+
 2011/11/28
   * Bug: blog/blog.rss debería dar 404
   * Bug: show in user_shelves should respond with 404
