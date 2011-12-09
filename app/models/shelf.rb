@@ -55,6 +55,11 @@ class Shelf < ActiveRecord::Base
     false
   end
 
+  def add_book(book, user = nil)
+    user ||= book.user
+    add_reference(book.id, user.id)
+  end
+
   protected
   def clean_slug
     self.slug = self.slug.parameterize if self.slug.present?

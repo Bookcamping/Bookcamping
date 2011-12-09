@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 feature 'show user shelves' do
+  include RSpec::Rails::RequestExampleGroup
   background do
+    FactoryGirl.create(:camp)
     @user = FactoryGirl.create(:user, name: 'Someone')
   end
 

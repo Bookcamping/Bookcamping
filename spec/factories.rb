@@ -48,7 +48,7 @@ FactoryGirl.define do
   end
 
   factory :post do
-    camp
+    camp_id 1
     user
     title 'Post Title'
     body 'Post body.'

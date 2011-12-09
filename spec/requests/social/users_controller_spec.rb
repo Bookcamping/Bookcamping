@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 feature 'show users' do
+  background do
+    FactoryGirl.create(:camp)
+  end
+
   scenario 'show all users' do
     1.upto(4) do |num|
       FactoryGirl.create(:user, name: "Usuario #{num}")

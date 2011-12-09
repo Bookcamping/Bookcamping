@@ -3,6 +3,7 @@ require 'spec_helper'
 
 feature 'show user shelves' do
   background do
+    FactoryGirl.create(:camp)
     @user = FactoryGirl.create(:user)
     visit enter_path(@user.id)
   end

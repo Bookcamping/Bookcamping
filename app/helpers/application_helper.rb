@@ -21,10 +21,12 @@ module ApplicationHelper
 
   # Presenters: see http://railscasts.com/episodes/287-presenters-from-scratch
   def present(object, options = {}, klass = nil)
-    klass ||= "#{object.class}Presenter".constantize
-    presenter = klass.new(object, options, self)
-    yield presenter if block_given?
-    presenter
+    if object
+      klass ||= "#{object.class}Presenter".constantize
+      presenter = klass.new(object, options, self)
+      yield presenter if block_given?
+      presenter
+    end
   end
 
   def render_presenter(klass, object, options = {})

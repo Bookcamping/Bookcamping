@@ -3,6 +3,10 @@ require 'spec_helper'
 
 
 feature 'show camp shelves' do
+  background do
+    FactoryGirl.create(:camp)
+  end
+
   scenario 'show all camp shelves' do
     1.upto(4) do |num|
       FactoryGirl.create(:camp_shelf, name: "Estantería #{num}")
