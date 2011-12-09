@@ -57,7 +57,7 @@ class Shelf < ActiveRecord::Base
 
   def add_book(book, user = nil)
     user ||= book.user
-    add_reference(book.id, user.id)
+    add_reference_id(book.id, user.id)
   end
 
   protected
@@ -65,7 +65,7 @@ class Shelf < ActiveRecord::Base
     self.slug = self.slug.parameterize if self.slug.present?
   end
   
-  def add_reference(id, user_id)
+  def add_reference_id(id, user_id)
     PaperTrail.enabled = false
     unless ShelfItem.where(shelf_id: self.id).where(book_id: id).first
       ShelfItem.create!(shelf: self, book_id: id, user_id: user_id)

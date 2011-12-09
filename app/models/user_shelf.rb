@@ -3,7 +3,7 @@ class UserShelf < Shelf
 
   extend Shelf::ProfileScopes
   
-  def add_book(book, user)
+  def add_book(book, user = nil)
     add_reference_id(book.id, self.user.id)
   end
 end

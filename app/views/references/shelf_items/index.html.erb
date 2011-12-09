@@ -18,7 +18,7 @@
 
   <h2>Añadir a tus listas:</h2>
   <ul>
-    <% current_user.personal_shelves.each do |shelf| %>
+    <% current_user.user_shelves.each do |shelf| %>
         <% unless book_shelves.include?(shelf) %>
             <li>
               <%= link_to 'añadir a', book_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
