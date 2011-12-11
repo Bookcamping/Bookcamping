@@ -1,17 +1,8 @@
 # Camp
+# Es un camping dentro de bookcamping. Originalmente fueron
+# dos: bookcamping y videocamping. En la actualidad hay más y se
+# pueden crear sobre la marcha.
 #
-#create_table "camps", :force => true do |t|
-#  t.string   "name",                :limit => 100 REQUIRED
-#  t.string   "subdomain",           :limit => 100
-#  t.string   "line1",               :limit => 200
-#  t.string   "line2",               :limit => 200
-#  t.datetime "created_at"
-#  t.datetime "updated_at"
-#  t.string   "model_name",          :limit => 32
-#  t.string   "origin",              :limit => 256
-#  t.boolean  "show_media_on_lists",                :default => false
-#end
-
 class Camp < ActiveRecord::Base
   has_many :shelves
   has_many :camp_shelves
@@ -26,6 +17,7 @@ class Camp < ActiveRecord::Base
   has_many :versions
 
   validates :name, presence: true
+  validates :model_name, presence: true
 
   module Scopes
     def by_camp(camp)

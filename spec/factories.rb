@@ -3,6 +3,7 @@ require 'factory_girl'
 FactoryGirl.define do
   factory :camp do
     name 'Camp'
+    model_name 'book'
   end
 
   factory :license do

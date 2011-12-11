@@ -4,7 +4,7 @@ class Blog::PostsController < ApplicationController
   expose_with_slug
   expose_resource :post
   
-  expose(:posts) { Post.published.order('published_at DESC').limit(3) }
+  expose(:posts) { Post.published.order('published_at DESC') }
   expose(:all_posts) do
     Post.published.order('published_at DESC')
   end

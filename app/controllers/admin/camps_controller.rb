@@ -1,19 +1,21 @@
 class Admin::CampsController < Admin::ApplicationController
-  before_filter :require_super
   respond_to :html
-  expose(:camps) { Camp.all }
-  expose(:camp)
+  expose_resource :camp
 
   def index
-
+    index!
   end
 
   def show
+    show!
+  end
 
+  def new
+    new!
   end
 
   def enter
-    if Rails.env.development?
+    if current_user.admin? 
       session[:camp_id] = params[:id]
       flash[:notice] = "Nos vamos"
     end
@@ -21,13 +23,15 @@ class Admin::CampsController < Admin::ApplicationController
   end
 
   def edit
-    authorize! :edit, camp
+    edit!
+  end
+
+  def create
+    create! [:admin, camp]
   end
 
   def update
-    authorize! :update, camp
-    flash[:notice] = t('camps.notice.update') if camp.update_attributes(params[:camp])
-    respond_with camp, :location => root_path
+    update! [:admin, camp]
   end
 
 end

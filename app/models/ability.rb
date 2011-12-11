@@ -4,6 +4,7 @@ class Ability
   def initialize(provided_user)
     self.user = provided_user
 
+    camps
     users
     references
     shelves
@@ -11,6 +12,10 @@ class Ability
     user_shelves
     posts
     licenses
+  end
+
+  def camps
+    can :manage, Camp if admin?
   end
 
   def users

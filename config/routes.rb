@@ -78,7 +78,7 @@ Bookcamp::Application.routes.draw do
     resources :camp_shelves, path: 'estanterias'
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
-    resources :camps, path: 'campings', except: [:create, :destroy]
+    resources :camps, path: 'campings'
     resources :books, path: 'referencias'
     resources :comments, path: 'comentarios'
     resources :colors, path: 'colores'
@@ -130,7 +130,7 @@ Bookcamp::Application.routes.draw do
 
   # Backdoors used in test and development
   match "/enter/:id" => "public/sessions#enter", :as => :enter unless Rails.env.production?
-  match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp unless Rails.env.production?
+  match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp 
 
 end
 
