@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   include Users::Identities
 
   has_slug :name
+  acts_as_tagger
 
   has_many :identities, dependent: :destroy
   has_many :books, dependent: :restrict
