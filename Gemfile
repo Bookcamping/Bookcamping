@@ -43,6 +43,12 @@ unless defined?(JRUBY_VERSION)
   gem 'hoptoad_notifier'
 end
 
+if defined?(JRUBY_VERSION)
+  gem 'jdbc-mysql'
+else
+  gem 'mysql2'
+end
+
 # heroku
 group :production do
 #  gem 'pg'
@@ -52,11 +58,7 @@ end
 group :development do
   gem "thin"
   gem 'sqlite3'
-  gem 'mysql2'
-  if defined?(JRUBY_VERSION)
-    gem 'jdbc-mysql'
-  end
-  #gem 'mongrel', '1.2.0.pre2'
+ #gem 'mongrel', '1.2.0.pre2'
 end
 
 group :test do
