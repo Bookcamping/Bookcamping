@@ -1,4 +1,4 @@
 class Blog::CommentsController < Shared::CommentsController
-  expose(:parent) { Posts.find params[:post_id] }
+  expose(:parent) { Post.by_param params[:post_id] }
 end
 

@@ -58,8 +58,9 @@ Bookcamp::Application.routes.draw do
   end
 
   scope module: 'blog' do
-    resources :posts, path: 'blog' 
-    resources :comments
+    resources :posts, path: 'blog' do
+      resources :comments
+    end
     resources :media_bites, path: 'media'
     #Mercury::Engine.routes
   end

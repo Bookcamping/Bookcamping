@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
     slug
   end
 
+  # TODO: extract to module
   def self.by_param(param)
     User.find_by_slug(param) || User.find(param)
   end

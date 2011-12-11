@@ -25,6 +25,11 @@ class Post < ActiveRecord::Base
     self.visibility == 'published'
   end
 
+  # TODO: extract to module
+  def self.by_param(param)
+    Post.find_by_slug(param) || Post.find(param)
+  end
+
   def to_param
     slug
   end
