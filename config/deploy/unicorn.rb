@@ -63,4 +63,4 @@ namespace :unicorn do
   end
 end
 
-#after "deploy:restart", "unicorn:restart"
+after "deploy:restart", "unicorn:restart"
