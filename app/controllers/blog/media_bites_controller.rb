@@ -1,18 +1,26 @@
-class Admin::Blog::MediaBitesController < Admin::ResourceController
+class Blog::MediaBitesController < Admin::ResourceController
+  respond_to :html
   expose_resource :media_bite
 
+  def index
+    index!
+  end
+
+  def show
+    show!
+  end
+  
   def create
     media_bite.camp = current_camp
     media_bite.user = current_user
-    create! [:admin, media_bite]
+    create! [media_bite]
   end
 
   def update
-    update! [:admin, media_bite]
+    update! [media_bite]
   end
 
   def destroy
-    destroy! [:admin, :media_bites]
+    destroy! [:media_bites]
   end
-
 end

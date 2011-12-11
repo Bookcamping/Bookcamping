@@ -43,17 +43,15 @@ unless defined?(JRUBY_VERSION)
   gem 'hoptoad_notifier'
 end
 
-if defined?(JRUBY_VERSION)
-  gem 'jdbc-mysql'
-else
-  gem 'mysql2'
-end
+#if defined?(JRUBY_VERSION)
+#  gem 'jdbc-mysql'
+#else
+  gem 'mysql2', group: [:development, :production]
+#end
 
 # heroku
-group :production do
 #  gem 'pg'
-  gem 'unicorn'
-end
+gem 'unicorn', group: [:development, :production]
 
 group :development do
   gem "thin"
