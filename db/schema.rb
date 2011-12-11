@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211095756) do
+ActiveRecord::Schema.define(:version => 20111211194719) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -205,6 +205,15 @@ ActiveRecord::Schema.define(:version => 20111211095756) do
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name",       :limit => 100
+    t.string   "slug",       :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["slug"], :name => "index_tags_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name",            :limit => 100

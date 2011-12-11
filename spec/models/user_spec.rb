@@ -1,6 +1,38 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { FactoryGirl.create(:user) }
+  
+  # OPERATIONS
+  # 1 ADD BOOK
+  it 'should add books' do
+    book = FactoryGirl.create(:book)
+    user.add_book book
+    user.my_references_shelf.books.all.should include(book)
+  end
+
+  it 'should add tags' do
+    ref1 = FactoryGirl.create(:book)
+    ref2 = FactoryGirl.create(:book)
+    user.tag ref1, 'To read'
+    tg = user.tag ref2, 'to read'
+    puts tg.errors.inspect
+    Tag.count.should == 1
+    Taggin.count.should == 2
+    ref1.tags.count.should == 1
+    ref2.tags.count.should == 1
+    user.tags.count.should == 1
+    
+  end
+
+  # SLUG
+  it 'should have slug' do
+    user = FactoryGirl.create(:user, name: 'user name')
+    user.save
+    user.slug.should == 'user-name'
+    user.to_param.should == user.slug
+    User.find_by_param('user-name').should_not be_nil
+  end
 
   # IDENTITIES
   it "should destroy recovery identity" do

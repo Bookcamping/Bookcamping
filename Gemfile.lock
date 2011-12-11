@@ -247,7 +247,6 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.4)
     term-ansicolor (1.0.6)
-    test-unit (2.4.0)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -311,7 +310,6 @@ DEPENDENCIES
   simple_form
   spork (> 0.9.0.rc)
   sqlite3
-  test-unit
   thin
   turn
   uglifier (>= 1.0.3)

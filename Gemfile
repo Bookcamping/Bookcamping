@@ -59,13 +59,12 @@ group :development do
  #gem 'mongrel', '1.2.0.pre2'
 end
 
+gem "rspec-rails", ">= 2.6.1", group: [:development, :test]
 group :test do
 #  gem 'ruby-debug19'
-  gem 'test-unit'
   gem 'database_cleaner'
   gem 'turn', :require => false
   gem 'yaml_db'
-  gem "rspec-rails", ">= 2.6.1"
   gem "spork", "> 0.9.0.rc"
   gem "guard-spork"
   gem "guard-cucumber"

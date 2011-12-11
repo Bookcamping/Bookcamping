@@ -29,7 +29,7 @@ FactoryGirl.define do
     user_name 'user'
     processed false
   end
-    
+
 
   factory :shelf do
     camp_id 1
@@ -62,5 +62,15 @@ FactoryGirl.define do
     user
     title 'Media title'
     content_type 'text'
+  end
+
+  factory :tag do
+    sequence(:name) {|n| "Tag#{n}" }
+  end
+
+  factory :taggin do
+    tag
+    association :reference, factory: :book 
+    user
   end
 end
