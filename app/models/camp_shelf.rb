@@ -10,11 +10,6 @@ class CampShelf < Shelf
   # Callbacks
   before_save :clean_slug
 
-  def add_book(book, user)
-    ShelfItem.create!(shelf: self, book: book, user: user)
-  end
-
-
   def visible_public?
     self.visibility == 'public'
   end

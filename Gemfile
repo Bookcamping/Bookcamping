@@ -38,8 +38,10 @@ gem 'resque', :require => 'resque/server'
 #gem 'prawnto'
 #gem 'nokogiri'
 
-gem 'newrelic_rpm'
-gem 'hoptoad_notifier'
+unless defined?(JRUBY_VERSION)
+  gem 'newrelic_rpm'
+  gem 'hoptoad_notifier'
+end
 
 # heroku
 group :production do
@@ -51,11 +53,14 @@ group :development do
   gem "thin"
   gem 'sqlite3'
   gem 'mysql2'
+  if defined?(JRUBY_VERSION)
+    gem 'jdbc-mysql'
+  end
   #gem 'mongrel', '1.2.0.pre2'
 end
 
 group :test do
-  gem 'ruby-debug19'
+#  gem 'ruby-debug19'
   gem 'test-unit'
   gem 'database_cleaner'
   gem 'turn', :require => false

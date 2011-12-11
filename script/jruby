@@ -1,0 +1,2 @@
+export JRUBY_OPTS="--1.9 -J-Djruby.reify.classes=true"
+

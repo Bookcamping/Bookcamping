@@ -10,9 +10,6 @@ class Library::CampShelvesController < ApplicationController
   expose(:camp_shelves) { shelf_order.order(parent.camp_shelves) }
   expose(:camp_shelf)
 
-  def index
-
-  end
 
   def show
 
