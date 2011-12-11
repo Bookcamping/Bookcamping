@@ -1,0 +1,11 @@
+<div class="header">
+  <%= title 'Licencias' %>
+</div>
+
+<div class="licenses">
+  <% licenses.each do |license| %>
+    <%= div_for license do %>
+      <%= link_to license.name, license %>
+    <% end %>
+  <% end %>
+</div>

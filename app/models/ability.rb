@@ -4,21 +4,27 @@ class Ability
   def initialize(provided_user)
     self.user = provided_user
 
-    cannot :create, Shelf if anonymous?
+    users
+    references
+    shelves
+    shelf_items
+    user_shelves
+    posts
+    licenses
+  end
 
-    can :create, Bookmark if user?
-
-    can :manage, Book if user?
-    cannot :destroy, Book unless admin?
-
-    # User
+  def users
     can :read, User
     can :edit, User, id: user.id
+  end
 
-    can :manage, ShelfItem do |item|
-      can :manage, item.shelf
-    end
+  def references
+    can :manage, Book if user?
+    cannot :destroy, Book unless admin?
+  end
 
+  def shelves
+    cannot :create, Shelf if anonymous?
     can :manage, Shelf do |shelf|
       if shelf.type == 'CampShelf'
         true
@@ -28,16 +34,29 @@ class Ability
         false
       end
     end
-#    can :manage, :all if admin?
+  end
 
-    # UserShelf
+  def shelf_items
+   can :manage, ShelfItem do |item|
+      can :manage, item.shelf
+    end
+ end
+
+
+  def posts
+    can :manage, Post if user.admin?
+    can :read, Post
+  end
+
+  def user_shelves
     can :read, UserShelf
     cannot :destroy, UserShelf, :rol => 'read_later'
     cannot :destroy, UserShelf, :rol => 'like_it'
     cannot :destroy, UserShelf, :rol => 'my_references'
+  end
 
-    can :manage, Post if user.admin?
-    can :read, Post
+  def licenses
+    can :read, License
   end
 
   def user=(user)

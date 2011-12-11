@@ -21,6 +21,10 @@ Bookcamp::Application.routes.draw do
       end
     end
 
+    scope module: 'licenses' do
+      resources :licenses, path: 'licencias'
+    end 
+
     scope module: 'public' do
       resources :password_recoveries, path: 'recuperar' do
         post :change, on: :collection
@@ -118,9 +122,9 @@ Bookcamp::Application.routes.draw do
   end
 
 
-     constraints CanAccessResque do
-             mount Resque::Server, at: 'resque'
-                 end
+  constraints CanAccessResque do
+    mount Resque::Server, at: 'resque'
+  end
 
 
 

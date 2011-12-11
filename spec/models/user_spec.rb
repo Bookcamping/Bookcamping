@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
 
+  # IDENTITIES
   it "should destroy recovery identity" do
     user = FactoryGirl.create(:user)
     user.generate_recovery_identity
@@ -28,13 +29,6 @@ describe User do
     user.identities.first.uid.should_not == token
   end
 
-  it "should always have personal shelves" do
-    user = User.create!(name: 'name', email: 'email@email.com')
-    user.like_it_shelf.should_not be_nil
-    user.read_later_shelf.should_not be_nil
-    user.my_references_shelf.should_not be_nil
-  end
-
   it "should identify with password" do
     user = Factory.create(:user)
     user.identify_with('entrar')
@@ -48,11 +42,23 @@ describe User do
     user.identities.first.password_digest.should_not == entrar
   end
 
+  # PERSONAL SHELVES
+  it "should always have personal shelves" do
+    user = User.create!(name: 'name', email: 'email@email.com')
+    user.like_it_shelf.should_not be_nil
+    user.read_later_shelf.should_not be_nil
+    user.my_references_shelf.should_not be_nil
+  end
+
+  # ROLES
   it "should have super rol" do
     user = Factory.create(:user, rol: 'super')
     user.super?.should == true
     user.admin?.should == true
     user.beta?.should == true
   end
+
+  # MERGE USERS
+
 end
 

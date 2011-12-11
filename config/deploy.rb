@@ -3,6 +3,7 @@
 
 # Standard deploy assets tasks
 load 'deploy/assets'
+require "bundler/capistrano"
 
 # default_run_options[:pty] = true
 set :application, "Bookcamping"
