@@ -24,8 +24,6 @@ class Camp < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
   has_many :versions
-  has_many :posts
-  has_many :media_bites
 
   validates :name, presence: true
 

@@ -22,13 +22,11 @@ Bookcamp::Application.routes.draw do
     end
 
     scope module: 'public' do
-      resources :posts, path: 'blog' do
-        resources :comments
-      end
       resources :password_recoveries, path: 'recuperar' do
         post :change, on: :collection
       end
     end
+
     match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
     namespace :personal, path: 'mis' do
@@ -59,6 +57,12 @@ Bookcamp::Application.routes.draw do
 
   end
 
+  scope module: 'blog' do
+    resources :posts, path: 'blog' 
+    resources :comments
+    resources :media_bites, path: 'media'
+    #Mercury::Engine.routes
+  end
 
   namespace :admin do
     root to: 'versions#index'
@@ -75,11 +79,6 @@ Bookcamp::Application.routes.draw do
     resources :colors, path: 'colores'
     resources :users, path: 'somos'
 
-    scope module: 'blog' do
-      resources :posts, path: 'blog'
-      resources :media_bites, path: 'media'
-      #Mercury::Engine.routes
-    end
     resources :identities, except: [:create, :destroy]
   end
 

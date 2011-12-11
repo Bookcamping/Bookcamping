@@ -1,42 +1,41 @@
 # Post
-#
-# SCHEMA
-#  create_table "posts", :force => true do |t|
-#    t.integer  "camp_id" REQUIRED
-#    t.integer  "user_id" REQUIRED
-#    t.string   "author",     :limit => 100 REQUIRED
-#    t.string   "title",      :limit => 300 REQUIRED
-#    t.string   "visibility",      :limit => 16 REQUIRED
-#    t.datetime "published_at"
-#    t.text     "body"
-#    t.datetime "created_at"
-#    t.datetime "updated_at"
-#  end
+# Una entrada al blog de bookcamping.
 #
 class Post < ActiveRecord::Base
-  belongs_to :camp
   belongs_to :user
   has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
 
-  scope :public, where(visibility: 'public')
+  # SCOPES
+  scope :published, where(visibility: 'published')
 
-  VISIBILITIES = [:draft, :private, :public]
+  # CONSTANTS
+  VISIBILITIES = [:draft, :published]
   CONTENT_TYPES = [:markdown, :html]
 
-  validates :camp_id, presence: true
+  # VALIDATIONS
   validates :user_id, presence: true
   validates :author, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :visibility, presence: true
 
-  def public?
-    self.visibility == 'public'
+  # CALLBACKS
+  before_save :update_slug, :clean_visibility
+
+  def published?
+    self.visibility == 'published'
   end
 
   def to_param
-    "#{id}-#{title.parameterize}"
+    slug
   end
 
+  protected
+  def update_slug
+    self.slug = title.parameterize
+  end
 
-
+  def clean_visibility
+    self.visibility = self.visibility.to_s
+    self.visibility = 'draft' unless self.visibility == 'published'
+  end
 end

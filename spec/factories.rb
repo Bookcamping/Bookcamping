@@ -48,12 +48,11 @@ FactoryGirl.define do
   end
 
   factory :post do
-    camp_id 1
     user
-    title 'Post Title'
+    sequence(:title) {|n| "Post #{n}" } 
     body 'Post body.'
     author '#bookcamping'
-    visibility :public
+    visibility :published
     published_at Time.now
   end
 

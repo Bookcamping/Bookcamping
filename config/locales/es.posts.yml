@@ -1,8 +1,7 @@
 es:
   post:
     visibilities:
-      public: 'Público'
-      private: 'Privado'
+      published: 'Publicado'
       draft: 'Borrador'
 
   activerecord:

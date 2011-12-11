@@ -1,0 +1,11 @@
+<div class="header">
+  <%= title post.title %>
+  <div class="author">Por <%= post.author %></div>
+</div>
+<div class="actions">
+  <%= link_to 'Editar entrada', [:edit, post] if can? :manage, post %>
+</div>
+
+<%= render :partial => 'show' %>
+
+<%= content_for(:sidebar) { render 'sidebar'} %>

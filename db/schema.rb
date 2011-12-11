@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123223444) do
+ActiveRecord::Schema.define(:version => 20111211095756) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -161,10 +161,9 @@ ActiveRecord::Schema.define(:version => 20111123223444) do
   end
 
   create_table "posts", :force => true do |t|
-    t.integer  "camp_id"
     t.integer  "user_id"
     t.string   "author",         :limit => 100
-    t.string   "title",          :limit => 300
+    t.string   "title",          :limit => 200
     t.text     "body"
     t.string   "visibility",     :limit => 16
     t.datetime "published_at"
@@ -172,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20111123223444) do
     t.datetime "updated_at"
     t.integer  "comments_count",                :default => 0
     t.string   "content_type",   :limit => 32
+    t.string   "slug",           :limit => 200
   end
 
   create_table "shelf_items", :force => true do |t|

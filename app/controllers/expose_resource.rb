@@ -41,6 +41,7 @@ module ExposeResource
       end
     end
   end
+
   
  def create
     create!
@@ -52,6 +53,24 @@ module ExposeResource
 
   def search
     search!
+  end
+
+  def index!
+    authorize! :read, resource_class
+  end
+
+  def show!
+    authorize! :read, resource
+    respond_with resource
+  end
+
+  def new!
+    authorize! :new, resource_class
+  end
+
+  def edit!
+    authorize! :edit, resource
+    respond_with resource
   end
 
   def create!(url = nil)

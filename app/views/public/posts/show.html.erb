@@ -1,8 +1,0 @@
-<div class="actions">
-  <%= link_to 'Volver', posts_path, class: 'back' %>
-  <%= link_to 'Editar entrada', [:edit, :admin, post] if can? :manage, post %>
-</div>
-
-<%= render :partial => 'show' %>
-
-<%= content_for(:sidebar) { render 'sidebar'} %>

@@ -12,7 +12,14 @@ URGENTE
   * Merge users!
   * DecentExposure para todos los controladores
 
-2011/12/09
+2011/12/11
+  * Quitar camp_id de posts
+  * Cambiar public por published en posts
+  * Lost posts tienen slug
+
+
+2011/12/10
+  * Intentamos adaptar a jruby para buscar memoryleaks (de momento, sin éxito. Parece un problema de jruby 1.9 utf8)
   
 2011/12/08
   * Crear test de integración

@@ -1,12 +1,10 @@
 <% present post do |presenter| %>
     <%= div_for post, class: post.visibility do %>
-        <%= title post.title %>
-        <div class="author">Por <%= post.author %></div>
+       
         <div class="body"><%= presenter.body %></div>
         <br/>
         <br/>
         <%= render 'shared/social/social' %>
-        <%= render_comments comments, new_comment %>
+        <%#= render_comments post.comments, Comment.new(resource: post) %>
     <% end %>
-
 <% end %>
