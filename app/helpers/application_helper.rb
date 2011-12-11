@@ -19,6 +19,15 @@ module ApplicationHelper
     end
   end
 
+  # BETA SECTIONS
+  def beta(&block)
+    with_output_buffer(&block) if current_user.beta?
+  end
+
+  def beta_div(&block)
+    content_tag(:div, class: 'beta', &block) if current_user.beta?
+  end
+
   # Presenters: see http://railscasts.com/episodes/287-presenters-from-scratch
   def present(object, options = {}, klass = nil)
     if object

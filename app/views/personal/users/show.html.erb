@@ -8,13 +8,18 @@
       <%= link_to 'Editar datos', edit_personal_user_path %>
     </div>
 
-    <h3>Actualmente, puedes entrar con:</h3>
-    <% user.identities.each do |identity| %>
-      <%= identity.provider %>
-    <% end %>
-    <br/>
+    <%= beta_div do %>
+      <h3>Actualmente, puedes entrar con:</h3>
+      <% user.identities.each do |identity| %>
+        <%= identity.provider %>
+      <% end %>
+      <br/>
 
-    <h3>Puedes añadir otras maneras de entrar:</h3>
+      <h3>Puedes añadir otras maneras de entrar:</h3>
+      <p>Falta implementación</p>
+      <h3>Cambiar contraseña:</h3>
+      <p>Falta implementación</p>
+    <% end %>
   <% end %>
 <% end %>
 

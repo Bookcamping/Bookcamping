@@ -1,3 +1,4 @@
+require 'spec_helper'
 
 describe User do
 
@@ -47,5 +48,11 @@ describe User do
     user.identities.first.password_digest.should_not == entrar
   end
 
+  it "should have super rol" do
+    user = Factory.create(:user, rol: 'super')
+    user.super?.should == true
+    user.admin?.should == true
+    user.beta?.should == true
+  end
 end
 

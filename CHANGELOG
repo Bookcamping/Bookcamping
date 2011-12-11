@@ -16,6 +16,9 @@ URGENTE
   * Quitar camp_id de posts
   * Cambiar public por published en posts
   * Lost posts tienen slug
+  * Mover blog a su namespace
+  * Añadir zonas en beta
+  * Mover roles de usuario a una extensión
 
 
 2011/12/10

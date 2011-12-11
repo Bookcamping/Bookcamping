@@ -2,8 +2,10 @@
 #
 # 
 class User < ActiveRecord::Base
+  include Extensions::User
   include Users::Create
   include Users::Identities
+
   has_many :identities, dependent: :destroy
   has_many :books, dependent: :restrict
   has_many :comments, dependent: :destroy
@@ -45,14 +47,6 @@ class User < ActiveRecord::Base
       return true
     end
     return false
-  end
-
-  def super?
-    self.rol == 'super'
-  end
-
-  def admin?
-    self.rol == 'admin' || self.rol == 'super'
   end
 
   def to_param
