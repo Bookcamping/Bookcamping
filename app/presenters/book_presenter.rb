@@ -67,10 +67,12 @@ class BookPresenter < ApplicationPresenter
       frame = '<iframe src="http://player.vimeo.com/video/' + $1 + '?title=0&amp;byline=0&amp;portrait=0" width="339" height="256" frameborder="0"></iframe>'
       link = h.content_tag(:div, h.link_to('&rArr; Ver en vimeo'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
-    elsif /docid=(\d+)/.match(book.media)
+    elsif /docid=(.+)/.match(book.media)
       frame = "<embed id=VideoPlayback src=http://video.google.com/googleplayer.swf?docid=#{$1}&hl=es&fs=true style=width:339px;height:223px allowFullScreen=true allowScriptAccess=always type=application/x-shockwave-flash> </embed>"
       link = h.content_tag(:div, h.link_to('&rArr; Ver en google video'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
+    elsif /^</.match(book.media)
+      book.media.html_safe
     else
       h.link_to(h.image_tag(book.media[0..200], class: 'cover'), book)
     end
