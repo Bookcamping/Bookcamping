@@ -1,7 +1,7 @@
 class ShelfPresenter < ApplicationPresenter
   presents :shelf
 
-  def header
+ def header
     h.render partial: 'shared/shelves/header', locals: {shelf: shelf}
   end
 

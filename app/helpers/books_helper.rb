@@ -1,4 +1,4 @@
-module Shared::BooksHelper
+module BooksHelper
   def render_books(books, background, shelf = nil)
     render :partial => 'shared/books/books', :locals => {:books => books, :background => background, :shelf => shelf}
   end

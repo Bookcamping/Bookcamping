@@ -1,4 +1,4 @@
-module Admin::ApplicationHelper
+module AdminHelper
   def admin_title(resource_class, title = nil)
     title ||= "#{resource_class.name}s"
     count = resource_class.send(:count)
