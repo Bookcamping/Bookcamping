@@ -1,100 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield :title %> :: <%= current_camp.name %> </title>
-  <link rel="Shortcut Icon" href="/images/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
+  <head>
+    <title><%= yield :title %> :: <%= current_camp.name %> </title>
+    <link rel="Shortcut Icon" href="/images/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
 
-  <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Cousine&v1' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag "application" %>
-  <!--link href="/iconic.css" media="screen" rel="stylesheet" type="text/css"/-->
-  <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag :atom, posts_path(format: :atom) %>
-  <%= auto_discovery_link_tag :rss, posts_path(format: :rss) %>
-</head>
-<%= render 'layouts/ga' %>
-<body>
-<div id="page">
-  <!-- a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a-->
-  <div id="notices">
+    <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cousine&v1' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= auto_discovery_link_tag :atom, posts_path(format: :atom) %>
+    <%= auto_discovery_link_tag :rss, posts_path(format: :rss) %>
+  </head>
+  <%= render 'layouts/ga' %>
+  <body>
+    <div id="page">
+      <!-- a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a-->
+      <div id="notices">
 
-  </div>
-  <div id="flash">
-    <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
-  </div>
+      </div>
+      <div id="flash">
+        <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
+      </div>
 
 
-  <div id="session">
-    <div class="user">
-      <% if current_user %>
-          <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
-          <%= link_to "¡Hola #{current_user.name}!", personal_user_path %>
-          <%= link_to 'Estanterías', camp_shelves_path %> /
-          <%= link_to 'Explorar', explorer_path %> /
-          <%= link_to 'Mis Listas', personal_user_shelves_path %> /
-          <%= link_to 'Salir', logout_path %>
-      <% else %>
-          <%= link_to 'Estanterías', camp_shelves_path %> /
-          <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
-      <% end %>
-    </div>
-    <div class="search">
-      <%= form_tag '/buscar' do %>
-          <%= text_field_tag :term %>
-          <%= submit_tag 'BUSCAR' %>
-      <% end %>
-    </div>
-  </div>
+      <div id="session">
+        <div class="user">
+          <% if current_user %>
+            <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
+            <%= link_to "¡Hola #{current_user.name}!", personal_user_path %>
+            <%= link_to 'Estanterías', camp_shelves_path %> /
+            <%= link_to 'Explorar', explorer_path %> /
+            <%= link_to 'Mis Listas', personal_user_shelves_path %> /
+            <%= link_to 'Salir', logout_path %>
+          <% else %>
+            <%= link_to 'Estanterías', camp_shelves_path %> /
+            <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
+          <% end %>
+        </div>
+        <div class="search">
+          <%= form_tag '/buscar' do %>
+            <%= text_field_tag :term %>
+            <%= submit_tag 'BUSCAR' %>
+          <% end %>
+        </div>
+      </div>
 
-  <div id="go-camping">
-    <% if current_camp.name == 'bookcamping' %>
-        <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
-    <% else %>
-        <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
-    <% end %>
-    <%= link_to 'blog', posts_path, class: 'go-blog' %>
-    <%= link_to 'atom', posts_path(format: :atom), class: 'go-atom' %>
-  </div>
-  <div id="header">
-    <% if current_publisher %>
-        <a href="/" class="publisher">
-          <img src="<%= "/images/#{current_publisher}/#{current_publisher}.jpg" %>" width="1025" height="140" />
-        </a>
-    <% else %>
-        <a href="/">
-          <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
-        </a>
-    <% end %>
-  </div>
-  <div id="main">
-    <% if false and current_publisher %>
-        <%= yield %>
-    <% else %>
-        <div class="container">
-          <div id="center">
-            <%= yield %>
-          </div>
-          <div id="sidebar">
-            <%= yield :sidebar %>
-            <div id="sidebar_extra">
-              <div id="goteo" name="goteo">
-                <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
-              </div>
-              <% if current_camp.id == 1 %>
+      <div id="go-camping">
+        <% if current_camp.name == 'bookcamping' %>
+          <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
+        <% else %>
+          <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
+        <% end %>
+        <%= link_to 'blog', posts_path, class: 'go-blog' %>
+        <%= link_to 'atom', posts_path(format: :atom), class: 'go-atom' %>
+      </div>
+      <div id="header">
+        <% if current_publisher %>
+          <a href="/" class="publisher">
+            <img src="<%= "/images/#{current_publisher}/#{current_publisher}.jpg" %>" width="1025" height="140" />
+          </a>
+        <% else %>
+          <a href="/">
+            <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
+          </a>
+        <% end %>
+      </div>
+      <div id="main">
+        <% if false and current_publisher %>
+          <%= yield %>
+        <% else %>
+          <div class="container">
+            <div id="center">
+              <%= yield %>
+            </div>
+            <div id="sidebar">
+              <%= yield :sidebar %>
+              <div id="sidebar_extra">
+                <div id="goteo" name="goteo">
+                  <iframe frameborder="0" height="480px" src="http://www.goteo.org/widget/project/bookcamping?lang=es" width="250px" scrolling="no"></iframe>
+                </div>
+                <% if current_camp.id == 1 %>
                   <%= link_to image_tag('/images/blog.png', alt: 'Blog bookcamping'), '/blog', id: 'go-blog' unless current_page?(posts_path) %>
                   <%= link_to image_tag('/images/mapa-mini4.jpg', alt: 'Mapa bookcamping'), '/mapa', id: 'go-map' %>
-              <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-    <% end %>
-  </div>
-</div>
+        <% end %>
+      </div>
+    </div>
 
-<%= render 'layouts/js' %>
+    <%= render 'layouts/js' %>
 
-<%#= render 'layouts/uservoice' %>
+    <%#= render 'layouts/uservoice' %>
 
-<div style="display:none">(cc) Bookcamping 15 Noviembre 2011</div>
-</body>
+    <div style="display:none">(cc) Bookcamping 15 Noviembre 2011</div>
+  </body>
 </html>

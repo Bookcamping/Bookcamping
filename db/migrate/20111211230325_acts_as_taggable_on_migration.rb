@@ -1,8 +1,13 @@
 class ActsAsTaggableOnMigration < ActiveRecord::Migration
   def self.up
     create_table :tags do |t|
-      t.string :name
+      t.string :name, limit: 100
+      t.string :slug, limit: 100
     end
+
+    add_index :tags, :slug, unique: true
+
+    
 
     create_table :taggings do |t|
       t.references :tag

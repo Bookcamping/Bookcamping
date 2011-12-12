@@ -18,7 +18,7 @@
         </div>
         <%= beta_div do %>
           <div class="tags">
-            <% book.tags.each do |tag| %><%= tag.name %><% end %>
+            <% book.tags.each do |tag| %><%= link_to tag.name, ref_tag_path(tag.slug) %><% end %>
             <%= form_tag book_tags_path(book) do %>
               <%= text_field_tag :tags %>
               <%= submit_tag 'Tag' %>

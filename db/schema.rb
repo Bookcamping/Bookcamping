@@ -220,8 +220,11 @@ ActiveRecord::Schema.define(:version => 20111211230325) do
   add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string "name", :limit => 100
+    t.string "slug", :limit => 100
   end
+
+  add_index "tags", ["slug"], :name => "index_tags_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name",            :limit => 100

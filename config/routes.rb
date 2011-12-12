@@ -22,7 +22,8 @@ Bookcamp::Application.routes.draw do
       end
     end
 
-    resources :tags
+    resources :ref_tags, path: 'tags'
+
     scope module: 'licenses' do
       resources :licenses, path: 'licencias'
     end 
