@@ -45,11 +45,6 @@ module Bookcamp
     config.assets.precompile += ['admin.js', 'admin.css', 'backend.js', 'backend.css']
     config.assets.initialize_on_precompile = false
 
-    config.to_prepare do
-      Dir[Rails.root + 'lib/controllers/*.rb'].each { |f| load File.expand_path(f) }
-      Dir[Rails.root + 'lib/models/*.rb'].each { |f| load File.expand_path(f) }
-    end
-
     config.action_mailer.default_url_options = {host: 'bookcamping.cc'}
   end
 end

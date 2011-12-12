@@ -2,12 +2,16 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  include Controllers::AuthMethods
+
+  include Extensions::RequireUser
+  include Extensions::LoadCamp
+  include Extensions::ExposeWithSlug
+  include Extensions::ExposeResource
+
   helper_method :current_user, :current_user?
 
-  include ExposeResource
-
   expose(:current_camp) { load_camp_from_request }
+  # Current publisher: used to change the layout
   expose(:current_publisher) { nil }
 
   def info_for_paper_trail
@@ -29,14 +33,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  protected
-  def load_camp_from_request
-    if request.domain == 'videocamping.cc'
-      session[:camp_id] = 2
-    elsif request.subdomain.present? and (request.subdomain == 'escucha' or request.subdomain == 'escuchamos')
-      session[:camp_id] = 3
-    end
-    session[:camp_id] ||= 1
-    Camp.find session[:camp_id]
-  end
 end

@@ -11,9 +11,6 @@ class Book < ActiveRecord::Base
   has_many :shelves, :through => :shelf_items
   has_many :camp_shelves, through: :shelf_items
 
-  has_many :taggins, foreign_key: :reference_id
-  has_many :tags, through: :taggins
-
   has_many :bookmarks, :dependent => :destroy
   belongs_to :license
   serialize :marks

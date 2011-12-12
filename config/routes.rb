@@ -18,9 +18,11 @@ Bookcamp::Application.routes.draw do
       resources :books, path: 'referencia' do
         resources :comments, only: [:create]
         resources :shelf_items, path: 'listas'
+        resources :tags
       end
     end
 
+    resources :tags
     scope module: 'licenses' do
       resources :licenses, path: 'licencias'
     end 

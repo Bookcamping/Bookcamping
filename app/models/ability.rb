@@ -12,10 +12,11 @@ class Ability
     user_shelves
     posts
     licenses
+    tags
   end
 
   def camps
-    can :manage, Camp if admin?
+    can :manage, Camp if user.admin?
   end
 
   def users
@@ -25,7 +26,7 @@ class Ability
 
   def references
     can :manage, Book if user?
-    cannot :destroy, Book unless admin?
+    cannot :destroy, Book unless user.admin?
   end
 
   def shelves
@@ -64,6 +65,10 @@ class Ability
     can :read, License
   end
 
+  def tags
+    can :read, Tag
+  end
+
   def user=(user)
     @user = user || User.new
   end
@@ -78,13 +83,5 @@ class Ability
 
   def user?
     !anonymous?
-  end
-
-  def admin?
-    user? and @user.admin?
-  end
-
-  def super?
-    user? and @user.super?
   end
 end

@@ -16,6 +16,15 @@
           <%= link_to 'Editar', edit_book_path(book) if can? :edit, book %>
           <%= link_to 'Gestionar listas', [book, :shelf_items], class: 'beta' if can? :edit, book %>
         </div>
+        <%= beta_div do %>
+          <div class="tags">
+            <% book.tags.each do |tag| %><%= tag.name %><% end %>
+            <%= form_tag book_tags_path(book) do %>
+              <%= text_field_tag :tags %>
+              <%= submit_tag 'Tag' %>
+            <% end %>
+          </div>
+        <% end %>
         <div class="content row">
           <div class="left media">
             <%= book_presenter.media %>

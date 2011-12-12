@@ -13,14 +13,6 @@ module Extensions
         end
         return false
       end
-
-      # Add a tag to a reference
-      def tag(reference, name)
-        slug = name.to_s.parameterize
-        tag = Tag.find_by_slug slug
-        tag ||= Tag.create(name: name)
-        Taggin.create(user: self, tag: tag, reference: reference)
-      end
     end
   end
 end
