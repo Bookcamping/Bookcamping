@@ -12,7 +12,7 @@ class Ability
     user_shelves
     posts
     licenses
-    ref_tags
+    tags
   end
 
   def camps
@@ -65,8 +65,9 @@ class Ability
     can :read, License
   end
 
-  def ref_tags
-    can :read, RefTag
+  def tags
+    can :read, Tag
+    can :manage, Tagging
   end
 
   def user=(user)

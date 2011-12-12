@@ -3,19 +3,23 @@ module Extensions
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def expose_resource(name)
-        expose(:resource_class) { resource_name.camelcase.constantize }
-        expose(:resource_attributes) { resource_class.attribute_names }
-        expose(:resources) { send(resource_name.pluralize) }
-        expose(:resource) { send(resource_name) } 
-        expose(:page_param) { params[:page].present? ? params[:page] : 1 } 
-
+      def expose_resource(name, options = {})
+        options.reverse_merge!(as: name)
+        exposed_name = options[:as].to_s
+        
         define_method :resource_name do
           name.to_s
         end
 
-        expose(name.to_s.pluralize.to_sym) { resource_class.order('id DESC').page(page_param) }
-        expose(name.to_sym) 
+        expose(:resource_class) { resource_name.camelcase.constantize }
+        expose(:resource_attributes) { resource_class.attribute_names }
+        expose(:resources) { send(exposed_name.pluralize) }
+        expose(:resource) { send(exposed_name) } 
+        expose(:page_param) { params[:page].present? ? params[:page] : 1 } 
+
+
+        expose(exposed_name.pluralize.to_sym) { resource_class.order('id DESC').page(page_param) }
+        expose(exposed_name.to_sym) 
 
         define_method :index! do
           authorize! :read, resource_class

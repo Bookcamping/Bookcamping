@@ -13,7 +13,16 @@ module Extensions
         end
         return false
       end
+
+      # Add tag to a book
+      def add_tag(book, tag_name)
+        tag = Tag.find_by_slug tag_name.parameterize
+        tag ||= Tag.create name: tag_name
+        tg = Tagging.new(user:self, reference:book,tag:tag)
+        tg.save ? tg : nil
+      end
     end
+    
   end
 end
 

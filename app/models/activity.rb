@@ -4,6 +4,8 @@
 # Se diferencia de las versiones en que no tienen el contenido del cambio
 # ni se aplica a cualquier elemento (de momento referencias y estanterias)
 #
+# La idea es que se renderice rápido y no ocupe mucho sitio
+#
 # create_table "activities", :force => true do |t|
 #   t.integer  "user_id"
 #   t.string   "user_name"
@@ -20,11 +22,8 @@
 #
 class Activity < ActiveRecord::Base
   belongs_to :user
+  belongs_to :version
   belongs_to :resource, polymorphic: true
 
-  validates_presence_of :user_id, :resource_id, :resource_type, :action, :title, :url, :activity_at
-
-
-
-
+  validates_presence_of :user_id, :resource_id, :resource_type, :action, :title, :url, :activity_at, :version_id
 end

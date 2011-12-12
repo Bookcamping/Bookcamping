@@ -1,0 +1,9 @@
+<div class="header">
+  <%= title rtag.name %>
+</div>
+<div class="actions">
+  <%= link_to 'volver', tags_path, class: 'back' %>
+</div>
+
+<%= render_presenter ReferencesPresenter, rtag.references %>
+

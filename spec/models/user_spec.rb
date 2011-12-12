@@ -4,7 +4,6 @@ describe User do
   let(:user) { FactoryGirl.create(:user) }
   
   # OPERATIONS
-  # 1 ADD BOOK
   it 'should add books' do
     book = FactoryGirl.create(:book)
     user.add_book book
@@ -12,17 +11,18 @@ describe User do
   end
 
   it 'should add tags' do
-    ref1 = FactoryGirl.create(:book)
-    ref2 = FactoryGirl.create(:book)
-    user.tag ref1, 'To read'
-    tg = user.tag ref2, 'to read'
-    puts tg.errors.inspect
+    book = FactoryGirl.create(:book)
+    user.add_tag(book, 'my tag')
     Tag.count.should == 1
-    Taggin.count.should == 2
-    ref1.tags.count.should == 1
-    ref2.tags.count.should == 1
-    user.tags.count.should == 1
-    
+    tag = Tag.first
+    tag.name.should == 'My tag'
+    book.taggings.count.should == 1
+    book.taggings.first.tag.should == tag
+    book = FactoryGirl.create(:book)
+    user.add_tag(book, 'my tag')
+    Tag.count.should == 1
+    book.taggings.count.should == 1
+    user.taggings.count.should == 2
   end
 
   # SLUG

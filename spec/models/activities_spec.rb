@@ -17,7 +17,7 @@ describe Activities do
     activity.user.should == @user
     activity.resource.should == @book
     activity.action.should == 'create'
-    activity.title.should == "creado la referencia 'El libro'"
+    activity.title.should == "añadido la referencia 'El libro'"
   end
 end
 

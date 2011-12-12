@@ -25,7 +25,7 @@ gem "omniauth-facebook"
 gem 'ancestry'
 gem 'paper_trail'
 gem 'acts_as_list'
-gem 'acts-as-taggable-on'
+#gem 'acts-as-taggable-on'
 
 gem 'redcarpet'
 gem 'kaminari'

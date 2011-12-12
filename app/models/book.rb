@@ -1,10 +1,13 @@
 # Book - TODO: Rename to reference
 #
 class Book < ActiveRecord::Base
-  acts_as_taggable
   belongs_to :camp
   belongs_to :user
   has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
+
+  # TAGS
+  has_many :taggings, dependent: :destroy, foreign_key: 'reference_id'
+  has_many :tags, through: :taggings
 
   has_many :shelf_items, :include => :shelf, :dependent => :destroy
 

@@ -1,0 +1,12 @@
+<div class="header">
+  <%= title 'Tags' %>
+</div>
+
+<div class="tags">
+  <% rtags.each do |rtag| %>
+    <%= div_for rtag do %>
+      <%= link_to rtag.name, rtag %>
+    <% end %>
+  <% end %>
+</div>
+
