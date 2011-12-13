@@ -1,16 +1,13 @@
 <% title user.name %>
 
-<div style="display:none">id: <%= user.id %></div>
 <% present user, {count: "#{shelves.size} listas" } do |presenter| -%>
-    <%= div_for user do %>
-        <%= presenter.header %>
-    <% end %>
+  <%= presenter.header %>
 <% end %>
 
 <table class="shelves">
   <% shelves.each do |shelf| %>
-      <% shelf_url = shelf.type == 'CampShelf' ? [shelf] : [user, shelf] %>
-      <%= render_shelf shelf, shelf_url %>
+    <% shelf_url = shelf.type == 'CampShelf' ? [shelf] : [user, shelf] %>
+    <%= render_shelf shelf, shelf_url %>
   <% end %>
 </table>
 

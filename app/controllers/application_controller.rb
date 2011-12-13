@@ -3,6 +3,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  # Page parameter extracted
+  expose(:page_param) { params[:page].present? ? params[:page] : 1 } 
+
   include Extensions::RequireUser
   include Extensions::LoadCamp
   include Extensions::ExposeWithSlug

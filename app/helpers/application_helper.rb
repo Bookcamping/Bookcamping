@@ -20,12 +20,16 @@ module ApplicationHelper
   end
 
   # BETA SECTIONS
+  def beta?
+    current_user and current_user.beta?
+  end
+
   def beta(&block)
-    with_output_buffer(&block) if current_user and current_user.beta?
+    with_output_buffer(&block) if beta?
   end
 
   def beta_div(&block)
-    content_tag(:div, class: 'beta', &block) if current_user and current_user.beta?
+    content_tag(:div, class: 'beta', &block) if beta?
   end
 
   # Presenters: see http://railscasts.com/episodes/287-presenters-from-scratch

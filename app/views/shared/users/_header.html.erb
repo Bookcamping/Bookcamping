@@ -1,4 +1,5 @@
 <div class="header">
+  <div style="display:none">id: <%= user.id %></div>
   <div class="count">
     <%= presenter.count %>
   </div>
@@ -10,4 +11,11 @@
   </div>
 
   <div class="description"><%= presenter.description %></div>
+
+  <%= beta_div do %>
+    <div class="actions">
+      <%= link_to 'Listas', user_user_shelves_path(user) %>
+      <%= link_to 'Actividad', user_versions_path(user) %>
+    </div>
+  <% end %>
 </div>

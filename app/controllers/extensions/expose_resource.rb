@@ -15,7 +15,7 @@ module Extensions
         expose(:resource_attributes) { resource_class.attribute_names }
         expose(:resources) { send(exposed_name.pluralize) }
         expose(:resource) { send(exposed_name) } 
-        expose(:page_param) { params[:page].present? ? params[:page] : 1 } 
+
 
 
         expose(exposed_name.pluralize.to_sym) { resource_class.order('id DESC').page(page_param) }
