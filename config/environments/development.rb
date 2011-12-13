@@ -31,4 +31,14 @@ Bookcamp::Application.configure do
   # mailcacther
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :host => "127.0.0.1", :port => 1025 }
- end
+
+  config.after_initialize do
+    Bullet.enable = true
+#   Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+#   Bullet.growl = true
+    Bullet.rails_logger = true
+    Bullet.disable_browser_cache = true
+  end
+end

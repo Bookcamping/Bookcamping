@@ -60,6 +60,7 @@ group :development do
   gem 'sqlite3'
  #gem 'mongrel', '1.2.0.pre2'
 end
+gem "bullet", :group => "development"
 
 gem "rspec-rails", ">= 2.6.1", group: [:development, :test]
 group :test do

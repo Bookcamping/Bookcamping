@@ -38,6 +38,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     builder (3.0.0)
+    bullet (2.0.1)
+      uniform_notifier (~> 1.0.0)
     cancan (1.6.5)
     capybara (1.1.1)
       mime-types (>= 1.16)
@@ -266,6 +268,7 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
+    uniform_notifier (1.0.1)
     vegas (0.1.8)
       rack (>= 1.0.0)
     xpath (0.1.4)
@@ -280,6 +283,7 @@ DEPENDENCIES
   acts_as_list
   ancestry
   bcrypt-ruby (~> 3.0.0)
+  bullet
   cancan
   capybara (>= 1.0.1)
   carrierwave
