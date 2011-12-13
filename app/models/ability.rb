@@ -11,8 +11,7 @@ class Ability
     shelf_items
     user_shelves
     posts
-    licenses
-    tags
+    misc
   end
 
   def camps
@@ -61,13 +60,12 @@ class Ability
     cannot :destroy, UserShelf, :rol => 'my_references'
   end
 
-  def licenses
-    can :read, License
-  end
-
-  def tags
+  def misc
     can :read, Tag
     can :manage, Tagging
+    can :read, License
+    can :read, Version
+    can :manage, Version if user.admin?
   end
 
   def user=(user)

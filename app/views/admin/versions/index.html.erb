@@ -1,9 +1,0 @@
-<%= title "Actividad reciente en ##{current_camp.name}" %>
-<div class="actions">
-<%= link_to 'Email con última actividad', notify_camp_activity_admin_versions_path,
-  method: :post %>
-</div>
-
-<%= render partial: 'version', collection: versions %>
-
-

@@ -2,12 +2,12 @@ require 'spec_helper'
 
 feature "should admin camps" do
   background do
-    FactoryGirl.create(:camp)
+    FactoryGirl.create(:camp, name: 'Camping')
   end
  
   scenario "should have index" do
-    get admin_camps_path
-    response.should be_success
+    visit admin_camps_path
+    page.should have_content('Camping')
   end
 
 end

@@ -23,6 +23,7 @@ Bookcamp::Application.routes.draw do
     end
 
     resources :tags
+    resources :versions, path: 'actividad'
 
     scope module: 'licenses' do
       resources :licenses, path: 'licencias'
