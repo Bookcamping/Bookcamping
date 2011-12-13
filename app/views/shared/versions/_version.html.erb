@@ -10,6 +10,6 @@
       <% if version.whodunnit.present? %>
           por <%= link_to version.user_name, user_path(version.whodunnit) %>
       <% end %>
-      <small>hace <%= time_ago_in_words version.created_at %></small>
+      <small>hace <%= time_ago_in_words version.created_at if version.created_at %></small>
     </h5>
 <% end %>

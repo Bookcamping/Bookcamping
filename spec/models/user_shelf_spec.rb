@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe UserShelf do
   before :each do
     @camp = FactoryGirl.create(:camp)
@@ -7,14 +8,12 @@ describe UserShelf do
   end
 
   it "should create versions" do
-    puts UserShelf.meta.inspect
     shelf = FactoryGirl.create(:user_shelf)
-    puts shelf.inspect
     version = Version.last
-    puts version.inspect
     version.item_type.should == 'Shelf'
     version.extra.should == 'UserShelf'
     version.title.should == shelf.name
+    version.camp_id.should == shelf.camp_id
   end
 end
 

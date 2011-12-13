@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   expose(:current_publisher) { nil }
 
   def info_for_paper_trail
-    {user_name: (current_user? ? current_user.name : 'Anónimx'), camp_id: current_camp.id}
+    { user_name: (current_user? ? current_user.name : 'Anónimx') }
   end
 
   rescue_from ActionView::TemplateError do |x|

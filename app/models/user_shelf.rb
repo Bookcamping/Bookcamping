@@ -1,6 +1,9 @@
 class UserShelf < Shelf
   validates :name, uniqueness: {scope: [:user_id]}
 
+  has_paper_trail meta: {title: :name, camp_id: :camp_id,
+                         extra: 'UserShelf'}
+
   extend Shelf::ProfileScopes
   
   def add_book(book, user = nil)

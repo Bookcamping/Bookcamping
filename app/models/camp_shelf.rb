@@ -6,13 +6,9 @@ class CampShelf < Shelf
   extend Camp::Scopes
 
   has_slug nil
-  has_paper_trail :meta => {
-    :item_type => 'CampShelf',
-    :title => Proc.new { |shelf| shelf.name },
-    :camp_id => Proc.new { |shelf| shelf.camp_id }
-  }
 
-
+  has_paper_trail meta: {title: :name, camp_id: :camp_id,
+                         extra: 'CampShelf'}
 
   validates :camp_id, presence: true
   validates :slug, presence: true

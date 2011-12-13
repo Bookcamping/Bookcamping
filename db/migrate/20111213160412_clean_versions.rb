@@ -11,9 +11,10 @@ class CleanVersions < ActiveRecord::Migration
         v.save
       end 
     end
-
-    def down
-      remove_column :versions, :extra
-      add_column :versions, :processed, :boolean, default: false
-    end
   end
+
+  def down
+    remove_column :versions, :extra
+    add_column :versions, :processed, :boolean, default: false
+  end
+end

@@ -37,25 +37,28 @@ FactoryGirl.define do
   end
 
 
+  # TODO: refactor DRY
   factory :shelf do
     camp_id 1
-    user
-    name 'Shelf'
+    user 
+    sequence(:name) {|n| "Shelf #{n}"}
+    sequence(:slug) {|n| "Shelf slug #{n}"}
     visibility 'public'
-
-    factory :user_shelf, :parent => :shelf do
-      type 'UserShelf'
-    end
-    factory :curated_shelf, :parent => :shelf do
-      type 'CuratedShelf'
-    end
   end
 
-  factory :camp_shelf do
+   factory :camp_shelf do
     camp_id 1
     user 
     sequence(:name) {|n| "Camp shelf #{n}"}
     sequence(:slug) {|n| "Camp shelf slug #{n}"}
+    visibility 'public'
+  end
+
+  factory :user_shelf do
+    camp_id 1
+    user 
+    sequence(:name) {|n| "User shelf #{n}"}
+    sequence(:slug) {|n| "User shelf slug #{n}"}
     visibility 'public'
   end
 

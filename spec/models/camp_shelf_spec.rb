@@ -6,9 +6,11 @@ describe CampShelf do
 
   it "should create versions" do
     shelf = FactoryGirl.create(:camp_shelf)
-    shelf.class.should be(CampShelf)
     version = Version.last
-    version.item_type.should == 'CampShelf'
+    version.item_type.should == 'Shelf'
+    version.extra.should == 'CampShelf'
+    version.title.should == shelf.name
+    version.camp_id.should == shelf.camp_id
   end
 end
 
