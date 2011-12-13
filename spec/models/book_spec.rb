@@ -1,3 +1,4 @@
+require 'spec_helper'
 
 describe Book do
   it 'should be factoried' do
