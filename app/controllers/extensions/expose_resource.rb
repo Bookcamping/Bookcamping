@@ -40,14 +40,15 @@ module Extensions
           respond_with resource
         end
 
+        # TODO: url should be optional
         define_method :create! do |url|
-          url ||= [:backend, resource]
+          authorize! :create, resource
           flash[:notice] = t(".notice.created") if resource.save
           respond_with resource, location: url
         end
 
         define_method :update! do |url|
-          url ||= [:backend, resource]
+          authorize! :update, resource
           flash[:notice] = t(".notice.updated") if resource.save
           respond_with resource, location: url
         end

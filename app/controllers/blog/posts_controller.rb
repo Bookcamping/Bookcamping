@@ -30,4 +30,13 @@ class Blog::PostsController < ApplicationController
   def edit
     edit!
   end
+
+  def create
+    post.user = current_user
+    create! post
+  end
+
+  def update
+    update! post
+  end
 end
