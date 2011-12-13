@@ -30,6 +30,11 @@ module Extensions
           respond_with resource
         end 
 
+        define_method :new! do
+          authorize! :create, resource
+          respond_with resource
+        end
+
         define_method :edit! do
           authorize! :edit, resource
           respond_with resource

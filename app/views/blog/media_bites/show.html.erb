@@ -1,7 +1,7 @@
 <div class="actions">
-  <%= link_to 'Volver', admin_media_bites_path, class: 'back' %>
-  <%= link_to 'Editar', [:edit, :admin, media_bite] %>
-  <%= link_to 'Borrar', [:admin, media_bite], method: :delete,
+  <%= link_to 'Volver', media_bites_path, class: 'back' %>
+  <%= link_to 'Editar', [:edit, media_bite] %>
+  <%= link_to 'Borrar', media_bite, method: :delete,
               confirm: "¿Estás segura? No se puede deshacer!" %>
 </div>
 

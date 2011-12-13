@@ -66,6 +66,7 @@ class Ability
     can :read, License
     #can :read, Version
     #can :manage, Version if user.admin?
+    can :manage, MediaBite if user.admin?
   end
 
   def user=(user)

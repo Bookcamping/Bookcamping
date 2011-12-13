@@ -1,8 +1,10 @@
+<div class="header">
+  <%= title 'Imágenes y ficheros del blog' %>
+</div>
 <div class="actions">
-  <%= link_to '+ Añadir/subir media', new_admin_media_bite_path %>
+  <%= link_to '+ Añadir/subir media', new_media_bite_path %>
 </div>
 
-<%= admin_title resource_class, "Media 'jammin" %>
 
 <div id="media_bites">
   <% media_bites.each do |media_bite| %>
@@ -18,8 +20,8 @@
             <li class="link"><label>Enlaza con: </label><%= media_bite.link %></li>
           </ul>
           <div class="links">
-            <%= link_to 'Editar', [:edit, :admin, media_bite] %> |
-            <%= link_to 'Borrar', [:admin, media_bite], method: :delete,
+            <%= link_to 'Editar', [:edit, media_bite] %> |
+            <%= link_to 'Borrar', media_bite, method: :delete,
                         confirm: "Borrar '#{media_bite.title}' ¿Estás segura? No se puede deshacer" %>
           </div>
       <% end %>

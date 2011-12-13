@@ -1,9 +1,17 @@
-class Blog::MediaBitesController < Admin::ResourceController
+class Blog::MediaBitesController < ApplicationController
   respond_to :html
   expose_resource :media_bite
 
   def index
     index!
+  end
+
+  def new
+    new!
+  end
+
+  def edit
+    edit!
   end
 
   def show
