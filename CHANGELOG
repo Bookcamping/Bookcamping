@@ -12,9 +12,13 @@ URGENTE
   * Merge users!
   * DecentExposure para todos los controladores
 
+2011/12/13
+  * Más tests 
+
 2011/12/12
   * Refactorizar extensiones de controlador
-  *
+  * Tests!
+  * Actividad pública
 
 2011/12/11
   * Quitar camp_id de posts

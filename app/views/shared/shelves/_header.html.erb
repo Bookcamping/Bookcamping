@@ -6,11 +6,13 @@
   <h1><%= shelf.name %></h1>
   <div class="properties">
     Creada por <%= link_to shelf.user.name, shelf.user %>
+  <% if shelf.updated_at %>
     y modificada hace <%= time_ago_in_words shelf.updated_at %>
+  <% end %>
   </div>
 
   <div class="description">
     <%= shelf.description %>
   </div>
-  
+
 </div>

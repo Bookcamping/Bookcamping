@@ -15,12 +15,17 @@ feature 'show user shelves' do
     visit personal_user_shelves_path
     page.should have_content 'Lista pública'
     page.should have_content 'Lista privada'
-    
+  end
+
+  scenario 'show empty shelf' do
+    shelf = FactoryGirl.create(:user_shelf, user: @user, name: 'Empty')
+    visit personal_user_shelf_path(shelf)
+    page.should have_content 'Empty'
   end
 
   scenario 'show user shelf references' do
     shelf = FactoryGirl.create(:user_shelf, user: @user, name: 'Lista1')
-    # shelf.add_book FactoryGirl.create(:book, user: @user)
+    shelf.add_book FactoryGirl.create(:book, user: @user)
     visit personal_user_shelf_path(shelf)
     page.should have_content 'Lista1'
   end

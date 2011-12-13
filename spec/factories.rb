@@ -15,6 +15,12 @@ FactoryGirl.define do
     email { "#{name}@email.com" }
   end
 
+  factory :identity do
+    user 
+    uid { user.email }
+    provider 'bookcamping'
+  end
+
   factory :book do
     user
     camp_id 1

@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 
-feature 'show camp shelves' do
+feature 'View camp shelves' do
   background do
     FactoryGirl.create(:camp)
   end
@@ -17,7 +17,7 @@ feature 'show camp shelves' do
     end
   end
 
-  scenario 'show a camp shelf' do
+  scenario 'show empty camp shelf' do
     shelf = FactoryGirl.create(:camp_shelf, name: 'Mi estantería')
     visit camp_shelf_path(shelf)
     page.should have_content 'Mi estantería'
