@@ -3,9 +3,14 @@ module Extensions
     extend ActiveSupport::Concern
 
     module ClassMethods
+      # TODO: refactor to hash param
       def has_slug(param = :name)
         before_save do
-          self.slug = send(param).parameterize
+          if param
+            self.slug = send(param).parameterize
+          else
+            self.slug = self.slug.parameterize
+          end
         end
       end
 

@@ -43,15 +43,20 @@ FactoryGirl.define do
     name 'Shelf'
     visibility 'public'
 
-    factory :camp_shelf, :parent => :shelf do
-      type 'CampShelf'
-    end
     factory :user_shelf, :parent => :shelf do
       type 'UserShelf'
     end
     factory :curated_shelf, :parent => :shelf do
       type 'CuratedShelf'
     end
+  end
+
+  factory :camp_shelf do
+    camp_id 1
+    user 
+    sequence(:name) {|n| "Camp shelf #{n}"}
+    sequence(:slug) {|n| "Camp shelf slug #{n}"}
+    visibility 'public'
   end
 
   factory :post do

@@ -26,7 +26,8 @@ class Book < ActiveRecord::Base
 
   # SERVICES
   has_paper_trail :meta => {
-      :title => Proc.new { |book| book.title }
+      :title => Proc.new { |book| book.title },
+      :camp_id => Proc.new {|book| book.camp_id }
   }
 
   # ATTRIBUTES

@@ -1,5 +1,6 @@
 <% title user.name %>
 
+<div style="display:none">id: <%= user.id %></div>
 <% present user, {count: "#{shelves.size} listas" } do |presenter| -%>
     <%= div_for user do %>
         <%= presenter.header %>

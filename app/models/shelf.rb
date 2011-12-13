@@ -12,8 +12,7 @@ class Shelf < ActiveRecord::Base
 
   has_paper_trail :meta => {
       :title => Proc.new { |shelf| shelf.name },
-      :camp_id => Proc.new { |shelf| shelf.camp_id },
-      :user_name => Proc.new { |shelf| shelf.user.name }
+      :camp_id => Proc.new { |shelf| shelf.camp_id }
   }
 
   # SCOPES

@@ -2,8 +2,8 @@ class Tag < ActiveRecord::Base
   include Extensions::Slug
   include Extensions::Counter
 
-  has_many :taggings
-  has_many :references, through: :taggings, class_name: 'Book'
+  has_many :taggings, dependent: :destroy
+  has_many :references, through: :taggings, class_name: 'Book', order: 'title ASC'
 
   has_counter :size
   has_slug :name
