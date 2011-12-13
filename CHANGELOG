@@ -14,11 +14,14 @@ URGENTE
 
 2011/12/13
   * Más tests 
+  * Actividad por usuario
+  * Bug en paper_trail
 
 2011/12/12
   * Refactorizar extensiones de controlador
   * Tests!
   * Actividad pública
+  
 
 2011/12/11
   * Quitar camp_id de posts

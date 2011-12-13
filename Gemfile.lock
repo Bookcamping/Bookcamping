@@ -38,7 +38,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     builder (3.0.0)
-    bullet (2.0.1)
+    bullet (2.1.0)
       uniform_notifier (~> 1.0.0)
     cancan (1.6.5)
     capybara (1.1.1)
