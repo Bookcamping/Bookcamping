@@ -2,7 +2,7 @@
 
 This is a Rails 3.1.1 Application
 
-## Instalation
+## Install Bookcamping in your computer as a development server
 
 Bookcamping REQUIRES mysql and git installed on your computer (on ubuntu use apt-get)
 Also requires ruby version 1.9.2 (soon it will be changed to 1.9.3)
@@ -18,6 +18,7 @@ You have to clone the code using git:
 {{{
 git clone <the_url_github_provides>
 }}}
+
 And then create a ruby environment using rvm:
 {{{
 cd Bookcamping
