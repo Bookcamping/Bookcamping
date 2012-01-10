@@ -1,12 +1,15 @@
-<% title 'Estanterías' %>
-
-
-<div id="autoshelves">
+<% title 'Estanterías' %> 
+<div class="header">
+  <div class="count"><%= current_camp.books.count %> <%= current_camp.model_name %>s</div>
+  <h1>ESTANTERÍAS <%= current_camp.name.upcase %></H1>
+  <div class="description">Bienvenidas a #bookcamping, una biblioteca abierta y colaborativa nacida a la luz del 15 de Mayo.</div>
+  </div>
+  <!-- <div id="autoshelves">
   <% AutoShelf::NAMES.each do |name| %>
       <%= link_to t("autoshelf.name.#{name}"), auto_shelf_path(name), :class => name %>
   <% end %>
 </div>
-
+-->
 
 <div class="order">
   <%# shelf_order.each do |param, name| %>
