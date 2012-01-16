@@ -1,8 +1,9 @@
 <% title 'Estanterías' %> 
 <div class="header">
   <div class="count"><%= current_camp.books.count %> <%= current_camp.model_name %>s</div>
-  <h1>ESTANTERÍAS <%= current_camp.name.upcase %></H1>
-  <div class="description">Bienvenidas a #bookcamping, una biblioteca abierta y colaborativa nacida a la luz del 15 de Mayo.</div>
+  <h1>Estanterías #<%= current_camp.name %></H1>
+  <div class="description" style="display: none">Bienvenidas a #bookcamping, una biblioteca abierta y colaborativa
+    nacida a la luz<br/> del 15 de Mayo.</div>
   </div>
   <!-- <div id="autoshelves">
   <% AutoShelf::NAMES.each do |name| %>

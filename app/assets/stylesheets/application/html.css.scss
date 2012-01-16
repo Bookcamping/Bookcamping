@@ -17,7 +17,10 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     margin: 0.6em 0 0.8em 0;
-    line-height: 1.2em;
+    line-height: 1.4em;
+
+    em {text-style: italic;}
+    strong {font-weight: bold}
 }
 
 form {
@@ -102,5 +105,6 @@ ul.properties {
 span.error { color: #c000; }
 
 a.beta, div.beta { background-color: #eef4ff;}
-
+.wip { color: gray; font-style: italic; }
+p.colofon {text-align: center;}
 
