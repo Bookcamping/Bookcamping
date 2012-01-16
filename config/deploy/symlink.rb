@@ -10,4 +10,4 @@ namespace :config do
   end
 end
 
-after "deploy:update_code", "config:copy_shared_configurations"
+after "deploy:finalize_update", "config:copy_shared_configurations"
