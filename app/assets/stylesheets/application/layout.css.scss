@@ -143,3 +143,37 @@ a#feedback {
 }
 
 div.mini {font-size: 80%; margin-top: 1em;}
+
+
+
+div#footer {
+ div.bar {
+   width: $s-width; height: 25px;
+   background: image_url('barra.png') no-repeat;
+   font-family: $f-session;
+   font-size: 12px; color: white;
+   padding: 7px 0 0 14px;
+
+   a {color: white; }
+ }
+
+ div.end {
+   width: 100%; overflow: hidden;
+   a.colofon {
+     display: block; float: left; overflow: hidden;
+     text-indent: -150px;
+     width: 103px; height: 76px;
+     background: image_url('colofon.png') no-repeat;
+   }
+
+   div.license {
+     display: block; float: right;
+     margin-right: 5px;
+     width: 44em; text-align: right;
+     font-size: 13px;
+
+     img {float: right; }
+   }
+ }
+}
+

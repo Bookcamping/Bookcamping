@@ -34,6 +34,9 @@ Bookcamp::Application.routes.draw do
         post :change, on: :collection
       end
     end
+    ['agradecimientos', 'contactar', 'nosotras', 'colofon'].each do |name|
+      match name => "public/info_pages##{name}"
+    end
 
     match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
@@ -71,7 +74,6 @@ Bookcamp::Application.routes.draw do
       resources :comments
     end
     resources :media_bites, path: 'media'
-    #Mercury::Engine.routes
   end
 
   namespace :admin do

@@ -87,8 +87,22 @@
           </div>
         <% end %>
       </div>
-    </div>
+    <div id="footer">
+      <div class="bar">
+        <%= link_to 'Agradecimientos enormes', '/agradecimientos' %> |
+        <%= link_to 'Contactar', '/contactar' %> |
+        <%= link_to 'Sobre nosotras', '/nosotras' %>
+      </div>
+      <div class="end">
+        <%= link_to 'Colofon', '/colofon', class: 'colofon' %>
+        <div class="license">
+          <%= image_tag 'licencia_bookcamping.png', alt: 'licencia' %>
+          <p>Esta web y todo el material generado por el proyecto #bookcamping
+          está bajo una licencia Creative Commons Reconocimiento - Compartir Igual (by-sa)</p>
+        </div>
+      </div>
 
+    </div>
     <%= render 'layouts/js' %>
     <div style="display:none">(cc) Bookcamping 0.5.1 - 9 Diciembre 2012</div>
   </body>

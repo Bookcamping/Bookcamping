@@ -14,7 +14,6 @@ class Book < ActiveRecord::Base
   has_many :shelves, :through => :shelf_items
   has_many :camp_shelves, through: :shelf_items
 
-  has_many :bookmarks, :dependent => :destroy
   belongs_to :license
   serialize :marks
   delegate :name, to: :license, prefix: true

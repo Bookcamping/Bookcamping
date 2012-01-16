@@ -11,7 +11,7 @@ describe UserShelf do
     shelf = FactoryGirl.create(:user_shelf)
     version = Version.last
     version.item_type.should == 'Shelf'
-    version.extra.should == 'UserShelf'
+    #version.extra.should == 'UserShelf'
     version.title.should == shelf.name
     version.camp_id.should == shelf.camp_id
   end
