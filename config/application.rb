@@ -43,7 +43,7 @@ module Bookcamp
     config.assets.version = '1.3'
 
     config.assets.precompile += ['admin.js', 'admin.css', 'backend.js', 'backend.css']
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
 
     config.action_mailer.default_url_options = {host: 'bookcamping.cc'}
   end
