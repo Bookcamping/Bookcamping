@@ -32,13 +32,13 @@ Bookcamp::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :host => "127.0.0.1", :port => 1025 }
 
-  config.after_initialize do
-    Bullet.enable = true
+# config.after_initialize do
+#   Bullet.enable = true
 #   Bullet.alert = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
+#   Bullet.bullet_logger = true
+#   Bullet.console = true
 #   Bullet.growl = true
-    Bullet.rails_logger = true
-    Bullet.disable_browser_cache = true
-  end
+#   Bullet.rails_logger = true
+#   Bullet.disable_browser_cache = true
+# end
 end

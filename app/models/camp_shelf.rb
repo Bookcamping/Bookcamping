@@ -7,8 +7,7 @@ class CampShelf < Shelf
 
   has_slug nil
 
-  has_paper_trail meta: {title: :name, camp_id: :camp_id,
-                         extra: 'CampShelf'}
+  has_paper_trail meta: {title: :name, camp_id: :camp_id}
 
   validates :camp_id, presence: true
   validates :slug, presence: true
