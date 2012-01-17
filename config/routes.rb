@@ -120,7 +120,7 @@ Bookcamp::Application.routes.draw do
   match "/buscar/:term" => "references/books#search", :as => :search
   match "/buscar" => "references/books#search"
 
-  ['mapa', 'cuatrocientoscuatro', 'quinientos'].each do |name|
+  ['mapa', 'cuatrocientoscuatro', 'quinientos', 'sopa'].each do |name|
     match "/#{name}" => "public/screens##{name}"
   end
 

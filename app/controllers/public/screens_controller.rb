@@ -9,6 +9,9 @@ class Public::ScreensController < ApplicationController
     render layout: 'errors'
   end
 
+  def sopa
+  end
+
   def mapa
     map_area('especificos', 1, 'left:674px;top:558px;width:281px;height:220px;')
     map_area('manuales', 2, 'left:385px;top:554px;width:248px;height:180px;')

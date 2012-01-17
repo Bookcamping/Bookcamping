@@ -5,6 +5,7 @@
   <link rel="Shortcut Icon" href="/assets/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body class="<%= controller.class.name %>">
 <%= yield %>
