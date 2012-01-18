@@ -23,12 +23,13 @@ div#go-camping {
 }
 
 a#go-map {
-    display: block; margin-top: 20px;
-    padding-top: 82px; overflow: visible;
-    background: url('/images/buttons/MappingBookcamping.png') no-repeat;
+    display: block; overflow: hidden;
+    margin-top: 20px; text-indent: -1000px;
+    width: 336px; height: 275px;
+    background: image_url('mappingbookcamping.jpg') no-repeat;
 }
 a#go-map:hover {
-    background-position: 0 -83px;
+    background-position: 0 -275px;
 }
 
 div.book {

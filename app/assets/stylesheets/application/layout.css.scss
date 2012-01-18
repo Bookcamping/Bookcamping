@@ -97,36 +97,36 @@ h2 {margin-top: 30px; font-size: 20px; margin-bottom:10px;}
 
 
 div#sidebar {
-    #sidecontent {
-        div.buttons {
-            margin-top: 8px;
-            width: 336px; height: 145px;
-            background: url('/images/ui3/sidebuttons.png') no-repeat;
+    div.buttons {
+        margin-top: 8px;
+        width: 336px; height: 145px;
+        background: url('/images/ui3/sidebuttons.png') no-repeat;
 
-            a {
-                display: block; float: left; width: 166px;
-                margin-top: 1px; height: 55px; padding-top: 6px;
-                line-height: 54px;
-                text-align: center; font-weight: bold; color: black;
-                text-transform: uppercase;
-             }
-        }
+        a {
+            display: block; float: left; width: 166px;
+            margin-top: 1px; height: 55px; padding-top: 6px;
+            line-height: 54px;
+            text-align: center; font-weight: bold; color: black;
+            text-transform: uppercase;
+         }
+    }
 
-        div.main {
-            color: white;background-color: black;
-            padding: 30px 20px;
+    div.curtain, div.main {
+        color: white;background-color: black;
 
-            p {margin: 10px 0;}
-            a {color: white; font-weight: bold;}
-            h1 {margin-top: 0px;}
-            h2 {margin-top: 0px;}
-        }
+        p {margin: 10px 0;}
+        a {color: white; font-weight: bold;}
+        h1 {margin-top: 0px;}
+        h2 {margin-top: 0px;}
 
-        div.footer {
+        div.bottom {
             width: $s-sidebar; height: 15px;
-            background: url('/images/ui3/sidefooter.png') no-repeat;
+            background: image_url('falda.png') white no-repeat;
         }
     }
+
+    div.main { padding: 30px 20px; }
+    div.footer {background: image_url('falda.png') white no-repeat; width: 100%; height: 15px; }
 
     #goteo {margin: 20px 0; padding: 20px 43px 0 45px; background-color:  #e7e7e7;}
     #go-blog {display: block; margin-top: 20px;}
@@ -165,6 +165,7 @@ div#footer {
      width: 103px; height: 76px;
      background: image_url('colofon.png') no-repeat;
    }
+   a.colofon:hover {background-position: 0 -76px;}
 
    div.license {
      display: block; float: right;

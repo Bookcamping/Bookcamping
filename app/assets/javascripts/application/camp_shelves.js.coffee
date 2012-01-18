@@ -7,14 +7,14 @@ detachSummary = ->
   height = "#{container.height()}px"
   top = "#{$(window).scrollTop()}px"
   console.log left, top, width, height
-  container.remove().appendTo('body').css('position', 'absolute')
+  container.remove().appendTo('body').css('position', 'absolute').effect("highlight", {}, 3000);
   container.css {top: top, left: left, width: width, height: height}
 
 attachSummary = ->
   container = $('[data-pjax-container]')
   container.remove().css('position', 'static')
   $('#sidebar').prepend(container)
-  $('#sidebar_extra').show()
+  $('#sidebar_extra').show().effect("highlight", {}, 3000);
   #$("html, body").animate({ scrollTop: 0 }, "slow");
 
 jQuery ->
@@ -26,3 +26,4 @@ jQuery ->
         detachSummary()
       else
         attachSummary()
+
