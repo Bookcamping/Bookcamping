@@ -47,7 +47,7 @@ def create_licenses
                  :icon => '/assets/cr16.png', :open => false)
 end
 
+if Rails.env.development?
 create_bookcamping if Camp.count == 0
 create_licenses if License.count == 0
-
-
+end
