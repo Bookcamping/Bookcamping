@@ -1,19 +1,24 @@
 <div id="sidecontent">
-  <div class="main">
-    <h1>Blog #bookcamping</h1>
-    <ul id="latest-posts">
+  <div class="curtain">
+    <div class="content">
+      <h1>Blog #bookcamping</h1>
+      <div class="actions">
+    <%= link_to 'Añadir entrada', new_post_path if can? :manage, Post %>
+    <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
+    <%= link_to 'Subir imágen', new_media_bite_path if can? :create, MediaBite %>
+      </div>
+      <ul id="latest-posts" style="display: block;">
       <% all_posts.each do |post| %>
         <li><h3>
           <%= link_to post do %>
-            &nbsp;<%= l post.published_at.to_date %>&nbsp;
+            <%= l post.published_at.to_date %>&nbsp;
             <%= post.title %>
           <% end %>
         </h3></li>
       <% end %>
     </ul>
   </div>
-  <div class="footer"></div>
-  <br/><br/>
+  <div class="separator">&nbsp;</div>
   <script src="http://widgets.twimg.com/j/2/widget.js"></script>
   <script>
   new TWTR.Widget({
@@ -42,4 +47,6 @@
     }
   }).render().setUser('bookcamping').start();
   </script>
+  <div class="bottom"></div>
+</div>
 </div>

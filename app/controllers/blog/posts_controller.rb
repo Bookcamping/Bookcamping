@@ -1,10 +1,11 @@
 class Blog::PostsController < ApplicationController
   respond_to :html
   respond_to :atom, :rss, only: :index
+
   expose_with_slug
   expose_resource :post
-  
-  expose(:posts) { Post.published.order('published_at DESC') }
+
+  expose(:posts) { Post.published.order('published_at DESC').limit(3) }
   expose(:all_posts) do
     Post.published.order('published_at DESC')
   end
@@ -12,7 +13,7 @@ class Blog::PostsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { redirect_to posts.first }
+      format.html
       format.json
       format.atom { render layout: false}
       format.rss { redirect_to posts_path(format: :atom), status: :moved_permanently}

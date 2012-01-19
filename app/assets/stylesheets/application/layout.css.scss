@@ -24,13 +24,7 @@ div#page {
      }
 
      div#sidebar {
-        width: $s-sidebar; float: left;
-        margin-left: 15px;
-        border-top: 6px solid black;
-
-        ul li {margin: 5px 0;}
-        ul li h3:before {content: "\279C";}
-     }
+    }
 
 }
 
@@ -97,7 +91,11 @@ h2 {margin-top: 30px; font-size: 20px; margin-bottom:10px;}
 
 
 div#sidebar {
-    div.buttons {
+  width: $s-sidebar; float: left;
+  margin-left: 15px;
+  border-top: 6px solid black;
+
+ div.buttons {
         margin-top: 8px;
         width: 336px; height: 145px;
         background: url('/images/ui3/sidebuttons.png') no-repeat;
@@ -116,12 +114,30 @@ div#sidebar {
 
         p {margin: 10px 0;}
         a {color: white; font-weight: bold;}
-        h1 {margin-top: 0px;}
+        h1 {margin: 0px;}
         h2 {margin-top: 0px;}
+        ul li {margin: 5px 0;}
+        ul li h3 {font-weight: normal; font-size: 15px;margin-left: 1.2em; text-indent: -1.2em;}
+        ul li h3 a {font-weight: normal; }
+        ul li h3:before {content: "\279C ";}
+
 
         div.bottom {
             width: $s-sidebar; height: 15px;
             background: image_url('falda.png') white no-repeat;
+        }
+
+        div.content {
+          padding: 10px;
+        }
+        div.separator {
+          width: 95px; height: 15px;
+          margin: 10px auto;
+          background: image_url('colofin_negro.png') black no-repeat;
+        }
+        div.actions {
+          padding: 0; margin: 0px; border-bottom: 1px solid white;
+          a { padding: 0; font-size: 13px; margin: 0; font-weight: normal; }
         }
     }
 

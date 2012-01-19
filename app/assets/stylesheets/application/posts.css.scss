@@ -53,3 +53,16 @@ div.post {
 
 }
 
+div.posts {
+  div.post {
+    margin: -10px 0 2em 0;
+  }
+
+  div.post_head {
+    padding: 4px 0;
+    border-top: 6px solid black;
+    border-bottom: 2px solid black;
+  }
+
+  h2 {margin: 0}
+}

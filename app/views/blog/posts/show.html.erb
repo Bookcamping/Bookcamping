@@ -3,9 +3,6 @@
   <div class="author">Por <%= post.author %></div>
   <div class="actions">
     <%= link_to 'Editar entrada', [:edit, post] if can? :manage, post %>
-    <%= link_to 'Añadir una nueva entrada', new_post_path if can? :manage, Post %>
-    <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
-    <%= link_to 'Subir imágen', new_media_bite_path if can? :create, MediaBite %>
   </div>
 </div>
 
