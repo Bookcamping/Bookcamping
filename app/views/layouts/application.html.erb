@@ -35,6 +35,11 @@
             <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
           <% end %>
         </div>
+        <div class="tabs">
+          <%= link_to 'Como', '/como', class: 'como' %>
+          <%= link_to 'Visitas guiadas', '/visitas', class: 'visitas' %>
+          <%= link_to 'Blog', posts_path, class: 'blog' %>
+        </div>
         <div class="search">
           <%= form_tag '/buscar' do %>
             <%= text_field_tag :term %>
@@ -46,11 +51,11 @@
       <div id="go-camping">
         <% if current_camp.name == 'bookcamping' %>
           <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
+          <p class="go-bookcamping">bookcamping</p>
         <% else %>
+          <p class="go-videocamping">videocamping</p>
           <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
         <% end %>
-        <%= link_to 'blog', posts_path, class: 'go-blog' %>
-        <%= link_to 'atom', posts_path(format: :atom), class: 'go-atom' %>
       </div>
       <div id="header">
         <% if current_publisher %>
@@ -85,23 +90,27 @@
           </div>
         <% end %>
       </div>
-    <div id="footer">
-      <div class="bar">
-        <%= link_to 'Agradecimientos enormes', '/agradecimientos' %> |
-        <%= link_to 'Contactar', '/contactar' %> |
-        <%= link_to 'Sobre nosotras', '/nosotras' %>
-      </div>
-      <div class="end">
-        <%= link_to 'Colofon', '/colofon', class: 'colofon' %>
-        <div class="license">
-          <%= image_tag 'licencia_bookcamping.png', alt: 'licencia' %>
-          <p>Esta web y todo el material generado por el proyecto #bookcamping
-          está bajo una licencia Creative Commons Reconocimiento - Compartir Igual (by-sa)</p>
+      <div id="footer">
+        <div class="bar">
+          <%= link_to 'Agradecimientos enormes', '/agradecimientos' %> |
+          <%= link_to 'Contactar', '/contactar' %> |
+          <%= link_to 'Sobre nosotras', '/nosotras' %>
+          <%= link_to posts_path(format: :atom), class: 'rss' do %>
+            <%= image_tag 'icono_rss.png' %>
+            Suscripción al blog
+          <% end %>
         </div>
-      </div>
+        <div class="end">
+          <%= link_to 'Colofon', '/colofon', class: 'colofon' %>
+          <div class="license">
+            <%= image_tag 'licencia_bookcamping.png', alt: 'licencia' %>
+            <p>Esta web y todo el material generado por el proyecto #bookcamping
+            está bajo una licencia Creative Commons Reconocimiento - Compartir Igual (by-sa)</p>
+          </div>
+        </div>
 
-    </div>
-    <%= render 'layouts/js' %>
-    <div style="display:none">(cc) Bookcamping 0.5.1 - 9 Diciembre 2012</div>
-  </body>
-</html>
+      </div>
+      <%= render 'layouts/js' %>
+      <div style="display:none">(cc) Bookcamping 0.5.1 - 9 Diciembre 2012</div>
+    </body>
+  </html>

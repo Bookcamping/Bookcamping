@@ -1,0 +1,69 @@
+
+@import "variables.css.scss";
+
+
+div#session {
+  margin-top: 10px;
+  width: $s-width; height: 25px;
+  position: relative;
+  color: white;
+  font-family: $f-session;
+  font-size: 12px;
+  background: image_url('barra.png') no-repeat;
+
+  div {
+    position: absolute; top: 0; bottom: 0;
+
+    a { color: white; }
+  }
+
+  div.user {
+    left: 10px; width: 364px;
+    padding-top: 6px;
+  }
+  div.tabs {
+    left: 374px; width: 300px;
+
+    a {
+      display: block; float: right;
+      width: 83px; height: 55px;
+      overflow: hidden; text-indent: -1000px;
+      margin-top: -35px; margin-left: 5px;
+    }
+    a:hover {height: 60px; margin-top: -40px;}
+
+    a.blog {background: image_url('tab_blog.png') no-repeat;}
+    a.como {background: image_url('tab_como.png') no-repeat;}
+    a.visitas {background: image_url('tab_visitas.png') no-repeat;}
+
+  }
+
+  div.search {
+    top: 3px; width: 246px; right: 10px;
+
+    input[type=text] {width: 160px; }
+    input[type=submit] {width: 60px; padding: 0;}
+  }
+}
+
+
+div#nosession {
+    width: 100%; overflow: hidden;
+    margin: 10px 0 0 0;
+    a {color: white;}
+    .user {
+        float: left;
+        padding: 7px 0 0 20px;
+    }
+
+    #search-error {float: right; color: yellow;}
+    .search {
+        float: right; width: 271px; padding: 0; margin: 0;
+        input[type=text] {
+             background: transparent; margin: 0; border: 0;
+            height: 20px; width: 170px;}
+         input[type=text]:focus {outline: none;}
+         input[type=submit] {margin-left: 25px; padding: 5px 0; font-family: $f-session;}
+    }
+}
+

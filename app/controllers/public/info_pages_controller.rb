@@ -10,4 +10,10 @@ class Public::InfoPagesController < ApplicationController
 
   def colofon
   end
+
+  def como
+  end
+
+  def visitas
+  end
 end

@@ -34,7 +34,7 @@ Bookcamp::Application.routes.draw do
         post :change, on: :collection
       end
     end
-    ['agradecimientos', 'contactar', 'nosotras', 'colofon'].each do |name|
+    ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
       match name => "public/info_pages##{name}"
     end
 
