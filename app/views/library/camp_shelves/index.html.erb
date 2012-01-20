@@ -3,19 +3,27 @@
   <div class="count"><%= current_camp.books.count %> <%= current_camp.model_name %>s</div>
   <h1>Estanterías #<%= current_camp.name %></H1>
   <div class="description" style="display: none">Bienvenidas a #bookcamping, una biblioteca abierta y colaborativa
-    nacida a la luz<br/> del 15 de Mayo.</div>
+    nacida a la luz<br/> del 15 de Mayo.
   </div>
-  <!-- <div id="autoshelves">
+</div>
+
+<% if can? :manage, CampShelf %>
+  <div class="actions">
+    <%= link_to 'Añadir estantería', new_camp_shelf_path %>
+  </div>
+<% end %>
+
+<!-- <div id="autoshelves">
   <% AutoShelf::NAMES.each do |name| %>
-      <%= link_to t("autoshelf.name.#{name}"), auto_shelf_path(name), :class => name %>
+    <%= link_to t("autoshelf.name.#{name}"), auto_shelf_path(name), :class => name %>
   <% end %>
 </div>
 -->
 
 <div class="order">
   <%# shelf_order.each do |param, name| %>
-      <%#= link_to_unless shelf_order.current?(param), name, camp_shelves_path(o: param) %>
-  <%# end %>
+    <%#= link_to_unless shelf_order.current?(param), name, camp_shelves_path(o: param) %>
+    <%# end %>
 </div>
 
 <%= render_shelves camp_shelves %>

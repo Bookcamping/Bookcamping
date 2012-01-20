@@ -72,18 +72,25 @@ a.back {
 
 div.actions {
     width: 100%; overflow: hidden;
-    margin: 10px 0;
+    margin: 3px 0;
+
     a {
-        position: relative;
         overflow: visible;
-        display: inline-block;
+        display: block; float: left;
         line-height: 1.3em;
-        margin: 0; padding: 2px 5px 0 5px;
+        margin: 3px 7px 0 0; padding: 2px 5px 0 5px;
         border: 2px solid black;
         color: black; font-weight: bold;
+        box-shadow: 2px -2px 0px black;
      }
 
-     a.back {border: 0; margin: 1px 0px 0 0;}
+     a:hover {
+       background-color: black; color: white; 
+       text-decoration: none;
+     }
+
+     a.back {border: 0; margin: 3px 0px 0 0; box-shadow: none;}
+     a.back:hover {background-color: white; color: black }
 }
 .important {background-color: yellow;}
 

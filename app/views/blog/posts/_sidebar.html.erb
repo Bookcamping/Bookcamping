@@ -1,7 +1,7 @@
 <div id="sidecontent">
   <div class="curtain">
     <div class="content">
-      <h2>Blog #bookcamping</h2>
+      <h2><%= link_to 'Blog #bookcamping' %></h2>
       <div class="actions">
     <%= link_to 'Añadir entrada', new_post_path if can? :manage, Post %>
     <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
