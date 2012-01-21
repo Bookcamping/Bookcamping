@@ -95,7 +95,8 @@ Bookcamp::Application.routes.draw do
   namespace :backend do
     root to: 'stats#show'
     resource :stats
-    [:licenses, :books, :users, :posts, :shelves, :versions, :identities, :activities].each do |name|
+    [:licenses, :books, :users, :posts, :shelves, :versions, :identities, 
+     :activities, :colors].each do |name|
       resources name do
         get :search, on: :collection
       end

@@ -4,10 +4,12 @@
 #
 
 def create_bookcamping
-  Camp.create!(name: 'bookcamping')
+  puts "Create camping"
+  Camp.create!(name: 'bookcamping', model_name: 'libros')
 end
 
 def create_licenses
+  puts "Create licenses"
   License.create(:name => 'No lo se', :url => '', :icon => '', :open => false)
 
   License.create(:name => 'Creative commons CC BY-NC-ND (Reconocimiento/NoComercial/SinObraDerivada',
@@ -48,12 +50,25 @@ def create_licenses
 end
 
 def create_user
+  puts "Create bookcamping user"
   u = User.create!(name: 'bookcamping', email: 'hola@bookcamping.cc', rol: 'admin')
+  u.identify_with('bookcamping')
+end
 
+def create_colors
+  puts "Create colors"
+  ['#db533d', '#86475e', '#afa9ad', '#e9c54b', '#64a353',
+   '#c36d3b', '#ee8587', '#357391', '#67c095', '#4eaea8', '#f15a5b',
+   '#44adc6', '#9a7fba', '#e7de21', '#c1a574', '#d4d1c2', '#2f723e',
+   '#a0a96a', '#f68b1f', '#a5932b', '#c14f52', '#738f57', '#e18256',
+   '#dbb727', '#008eb0', '#967448', '#c2c76c'].each do |value|
+     Color.create!(name: value, value: value)
+   end
 end
 
 unless Rails.env.test?
   create_bookcamping if Camp.count == 0
   create_licenses if License.count == 0
   create_user if User.count == 0
+  create_colors if Color.count == 0
 end

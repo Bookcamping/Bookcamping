@@ -1,11 +1,9 @@
-<%= title t('title') %>
+<div class="header">
+  <%= title "Editar camping #{camp.name}" %>
+</div>
+<div class="actions">
+  <%= link_to 'Volver', [:admin, camp], class: 'back' %>
+</div>
 
-<%= simple_form_for [:admin, camp] do |form| %>
-    <%= form.input :name %>
-    <%= form.input :model_name %>
-    <%= form.input :show_media_on_lists %>
-    <%= form.input :line1, :as => :text %>
-    <%= form.input :line2, :as => :text %>
-    <%= form.input :origin, :as => :text %>
-    <%= form.submit 'Guardar' %>
-<% end %>
+<%= render 'form' %>
+

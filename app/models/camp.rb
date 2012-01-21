@@ -19,6 +19,18 @@ class Camp < ActiveRecord::Base
   validates :name, presence: true
   validates :model_name, presence: true
 
+  def self.boolean_accessor(keys) 
+    keys.each do |key|
+      define_method("#{key}?") do
+        send(key) != '0'
+      end
+    end
+  end
+
+  store :settings, accessors: [ :has_blog, :lock_camp_shelves ]
+  boolean_accessor [:has_blog, :lock_camp_shelves ]
+
+
   module Scopes
     def by_camp(camp)
       where(camp_id: camp.id)

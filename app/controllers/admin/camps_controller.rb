@@ -1,4 +1,4 @@
-class Admin::CampsController < Admin::ApplicationController
+class Admin::CampsController < ApplicationController
   respond_to :html
   expose_resource :camp
 

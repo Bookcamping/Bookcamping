@@ -5,6 +5,7 @@
         <div class="actions">
           <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
           <%= link_to "Añadir #{current_camp.model_name}", [:new, camp_shelf, :book] %>
+          <%= link_to 'Editar estantería', [:edit, camp_shelf] if can? :edit, camp_shelf %>
           <%= link_to 'Seleccionar referencias', '#', class: 'select-references beta' if beta? %>
         </div>
         <%= presenter.references %>

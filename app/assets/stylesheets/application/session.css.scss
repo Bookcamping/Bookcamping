@@ -41,8 +41,8 @@ div#session {
   div.search {
     top: 3px; width: 246px; right: 10px;
 
-    input[type=text] {width: 160px; }
-    input[type=submit] {width: 60px; padding: 0;}
+    input[type=text] {width: 160px; border: 1px solid black; }
+    input[type=submit] {width: 60px; padding: 0; background-color: black; color: white;}
   }
 }
 

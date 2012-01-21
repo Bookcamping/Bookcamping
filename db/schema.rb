@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120211159) do
+ActiveRecord::Schema.define(:version => 20120121083744) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(:version => 20120120211159) do
     t.datetime "updated_at"
     t.string   "model_name",          :limit => 32
     t.boolean  "show_media_on_lists",                :default => false
+    t.string   "lang",                :limit => 8
+    t.text     "settings"
   end
 
   create_table "colors", :force => true do |t|
