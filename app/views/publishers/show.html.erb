@@ -1,0 +1,8 @@
+<div class="header">
+  <%= title publisher.name %>
+</div>
+<div class="actions">
+  <%= link_to 'Volver', publishers_path, class: 'back' %>
+  <%= link_to 'Editar', [:edit, publisher] if can? :edit, publisher %>
+</div>
+

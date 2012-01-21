@@ -11,7 +11,13 @@ class Ability
     shelf_items
     user_shelves
     posts
+    publishers
     misc
+  end
+
+  def publishers
+    can :read, Publisher
+    can :manage, Publisher if user.admin?
   end
 
   def camps

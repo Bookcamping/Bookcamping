@@ -1,0 +1,13 @@
+<div class="header">
+  <%= title 'Editoriales' %>
+</div>
+
+<% if can? :manage, Publisher %>
+  <div class="actions">
+    <%= link_to 'Añdir editorial', new_publisher_path %>
+  </div>
+<% end %>
+
+<% publishers.each do |publisher| %>
+  <%= link_to (publisher.header_url? ? image_tag(publisher.header_url) : publisher.name), publisher %>
+<% end %>

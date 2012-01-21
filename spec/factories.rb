@@ -87,4 +87,9 @@ FactoryGirl.define do
     association :reference, factory: :book 
     user
   end
+
+  factory :publisher do
+    sequence(:name) {|n| "Publisher #{n}"}
+    sequence(:slug) {|n| "publisher-#{n}"}
+  end
 end

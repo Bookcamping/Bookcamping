@@ -1,5 +1,5 @@
 # encoding: utf-8
-# Prepara la base de datos para tests
+# Prepara la base de datos para una nueva instalación
 # Utiliza datos de prueba si quieres montar un servidor de desarrollo en local
 #
 
@@ -47,7 +47,13 @@ def create_licenses
                  :icon => '/assets/cr16.png', :open => false)
 end
 
-if Rails.env.development?
-create_bookcamping if Camp.count == 0
-create_licenses if License.count == 0
+def create_user
+  u = User.create!(name: 'bookcamping', email: 'hola@bookcamping.cc', rol: 'admin')
+
+end
+
+unless Rails.env.test?
+  create_bookcamping if Camp.count == 0
+  create_licenses if License.count == 0
+  create_user if User.count == 0
 end

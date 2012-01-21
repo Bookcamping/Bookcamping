@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213160412) do
+ActiveRecord::Schema.define(:version => 20120120211159) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -174,6 +174,17 @@ ActiveRecord::Schema.define(:version => 20111213160412) do
     t.string   "content_type",   :limit => 32
     t.string   "slug",           :limit => 200
   end
+
+  create_table "publishers", :force => true do |t|
+    t.string   "name",         :limit => 300
+    t.string   "slug",         :limit => 100
+    t.string   "header_url",   :limit => 300
+    t.string   "homepage_url", :limit => 300
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "publishers", ["slug"], :name => "index_publishers_on_slug", :unique => true
 
   create_table "shelf_items", :force => true do |t|
     t.integer  "shelf_id"
