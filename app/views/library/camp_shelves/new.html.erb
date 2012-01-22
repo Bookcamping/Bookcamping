@@ -18,7 +18,7 @@
 
   <p>Nuestro correo es <strong>hola@bookcamping.cc</strong></p>
 
-  <% if current_user.admin? %>
+  <% if current_user and current_user.admin? %>
     <h2>'<%= current_user.name %>' eres administradora: tienes privilegios</h2>
     <p>El mensaje anterior se muestra a todas las bookcampers que no son administradoras.
     Las administradoras pueden seguir creando estanterías.</p>

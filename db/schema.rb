@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121083744) do
+ActiveRecord::Schema.define(:version => 20120121095623) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -162,6 +162,18 @@ ActiveRecord::Schema.define(:version => 20120121083744) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title",        :limit => 100
+    t.string   "slug",         :limit => 100
+    t.text     "body"
+    t.string   "description",  :limit => 300
+    t.string   "content_type", :limit => 30
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
