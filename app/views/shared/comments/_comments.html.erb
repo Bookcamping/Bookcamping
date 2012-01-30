@@ -1,32 +1,34 @@
 <div class="comments section">
   <%= simple_form_for [new_comment.resource, new_comment] do |form| %>
-      <%= form.input :body, as: :text, label: false %>
-      <%= text_field_tag :email %>
-      <div class="anonymous">
-        <% if current_user? %>
-            <p class="notice">
-              Aunque preferimos los comentarios firmados (por eso del diálogo), para mantener tu privacidad puedes hacerlo de manera anónima.
-            </p>
-            <%= check_box_tag :anonymous %> Comentar de forma anónima
-        <% else %>
-            <p class="notice">
-              Preferiríamos que te identificases ('Entrar' en la parte superior), aunque también puedes comentar de forma anónima.
-            </p>
-        <% end %>
-      </div>
-      <%= form.submit 'Comentar' %>
+    <%= form.input :body, as: :text, label: false %>
+    <%= text_field_tag :email %>
+    <div class="anonymous">
+      <% if current_user? %>
+        <p class="notice">
+        Aunque preferimos los comentarios firmados (por eso del diálogo), para mantener tu privacidad puedes hacerlo de manera anónima.
+        </p>
+        <%= check_box_tag :anonymous %> Comentar de forma anónima
+      <% else %>
+        <p class="notice">
+        Preferiríamos que te identificases ('Entrar' en la parte superior), aunque también puedes comentar de forma anónima.
+        </p>
+      <% end %>
+    </div>
+    <%= form.submit 'Comentar' %>
   <% end %>
   <ul class="comments">
     <% comments.each do |comment| %>
-        <li>
-          <%= div_for comment do %>
-              <div class="comment_info">
-                <span class="user"><%= comment.user.present? ? (link_to comment.user.name, comment.user) : 'Anónimx' %></span>
-                <span class="time">hace <%= time_ago_in_words comment.created_at %></span>
-              </div>
-              <%= comment.body %>
+      <li>
+      <%= div_for comment do %>
+        <div class="comment_info">
+          <span class="user"><%= comment.user.present? ? (link_to comment.user.name, comment.user) : 'Anónimx' %></span>
+          <% if comment.created_at %>
+            <span class="time">hace <%= time_ago_in_words comment.created_at %></span>
           <% end %>
-        </li>
+        </div>
+        <%= comment.body %>
+      <% end %>
+      </li>
     <% end %>
   </ul>
 </div>

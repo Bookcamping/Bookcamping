@@ -12,6 +12,12 @@ URGENTE
   * Merge users!
   * DecentExposure para todos los controladores
 
+2012/1/30
+  * Nginx configuration
+	* Bug fixes
+	* Design changes
+
+
 2011/12/13
   * Más tests 
   * Actividad por usuario
