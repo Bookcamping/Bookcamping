@@ -56,4 +56,8 @@ module ApplicationHelper
   def current_model
     current_camp.model_name
   end
+
+  def dbg(model)
+    debug(model) if Rails.env.development?
+  end
 end

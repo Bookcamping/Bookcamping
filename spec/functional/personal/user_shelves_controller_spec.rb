@@ -1,13 +1,13 @@
 # encoding: utf-8
 require 'spec_helper'
 
-feature 'show user shelves' do
+feature 'Show user shelves' do
   background do
     FactoryGirl.create(:camp)
     @user = FactoryGirl.create(:user)
     visit enter_path(@user.id)
   end
-  
+
   scenario 'show all user shelves' do
     FactoryGirl.create(:user_shelf, user: @user, name: 'Lista pública')
     FactoryGirl.create(:user_shelf, user: @user, name: 'Lista privada', visibility: 'private')

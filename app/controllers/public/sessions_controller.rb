@@ -17,19 +17,14 @@ class Public::SessionsController < ApplicationController
   def create_with_omniauth
     identity = Identity.identify_omniauth(omniauth)
     if identity
-      login_user(identity.user) 
+      login_user(identity.user)
     else
       user = User.new do |user|
         user.name = omniauth['info']['name']
         user.email = omniauth['info']['email']
         user.twitter = omniauth['info']['nickname']
       end
-      unless user.save
-        timestamp = (Time.now.to_f * 1000).to_i
-        user.name = "#{user.name}#{timestamp}"
-        user.save
-      end
-      Identity.create(user: user, provider: omniauth['provider'], uid: omniauth['uid'])
+      user.identities.build(provider: omniauth['provider'], uid: omniauth['uid'])
 
       login_user(user)
     end
@@ -65,10 +60,7 @@ class Public::SessionsController < ApplicationController
   protected
   def login_user(user)
     self.current_user = user
-    user.last_login_at = Time.now
-    user.login_count ||= 0
-    user.login_count = user.login_count + 1
-    user.save(:validate => false)
+    user.audit_login
     redirect_to stored_or(root_path), notice:
       "¡Hola #{user.name}!"
   end

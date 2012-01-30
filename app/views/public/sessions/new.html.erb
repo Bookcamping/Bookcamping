@@ -1,25 +1,27 @@
 <div class="header">
   <%= title 'Entrar a #bookcamping' %>
-  <div class="description"></div>
+  <p class="description">Hay varias maneras de entrar a bookcamping. ¡Elige a que más te guste! </p>
 </div>
 <div class="actions">
-  <%#= link_to 'Crear nuevo perfil', new_personal_user_path %>
+  <%= link_to 'Darse de alta', new_user_path %>
+  <%= link_to 'No recuerdo mi contraseña', new_password_recovery_path %>
 </div>
-
+<h2>Entrar con un solo click</h2>
 <p>La manera más fácil de entrar o registrarte en bookcamping es usando cualquiera
-  de estos (privativos) sistemas de identificación (pulsa sobre el que uses frecuentemente):</p>
+de estos sistemas de identificación (pulsa sobre el que uses frecuentemente). Si
+ya tienes cuenta en bookcamping entrarás con un solo click. Si aún no te has dado
+de alta, te creará una nueva cuenta.</p>
 <div class="authorizations">
   <%= link_to image_tag('authbuttons/twitter_64.png', :width => 64, :height => 64), auth_path('twitter', from: redirect_url), rel: 'nofollow' %>
   <%= link_to image_tag('authbuttons/google_64.png', :width => 64, :height => 64), auth_path('google', from: redirect_url), rel: 'nofollow'%>
   <%= link_to image_tag('authbuttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url), rel: 'nofollow' %>
 </div>
-<br/><br/>
-<p>También puedes utilizar el clásico santo y seña (en el caso de que tengas):</p>
+<h2>Entrar con email y contraseña</h2>
+<p>Si no puedes o quieres utilizar el sistema de identificación puedes utilizar el cláiso email y contraseña.
+Si ya estás registrada completa este formulario:</p>
 <%= simple_form_for User.new, url: '/identificar' do |form| %>
-    <%= form.input :email, hint: false %>
-    <%= form.input :password %>
-    <%= form.submit 'Entrar' %>
-  <% end %>
-<div class="mini">
-  <%= link_to 'No recuerdo mi contraseña', new_password_recovery_path %>
-</div>
+  <%= form.input :email, hint: false %>
+  <%= form.input :password %>
+  <%= form.submit 'Entrar' %>
+<% end %>
+

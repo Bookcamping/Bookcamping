@@ -47,3 +47,8 @@ Spork.each_run do
   #FactoryGirl.find_definitions
 end
 
+Capybara.add_selector(:link) do
+  xpath {|rel| ".//a[@rel='#{rel}']"}
+end
+
+

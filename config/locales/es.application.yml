@@ -43,6 +43,9 @@ es:
         authors: "Autoras"
         editor: "Editorial"
         url: "Enlace de descarga"
+  resource:
+    created: '¡Creado! Gracias.'
+    updated: '¡Guardado! Gracias.'
 
   comments:
     notice:

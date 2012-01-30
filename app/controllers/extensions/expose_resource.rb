@@ -6,7 +6,7 @@ module Extensions
       def expose_resource(name, options = {})
         options.reverse_merge!(as: name)
         exposed_name = options[:as].to_s
-        
+
         define_method :resource_name do
           name.to_s
         end
@@ -43,13 +43,13 @@ module Extensions
         # TODO: url should be optional
         define_method :create! do |url|
           authorize! :create, resource
-          flash[:notice] = t(".notice.created") if resource.save
+          flash[:notice] = t(".resource.created") if resource.save
           respond_with resource, location: url
         end
 
         define_method :update! do |url|
           authorize! :update, resource
-          flash[:notice] = t(".notice.updated") if resource.save
+          flash[:notice] = t(".resource.updated") if resource.save
           respond_with resource, location: url
         end
 

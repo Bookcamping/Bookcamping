@@ -1,23 +1,21 @@
 # User
 #
-# 
 class User < ActiveRecord::Base
+  extend FriendlyId
   include Extensions::Roles
   include Extensions::UserOps
-  include Extensions::Slug
   include Users::Create
   include Users::Identities
 
-  has_slug :name
+  friendly_id :name, use: :slugged
 
-  # TAGS
-  has_many :taggings, dependent: :destroy
-
-  has_many :identities, dependent: :destroy
+  # RELATIONS 
+  has_many :identities, dependent: :destroy, inverse_of: :user
   has_many :books, dependent: :restrict
   has_many :comments, dependent: :destroy
   has_many :versions, foreign_key: :whodunnit
   has_many :taggins
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggins
 
   # Shelves
@@ -32,16 +30,35 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true, uniqueness: true
-  #  validates :email, presence: true, on: :create, unless: :twitter?
-  #  validates :email, uniqueness: true, if: :email?
+  validates :email, presence: true, uniqueness: true
   # validates :password, presence: true, confirmation: true, on: :create
   # validates :password_confirmation, presence: true, on: :create
 
-  #has_secure_password
+  # NESTED IDENTITIES IN FORMS
+  accepts_nested_attributes_for :identities
+  before_validation :initialize_identities, on: :create
 
   # Callbacks
   after_create :create_profile_shelves
 
-  attr_accessor :password, :password_confirmation
+  # HELPER METHODS
+  def authorized_with?(password)
+    identity = self.identities.find_by_provider('bookcamping')
+    identity != nil and identity.authorized?(password)
+  end
+
+  def audit_login
+    self.last_login_at = Time.now
+    self.login_count ||= 0
+    self.login_count = self.login_count + 1
+    self.save(:validate => false)
+  end
+
+  private
+  def initialize_identities
+    identities.each do |i|
+      i.uid = self.email if i.bookcamping?
+    end
+  end
 
 end

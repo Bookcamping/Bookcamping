@@ -31,7 +31,7 @@ describe User do
     user.save
     user.slug.should == 'user-name'
     user.to_param.should == user.slug
-    User.find_by_param('user-name').should_not be_nil
+    User.find('user-name').should_not be_nil
   end
 
   # IDENTITIES
@@ -61,7 +61,13 @@ describe User do
     user.identities.first.uid.should_not == token
   end
 
-  it "should identify with password" do
+  it "should authorized with password" do
+    user = Factory.create(:user)
+    user.identify_with('secret')
+    user.authorized_with?('secret').should == true
+  end
+
+  it "should identify with only one password" do
     user = Factory.create(:user)
     user.identify_with('entrar')
     user.identities.count.should == 1
@@ -90,6 +96,13 @@ describe User do
     user.beta?.should == true
   end
 
+  # AUDIT LOGIN
+  it "should audit login" do
+    user = Factory.create(:user)
+    user.audit_login
+    user.login_count.should == 1
+    user.last_login_at.should_not be_nil
+  end
   # MERGE USERS
 
 end

@@ -1,0 +1,21 @@
+<div class="header">
+  <%= title 'Darse de alta' %>
+</div>
+<div class="actions">
+  <%= link_to 'Volver', login_path, class: 'back' %>
+</div>
+
+<%= simple_form_for user do |form| %>
+  <%= form.input :name %>
+  <%= form.input :email %>
+  <%= form.input :twitter %>
+  <%= form.fields_for :identities do |identity_form| %>
+    <%= identity_form.input :nested, as: :hidden %>
+    <%= identity_form.input :uid %>
+    <%= identity_form.input :provider %>
+    <%= identity_form.input :password %>
+  <% end %>
+  <%= form.submit %>
+<% end %>
+<%= dbg user.errors %>
+

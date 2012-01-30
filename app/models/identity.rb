@@ -1,11 +1,12 @@
 require 'bcrypt'
 
 class Identity < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, inverse_of: :identities
 
-  validates :user_id, presence: true
+  validates :user_id, presence: true, unless: :nested
+  validates :uid, presence: true, unless: :nested
   validates :provider, presence: true
-  validates :uid, presence: true
+  attr_accessor :nested
 
   def bookcamping?
     provider == 'bookcamping'
