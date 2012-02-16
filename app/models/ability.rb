@@ -35,16 +35,9 @@ class Ability
   end
 
   def shelves
-    cannot :create, Shelf if anonymous?
-    can :manage, Shelf do |shelf|
-      if shelf.type == 'CampShelf'
-        true
-      elsif shelf.user_id == user.id and shelf.rol != 'my_references'
-        true
-      else
-        false
-      end
-    end
+    can :read, CampShelf
+    can :manage, CampShelf if user?
+    cannot :destroy, CampShelf unless user.admin?
   end
 
   def shelf_items
