@@ -28,7 +28,7 @@ Bookcamp::Application.routes.draw do
 
     scope module: 'licenses' do
       resources :licenses, path: 'licencias'
-    end 
+    end
 
     scope module: 'public' do
       resources :password_recoveries, path: 'recuperar' do
@@ -52,8 +52,8 @@ Bookcamp::Application.routes.draw do
     end
 
 
-    scope module: 'social' do
-      resources :users, path: 'somos', only: [:index, :show, :search] do
+    resources :users, path: 'somos' do
+      scope module: 'social' do
         get :search, on: :collection, path: 'buscar'
 
         resources :versions, path: 'actividad'
@@ -61,7 +61,6 @@ Bookcamp::Application.routes.draw do
           resources :books, path: 'referencias', only: [:show, :index]
         end
       end
-      resource :explorer, path: 'explorar', only: [:show]
     end
 
     scope module: 'services' do
@@ -95,7 +94,7 @@ Bookcamp::Application.routes.draw do
   namespace :backend do
     root to: 'stats#show'
     resource :stats
-    [:licenses, :books, :users, :posts, :shelves, :versions, :identities, 
+    [:licenses, :books, :users, :posts, :shelves, :versions, :identities,
      :activities, :colors].each do |name|
       resources name do
         get :search, on: :collection
@@ -128,7 +127,7 @@ Bookcamp::Application.routes.draw do
 
   # Backdoors used in test and development
   match "/enter/:id" => "public/sessions#enter", :as => :enter unless Rails.env.production?
-  match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp 
+  match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp
 
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121095623) do
+ActiveRecord::Schema.define(:version => 20120222075207) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -261,12 +261,14 @@ ActiveRecord::Schema.define(:version => 20120121095623) do
     t.integer  "login_count",                    :default => 0
     t.datetime "last_login_at"
     t.string   "twitter",         :limit => 150
-    t.boolean  "email_visible",                  :default => false
-    t.boolean  "twitter_visible",                :default => false
-    t.boolean  "email_confirmed",                :default => false
     t.string   "description",     :limit => 300
-    t.boolean  "active",                         :default => false
     t.string   "slug",            :limit => 100
+    t.string   "settings",        :limit => 300
+    t.string   "password_digest"
+    t.string   "uid_twitter"
+    t.string   "uid_facebook"
+    t.string   "uid_google"
+    t.string   "recovery_code"
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

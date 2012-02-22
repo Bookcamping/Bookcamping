@@ -1,8 +1,8 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(provided_user)
-    self.user = provided_user
+  def initialize(user)
+    @user = user
 
     camps
     users
@@ -17,21 +17,24 @@ class Ability
 
   def publishers
     can :read, Publisher
-    can :manage, Publisher if user.admin?
+    can :manage, Publisher if is? :admin
   end
 
   def camps
-    can :manage, Camp if user.admin?
+    can :manage, Camp if is? :admin
   end
 
   def users
     can :read, User
-    can :edit, User, id: user.id
+    can :new, User unless @user
+    can :create, User unless @user
+    can :destroy, User if is? :super
+    can :update, user {|u| @user.id = u.id or is? :admin }
   end
 
   def references
-    can :manage, Book if user?
-    cannot :destroy, Book unless user.admin?
+    can :manage, Book if @user
+    cannot :destroy, Book unless is? :admin
   end
 
   def shelves
@@ -48,7 +51,7 @@ class Ability
 
 
   def posts
-    can :manage, Post if user.admin?
+    can :manage, Post if is? :admin
     can :read, Post
   end
 
@@ -64,23 +67,15 @@ class Ability
     can :manage, Tagging
     can :read, License
     #can :read, Version
-    #can :manage, Version if user.admin?
-    can :manage, MediaBite if user.admin?
-  end
-
-  def user=(user)
-    @user = user || User.new
-  end
-
-  def anonymous?
-    @user.new_record?
+    #can :manage, Version if is? :admin
+    can :manage, MediaBite if is? :admin
   end
 
   def user
     @user
   end
 
-  def user?
-    !anonymous?
+  def is?(rol)
+    @user and @user.send("#{rol}?")
   end
 end

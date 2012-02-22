@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Public::SessionsController < ApplicationController
-
+  respond_to :html
   expose(:redirect_url) { params[:from].present? ? params[:from] : '/'}
   expose(:omniauth) { request.env['omniauth.auth'] }
 
@@ -15,31 +15,27 @@ class Public::SessionsController < ApplicationController
 
 
   def create_with_omniauth
-    identity = Identity.identify_omniauth(omniauth)
-    if identity
-      login_user(identity.user) 
+    user = User.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+
+    if user
+      login_user(user)
     else
-      user = User.new do |user|
+      @user = User.new do |user|
         user.name = omniauth['info']['name']
         user.email = omniauth['info']['email']
         user.twitter = omniauth['info']['nickname']
+        column = "uid_#{omniauth['provider']}="
+        user.send(column, omniauth['uid'])
       end
-      unless user.save
-        timestamp = (Time.now.to_f * 1000).to_i
-        user.name = "#{user.name}#{timestamp}"
-        user.save
-      end
-      Identity.create(user: user, provider: omniauth['provider'], uid: omniauth['uid'])
-
-      login_user(user)
+      login_user(@user) if @user.save
     end
   end
 
   def create
     data = params[:user]
-    identity = Identity.identify_credentials(data[:email], data[:password])
-    if identity
-      login_user(identity.user)
+    user = User.authenticate(params[:user][:email], params[:user][:password])
+    if user
+      login_user(user)
     else
       redirect_to login_path, notice: 'No te hemos encontrado.'
     end
@@ -65,10 +61,7 @@ class Public::SessionsController < ApplicationController
   protected
   def login_user(user)
     self.current_user = user
-    user.last_login_at = Time.now
-    user.login_count ||= 0
-    user.login_count = user.login_count + 1
-    user.save(:validate => false)
+    user.audit_login
     redirect_to stored_or(root_path), notice:
       "¡Hola #{user.name}!"
   end

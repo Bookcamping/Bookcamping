@@ -51,7 +51,7 @@ end
 
 def create_user
   puts "Create bookcamping user"
-  u = User.create!(name: 'bookcamping', email: 'hola@bookcamping.cc', rol: 'admin')
+  u = User.create!(name: 'bookcamping', email: 'hola@bookcamping.cc', rol: 'super')
   u.identify_with('bookcamping')
 end
 
