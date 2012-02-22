@@ -163,18 +163,6 @@ ActiveRecord::Schema.define(:version => 20120222075207) do
     t.datetime "updated_at"
   end
 
-  create_table "pages", :force => true do |t|
-    t.string   "title",        :limit => 100
-    t.string   "slug",         :limit => 100
-    t.text     "body"
-    t.string   "description",  :limit => 300
-    t.string   "content_type", :limit => 30
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
-  add_index "pages", ["slug"], :name => "index_pages_on_slug"
-
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "author",         :limit => 100

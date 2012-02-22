@@ -31,15 +31,16 @@ Bookcamp::Application.routes.draw do
     end
 
     scope module: 'public' do
-      resources :password_recoveries, path: 'recuperar' do
+      resources :password_recoveries, path: 'recuperar', except: [:index] do
         post :change, on: :collection
       end
     end
+    match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
+
     ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
       match name => "public/info_pages##{name}"
     end
 
-    match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
     namespace :personal, path: 'mis' do
       root to: redirect('/mis/labores')

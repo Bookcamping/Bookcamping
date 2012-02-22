@@ -4,9 +4,8 @@ class PasswordMailer < ActionMailer::Base
   layout 'mail'
   default_url_options[:host] = Site.host
 
-  def recovery_password(identity_id)
-    @identity = Identity.find identity_id
-    @user = @identity.user
+  def recovery_password(user_id)
+    @user = User.find user_id
     if @user.email.present?
       @host = Site.host
       mail to: @user.email, subject: 'Bookcamping: recuperar contraseña'

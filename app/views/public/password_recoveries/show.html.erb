@@ -1,6 +1,6 @@
 <div class="header">
   <%= title 'Recuperar contraseña' %>
-  <% if params[:id] == 'enviada' %>
+  <% if password_recovery.user.present? %>
     <p>Las instrucciones se te han enviado al correo electrónico.</p>
   <% else %>
     <p>No se ha encontrado a nadie con ese email.</p>

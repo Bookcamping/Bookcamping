@@ -27,11 +27,12 @@ class PasswordRecovery
   def save
     if valid?
       self.persisted = true
-      user = User.find_by_email(email)
+      self.user = User.find_by_email(email)
       if user
-        identity = user.generate_recovery_identity
+        user.generate_recovery_code
         self.status = 'enviada'
-        PasswordMailer.recovery_password(identity.id).deliver
+        PasswordMailer.recovery_password(user.id).deliver
+        self.id = user.id
       else
         self.status = 'no-encontrada'
       end

@@ -4,8 +4,7 @@ class Public::PasswordRecoveriesController < ApplicationController
   respond_to :html
 
   expose(:password_recovery)
-  expose(:identity) { Identity.find_by_provider_and_uid!('recovery',  params[:id]) }
-
+  expose(:recover_user) { User.find_by_recovery_code!(params[:id]) }
   # Formulario para poner tu email
   def new
   end
@@ -18,7 +17,7 @@ class Public::PasswordRecoveriesController < ApplicationController
   # Crea el PasswordRecovery y muestra el resultado (mediante show)
   def create
     password_recovery.save
-    respond_with password_recovery
+    render action: 'show'
   end
 
   # Muestra el formulario para cambiar de contraseña
@@ -29,10 +28,9 @@ class Public::PasswordRecoveriesController < ApplicationController
   def change
     user = User.find params[:user_id]
     if params[:password].present?
-      user.identify_with(params[:password])
-      flash[:notice] = 'Contraseña modificada'
-      user.destroy_recovery_identity
-      redirect_to login_path
+      user.update_attributes(password: params[:password], password_confirmation: params[:password])
+      user.destroy_recovery_code
+      redirect_to login_path, notice: 'Contraseña modificada'
     else
       redirect_to change_password_recoveries_path(identity.ui), notice: 'Tienes que poner algo en la contraseña'
     end

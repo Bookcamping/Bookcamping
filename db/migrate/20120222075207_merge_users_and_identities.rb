@@ -27,7 +27,7 @@ class MergeUsersAndIdentities < ActiveRecord::Migration
           elsif id.provider == 'recovery'
             user.recovery_code == id.uid
           end
-          id.destroy
+          #id.destroy
         end
         user.save(validate: false)
       end
