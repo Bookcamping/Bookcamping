@@ -1,3 +1,4 @@
+# encoding: utf-8
 Bookcamp::Application.routes.draw do
 
   root to: "library/camp_shelves#index"
@@ -8,7 +9,11 @@ Bookcamp::Application.routes.draw do
     # Library
     scope module: 'library' do
       resources :camp_shelves, path: 'estanterias' do
-        resources :books, path: 'referencia', only: [:show, :new]
+        resources :books, path: 'referencia', only: [:show, :new] do
+          get :select, on: :collection, path: 'buscar'
+          post :add, on: :member, path: 'anadir'
+
+        end
       end
       resources :auto_shelves, path: 'ver', only: [:show]
     end
@@ -40,18 +45,6 @@ Bookcamp::Application.routes.draw do
     ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
       match name => "public/info_pages##{name}"
     end
-
-
-    namespace :personal, path: 'mis' do
-      root to: redirect('/mis/labores')
-      resource :user, path: 'datos'
-      resources :books, path: 'referencias'
-      resources :user_shelves, path: 'listas' do
-        post :bulk_add, on: :collection
-      end
-      resources :profile_shelves, path: 'marcas'
-    end
-
 
     resources :users, path: 'somos' do
       scope module: 'social' do

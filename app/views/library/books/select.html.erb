@@ -1,0 +1,31 @@
+<div class="header">
+  <%= title "Añadir referencia a #{camp_shelf.name}" %>
+</div>
+<%= link_to 'Volver', camp_shelf, class: 'back' %>
+
+<h2>Busca la referencia que quieres añadir</h2>
+<%= form_tag select_camp_shelf_books_path(camp_shelf), method: :get do %>
+    <label>Buscar título:</label>
+    <%= text_field_tag :title, search.term %>
+    <%= submit_tag 'Buscar' %>
+<% end %>
+
+<% if search.term.present? %>
+    <h2>Añadir una referencia existente</h2>
+    <p>Se han encontrado <%= search.results.count %> referencias buscando '<%= search.term %>'</p>
+    <ul>
+      <% search.results.each do |book| %>
+          <li>
+            <b><%= link_to book.title, book %></b> &lArr;
+            <%= link_to "Añadir a '#{camp_shelf.name}'", add_camp_shelf_book_path(camp_shelf, book),
+                        method: :create %>
+          </li>
+      <% end %>
+    </ul>
+    <h2>Añadir una referencia nueva a ésta estantería</h2>
+    <p>Si la referencia no está en bookcamping, puedes crearla:</p>
+    <div class="actions">
+      <%= link_to 'Añadir una referencia nueva', new_camp_shelf_book_path(camp_shelf, title: search.term) %>
+    </div>
+<% end %>
+

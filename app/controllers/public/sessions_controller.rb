@@ -6,7 +6,7 @@ class Public::SessionsController < ApplicationController
 
   def new
     if current_user?
-      redirect_to personal_user_path
+      redirect_to user_path(current_user)
     else
       store_location(params[:from]) if params[:from].present?
       redirect_to "/auth/#{params[:id]}" if params[:id].present?

@@ -11,5 +11,22 @@ class Library::BooksController < Shared::BooksController
     end
   end
 
+  def new
+    book.include_in_shelf_id = camp_shelf.id
+    book.title = params[:title]
+  end
+
+  expose(:reference_title) { params[:title] }
+  expose(:search) { Search.new(:books, current_camp.books, params[:title]) }
+  def select
+  end
+
+  def add
+    book = Book.find params[:id]
+    camp_shelf.add_book(book, current_user)
+    redirect_to camp_shelf
+  end
+
+
 end
 
