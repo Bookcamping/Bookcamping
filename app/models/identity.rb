@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class Identity < ActiveRecord::Base
-  belongs_to :user, inverse_of: :identities
+  belongs_to :user
 
   validates :user_id, presence: true, unless: :nested
   validates :uid, presence: true, unless: :nested

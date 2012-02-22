@@ -1,10 +1,5 @@
-module Extensions
-  module Roles
+module HasRoles
     extend ActiveSupport::Concern
-
-    module ClassMethods
-    end
-
 
     def super?
       self.rol == 'super'
@@ -17,8 +12,5 @@ module Extensions
     def beta?
       admin? || rol == 'beta'
     end
-
-
-  end
 end
 

@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Public::SessionsController < ApplicationController
-
+  respond_to :html
   expose(:redirect_url) { params[:from].present? ? params[:from] : '/'}
   expose(:omniauth) { request.env['omniauth.auth'] }
 
@@ -15,26 +15,27 @@ class Public::SessionsController < ApplicationController
 
 
   def create_with_omniauth
-    identity = Identity.identify_omniauth(omniauth)
-    if identity
-      login_user(identity.user)
+    user = User.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+
+    if user
+      login_user(user)
     else
-      user = User.new do |user|
+      @user = User.new do |user|
         user.name = omniauth['info']['name']
         user.email = omniauth['info']['email']
         user.twitter = omniauth['info']['nickname']
+        column = "uid_#{omniauth['provider']}="
+        user.send(column, omniauth['uid'])
       end
-      user.identities.build(provider: omniauth['provider'], uid: omniauth['uid'])
-
-      login_user(user)
+      login_user(@user) if @user.save
     end
   end
 
   def create
     data = params[:user]
-    identity = Identity.identify_credentials(data[:email], data[:password])
-    if identity
-      login_user(identity.user)
+    user = User.authenticate(params[:user][:email], params[:user][:password])
+    if user
+      login_user(user)
     else
       redirect_to login_path, notice: 'No te hemos encontrado.'
     end

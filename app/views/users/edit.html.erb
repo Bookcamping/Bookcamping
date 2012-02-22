@@ -1,0 +1,25 @@
+<div class="header">
+  <%= title 'Editar perfil' %>
+</div>
+<div class="actions">
+  <%= link_to 'Volver', user, class: 'back' %>
+</div>
+
+<%= simple_form_for user do |form| %>
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.input :twitter %>
+    <%= form.input :description, as: :text, row: 2 %>
+    <%= form.submit 'Guardar perfil' %>
+<% end %>
+
+<% if user.password_digest.present? %>
+    <h2>Cambiar contraseña</h2>
+    <p>Si quieres cambiar tu contraseña puedes hacerlo aquí:</p>
+    <%= simple_form_for user do |form| %>
+        <%= form.input :password %>
+        <%= form.input :password_confirmation %>
+        <%= form.submit 'Cambiar contraseña' %>
+    <% end %>
+<% end %>
+

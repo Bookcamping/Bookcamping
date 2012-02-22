@@ -2,21 +2,20 @@
 #
 class User < ActiveRecord::Base
   extend FriendlyId
-  include Extensions::Roles
+  include Identifiable
+  include HasRoles
   include Extensions::UserOps
   include Users::Create
-  include Users::Identities
 
   friendly_id :name, use: :slugged
 
   # RELATIONS 
-  has_many :identities, dependent: :destroy, inverse_of: :user
+  has_many :old_identities, class_name: 'Identity', dependent: :destroy
   has_many :books, dependent: :restrict
   has_many :comments, dependent: :destroy
   has_many :versions, foreign_key: :whodunnit
-  has_many :taggins
   has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggins
+  has_many :tags, through: :taggings
 
   # Shelves
   has_many :shelves, dependent: :restrict
@@ -34,12 +33,10 @@ class User < ActiveRecord::Base
   # validates :password, presence: true, confirmation: true, on: :create
   # validates :password_confirmation, presence: true, on: :create
 
-  # NESTED IDENTITIES IN FORMS
-  accepts_nested_attributes_for :identities
-  before_validation :initialize_identities, on: :create
-
   # Callbacks
   after_create :create_profile_shelves
+
+
 
   # HELPER METHODS
   def authorized_with?(password)

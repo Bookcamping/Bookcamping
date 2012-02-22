@@ -1,0 +1,21 @@
+<div class="header">
+  <%= title 'Darse de alta' %>
+</div>
+<div class="actions">
+  <%= link_to 'Volver', login_path, class: 'back' %>
+</div>
+
+<%= simple_form_for user do |form| %>
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.input :password, required: true %>
+    <%= form.input :password_confirmation, required: true %>
+    <%= form.input :twitter %>
+    <%= form.input :description, as: :text %>
+    <%= form.input :uid_twitter %>
+    <%= form.input :uid_facebook %>
+    <%= form.input :uid_google %>
+    <%= form.submit %>
+<% end %>
+<%= simple_debug user.errors %>
+

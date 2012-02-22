@@ -35,49 +35,34 @@ describe User do
   end
 
   # IDENTITIES
-  it "should destroy recovery identity" do
+  it "should create recovery identity" do
     user = FactoryGirl.create(:user)
-    user.generate_recovery_identity
-    user.identities.count.should == 1
-    user.destroy_recovery_identity
-    user.identities.count.should == 0
+    user.recovery_code.should be_nil
+    user.generate_recovery_code
+    user.recovery_code.should_not be_nil
   end
 
   it "should create recovery identity" do
     user = FactoryGirl.create(:user)
-    user.identities.count.should == 0
-    user.generate_recovery_identity
-    user.identities.count.should == 1
-    user.identities.first.provider.should == 'recovery'
+    user.generate_recovery_code
+    user.destroy_recovery_code
+    user.recovery_code.should be_nil
   end
 
   it "should re-create recovery identity" do
     user = FactoryGirl.create(:user)
-    user.generate_recovery_identity
-    user.identities.count.should == 1
-    token = user.identities.first.uid
-    user.generate_recovery_identity
-    user.identities.count.should == 1
-    user.identities.first.uid.should_not == token
+    user.generate_recovery_code
+    code = user.recovery_code
+    user.generate_recovery_code
+    user.recovery_code.should_not == code
   end
 
   it "should authorized with password" do
-    user = Factory.create(:user)
-    user.identify_with('secret')
-    user.authorized_with?('secret').should == true
-  end
-
-  it "should identify with only one password" do
-    user = Factory.create(:user)
-    user.identify_with('entrar')
-    user.identities.count.should == 1
-    id = user.identities.first
-    id.provider.should == 'bookcamping'
-    id.uid == user.email
-    id.password_digest.should_not be_nil
-    entrar = id.password_digest
-    user.identify_with('otro')
-    user.identities.first.password_digest.should_not == entrar
+    user = Factory.create(:user, email: 'test@test.com', password: 'secret',
+                          password_confirmation: 'secret')
+    retrieved = User.authenticate('test@test.com', 'secret')
+    retrieved.should_not be_nil
+    retrieved.id.should == user.id
   end
 
   # PERSONAL SHELVES
