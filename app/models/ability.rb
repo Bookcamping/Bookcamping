@@ -40,7 +40,7 @@ class Ability
   def shelves
     can :read, CampShelf
     can :manage, CampShelf if @user
-    cannot :destroy, CampShelf unless @user.admin?
+    cannot :destroy, CampShelf unless @user and @user.admin?
   end
 
   def shelf_items
