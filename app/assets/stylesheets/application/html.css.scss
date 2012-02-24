@@ -108,13 +108,45 @@ td.actions {
   }
 }
 
-div.markdown {
-    font-size: 15px; line-height: 19px;
-    p {margin: 5px 0;}
-    em {font-weight: bold;}
-    strong {font-style: italic;}
-    h1, h2, h3 {font-size: 15px; font-weight: bold; margin: 5px 0 3xp 0;}
+.markdown {
+  width: 100%; overflow: hidden;
+  p {margin: 0.5em 0;}
+  h1 {font-size: 20px; margin: 0.5em 0 0 0;}
+  h2 {font-size: 18px; margin: 1.5em 0 0 0;}
+  h3 {font-size: 16px; margin: 0.5em 0 0.5em 0;}
+  h4, h5, h6 {font-size: 14px; margin: 0.5em 0 0.5em 0;}
+  a {background-color: yellow;}
+
+  img.left {float: left; margin: 0 5px 0 5px;}
+  img.right {float: right; margin: 0 0 5px 5px;}
+  img.center {display: block; margin: 5px auto;}
+
+  blockquote {
+    margin-left: 1em;
+    border-left: 2px solid #efefef;
+    padding: 0em 0 0em 1em;
+    font-style: italic;
+  }
+
+  ul {
+    margin: 0.5em;
+    li {
+      list-style-type: disc; list-style-position: inside;
+      margin: 0.5em 0;
+    }
+  }
+
+
+  pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    font-size: 80%;
+  }
 }
+
 
 ul.properties {
     li {

@@ -1,0 +1,8 @@
+<div class="header">
+  <%= title @page.title %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, @page] if can? :edit, @page %>
+  </div>
+</div>
+
+<%= markdown @page.body %>

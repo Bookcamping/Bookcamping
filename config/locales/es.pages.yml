@@ -1,7 +1,7 @@
 es:
   activerecord:
     models:
-      pages: 'Página'
+      page: 'página'
 
   simple_form:
     labels:

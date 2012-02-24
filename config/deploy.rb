@@ -2,7 +2,7 @@
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
 # Standard deploy assets tasks
-#load 'deploy/assets'
+load 'deploy/assets'
 require "bundler/capistrano"
 
 # default_run_options[:pty] = true

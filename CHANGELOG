@@ -8,9 +8,15 @@ TAREAS
 URGENTE
   * Sessiones
   * Invitaciones
-  * Cambiar contraseña
   * Merge users!
   * DecentExposure para todos los controladores
+
+24/2/2012
+  * Una especie de wiki casero (pages)
+
+20/2/2012
+  * Mejora del sistema de autenticación
+  * Cambiar contraseña
 
 2012/1/30
   * Nginx configuration
