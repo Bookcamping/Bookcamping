@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   # Page parameter extracted
   expose(:page_param) { params[:page].present? ? params[:page] : 1 } 
 
-  include Extensions::RequireUser
-  include Extensions::LoadCamp
-  include Extensions::ExposeWithSlug
-  include Extensions::ExposeResource
+  include RequireUser
+  include LoadCamp
+  include ExposeWithSlug
+  include ExposeResource
 
   helper_method :current_user, :current_user?
 

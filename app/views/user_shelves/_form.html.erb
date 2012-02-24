@@ -1,9 +1,9 @@
 <div class="actions">
-  <%= link_to 'Volver', personal_user_shelves_path, class: 'back' %>
+  <%= link_to 'Volver', user_shelf, class: 'back' %>
 </div>
 
 
-<%= simple_form_for [:personal, user_shelf] do |form| %>
+<%= simple_form_for user_shelf do |form| %>
     <%= form.input :name %>
     <%= form.input :description %>
     <%= form.input :visibility, include_blank: false,

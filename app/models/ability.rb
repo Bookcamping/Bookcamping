@@ -62,6 +62,10 @@ class Ability
 
   def user_shelves
     can :read, UserShelf
+    can :create, UserShelf if @user
+    can :manage, UserShelf do |shelf|
+      @user and shelf.user_id == @user.id
+    end
     cannot :destroy, UserShelf, :rol => 'read_later'
     cannot :destroy, UserShelf, :rol => 'like_it'
     cannot :destroy, UserShelf, :rol => 'my_references'

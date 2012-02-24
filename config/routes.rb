@@ -6,7 +6,7 @@ Bookcamp::Application.routes.draw do
   # THIS IS PUBLIC
   scope path_names: {new: 'nueva', edit: 'modificar'} do
 
-    # Library
+    # Camp Shelves
     resources :camp_shelves, path: 'estanterias' do
       scope module: 'camp_shelves' do
         resources :books, path: 'referencia', only: [:show, :new] do
@@ -16,6 +16,9 @@ Bookcamp::Application.routes.draw do
         resources :auto_shelves, path: 'ver', only: [:show]
       end
     end
+
+    # User Shelves
+    resources :user_shelves, path: 'listas'
 
     # References
     scope module: 'references' do
