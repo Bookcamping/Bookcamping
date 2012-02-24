@@ -2,51 +2,54 @@
   <div class="curtain">
     <div class="content">
       <h2><%= link_to 'Blog #bookcamping' %></h2>
+
       <div class="actions">
-    <%= link_to 'Añadir entrada', new_post_path if can? :manage, Post %>
-    <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
-    <%= link_to 'Subir imágen', new_media_bite_path if can? :create, MediaBite %>
+        <%= link_to 'Añadir entrada', new_post_path if can? :manage, Post %>
+        <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
+        <%= link_to 'Subir imágen', new_media_bite_path if can? :create, MediaBite %>
       </div>
       <ul id="latest-posts" style="display: block;">
-      <% all_posts.each do |post| %>
-        <li><h3>
-          <%= link_to post do %>
-            <%= l post.published_at.to_date %>&nbsp;
-            <%= post.title %>
-          <% end %>
-        </h3></li>
-      <% end %>
-    </ul>
+        <% cache "recent_posts" do %>
+            <% all_posts.each do |post| %>
+                <li><h3>
+                  <%= link_to post do %>
+                      <%= l post.published_at.to_date %>&nbsp;
+                      <%= post.title %>
+                  <% end %>
+                </h3></li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="separator">&nbsp;</div>
+    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+    <script>
+        new TWTR.Widget({
+            version:2,
+            type:'profile',
+            rpp:4,
+            interval:30000,
+            width:336,
+            height:300,
+            theme:{
+                shell:{
+                    background:'#000000',
+                    color:'#ffffff'
+                },
+                tweets:{
+                    background:'#333333',
+                    color:'#ffffff',
+                    links:'#ffea00'
+                }
+            },
+            features:{
+                scrollbar:false,
+                loop:false,
+                live:false,
+                behavior:'all'
+            }
+        }).render().setUser('bookcamping').start();
+    </script>
+    <div class="bottom"></div>
   </div>
-  <div class="separator">&nbsp;</div>
-  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-  <script>
-  new TWTR.Widget({
-    version: 2,
-    type: 'profile',
-    rpp: 4,
-    interval: 30000,
-    width: 336,
-    height: 300,
-    theme: {
-      shell: {
-        background: '#000000',
-        color: '#ffffff'
-      },
-      tweets: {
-        background: '#333333',
-        color: '#ffffff',
-        links: '#ffea00'
-      }
-    },
-    features: {
-      scrollbar: false,
-      loop: false,
-      live: false,
-      behavior: 'all'
-    }
-  }).render().setUser('bookcamping').start();
-  </script>
-  <div class="bottom"></div>
-</div>
 </div>

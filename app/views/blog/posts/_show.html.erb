@@ -1,6 +1,8 @@
 <% present post do |presenter| %>
     <%= div_for post, class: post.visibility do %>
-        <div class="body"><%= presenter.body %></div>
+        <% cache [:body, post] do %>
+            <div class="body"><%= presenter.body %></div>
+        <% end %>
         <br/>
         <br/>
         <%= render 'shared/social/social' %>

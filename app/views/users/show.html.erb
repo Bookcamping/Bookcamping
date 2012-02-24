@@ -25,7 +25,7 @@
   <% end %>
 </table>
 
-<% if current_user.super? %>
+<% if current_user and current_user.super? %>
     <h2>Esto es para tí:</h2>
     <%= debug user %>
 <% end %>

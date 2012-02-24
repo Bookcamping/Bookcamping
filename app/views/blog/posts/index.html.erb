@@ -1,16 +1,19 @@
 <% title 'Blog' %>
 <div class="posts">
   <% posts.each do |post| %>
-    <% present post do |presenter| %>
-      <%= div_for post, class: post.visibility do %>
-        <div class="post_head">
-          <h2><%= link_to post.title, post %></h2>
-          <div class="author"><%= l post.published_at.to_date %>&nbsp;Por <%= post.author %></div>
-        </div>
-        <div class="body"><%= presenter.body %></div>
-        <h3><%= link_to (post.comments_count == 0 ? 'Comentar' : "#{post.comments_count} comentarios"), post %></h3>
+      <% present post do |presenter| %>
+          <%= div_for post, class: post.visibility do %>
+              <div class="post_head">
+                <h2><%= link_to post.title, post %></h2>
+
+                <div class="author"><%= l post.published_at.to_date %>&nbsp;Por <%= post.author %></div>
+              </div>
+              <% cache [:body, post] do %>
+                  <div class="body"><%= presenter.body %></div>
+              <% end %>
+              <h3><%= link_to (post.comments_count == 0 ? 'Comentar' : "#{post.comments_count} comentarios"), post %></h3>
+          <% end %>
       <% end %>
-    <% end %>
   <% end %>
 </div>
-<%= content_for(:sidebar) { render 'sidebar'} %>
+<%= content_for(:sidebar) { render 'sidebar' } %>

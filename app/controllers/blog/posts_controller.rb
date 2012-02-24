@@ -34,10 +34,12 @@ class Blog::PostsController < ApplicationController
 
   def create
     post.user = current_user
-    create! post
+    create!
+    expire_fragment("recent_posts")
   end
 
   def update
     update! post
+    expire_fragment("recent_posts")
   end
 end
