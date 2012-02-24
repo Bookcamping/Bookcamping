@@ -52,18 +52,7 @@ es:
       create: "Gracias por tu comentario."
     comments:
       comments: "Comentar"
-  versions:
-    index:
-      title: "ACTIVIDAD"
-    events:
-      create: 'Añadida'
-      update: 'Modificada'
-      destroy: 'Borrada'
-    models:
-      Book: 'referencia'
-      Comment: 'comentario'
-      Shelf: 'lista'
-      Bookmark: 'marcado'
+
   books:
     book:
       download: "Descargar!"

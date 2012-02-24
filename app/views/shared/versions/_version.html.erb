@@ -1,15 +1,9 @@
 <%= div_for version do %>
+    <%= link_to version.user_name, user_path(version.whodunnit) %> ha
+    <%= t("versions.events.#{version.event}") %> la
+    <%= t("versions.models.#{version.item_type}") %>
     <% title = version.title ? version.title : '<sin título>' %>
-    <h3> <%= link_to truncate(title, length: 50), version %>
-      <small><%= t("versions.models.#{version.item_type}") %></small>
-    </h3>
-    <h5 class="user">
-      <span class="action">
-        <%= t("versions.events.#{version.event}") %>
-      </span>
-      <% if version.whodunnit.present? %>
-          por <%= link_to version.user_name, user_path(version.whodunnit) %>
-      <% end %>
-      <small>hace <%= time_ago_in_words version.created_at if version.created_at %></small>
+    '<%= link_to truncate(title, length: 50), version %>'
+    <small>hace <%= time_ago_in_words version.created_at if version.created_at %></small>
     </h5>
 <% end %>
