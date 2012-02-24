@@ -1,6 +1,6 @@
 # encoding: utf-8
 # Controller for CampShelf models
-class Library::CampShelvesController < ApplicationController
+class CampShelvesController < ApplicationController
   respond_to :html
   expose_with_slug
 

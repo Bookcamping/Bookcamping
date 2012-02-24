@@ -1,21 +1,20 @@
 # encoding: utf-8
 Bookcamp::Application.routes.draw do
 
-  root to: "library/camp_shelves#index"
+  root to: "camp_shelves#index"
 
   # THIS IS PUBLIC
   scope path_names: {new: 'nueva', edit: 'modificar'} do
 
     # Library
-    scope module: 'library' do
-      resources :camp_shelves, path: 'estanterias' do
+    resources :camp_shelves, path: 'estanterias' do
+      scope module: 'camp_shelves' do
         resources :books, path: 'referencia', only: [:show, :new] do
           get :select, on: :collection, path: 'buscar'
           post :add, on: :member, path: 'anadir'
-
         end
+        resources :auto_shelves, path: 'ver', only: [:show]
       end
-      resources :auto_shelves, path: 'ver', only: [:show]
     end
 
     # References

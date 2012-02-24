@@ -1,7 +1,7 @@
-<% title 'Colaboradoxs #bookcamping' %>
-<h1>Colaboradorxs #bookcamping
-  <small><%= users.count %></small>
-</h1>
+<div class="header">
+  <div class="count"><%= user_count %></div>
+  <%= title '#bookcamping somos' %>
+</div>
 
 <%= form_tag search_users_path, method: :get, class: 'search_users' do %>
     Buscar colaboradoras: <%= text_field_tag :term %>
