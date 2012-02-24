@@ -1,6 +1,7 @@
 <div class="header">
   <% title user.name %>
-  <h1><%=  user.name %><small>&nbsp;<%= link_to user.twitter, "http://twitter.com/##{user.twitter}" if user.twitter? %></small></h1>
+  <h1><%= user.name %>
+    <small>&nbsp;<%= link_to user.twitter, "http://twitter.com/##{user.twitter}" if user.twitter? %></small></h1>
   <div class="description"><%= user.description %></div>
   <div class="actions">
     <%= link_to 'Volver', users_path, class: 'back' %>
@@ -10,5 +11,14 @@
   </div>
 </div>
 
+<h2>Últimas referencias añadidas</h2>
+<%= render_books books, '#efefef' %>
+<%#= link_to 'más...'  TODO %>
 
-<%= simple_debug user %>
+<h2>Listas</h2>
+<table class="shelves">
+  <% user.user_shelves.each do |shelf| %>
+      <%= render_shelf shelf, shelf %>
+  <% end %>
+</table>
+
