@@ -1,7 +1,9 @@
 <div class="header">
+  <div class="avatar"><%= avatar_image(user, :small) %></div>
   <% title user.name %>
   <h1><%= user.name %>
-    <small>&nbsp;<%= link_to user.twitter, "http://twitter.com/##{user.twitter}" if user.twitter? %></small></h1>
+    <small>&nbsp;<%= link_to user.twitter, "http://twitter.com/##{user.twitter}" if user.twitter? %></small>
+  </h1>
   <div class="description"><%= user.description %></div>
   <div class="actions">
     <%= link_to 'Volver', users_path, class: 'back' %>
@@ -10,6 +12,7 @@
                 confirm: "NO DEBERÍA HABER RAZÓN PARA HACER ESTO. NO PUEDES DESHACER" if can? :destroy, user %>
   </div>
 </div>
+
 
 <h2>Últimas referencias añadidas</h2>
 <%= render_books books, '#efefef' %>
@@ -21,4 +24,9 @@
       <%= render_shelf shelf, shelf %>
   <% end %>
 </table>
+
+<% if current_user.super? %>
+    <h2>Esto es para tí:</h2>
+    <%= debug user %>
+<% end %>
 
