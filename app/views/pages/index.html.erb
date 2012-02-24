@@ -1,0 +1,22 @@
+<div class="header">
+  <%= title 'Wiki #bookcamping' %>
+  <div class="actions">
+    <%=  link_to 'Añadir página', [:new, :page] if can? :manage, Page %>
+  </div>
+</div>
+
+<table class="table">
+  <tbody>
+  <% pages.each do |page| %>
+  <tr>
+    <td><%= link_to page.title, page %></td>
+    <td><%= '[solo admin]' if page.view_level == 'admin' %></td>
+    <td><%= link_to page.author %></td>
+    <td>Última mod. hace <%= time_ago_in_words page.updated_at %></td>
+    <td class="actions">
+      <%= link_to 'Editar', [:edit, page] if can? :edit, page %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

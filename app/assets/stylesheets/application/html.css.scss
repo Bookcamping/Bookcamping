@@ -23,6 +23,12 @@ p {
     strong {font-weight: bold}
 }
 
+table.table {
+  width: 100%;
+  tr {border-bottom: 1px solid black;}
+  td {padding: 2px 5px;}
+}
+
 form {
     div.input {
         width: 100%; overflow: hidden;
@@ -72,7 +78,7 @@ a.back {
     background: url('/images/ui3/back.png') no-repeat;
 }
 
-div.actions {
+div.actions, td.actions {
     width: 100%; overflow: hidden;
     margin: 3px 0;
 
@@ -95,6 +101,12 @@ div.actions {
      a.back:hover {background-color: white; color: black }
 }
 .important {background-color: yellow;}
+td.actions {
+  width: inherit; 
+  a {
+    font-size: 80%;
+  }
+}
 
 div.markdown {
     font-size: 15px; line-height: 19px;

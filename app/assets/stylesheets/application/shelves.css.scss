@@ -1,122 +1,193 @@
-
 @import "variables.css.scss";
 
 table.shelves {
-    width: 100%;
-    margin-top: 10px;
+  width: 100%;
+  margin-top: 10px;
 
-    tr.shelf {
-        width: 674px; height: 63px;
-        a {color: black;}
+  tr.shelf {
+    width: 674px;
+    height: 63px;
 
-        td.main {
-            width: 550px;
-            background: url('/images/ui3/shelf.png') no-repeat;
-            padding: 0 50px 0 30px;
-            .name {font-weight: bold;}
-        }
-
-        td.count {
-            text-align: center;
-            font-weight: bold;
-            color: white;
-            a {display: block; margin-left: -10px;}
-        }
+    a {
+      color: black;
     }
 
-    tr.spacer {
+    td.main {
+      width: 550px;
+      background: url('/images/ui3/shelf.png') no-repeat;
+      padding: 0 50px 0 30px;
+      .name {
+        font-weight: bold;
+      }
+    }
+
+    td.count {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      a {
         display: block;
-        font-size: 1px;
-        margin: 0;padding:0;height: 5px;
+        margin-left: -10px;
+      }
     }
+  }
+
+  tr.spacer {
+    display: block;
+    font-size: 1px;
+    margin: 0;
+    padding: 0;
+    height: 5px;
+  }
 }
 
-
 div.order {
-    margin: 20px 0 -10px 0;
-    padding-left: 0px;
+  margin: 20px 0 -10px 0;
+  padding-left: 0px;
+  color: black;
+  a {
+    color: #888;
+  }
+  a:hover {
     color: black;
-    a {color: #888;}
-    a:hover {color: black;}
+  }
 }
 
 div.books {
-    width: 700px;
+  width: 700px;
 
-    div.book {
-            float: left;
+  div.book {
+    float: left;
 
-            div.emblems {
-                width: 12px; height: 12px;
-                float: left; padding-right: 3px;
-                img {width: 100%;}
-            }
-
-            div.content {
-                position: relative; width: 100%; height: 100%;
-                font-size: 13px;
-                a {color: black;}
-                h3 {font-weight: bold;text-transform: uppercase; margin: 0;}
-
-                div.cover, div.emblems {
-                    position: absolute; padding: 0; overflow: hidden;
-                }
-
-                div.emblems {
-                    img {position: absolute;left:0;}
-                    img.download {bottom: 0; width: 14px; left: 3px;}
-                }
-            }
+    div.emblems {
+      width: 12px;
+      height: 12px;
+      float: left;
+      padding-right: 3px;
+      img {
+        width: 100%;
+      }
     }
 
-    div.BookReference, div.EscuchaReference {
-        width: 126px; height: 143px;
-        background: url('/images/ui3/librosolapa.png') no-repeat;
-        margin-left: -3px;
-        margin-right: 13px;
-        margin-bottom: 3px;
+    div.content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-size: 13px;
+      a {
+        color: black;
+      }
+      h3 {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+      }
 
-        div.content {
-            div.cover {left: 10px; top: 22px;  right: 25px; height: 116px;}
-            div.emblems {left: 105px;top: 19px; width: 20px;height:118px;}
+      div.cover, div.emblems {
+        position: absolute;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      div.emblems {
+        img {
+          position: absolute;
+          left: 0;
         }
-    }
-
-    div.VideoReference {
-        width: 158px; height: 112px;
-        background: url('/images/ui3/videosolapa.png') no-repeat;
-        margin-top: 14px;
-        margin-left: -1px;
-        margin-right: 14px;
-        border-bottom: 20px solid white;
-
-        div.content {
-            div.cover {left: 27px; top: 8px; bottom: 24px; right: 22px; }
-            div.emblems {left: 137px;top: 10px; width: 19px;height:75px;}
+        img.download {
+          bottom: 0;
+          width: 14px;
+          left: 3px;
         }
+      }
     }
+  }
+
+  div.BookReference, div.EscuchaReference {
+    width: 126px;
+    height: 143px;
+    background: url('/images/ui3/librosolapa.png') no-repeat;
+    margin-left: -3px;
+    margin-right: 13px;
+    margin-bottom: 3px;
+
+    div.content {
+      div.cover {
+        left: 10px;
+        top: 22px;
+        right: 25px;
+        height: 116px;
+      }
+      div.emblems {
+        left: 105px;
+        top: 19px;
+        width: 20px;
+        height: 118px;
+      }
+    }
+  }
+
+  div.VideoReference {
+    width: 158px;
+    height: 112px;
+    background: url('/images/ui3/videosolapa.png') no-repeat;
+    margin-top: 14px;
+    margin-left: -1px;
+    margin-right: 14px;
+    border-bottom: 20px solid white;
+
+    div.content {
+      div.cover {
+        left: 27px;
+        top: 8px;
+        bottom: 24px;
+        right: 22px;
+      }
+      div.emblems {
+        left: 137px;
+        top: 10px;
+        width: 19px;
+        height: 75px;
+      }
+    }
+  }
 }
-
 
 div#autoshelves {
-    margin-top: 8px;
-    width: 100%; height:25px; overflow: hidden;
-    background: url('/images/ui3/lists.png') no-repeat;
-    color: red;
+  margin-top: 8px;
+  width: 100%;
+  height: 25px;
+  overflow: hidden;
+  background: url('/images/ui3/lists.png') no-repeat;
+  color: red;
 
-    a {
-        display: block; float: left; overflow: hidden;
-        height: 25px;
-        margin-right: 10px;
-        text-indent : -1000px;
-        border: 1px solid transparent;
-    }
+  a {
+    display: block;
+    float: left;
+    overflow: hidden;
+    height: 25px;
+    margin-right: 10px;
+    text-indent: -1000px;
+    border: 1px solid transparent;
+  }
 
-    a.ultimas {width: 190px;margin-left: 10px;}
-    a.comentadas {width: 155px;}
-    a.valoradas {width: 140px;}
-    a.deseadas {width: 135px; margin-right: 0;}
+  a.ultimas {
+    width: 190px;
+    margin-left: 10px;
+  }
+  a.comentadas {
+    width: 155px;
+  }
+  a.valoradas {
+    width: 140px;
+  }
+  a.deseadas {
+    width: 135px;
+    margin-right: 0;
+  }
 
 }
 
-#user_shelf_description {height: 6em;}
+#user_shelf_description {
+  height: 6em;
+}

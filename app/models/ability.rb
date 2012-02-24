@@ -13,6 +13,11 @@ class Ability
     posts
     publishers
     misc
+
+    # INFO
+    can :read, Page
+    can :manage, Page if @user
+
   end
 
   def publishers

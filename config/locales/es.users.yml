@@ -1,4 +1,10 @@
 es:
+  user:
+    levels:
+      admin: 'Administradoras'
+      collab: 'Colaboradoras'
+      public: 'Todas'
+
   activerecord:
     models:
       user: 'usuaria'

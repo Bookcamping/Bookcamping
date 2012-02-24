@@ -1,0 +1,12 @@
+<%= simple_form_for page do |form| %>
+    <%= form.input :title %>
+    <%= form.input :author %>
+    <%= form.input :body %>
+    <% if current_user.admin? %>
+        <%= form.input :view_level, collection: tc('user.levels', [:admin, :collab, :public]),
+                       include_blank: false %>
+        <%= form.input :edit_level, collection: tc('user.levels', [:admin, :collab, :public]),
+                       include_blank: false %>
+    <% end %>
+    <%= form.submit %>
+<% end %>
