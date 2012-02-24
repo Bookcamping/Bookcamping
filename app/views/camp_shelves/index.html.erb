@@ -20,7 +20,9 @@
   <%# end %>
 </div>
 
-<%= render_shelves camp_shelves %>
+<%= cache 'camp_shelves_list' do %>
+    <%= render_shelves camp_shelves %>
+<% end %>
 
 
 <%= content_for(:sidebar) { render 'sidebar' } %>

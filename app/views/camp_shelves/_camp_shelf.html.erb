@@ -1,13 +1,16 @@
-<% present camp_shelf do |presenter| %>
-    <%= div_for camp_shelf, class: 'shelf' do %>
-        <%= presenter.header %>
+<%= cache camp_shelf do %>
+    <% present camp_shelf do |presenter| %>
+        <%= div_for camp_shelf, class: 'shelf' do %>
+            <%= presenter.header %>
 
-        <div class="actions">
-          <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
-          <%= link_to "Añadir #{current_camp.model_name}", [:select, camp_shelf, Book] %>
-          <%= link_to 'Editar estantería', [:edit, camp_shelf] if can? :edit, camp_shelf %>
-          <%= link_to 'Seleccionar referencias', '#', class: 'select-references beta' if beta? %>
-        </div>
-        <%= presenter.references %>
+            <div class="actions">
+              <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
+              <%= link_to "Añadir #{current_camp.model_name}", [:select, camp_shelf, Book] %>
+              <%= link_to 'Editar estantería', [:edit, camp_shelf] if can? :edit, camp_shelf %>
+              <%= link_to 'Borrar estantería', camp_shelf, method: :delete, class: 'warning',
+                  confirm: "Borrar #{camp_shelf.name} ¡¿Segura?! No se puedes deshacer." if can? :destroy, camp_shelf %>
+            </div>
+            <%= presenter.references %>
+        <% end %>
     <% end %>
 <% end %>

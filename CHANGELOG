@@ -12,6 +12,7 @@ URGENTE
   * DecentExposure para todos los controladores
 
 24/2/2012
+  * Fragment caching en blog y en estanterías
   * Avatars en usuarios
   * Vista de usuario mejorada
   * Zona backend fuera!

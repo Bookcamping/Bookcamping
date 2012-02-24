@@ -52,6 +52,12 @@ module ExposeResource
         respond_with resource, location: url
       end
 
+      define_method :destroy! do |url = nil|
+        authorize! :update, resource
+        flash[:notice] = t(".resource.updated") if resource.destroy
+        respond_with resource, location: url
+      end
+
       define_method :search! do
       end
     end
