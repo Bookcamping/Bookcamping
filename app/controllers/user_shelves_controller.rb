@@ -1,0 +1,2 @@
+class UserShelvesController < ApplicationController
+end
