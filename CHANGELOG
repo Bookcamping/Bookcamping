@@ -11,6 +11,13 @@ URGENTE
   * Merge users!
   * DecentExposure para todos los controladores
 
+27/2/2012
+  * mejoras en la actividad
+  * wiki se mueve a /wiki
+  * Envío de actividad automático
+  * Pages con versiones
+  * Se puede añadir referencias a las listas
+
 24/2/2012
   * Fragment caching en blog y en estanterías
   * Avatars en usuarios

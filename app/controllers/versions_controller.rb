@@ -2,10 +2,7 @@ class VersionsController < ApplicationController
   respond_to :html, :js, :json
 
   expose(:versions) do
-    v = Version.scoped
-    v = v.order('id DESC')
-    v = v.limit(50)
-    v
+    Version.order('id DESC').limit(50)
   end
   expose(:version) { Version.find params[:id] }
 

@@ -52,7 +52,7 @@ Bookcamp::Application.routes.draw do
       end
     end
     match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
-    resources :pages, path: 'info'
+    resources :pages, path: 'wiki'
 
     ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
       match name => "public/info_pages##{name}"
