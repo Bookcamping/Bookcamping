@@ -19,6 +19,10 @@ class Site
     User.order('updated_at DESC').limit(20)
   end
 
+  def self.site_activity(last_email_at)
+    @versions = Version.order('id DESC').where('created_at > ?', last_email_at)
+  end
+
   def self.host
     Rails.env.production? ? 'bookcamping.cc' : 'localhost:3000'
   end

@@ -67,7 +67,7 @@ describe User do
 
   # PERSONAL SHELVES
   it "should always have personal shelves" do
-    user = User.create!(name: 'name', email: 'email@email.com')
+    user = Factory.create :user
     user.like_it_shelf.should_not be_nil
     user.read_later_shelf.should_not be_nil
     user.my_references_shelf.should_not be_nil

@@ -1,13 +1,12 @@
 class ActivityMailer < ActionMailer::Base
   layout 'mail'
   default_url_options[:host] = "bookcamping.cc"
-  default from: '#bookcamping <app@bookcamping.cc>'
+  default from: '#bookcamping <hola@bookcamping.cc>'
   
-  def last_site_activity(camp_id, user_id)
-    @camp = Camp.find camp_id
-    @versions = @camp.versions.order('id DESC').limit(50)
-    @user = User.find user_id
-    mail to: @user.email, subject: "Actividad en ##{@camp.name}"
+  def site_activity(last_email_at)
+    @last_email_at = last_email_at
+    @versions = Site.site_activity(last_email_at)
+    mail to: 'bookcamping@googlegroups.com', subject: "#bookcamping: Actividad"
   end
 
   def activity_email(version_id)

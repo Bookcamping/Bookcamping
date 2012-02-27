@@ -1,7 +1,11 @@
 class Page < ActiveRecord::Base
   extend FriendlyId
 
+  # EXTENSIONS
   friendly_id :title, use: :slugged
+  has_paper_trail meta: {title: :title }
+
+
 
   belongs_to :user
 

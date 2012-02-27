@@ -93,4 +93,12 @@ FactoryGirl.define do
   factory :publisher do
     sequence(:name) {|n| "Publisher #{n}"}
   end
+
+  factory :page do
+    sequence(:title) {|n| "Page #{n}"}
+    content_type 'markdown'
+    view_level 'public'
+    edit_level 'public'
+    user
+  end
 end

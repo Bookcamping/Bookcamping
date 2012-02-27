@@ -2,6 +2,11 @@
   <%= title "Email con actividad ##{current_camp.name}" %>
 </div>
 
+<h2><%= @message %></h2>
+
 <div>
   Última vez que se envió el email: <%= time_ago_in_words current_camp.last_activity_email %>
 </div>
+
+<h2>Actividad desde el último email</h2>
+<%= render_versions @versions %>
