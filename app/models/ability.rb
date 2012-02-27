@@ -14,9 +14,15 @@ class Ability
     publishers
     misc
 
-    # INFO
+    # Pages
     can :read, Page
-    can :manage, Page if @user
+    can :manage, Page do |page|
+      if page.edit_level == 'admin'
+        @user and @user.admin?
+      else
+        @user
+      end
+    end
 
   end
 
@@ -34,7 +40,7 @@ class Ability
     can :new, User unless @user
     can :create, User unless @user
     can :destroy, User if is? :super
-    can :update, user {|u| @user.id = u.id or is? :admin }
+    can :update, user { |u| @user.id = u.id or is? :admin }
   end
 
   def references
@@ -49,10 +55,10 @@ class Ability
   end
 
   def shelf_items
-   can :manage, ShelfItem do |item|
+    can :manage, ShelfItem do |item|
       can :manage, item.shelf
     end
- end
+  end
 
 
   def posts

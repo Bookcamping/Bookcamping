@@ -31,13 +31,13 @@ class VersionsController < ApplicationController
 
   def email
     camp = Camp.find 1
-    last_activity_email = camp.last_activity_email
-    if last_activity_email.present?
-      distance_in_seconds = Time.now - last_activity_email
-      @versions = Site.site_activity(last_activity_email)
+    @last_activity_email = camp.last_activity_email
+    if @last_activity_email.present?
+      distance_in_seconds = Time.now - @last_activity_email
+      @versions = Site.site_activity(@last_activity_email)
       if distance_in_seconds > 1.hour
         if @versions.count > 0
-          ActivityMailer.site_activity(last_activity_email).deliver
+          ActivityMailer.site_activity(@last_activity_email).deliver
           @message = "Email enviado!"
         else
           @message = "No hay actividad nueva"
@@ -45,6 +45,8 @@ class VersionsController < ApplicationController
       else
         @message = "No ha pasado suficiente tiempo"
       end
+    else
+      @last_activity_email = Time.now
     end
     #current_camp.last_activity_email = Time.now
     #current_camp.save
