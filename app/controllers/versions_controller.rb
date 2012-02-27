@@ -30,5 +30,10 @@ class VersionsController < ApplicationController
     end
   end
 
+  def email
+    current_camp.last_activity_email = Time.now
+    current_camp.save
+  end
+
 end
 

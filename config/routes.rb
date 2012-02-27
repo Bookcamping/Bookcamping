@@ -18,7 +18,14 @@ Bookcamp::Application.routes.draw do
     end
 
     # User Shelves
-    resources :user_shelves, path: 'listas'
+    resources :user_shelves, path: 'listas' do
+      scope module: 'user_shelves' do
+        resources :books, path: 'referencias', only: [:show, :new] do
+          get :select, on: :collection, path: 'buscar'
+          post :add, on: :member, path: 'anadir'
+        end
+      end
+    end
 
     # References
     scope module: 'references' do
@@ -30,7 +37,9 @@ Bookcamp::Application.routes.draw do
     end
 
     resources :tags
-    resources :versions, path: 'actividad'
+    resources :versions, path: 'actividad' do
+      get :email, on: :collection
+    end
     resources :publishers, path: 'editoriales'
 
     scope module: 'licenses' do
@@ -59,11 +68,6 @@ Bookcamp::Application.routes.draw do
         end
       end
     end
-
-    scope module: 'services' do
-      resources :notices, only: [:index]
-    end
-
   end
 
   scope module: 'blog' do
@@ -87,26 +91,7 @@ Bookcamp::Application.routes.draw do
     resources :identities, except: [:create, :destroy]
   end
 
-
-  namespace :backend do
-    root to: 'stats#show'
-    resource :stats
-    [:licenses, :books, :users, :posts, :shelves, :versions, :identities,
-     :activities, :colors].each do |name|
-      resources name do
-        get :search, on: :collection
-      end
-    end
-  end
-
   match "/clismon/pnh" => 'publishers/clismon#pnh'
-
-
-  match "/listas" => redirect("/estanterias")
-  match "/listas/:id" => redirect("/estanterias/%{id}")
-  match "/libros/:id" => redirect("/referencia/%{id}")
-  match "/lista/:id" => redirect("/estanteria/%{id}")
-
 
   match "/identificar" => "public/sessions#create"
   match "/entrar" => "public/sessions#new", as: :login

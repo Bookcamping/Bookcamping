@@ -1,4 +1,5 @@
 class UserShelvesController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
   respond_to :html
 
   expose_resource :user_shelf

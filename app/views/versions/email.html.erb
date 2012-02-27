@@ -1,0 +1,7 @@
+<div class="header">
+  <%= title "Email con actividad ##{current_camp.name}" %>
+</div>
+
+<div>
+  Última vez que se envió el email: <%= time_ago_in_words current_camp.last_activity_email %>
+</div>

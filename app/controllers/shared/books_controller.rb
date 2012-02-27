@@ -1,11 +1,12 @@
 # encoding: utf-8
 class Shared::BooksController < ApplicationController
   respond_to :html, :json
-  before_filter :require_user, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :require_user, except: [:index, :show]
 
   expose(:shelf) { Site.new }
   expose(:books) { shelf.books }
   expose(:book)
+  expose(:pajax?) { request.headers['X-PJAX'].present? }
 
   def new
     authorize! :manage, Book
@@ -36,6 +37,18 @@ class Shared::BooksController < ApplicationController
     book.destroy
     respond_with book, :location => root_path
   end
+
+  expose(:reference_title) { params[:title] }
+  expose(:search) { Search.new(:books, current_camp.books, params[:title]) }
+  def select
+  end
+
+  def add
+    book = Book.find params[:id]
+    shelf.add_book(book, current_user)
+    redirect_to shelf
+  end
+
 
   protected
   def notify_book_created
