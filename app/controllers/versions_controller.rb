@@ -32,6 +32,12 @@ class VersionsController < ApplicationController
   def email
     camp = Camp.find 1
     @last_activity_email = camp.last_activity_email
+
+    if params[:force].present?
+      v = Version.order('id DESC').limit(50).last
+      @last_activity_email = v.created_at
+    end
+
     if @last_activity_email.present?
       distance_in_seconds = Time.now - @last_activity_email
       @versions = Site.site_activity(@last_activity_email)
@@ -48,8 +54,8 @@ class VersionsController < ApplicationController
     else
       @last_activity_email = Time.now
     end
-    #current_camp.last_activity_email = Time.now
-    #current_camp.save
+    camp.last_activity_email = Time.now
+    camp.save
   end
 
 end

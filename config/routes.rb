@@ -59,14 +59,7 @@ Bookcamp::Application.routes.draw do
     end
 
     resources :users, path: 'somos' do
-      scope module: 'social' do
-        get :search, on: :collection, path: 'buscar'
-
-        resources :versions, path: 'actividad'
-        resources :user_shelves, path: 'listas', only: [:index, :show] do
-          resources :books, path: 'referencias', only: [:show, :index]
-        end
-      end
+      get :search, on: :collection, path: 'buscar'
     end
   end
 
