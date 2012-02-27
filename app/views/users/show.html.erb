@@ -19,6 +19,9 @@
 <%#= link_to 'más...'  TODO %>
 
 <h2>Listas</h2>
+<div class="actions">
+  <%= link_to 'Añadir lista', new_user_shelf_path if user == current_user %>
+</div>
 <table class="shelves">
   <% user.user_shelves.each do |shelf| %>
       <%= render_shelf shelf, shelf %>

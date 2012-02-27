@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   extend FriendlyId
   include Identifiable
   include HasRoles
-  include Extensions::UserOps
-  include Users::Create
 
   friendly_id :name, use: :slugged
 
@@ -36,7 +34,23 @@ class User < ActiveRecord::Base
   # Callbacks
   after_create :create_profile_shelves
 
+  # Add book to my_references_shelf
+  def add_book(book)
+    book.user = self
+    User.transaction do
+      book.save
+      return true
+    end
+    return false
+  end
 
+  # Add tag to a book
+  def add_tag(book, tag_name)
+    tag = Tag.find_by_slug tag_name.parameterize
+    tag ||= Tag.create name: tag_name
+    tg = Tagging.new(user:self, reference:book,tag:tag)
+    tg.save ? tg : nil
+  end
 
   # HELPER METHODS
   def authorized_with?(password)
