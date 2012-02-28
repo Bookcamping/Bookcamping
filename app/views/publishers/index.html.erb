@@ -1,13 +1,15 @@
 <div class="header">
   <%= title 'Editoriales' %>
+
+  <div class="actions">
+    <%= link_to 'Añdir editorial', new_publisher_path if can? :create, Publisher %>
+  </div>
 </div>
 
-<% if can? :manage, Publisher %>
-  <div class="actions">
-    <%= link_to 'Añdir editorial', new_publisher_path %>
-  </div>
-<% end %>
-
-<% publishers.each do |publisher| %>
-  <%= link_to (publisher.header_url? ? image_tag(publisher.header_url) : publisher.name), publisher %>
-<% end %>
+<table class="publishers table">
+  <% publishers.each do |publisher| %>
+      <tr>
+        <td><%= link_to (publisher.header_url? ? image_tag(publisher.header_url) : publisher.name), publisher %></td>
+      </tr>
+  <% end %>
+</table>
