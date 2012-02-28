@@ -15,6 +15,7 @@ class License < ActiveRecord::Base
   friendly_id :name, use: :slugged
   has_paper_trail meta: {title: :name }
 
+  scope :open, where(open: true)
 
   # RELATIONS
   has_many :references, dependent: :restrict

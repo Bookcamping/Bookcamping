@@ -1,5 +1,11 @@
-<%= title "Añadir #{current_model}" %>
+<div class="header">
+  <%= title "Añadir #{current_model}" %>
+  <div class="actions">
+    <%=  link_to 'Volver', shelf, class: 'back' if shelf.present? %>
+  </div>
+</div>
+
 <%= content_tag :h2, "En #{shelf.name}" if shelf.present? %>
 <%= render 'form' %>
 
-<%= content_for(:sidebar) { render 'sidebar'} %>
+<%= content_for(:sidebar) { render 'sidebar' } %>

@@ -10,7 +10,7 @@
     <%= form.input :authors %>
     <%= form.input :editor %>
     <%= form.input :date %>
-    <%= form.association :license, collection: License.all[1..-1], include_blank: false %>
+    <%= form.input :license, label: 'Licencia', collection: License.open, include_blank: false %>
     <div id="reference_url">
       <%= form.input :url %>
       <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Recuerda!</strong> Si es de una editorial privativa (texto
