@@ -12,9 +12,9 @@
     <%= form.input :password_confirmation, required: true %>
     <%= form.input :twitter %>
     <%= form.input :description, as: :text %>
-    <%= form.input :uid_twitter %>
-    <%= form.input :uid_facebook %>
-    <%= form.input :uid_google %>
+    <%= form.input :uid_twitter, as: :hidden %>
+    <%= form.input :uid_facebook, as: :hidden %>
+    <%= form.input :uid_google, as: :hidden  %>
     <%= form.submit %>
 <% end %>
 <%= simple_debug user.errors %>
