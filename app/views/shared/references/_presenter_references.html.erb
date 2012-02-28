@@ -10,7 +10,7 @@
     </div>
 <% end %>
 <div class="references container">
-  <% shelf.references.each do |reference| %>
+  <% presenter.references.each do |reference| %>
       <%= div_for reference, style: "background-color: #{presenter.color};", class: reference.resource_type do %>
           <div class="content">
             <div class="emblems">
