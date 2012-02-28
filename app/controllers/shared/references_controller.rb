@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Shared::ReferencesController < ApplicationController
   respond_to :html, :json
-  before_filter :require_user, except: [:index, :show]
+  before_filter :require_user, except: [:index, :show, :search]
 
   expose(:shelf) { Site.new }
   expose(:references) { shelf.references }
