@@ -5,7 +5,7 @@ class Library
     @camp = camp
     @user = user
     @sections = {}
-    @count = camp.books.count
+    @count = camp.references.count
     root = section("#{camp.name} (#{@count})")
     add(root, 'ultimas', 'list')
     add(root, 'comentadas', 'list')
@@ -13,7 +13,7 @@ class Library
     add(root, 'deseadas', 'list')
 
     shelves = section('listas')
-    camp.shelves.each {|s| add(shelves, "#{s.name} (#{s.books_count})", 'shelf', s.id)}
+    camp.shelves.each {|s| add(shelves, "#{s.name} (#{s.references_count})", 'shelf', s.id)}
 
   end
 

@@ -6,7 +6,7 @@ class ShelfPresenter < ApplicationPresenter
   end
 
   def references
-    items = shelf.books.includes(:license)
+    items = shelf.references.includes(:license)
     @rp = ReferencesPresenter.new(items, {shelf: shelf, url_builder: self}, h)
     @rp.render
   end

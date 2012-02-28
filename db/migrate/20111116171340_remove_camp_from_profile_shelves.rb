@@ -14,8 +14,8 @@ class RemoveCampFromProfileShelves < ActiveRecord::Migration
         shelf.camp_id = 1
       end
 
-      user.books.where(camp_id: 2).each do |book|
-        shelf.add_book(book)
+      user.references.where(camp_id: 2).each do |reference|
+        shelf.add_reference(reference)
       end
     end
 

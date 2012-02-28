@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227143806) do
+ActiveRecord::Schema.define(:version => 20120227150059) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(:version => 20120227143806) do
     t.integer  "version_id"
   end
 
-  create_table "book_lists", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "book_lists", ["user_id"], :name => "index_book_lists_on_user_id"
-
   create_table "bookmarks", :force => true do |t|
     t.integer  "book_id"
     t.integer  "user_id"
@@ -50,33 +40,6 @@ ActiveRecord::Schema.define(:version => 20120227143806) do
   add_index "bookmarks", ["book_id"], :name => "index_bookmarks_on_book_id"
   add_index "bookmarks", ["camp_id"], :name => "index_bookmarks_on_camp_id"
   add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
-
-  create_table "books", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "book_list_id"
-    t.string   "title",            :limit => 300
-    t.string   "authors",          :limit => 100
-    t.string   "editor",           :limit => 100
-    t.text     "description"
-    t.string   "url",              :limit => 300
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "comments_count",                   :default => 0
-    t.string   "glasslevel",       :limit => 50
-    t.string   "license",          :limit => 50
-    t.string   "media",            :limit => 1024
-    t.string   "media_type",       :limit => 32
-    t.string   "date",             :limit => 40
-    t.integer  "camp_id"
-    t.string   "marks",            :limit => 300
-    t.integer  "like_it_marks",                    :default => 0
-    t.integer  "read_later_marks",                 :default => 0
-    t.integer  "license_id"
-  end
-
-  add_index "books", ["book_list_id"], :name => "index_books_on_book_list_id"
-  add_index "books", ["camp_id"], :name => "index_books_on_camp_id"
-  add_index "books", ["user_id"], :name => "index_books_on_user_id"
 
   create_table "camps", :force => true do |t|
     t.string   "name",                :limit => 100
@@ -202,34 +165,61 @@ ActiveRecord::Schema.define(:version => 20120227143806) do
 
   add_index "publishers", ["slug"], :name => "index_publishers_on_slug", :unique => true
 
+  create_table "references", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "book_list_id"
+    t.string   "title",            :limit => 300
+    t.string   "authors",          :limit => 100
+    t.string   "editor",           :limit => 100
+    t.text     "description"
+    t.string   "url",              :limit => 300
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "comments_count",                   :default => 0
+    t.string   "glasslevel",       :limit => 50
+    t.string   "license",          :limit => 50
+    t.string   "media",            :limit => 1024
+    t.string   "media_type",       :limit => 32
+    t.string   "date",             :limit => 40
+    t.integer  "camp_id"
+    t.string   "marks",            :limit => 300
+    t.integer  "like_it_marks",                    :default => 0
+    t.integer  "read_later_marks",                 :default => 0
+    t.integer  "license_id"
+  end
+
+  add_index "references", ["book_list_id"], :name => "index_books_on_book_list_id"
+  add_index "references", ["camp_id"], :name => "index_books_on_camp_id"
+  add_index "references", ["user_id"], :name => "index_books_on_user_id"
+
   create_table "shelf_items", :force => true do |t|
     t.integer  "shelf_id"
-    t.integer  "book_id"
+    t.integer  "reference_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.integer  "camp_id"
-    t.string   "mark",       :limit => 32
+    t.string   "mark",         :limit => 32
   end
 
-  add_index "shelf_items", ["book_id"], :name => "index_shelf_items_on_book_id"
   add_index "shelf_items", ["camp_id"], :name => "index_shelf_items_on_camp_id"
+  add_index "shelf_items", ["reference_id"], :name => "index_shelf_items_on_book_id"
   add_index "shelf_items", ["shelf_id"], :name => "index_shelf_items_on_shelf_id"
   add_index "shelf_items", ["user_id"], :name => "index_shelf_items_on_user_id"
 
   create_table "shelves", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",           :limit => 200
-    t.string   "slug",           :limit => 50
-    t.integer  "books_count",                   :default => 0
-    t.integer  "comments_count",                :default => 0
+    t.string   "name",             :limit => 200
+    t.string   "slug",             :limit => 50
+    t.integer  "references_count",                :default => 0
+    t.integer  "comments_count",                  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "camp_id"
-    t.string   "color",          :limit => 16
+    t.string   "color",            :limit => 16
     t.text     "description"
-    t.string   "rol",            :limit => 32
-    t.string   "type",           :limit => 32
-    t.string   "visibility",     :limit => 16
+    t.string   "rol",              :limit => 32
+    t.string   "type",             :limit => 32
+    t.string   "visibility",       :limit => 16
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"

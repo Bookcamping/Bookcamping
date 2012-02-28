@@ -1,7 +1,7 @@
 class Tagging < ActiveRecord::Base
   belongs_to :tag
   belongs_to :user
-  belongs_to :reference, class_name: 'Book'
+  belongs_to :reference, class_name: 'Reference'
 
   # VALIDATIONS
   validates :tag_id, presence: true

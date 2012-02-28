@@ -44,8 +44,8 @@ class Ability
   end
 
   def references
-    can :manage, Book if @user
-    cannot :destroy, Book unless is? :admin
+    can :manage, Reference if @user
+    cannot :destroy, Reference unless is? :admin
   end
 
   def shelves

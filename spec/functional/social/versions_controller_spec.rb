@@ -7,9 +7,9 @@ feature 'User activity:' do
   end
 
   scenario 'show user activity' do
-    book = FactoryGirl.create(:book, user: @user)
+    reference = FactoryGirl.create(:reference, user: @user)
     visit user_versions_path(@user)
-    page.should have_content book.title
+    page.should have_content reference.title
   end
 end
 

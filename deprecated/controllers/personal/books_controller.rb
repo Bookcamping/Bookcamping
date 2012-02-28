@@ -1,6 +1,6 @@
 class Personal::BooksController < Personal::ApplicationController
-  expose(:books) { current_user.books.where(camp_id: current_camp.id) }
-  expose(:book)
+  expose(:references) { current_user.references.where(camp_id: current_camp.id) }
+  expose(:reference)
 
   def index
 

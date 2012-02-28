@@ -8,12 +8,10 @@ class Shelf < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
   has_many :shelf_items, dependent: :delete_all
-  has_many :books, through: :shelf_items
+  has_many :references, through: :shelf_items
 
-  has_paper_trail :meta => {
-      :title => Proc.new { |shelf| shelf.name },
-      :camp_id => Proc.new { |shelf| shelf.camp_id }
-  }
+  # EXTENSIONS
+  has_paper_trail meta: {title: :name, camp_id: :camp_id}
 
   # SCOPES
   scope :public, where(visibility: :public)
@@ -54,9 +52,9 @@ class Shelf < ActiveRecord::Base
     false
   end
 
-  def add_book(book, user = nil)
-    user ||= book.user
-    add_reference_id(book.id, user.id)
+  def add_reference(reference, user = nil)
+    user ||= reference.user
+    add_reference_id(reference.id, user.id)
   end
 
   protected
@@ -66,8 +64,8 @@ class Shelf < ActiveRecord::Base
   
   def add_reference_id(id, user_id)
     PaperTrail.enabled = false
-    unless ShelfItem.where(shelf_id: self.id).where(book_id: id).first
-      ShelfItem.create!(shelf: self, book_id: id, user_id: user_id)
+    unless ShelfItem.where(shelf_id: self.id).where(reference_id: id).first
+      ShelfItem.create!(shelf: self, reference_id: id, user_id: user_id)
     end
     PaperTrail.enabled = true
   end

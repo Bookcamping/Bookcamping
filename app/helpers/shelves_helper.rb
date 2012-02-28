@@ -1,7 +1,7 @@
 module ShelvesHelper
-  def render_shelves(shelves, book = nil)
+  def render_shelves(shelves, reference = nil)
     render partial: 'shared/shelves/shelves', locals:
-        {shelves: shelves, book: book}
+        {shelves: shelves, reference: reference}
   end
 
   def render_shelf(shelf, shelf_link)

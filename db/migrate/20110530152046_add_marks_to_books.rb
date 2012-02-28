@@ -1,30 +1,30 @@
 class AddMarksToBooks < ActiveRecord::Migration
   def change
-    add_column :books, :like_it_marks, :integer, :default => 0
-    add_column :books, :read_later_marks, :integer, :default => 0
+    add_column :references, :like_it_marks, :integer, :default => 0
+    add_column :references, :read_later_marks, :integer, :default => 0
 
 
 
-    Book.all.each do |book|
-      Book.paper_trail_off
-      book.user_id = 3 unless book.user_id?
-      book.like_it_marks = book.bookmarks.like_it.count
-      book.read_later_marks = book.bookmarks.read_later.count
-      book.save!
+    Reference.all.each do |reference|
+      Reference.paper_trail_off
+      reference.user_id = 3 unless reference.user_id?
+      reference.like_it_marks = reference.referencemarks.like_it.count
+      reference.read_later_marks = reference.referencemarks.read_later.count
+      reference.save!
     end
   end
 
   protected
-  def bookmark_count(book, name)
-    book.marks ||= {}
-    book.marks[name] ||= 0
-    book.marks[name]
+  def referencemark_count(reference, name)
+    reference.marks ||= {}
+    reference.marks[name] ||= 0
+    reference.marks[name]
   end
 
-  def update_bookmark(book, name, delta)
-    actual = bookmark_count book, name
-    book.marks[name] = actual + delta
-    book.save
+  def update_referencemark(reference, name, delta)
+    actual = referencemark_count reference, name
+    reference.marks[name] = actual + delta
+    reference.save
   end
 
 end

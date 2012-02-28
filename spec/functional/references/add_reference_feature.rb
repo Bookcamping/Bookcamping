@@ -9,7 +9,7 @@ feature 'add reference' do
   end
 
   scenario 'add a reference' do
-    visit new_book_path
+    visit new_reference_path
     puts page.body
     page.should have_content('Dominio público')
   end

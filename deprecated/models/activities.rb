@@ -89,7 +89,7 @@ class Activities
 
     def human_resource(resource)
       case resource.class.to_s
-      when 'Book'
+      when 'Reference'
         'la referencia'
       else
         resource.class.to_s

@@ -9,7 +9,7 @@ Bookcamp::Application.routes.draw do
     # Camp Shelves
     resources :camp_shelves, path: 'estanterias' do
       scope module: 'camp_shelves' do
-        resources :books, path: 'referencia', only: [:show, :new] do
+        resources :references, path: 'referencia', only: [:show, :new] do
           get :select, on: :collection, path: 'buscar'
           post :add, on: :member, path: 'anadir'
         end
@@ -20,7 +20,7 @@ Bookcamp::Application.routes.draw do
     # User Shelves
     resources :user_shelves, path: 'listas' do
       scope module: 'user_shelves' do
-        resources :books, path: 'referencias', only: [:show, :new] do
+        resources :references, path: 'referencias', only: [:show, :new] do
           get :select, on: :collection, path: 'buscar'
           post :add, on: :member, path: 'anadir'
         end
@@ -28,8 +28,8 @@ Bookcamp::Application.routes.draw do
     end
 
     # References
-    scope module: 'references' do
-      resources :books, path: 'referencia' do
+    resources :references, path: 'referencia' do
+      scope module: 'references' do
         resources :comments, only: [:create]
         resources :shelf_items, path: 'listas'
         resources :taggings
@@ -76,7 +76,6 @@ Bookcamp::Application.routes.draw do
     resources :curated_shelves, path: 'comisariadas'
     resources :notices, path: 'anuncios'
     resources :camps, path: 'campings'
-    resources :books, path: 'referencias'
     resources :comments, path: 'comentarios'
     resources :colors, path: 'colores'
     resources :users, path: 'somos'
@@ -93,8 +92,8 @@ Bookcamp::Application.routes.draw do
   match "/entrar/:id" => "public/sessions#new", :as => :auth
   match "/auth/failure" => "public/sessions#failure"
 
-  match "/buscar/:term" => "references/books#search", :as => :search
-  match "/buscar" => "references/books#search"
+  match "/buscar/:term" => "references#search", :as => :search
+  match "/buscar" => "references#search"
 
   ['mapa', 'cuatrocientoscuatro', 'quinientos', 'sopa'].each do |name|
     match "/#{name}" => "public/screens##{name}"

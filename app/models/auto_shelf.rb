@@ -27,16 +27,16 @@ class AutoShelf
     I18n.t("autoshelf.description.#{@name}", :limit => LIMIT)
   end
 
-  def books
+  def references
     case @name
       when 'ultimas'
-        @camp.books.order('id DESC').limit(LIMIT)
+        @camp.references.order('id DESC').limit(LIMIT)
       when 'comentadas'
-        @camp.books.where('comments_count > 0').order('comments_count DESC').limit(LIMIT)
+        @camp.references.where('comments_count > 0').order('comments_count DESC').limit(LIMIT)
       when 'valoradas'
-        @camp.books.where('like_it_marks > 0').order('like_it_marks DESC').limit(LIMIT)
+        @camp.references.where('like_it_marks > 0').order('like_it_marks DESC').limit(LIMIT)
       when 'deseadas'
-        @camp.books.where('read_later_marks > 0').order('read_later_marks DESC').limit(LIMIT)
+        @camp.references.where('read_later_marks > 0').order('read_later_marks DESC').limit(LIMIT)
       else
         []
     end

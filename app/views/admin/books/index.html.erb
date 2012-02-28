@@ -2,7 +2,7 @@
 
 <div class="pagination"> <%= paginate results %></div>
 
-<table id="books">
+<table id="references">
   <thead>
           <tr>
             <td>&nbsp;</td>
@@ -12,12 +12,12 @@
           </tr>
   </thead>
   <tbody>
-  <% results.each do |book| %>
+  <% results.each do |reference| %>
   <tr>
-    <td class="timeago"><%= time_ago_in_words book.updated_at %></td>
-    <td><%= link_to book.title.upcase, book %></td>
-    <td><%= image_tag(book.license.icon) %></td>
-    <td><%= truncate book.url %></td>
+    <td class="timeago"><%= time_ago_in_words reference.updated_at %></td>
+    <td><%= link_to reference.title.upcase, reference %></td>
+    <td><%= image_tag(reference.license.icon) %></td>
+    <td><%= truncate reference.url %></td>
   </tr>
   <% end %>
   </tbody>

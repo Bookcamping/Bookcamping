@@ -17,8 +17,8 @@ Then /^debug a shelf named "([^"]*)"$/ do |name|
   shelf = Shelf.find_by_name name
   puts "SHELF #{name}"
   puts shelf.inspect
-  puts "BOOKS #{shelf.books.count}"
-  shelf.books.each {|b| puts b.inspect}
+  puts "BOOKS #{shelf.references.count}"
+  shelf.references.each {|b| puts b.inspect}
 end
 
 Then /^debug shelf items$/ do
@@ -43,10 +43,10 @@ Then /^debug camp shelves$/ do
   end
 end
 
-Then /^debug books$/ do
-  puts "BOOKS (#{Book.count})"
-  Book.all.each do |book|
-    puts book.inspect
+Then /^debug references$/ do
+  puts "BOOKS (#{Reference.count})"
+  Reference.all.each do |reference|
+    puts reference.inspect
   end
 end
 When /^debug posts$/ do

@@ -2,7 +2,7 @@
 class Shared::CommentsController < ApplicationController
   respond_to :html, :js, :json
 #  expose(:post) { current_camp.posts.find params[:post_id] if params[:post_id].present? }
-#  expose(:parent) { book ? book : post }
+#  expose(:parent) { reference ? reference : post }
   expose(:comments) { parent.comments }
   expose(:comment)
 

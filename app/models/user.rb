@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # RELATIONS 
   has_many :old_identities, class_name: 'Identity', dependent: :destroy
-  has_many :books, dependent: :restrict
+  has_many :references, dependent: :restrict
   has_many :comments, dependent: :destroy
   has_many :versions, foreign_key: :whodunnit
   has_many :taggings, dependent: :destroy
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   # Shelves
   has_many :shelves, dependent: :restrict
-  has_many :camp_shelves
+  has_many :camp_shelves, dependent: :restrict
   has_many :user_shelves, dependent: :destroy
 
   # Profile shelves
@@ -31,24 +31,21 @@ class User < ActiveRecord::Base
   # validates :password, presence: true, confirmation: true, on: :create
   # validates :password_confirmation, presence: true, on: :create
 
-  # Callbacks
-  after_create :create_profile_shelves
-
-  # Add book to my_references_shelf
-  def add_book(book)
-    book.user = self
+  # Add reference to my_references_shelf
+  def add_reference(reference)
+    reference.user = self
     User.transaction do
-      book.save
+      reference.save
       return true
     end
     return false
   end
 
-  # Add tag to a book
-  def add_tag(book, tag_name)
+  # Add tag to a reference
+  def add_tag(reference, tag_name)
     tag = Tag.find_by_slug tag_name.parameterize
     tag ||= Tag.create name: tag_name
-    tg = Tagging.new(user:self, reference:book,tag:tag)
+    tg = Tagging.new(user:self, reference:reference,tag:tag)
     tg.save ? tg : nil
   end
 

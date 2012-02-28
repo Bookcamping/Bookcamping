@@ -16,7 +16,7 @@ describe Page do
     version.item_type.should == 'Page'
     version.item_id.should == page.id
     version.event.should == 'create'
-    #version.camp_id.should == book.camp_id
+    #version.camp_id.should == reference.camp_id
     version.title.should == page.title
     version.user_name == 'user_name'
 

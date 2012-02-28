@@ -1,7 +1,7 @@
 <%= title "Listas de '#{parent.title}'" %>
 
 <div class="actions">
-  <%=  link_to 'Volver', book, class: 'back' %>
+  <%=  link_to 'Volver', reference, class: 'back' %>
 </div>
 
 <div class="shelf_management">
@@ -9,7 +9,7 @@
   <ul>
     <% shelf_items.each do |shelf_item| %>
         <li>
-          <%= link_to 'quitar', [book, shelf_item], method: :delete,
+          <%= link_to 'quitar', [reference, shelf_item], method: :delete,
                       confirm: '¿Segura?' if can? :manage, shelf_item.shelf %>
           &rArr; <%= shelf_item.shelf.name %> (<%= shelf_item.shelf.user.name %>)
         </li>
@@ -19,9 +19,9 @@
   <h2>Añadir a tus listas:</h2>
   <ul>
     <% current_user.user_shelves.each do |shelf| %>
-        <% unless book_shelves.include?(shelf) %>
+        <% unless reference_shelves.include?(shelf) %>
             <li>
-              <%= link_to 'añadir a', book_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
+              <%= link_to 'añadir a', reference_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
                           method: :post if can? :manage, shelf %>
               &rArr; <%= shelf.name %> (<%= shelf.user.name %>)
             </li>
@@ -33,9 +33,9 @@
   <h2>Añadir a estanterías:</h2>
   <ul>
     <% current_camp.camp_shelves.each do |shelf| %>
-        <% unless book_shelves.include?(shelf) %>
+        <% unless reference_shelves.include?(shelf) %>
             <li>
-              <%= link_to 'añadir a', book_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
+              <%= link_to 'añadir a', reference_shelf_items_path(shelf_item: {shelf_id: shelf.id}),
                           method: :post if can? :manage, shelf %>
               &rArr; <%= shelf.name %> (<%= shelf.user.name %>)
             </li>

@@ -7,9 +7,9 @@ feature 'View site activity' do
 
   scenario 'view reference activity' do
     PaperTrail.controller_info = {user_name: 'my_name'}
-    book = FactoryGirl.create(:book, title: 'My book')
+    reference = FactoryGirl.create(:reference, title: 'My reference')
     visit versions_path
-    page.should have_content 'My book'
+    page.should have_content 'My reference'
   end
 end
 

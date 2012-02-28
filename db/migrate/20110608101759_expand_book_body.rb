@@ -1,9 +1,9 @@
 class ExpandBookBody < ActiveRecord::Migration
   def up
-    change_column :books, :description, :text
+    change_column :references, :description, :text
   end
 
   def down
-    change_column :books, :description, :string, :limit => 512
+    change_column :references, :description, :string, :limit => 512
   end
 end

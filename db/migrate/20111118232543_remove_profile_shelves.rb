@@ -11,8 +11,8 @@ class RemoveProfileShelves < ActiveRecord::Migration
     puts "Adding references to shelves..."
     User.all.each do |user|
       refs = user.my_references_shelf
-      user.books.each do |book|
-        refs.add_book(book)
+      user.references.each do |reference|
+        refs.add_reference(reference)
       end
     end
 

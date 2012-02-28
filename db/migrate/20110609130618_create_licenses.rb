@@ -9,7 +9,7 @@ class CreateLicenses < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_column :books, :license_id, :integer
+    add_column :references, :license_id, :integer
 
     License.create(:name => 'No lo se', :url => '', :icon => '', :open => false)
 

@@ -5,8 +5,8 @@ require 'spec_helper'
 describe Activities do
   before(:each) do
     @user = FactoryGirl.create(:user)
-    @book = FactoryGirl.create(:book, title: 'El libro')
-    @version = FactoryGirl.create(:version, whodunnit: @user.id, item: @book, event: 'create')
+    @reference = FactoryGirl.create(:reference, title: 'El libro')
+    @version = FactoryGirl.create(:version, whodunnit: @user.id, item: @reference, event: 'create')
   end
 
   it "should validate version" do
@@ -20,7 +20,7 @@ describe Activities do
     activity.version_id.should == @version.id
     activity.should_not be_nil
     activity.user.should == @user
-    activity.resource.should == @book
+    activity.resource.should == @reference
     activity.action.should == 'create'
     activity.title.should == "añadido la referencia 'El libro'"
   end

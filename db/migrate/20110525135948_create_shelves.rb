@@ -5,7 +5,7 @@ class CreateShelves < ActiveRecord::Migration
       t.string :name, :limit => 200
       t.string :slug, :limit => 50
       t.string :description, :limit => 512
-      t.integer :books_count, :default => 0
+      t.integer :references_count, :default => 0
       t.integer :comments_count, :default => 0
       t.timestamps
     end

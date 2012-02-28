@@ -1,6 +1,6 @@
 
 div[data-pjax-container] {
-    div.book {
+    div.reference {
         background-color: white;
         padding: 0 10px;
         border-bottom: 4px solid black;
@@ -19,14 +19,14 @@ div[data-pjax-container] {
 }
 
 // width: 647px
-div.book {
+div.reference {
     width: 100%; overflow: hidden;
 
     div.row {width: 100%; overflow: hidden;}
     div.left { width: 360px; float: left; margin-right: 10px;}
     div.right {  }
 
-    div.book_info {
+    div.reference_info {
         padding-bottom: 5px;
         border-bottom: 2px solid black;
         margin-bottom: 10px;

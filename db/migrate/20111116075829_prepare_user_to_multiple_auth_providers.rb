@@ -5,7 +5,7 @@ class PrepareUserToMultipleAuthProviders < ActiveRecord::Migration
     User.all.each do |user|
       user.twitter_visible = true
       user.active = false
-      user.active = true if user.books.count > 0
+      user.active = true if user.references.count > 0
       user.active = true if user.user_shelves.count > 0
       user.active = true if user.profile_shelves.count > 0
       user.active = true if user.comments.count > 0

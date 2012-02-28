@@ -9,19 +9,19 @@
       <div class="messages"></div>
     </div>
 <% end %>
-<div class="books container">
-  <% presenter.references.each do |book| %>
-      <%= div_for book, style: "background-color: #{presenter.color};", class: book.resource_type do %>
+<div class="references container">
+  <% presenter.references.each do |reference| %>
+      <%= div_for reference, style: "background-color: #{presenter.color};", class: reference.resource_type do %>
           <div class="content">
             <div class="emblems">
-              <%= license_type_icon book %>
-              <%= image_tag('/images/ui3/download-arrow.png', :class => 'download') if book.url.present? %>
+              <%= license_type_icon reference %>
+              <%= image_tag('/images/ui3/download-arrow.png', :class => 'download') if reference.url.present? %>
             </div>
             <div class="cover">
               <h3>
-                <%= link_to book.title, presenter.url_for(book), data: {pjax: '[data-pjax-container]'} %>
+                <%= link_to reference.title, presenter.url_for(reference), data: {pjax: '[data-pjax-container]'} %>
               </h3>
-              <%= book.date %> <%= book.authors %> <%= book.editor %>
+              <%= reference.date %> <%= reference.authors %> <%= reference.editor %>
             </div>
           </div>
       <% end %>

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     new!
   end
 
-  expose(:books) { user.books.limit(10).reorder('created_at DESC')}
+  expose(:references) { user.references.limit(10).reorder('created_at DESC')}
   def show
     show!
   end

@@ -1,7 +1,7 @@
 <table class="shelves">
   <% shelves.each do |shelf| %>
       <%= cache ['list', shelf] do %>
-          <%= render_shelf shelf, (book ? [shelf, book] : shelf) %>
+          <%= render_shelf shelf, (reference ? [shelf, reference] : shelf) %>
       <% end %>
   <% end %>
 </table>

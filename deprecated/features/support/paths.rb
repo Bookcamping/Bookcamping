@@ -18,19 +18,19 @@ module NavigationHelpers
 
       # REFERENCE
       when /^"(.*)" reference page$/i
-        book_path(Book.find_by_title($1))
+        reference_path(Reference.find_by_title($1))
 
       when /^new reference page$/
-        new_book_path
+        new_reference_path
 
       # SECTION
       when /^"([^"]*)" camp's shelf page$/i
         camp_shelf_path(CampShelf.find_by_name!($1))
 
       when /^"([^"]*)" at "([^"]*)" camp's shelf page$/i
-        book = Book.find_by_title!($1)
+        reference = Reference.find_by_title!($1)
         section = CampShelf.find_by_name!($2)
-        camp_shelf_book_path(section, book)
+        camp_shelf_reference_path(section, reference)
 
       when /^camp's shelves page$/
         camp_shelves_path
@@ -87,7 +87,7 @@ module NavigationHelpers
 
     # BACKEND
       when /^backend references$/
-        backend_books_path
+        backend_references_path
 
       else
         begin

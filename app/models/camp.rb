@@ -9,9 +9,9 @@ class Camp < ActiveRecord::Base
   has_many :curated_shelves
   has_many :user_shelves
   has_many :shelf_items
-  has_many :books
+  has_many :references
   has_many :comments
-  has_many :bookmarks
+  has_many :referencemarks
   has_many :memberships
   has_many :users, through: :memberships
   has_many :versions

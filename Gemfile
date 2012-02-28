@@ -63,10 +63,10 @@ group :test do
   gem 'turn', :require => false
   gem 'yaml_db'
   gem "spork", "> 0.9.0.rc"
-  gem "guard-spork"
-  gem "guard-cucumber"
-  gem "cucumber-rails", ">= 1.0.2"
-  gem "factory_girl_rails", ">= 1.1.0"
+  #gem "guard-spork"
+  #gem "guard-cucumber"
+  #gem "cucumber-rails", ">= 1.0.2"
+  gem "factory_girl_rails", "~> 1.2"
   gem "capybara", ">= 1.0.1"
   gem "sqlite3"
 end

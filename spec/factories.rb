@@ -3,7 +3,7 @@ require 'factory_girl'
 FactoryGirl.define do
   factory :camp do
     name 'Camp'
-    model_name 'book'
+    model_name 'reference'
   end
 
   factory :license do
@@ -17,17 +17,11 @@ FactoryGirl.define do
     password_confirmation { "#{name}-secret"}
   end
 
-  factory :identity do
-    user 
-    uid { user.email }
-    provider 'bookcamping'
-  end
-
-  factory :book do
+  factory :reference do
     user
     camp_id 1
     license
-    title 'Book'
+    title 'Reference'
   end
 
   factory :version do
@@ -60,7 +54,6 @@ FactoryGirl.define do
     camp_id 1
     user 
     sequence(:name) {|n| "User shelf #{n}"}
-    sequence(:slug) {|n| "User shelf slug #{n}"}
     visibility 'public'
   end
 
@@ -86,7 +79,7 @@ FactoryGirl.define do
 
   factory :taggin do
     tag
-    association :reference, factory: :book 
+    association :reference, factory: :reference
     user
   end
 

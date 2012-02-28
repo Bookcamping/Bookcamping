@@ -5,19 +5,19 @@ dani = User.create!(:name => 'Dani')
 def new_section(number, user)
   text = File.read(File.join('.', 'db/content', "#{number}.txt"))
   index = 0
-  book = ''
+  reference = ''
   list = nil
   text.each_line do |line|
     if index == 0
       list = BookList.create!(:name => line, :position => index, :user => user)
       puts "SECTION**** #{line}"
-      book = ''
+      reference = ''
     elsif line =~ /^\s*$/
-      book = book.gsub(/\n/,'')
-      Book.create!(:book_list => list, :description => book, :user => user) unless book =~ /^\s*$/
-      book = ''
+      reference = reference.gsub(/\n/,'')
+      Reference.create!(:reference_list => list, :description => reference, :user => user) unless reference =~ /^\s*$/
+      reference = ''
     else
-      book += line
+      reference += line
     end
     index += 1
   end

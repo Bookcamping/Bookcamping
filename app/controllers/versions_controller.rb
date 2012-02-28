@@ -17,9 +17,9 @@ class VersionsController < ApplicationController
       when 'CampShelf'
         camp_shelf = CampShelf.find version.item_id
         redirect_to camp_shelf
-      when 'Book'
-        book = Book.find version.item_id
-        redirect_to book
+      when 'Reference'
+        reference = Reference.find version.item_id
+        redirect_to reference
       when 'Comment'
         comment = Comment.find version.item_id
         redirect_to comment.resource

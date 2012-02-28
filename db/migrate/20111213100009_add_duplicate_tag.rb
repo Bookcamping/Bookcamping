@@ -2,9 +2,9 @@ class AddDuplicateTag < ActiveRecord::Migration
   def up
     user = User.find 284
 
-    Book.all.each do |book|
-      if Book.where(title: book.title).count > 1
-        user.add_tag book, 'duplicados'
+    Reference.all.each do |reference|
+      if Reference.where(title: reference.title).count > 1
+        user.add_tag reference, 'duplicados'
       end
     end
   end

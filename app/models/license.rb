@@ -9,7 +9,7 @@
 #  t.datetime "updated_at"
 #end
 class License < ActiveRecord::Base
-  has_many :books
+  has_many :references
 
   validates :name, presence: true
 

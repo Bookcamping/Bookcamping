@@ -1,46 +1,46 @@
 # encoding: utf-8
 class BookPresenter < ApplicationPresenter
-  presents :book
+  presents :reference
 
   def linked_title
-    h.link_to_unless_current(book.title, book)
+    h.link_to_unless_current(reference.title, reference)
   end
 
   def license_icon
-    h.image_tag(book.license.icon)
+    h.image_tag(reference.license.icon)
   end
 
   def date
-    h.content_tag :span, book.date, :class => 'date' if book.date.present?
+    h.content_tag :span, reference.date, :class => 'date' if reference.date.present?
   end
 
   def authors
-    h.content_tag :span, book.authors, :class => 'authors' if book.authors.present?
+    h.content_tag :span, reference.authors, :class => 'authors' if reference.authors.present?
   end
 
   def editor
-    h.content_tag :span, book.editor, :class => 'editor' if book.editor.present?
+    h.content_tag :span, reference.editor, :class => 'editor' if reference.editor.present?
   end
 
   def description
-    h.markdown book.description
+    h.markdown reference.description
   end
 
   def user(message = 'Por ')
-    user = book.user
+    user = reference.user
     h.content_tag :span, message.html_safe + h.link_to("#{user.name}", user), class: 'user' if user
   end
 
   def download_visible?
-    book.url.present? and book.license.libre?
+    reference.url.present? and reference.license.libre?
   end
 
   def download_link
-    h.link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, book.url, :class => 'important download')
+    h.link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, reference.url, :class => 'important download')
   end
 
   def media
-    render_media if book.media?
+    render_media if reference.media?
   end
 
   def social
@@ -48,33 +48,33 @@ class BookPresenter < ApplicationPresenter
   end
 
   def camp_shelves
-    h.render_shelves book.camp_shelves, book
+    h.render_shelves reference.camp_shelves, reference
   end
 
   def comments
     h.render partial: 'shared/comments/comments', locals:
-        {comments: book.comments,
-         new_comment: Comment.new(:resource => book)}
+        {comments: reference.comments,
+         new_comment: Comment.new(:resource => reference)}
   end
 
   protected
   def render_media
-    if /youtube.com\/watch\?v=([\w\s\-_]*)/.match(book.media) or /youtu\.be\/(.*)/.match(book.media)
+    if /youtube.com\/watch\?v=([\w\s\-_]*)/.match(reference.media) or /youtu\.be\/(.*)/.match(reference.media)
       frame = "<iframe width='339' height='223' src='http://www.youtube.com/embed/#{$1}' frameborder='0' allowfullscreen></iframe>"
-      link = h.content_tag(:div, h.link_to('&rArr; Ver en youtube'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
+      link = h.content_tag(:div, h.link_to('&rArr; Ver en youtube'.html_safe, reference.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
-    elsif /vimeo.com\/(\d+)/.match(book.media)
+    elsif /vimeo.com\/(\d+)/.match(reference.media)
       frame = '<iframe src="http://player.vimeo.com/video/' + $1 + '?title=0&amp;byline=0&amp;portrait=0" width="339" height="256" frameborder="0"></iframe>'
-      link = h.content_tag(:div, h.link_to('&rArr; Ver en vimeo'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
+      link = h.content_tag(:div, h.link_to('&rArr; Ver en vimeo'.html_safe, reference.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
-    elsif /docid=(.+)/.match(book.media)
+    elsif /docid=(.+)/.match(reference.media)
       frame = "<embed id=VideoPlayback src=http://video.google.com/googleplayer.swf?docid=#{$1}&hl=es&fs=true style=width:339px;height:223px allowFullScreen=true allowScriptAccess=always type=application/x-shockwave-flash> </embed>"
-      link = h.content_tag(:div, h.link_to('&rArr; Ver en google video'.html_safe, book.media, :class => 'notice'), :class => 'media-link')
+      link = h.content_tag(:div, h.link_to('&rArr; Ver en google video'.html_safe, reference.media, :class => 'notice'), :class => 'media-link')
       (frame + link).html_safe
-    elsif /^</.match(book.media)
-      book.media.html_safe
+    elsif /^</.match(reference.media)
+      reference.media.html_safe
     else
-      h.link_to(h.image_tag(book.media[0..200], class: 'cover'), book)
+      h.link_to(h.image_tag(reference.media[0..200], class: 'cover'), reference)
     end
   end
 

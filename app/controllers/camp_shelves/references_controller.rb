@@ -1,5 +1,5 @@
 # Controller for Books belonging to CampShelves
-class CampShelves::BooksController < Shared::BooksController
+class CampShelves::ReferencesController < Shared::ReferencesController
   expose(:camp_shelf) { CampShelf.find_by_slug(params[:camp_shelf_id]) || CampShelf.find(params[:camp_shelf_id]) }
   expose(:shelf) { camp_shelf }
   expose(:current_camp) { shelf.camp }
@@ -11,8 +11,8 @@ class CampShelves::BooksController < Shared::BooksController
   end
 
   def new
-    book.include_in_shelf_id = camp_shelf.id
-    book.title = params[:title]
+    reference.include_in_shelf_id = camp_shelf.id
+    reference.title = params[:title]
   end
 
 

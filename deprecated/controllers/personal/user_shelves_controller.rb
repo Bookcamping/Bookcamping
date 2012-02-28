@@ -48,7 +48,7 @@ class Personal::UserShelvesController < Personal::ApplicationController
     url = url_for [:personal, shelf]
     respond_with do |format|
       format.html { redirect_to url }
-      format.json { render json: {name: shelf.name, count: shelf.books_count, url: url} }
+      format.json { render json: {name: shelf.name, count: shelf.references_count, url: url} }
     end
   end
 end

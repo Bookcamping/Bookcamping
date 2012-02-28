@@ -14,14 +14,14 @@ feature 'view tags' do
 
   scenario 'list references of tag' do
     user = FactoryGirl.create :user
-    ref1 = FactoryGirl.create :book, title: 'Book 1'
-    ref2 = FactoryGirl.create :book, title: 'Book 2'
+    ref1 = FactoryGirl.create :reference, title: 'Reference 1'
+    ref2 = FactoryGirl.create :reference, title: 'Reference 2'
     user.add_tag ref1, 'My tag'
     user.add_tag ref2, 'My tag'
     tag = Tag.find_by_name 'My tag'
     visit tag_path(tag)
-    page.should have_content 'Book 1'
-    page.should have_content 'Book 2'
+    page.should have_content 'Reference 1'
+    page.should have_content 'Reference 2'
   end
     
 

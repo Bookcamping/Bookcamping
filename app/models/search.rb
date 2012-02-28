@@ -21,7 +21,7 @@ class Search
   def results
     if term.present? and term.length > 2
       match = "%#{term}%"
-      if @search_type == :books
+      if @search_type == :references
         @collection.where('title LIKE ? OR authors LIKE ? OR editor LIKE ?', match, match, match)
       elsif @search_type == :users
         @collection.where('name LIKE ?', match)

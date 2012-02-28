@@ -29,16 +29,16 @@ describe Tag do
 
   it "should have references" do
     user = FactoryGirl.create :user
-    user.add_tag(FactoryGirl.create(:book), 'my tag')
-    user.add_tag(FactoryGirl.create(:book), 'my tag')
+    user.add_tag(FactoryGirl.create(:reference), 'my tag')
+    user.add_tag(FactoryGirl.create(:reference), 'my tag')
     tag = Tag.find_by_name 'My tag'
     tag.references.count.should == 2
   end
 
   it "should remove taggings on destroy" do
     user = FactoryGirl.create :user
-    user.add_tag(FactoryGirl.create(:book), 'my tag')
-    user.add_tag(FactoryGirl.create(:book), 'my tag')
+    user.add_tag(FactoryGirl.create(:reference), 'my tag')
+    user.add_tag(FactoryGirl.create(:reference), 'my tag')
     tag = Tag.find_by_name 'My tag'
     Tagging.count.should == 2
     tag.destroy

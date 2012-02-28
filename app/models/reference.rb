@@ -1,6 +1,6 @@
-# Book - TODO: Rename to reference
+# Reference
 #
-class Book < ActiveRecord::Base
+class Reference < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
   has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
@@ -26,7 +26,7 @@ class Book < ActiveRecord::Base
   has_paper_trail meta: {title: :title, camp_id: :camp_id}
 
   # ATTRIBUTES
-  attr_accessible :description, :book_list_id, :title, :authors, :editor, :url, :date, :media, :license_id, :include_in_shelf_id
+  attr_accessible :description, :reference_list_id, :title, :authors, :editor, :url, :date, :media, :license_id, :include_in_shelf_id
   attr_accessible :user_id, :as => :super
   attr_accessor :include_in_shelf_id
 
@@ -40,7 +40,7 @@ class Book < ActiveRecord::Base
   after_create do
     if include_in_shelf_id
       shelf = Shelf.find include_in_shelf_id
-      shelf.add_book self, self.user
+      shelf.add_reference self, self.user
     end
   end
 
@@ -49,11 +49,11 @@ class Book < ActiveRecord::Base
     RESOURCES[camp_id - 1]
   end
 
-  def bookmark_count(name)
+  def referencemark_count(name)
     self.send "#{name}_marks"
   end
 
-  def update_bookmark(name, delta)
+  def update_referencemark(name, delta)
     attr = "#{name}_marks"
     if self.respond_to? attr
       PaperTrail.enabled = false

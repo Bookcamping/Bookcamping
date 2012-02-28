@@ -6,7 +6,7 @@
 module Users::Identities
   def identify_with(password)
     id = identities.where(provider: 'bookcamping').first
-    id ||= identities.build(provider: 'bookcamping', uid: email) 
+    id ||= identities.build(provider: 'bookcamping', uid: email)
     id.password = password
     id.save
     identities(true)

@@ -15,8 +15,8 @@ feature 'view licenses' do
 
   scenario 'show a license' do
     license = License.first
-    FactoryGirl.create(:book, license: license)
-    FactoryGirl.create(:book, license: license)
+    FactoryGirl.create(:reference, license: license)
+    FactoryGirl.create(:reference, license: license)
 
     visit license_path(License.first)
     page.should have_content 'License 1'

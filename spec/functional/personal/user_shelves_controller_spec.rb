@@ -25,7 +25,7 @@ feature 'Show user shelves' do
 
   scenario 'show user shelf references' do
     shelf = FactoryGirl.create(:user_shelf, user: @user, name: 'Lista1')
-    shelf.add_book FactoryGirl.create(:book, user: @user)
+    shelf.add_reference FactoryGirl.create(:reference, user: @user)
     visit personal_user_shelf_path(shelf)
     page.should have_content 'Lista1'
   end

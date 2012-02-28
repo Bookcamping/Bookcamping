@@ -10,8 +10,8 @@ class CreateMemberships < ActiveRecord::Migration
     add_column :users, :login_count, :integer, :default => 0
     add_column :users, :last_login_at, :datetime
 
-    Book.all.each do |book|
-      book.user.membership(book.camp)
+    Reference.all.each do |reference|
+      reference.user.membership(reference.camp)
     end
 
   end

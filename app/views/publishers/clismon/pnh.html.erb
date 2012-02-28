@@ -1,44 +1,44 @@
-<% title book.title %>
+<% title reference.title %>
 
 
 
-<%= div_for book do %>
-    <% present book do |book_presenter| -%>
-        <div class="book_info row">
-          <h1><%= book_presenter.linked_title %></h1>
-          <%= book_presenter.license_icon %>
-          <%= book_presenter.date %>
-          <%= book_presenter.authors %>
-          <% if book.editor.present? %>
-              / <%= book_presenter.editor %>
+<%= div_for reference do %>
+    <% present reference do |reference_presenter| -%>
+        <div class="reference_info row">
+          <h1><%= reference_presenter.linked_title %></h1>
+          <%= reference_presenter.license_icon %>
+          <%= reference_presenter.date %>
+          <%= reference_presenter.authors %>
+          <% if reference.editor.present? %>
+              / <%= reference_presenter.editor %>
           <% end %>
-          <%= book_presenter.user %>
+          <%= reference_presenter.user %>
         </div>
         <div class="content row">
           <div class="left media">
-            <%= book_presenter.media %>
+            <%= reference_presenter.media %>
           </div>
           <div class="right">
             <div class="description">
-              <%= book_presenter.description %>
+              <%= reference_presenter.description %>
             </div>
           </div>
         </div>
         <div class="content row">
-          <% if book_presenter.download_visible? %>
+          <% if reference_presenter.download_visible? %>
               <div class="download_url">
-                <%= book_presenter.download_link %>
+                <%= reference_presenter.download_link %>
               </div>
           <% end %>
         </div>
         <div class="camp_shelves row">
-          <%= book_presenter.camp_shelves %>
+          <%= reference_presenter.camp_shelves %>
         </div>
         <div class="social row">
-          <%= book_presenter.social %>
+          <%= reference_presenter.social %>
         </div>
         <div class="comments row">
-          <%= book_presenter.comments %>
+          <%= reference_presenter.comments %>
         </div>
     <% end %>
 <% end %>

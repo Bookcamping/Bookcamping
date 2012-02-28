@@ -4,24 +4,24 @@ describe User do
   let(:user) { FactoryGirl.create(:user) }
   
   # OPERATIONS
-  it 'should add books' do
-    book = FactoryGirl.create(:book)
-    user.add_book book
-    user.my_references_shelf.books.all.should include(book)
+  it 'should add references' do
+    reference = FactoryGirl.create(:reference)
+    user.add_reference reference
+    user.references.all.should include(reference)
   end
 
   it 'should add tags' do
-    book = FactoryGirl.create(:book)
-    user.add_tag(book, 'my tag')
+    reference = FactoryGirl.create(:reference)
+    user.add_tag(reference, 'my tag')
     Tag.count.should == 1
     tag = Tag.first
     tag.name.should == 'My tag'
-    book.taggings.count.should == 1
-    book.taggings.first.tag.should == tag
-    book = FactoryGirl.create(:book)
-    user.add_tag(book, 'my tag')
+    reference.taggings.count.should == 1
+    reference.taggings.first.tag.should == tag
+    reference = FactoryGirl.create(:reference)
+    user.add_tag(reference, 'my tag')
     Tag.count.should == 1
-    book.taggings.count.should == 1
+    reference.taggings.count.should == 1
     user.taggings.count.should == 2
   end
 
@@ -63,14 +63,6 @@ describe User do
     retrieved = User.authenticate('test@test.com', 'secret')
     retrieved.should_not be_nil
     retrieved.id.should == user.id
-  end
-
-  # PERSONAL SHELVES
-  it "should always have personal shelves" do
-    user = Factory.create :user
-    user.like_it_shelf.should_not be_nil
-    user.read_later_shelf.should_not be_nil
-    user.my_references_shelf.should_not be_nil
   end
 
   # ROLES

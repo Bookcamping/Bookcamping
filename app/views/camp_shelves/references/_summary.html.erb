@@ -1,12 +1,12 @@
-<%= div_for book, class: 'summary' do %>
-    <% present book do |presenter| -%>
-        <%= link_to 'Ver ficha completa', book, class: 'go-book' %>
+<%= div_for reference, class: 'summary' do %>
+    <% present reference do |presenter| -%>
+        <%= link_to 'Ver ficha completa', reference, class: 'go-reference' %>
         <div class="info">
           <h1><%= presenter.linked_title %></h1>
           <%= presenter.license_icon %>
           <%= presenter.date %>
           <%= presenter.authors %>
-          <% if book.editor.present? %>
+          <% if reference.editor.present? %>
               / <%= presenter.editor %>
           <% end %>
         </div>
