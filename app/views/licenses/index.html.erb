@@ -1,6 +1,9 @@
 <div class="header">
   <div class="count"><%= licenses.size %></div>
   <%= title 'Licencias' %>
+  <div class="actions">
+    <%=  link_to 'Añadir licencia', new_license_path if can? :create, License %>
+  </div>
 </div>
 
 <table class="licenses table">

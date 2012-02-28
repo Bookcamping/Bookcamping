@@ -10,7 +10,7 @@
 </div>
 
 <%= div_for license do %>
-    <%= image_tag(license.icon) %>
+    <%= image_tag(license.icon) if license.icon? %>
     <%= markdown license.body %>
 <% end %>
 

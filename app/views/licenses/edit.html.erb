@@ -5,12 +5,4 @@
   </div>
 </div>
 
-<%= simple_form_for license do |form| %>
-    <%=  form.input :name %>
-    <%=  form.input :icon %>
-    <%=  form.input :image_url %>
-    <%=  form.input :reference_url %>
-    <%=  form.input :open %>
-    <%=  form.input :body, as: :text %>
-    <%= form.submit %>
-<% end  %>
+<%= render 'form' %>

@@ -10,6 +10,10 @@ class LicensesController < ApplicationController
     show!
   end
 
+  def new
+    new!
+  end
+
   def edit
     edit!
   end
