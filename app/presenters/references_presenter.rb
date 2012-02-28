@@ -16,7 +16,7 @@ class ReferencesPresenter < ApplicationPresenter
   end
 
   def render
-    h.render partial: 'shared/references/references', locals: {presenter: self}
+    h.render partial: 'shared/references/presenter_references', locals: {presenter: self}
   end
 
   def url_for(reference)
