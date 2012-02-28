@@ -26,6 +26,8 @@ class VersionsController < ApplicationController
       when 'Page'
         page = Page.find version.item_id
         redirect_to page
+      when 'License'
+        redirect_to License.find(version.item_id)
     end
   end
 

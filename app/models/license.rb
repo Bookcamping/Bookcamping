@@ -13,6 +13,8 @@ class License < ActiveRecord::Base
 
   # EXTENSIONS
   friendly_id :name, use: :slugged
+  has_paper_trail meta: {title: :name }
+
 
   # RELATIONS
   has_many :references, dependent: :restrict

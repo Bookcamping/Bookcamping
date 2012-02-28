@@ -24,6 +24,7 @@ class Reference < ActiveRecord::Base
   scope :titled, where('title != null')
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 
+  # EXTENSIONS
   has_paper_trail meta: {title: :title, camp_id: :camp_id}
 
   # ATTRIBUTES
