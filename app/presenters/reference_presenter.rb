@@ -1,5 +1,5 @@
 # encoding: utf-8
-class BookPresenter < ApplicationPresenter
+class ReferencePresenter < ApplicationPresenter
   presents :reference
 
   def linked_title

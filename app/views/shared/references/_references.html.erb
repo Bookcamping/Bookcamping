@@ -1,29 +1,5 @@
-<% if current_user? %>
-    <div id="selection">
-      <div class="selection-controls" style="display: none">
-        Añadir <span class="select-text"></span> a la lista
-        <%#= text_field_tag :shelf_name, '', data: {autocomplete_source: presenter.user_shelves_names} %>
-        <%#= button_tag 'Añadir', disabled: true, data: {url: bulk_add_personal_user_shelves_path} %>
-        <%#= link_to 'Cancelar', '#', class: 'cancel' %>
-      </div>
-      <div class="messages"></div>
-    </div>
-<% end %>
 <div class="references container">
-  <% presenter.references.each do |reference| %>
-      <%= div_for reference, style: "background-color: #{presenter.color};", class: reference.resource_type do %>
-          <div class="content">
-            <div class="emblems">
-              <%= license_type_icon reference %>
-              <%= image_tag('/images/ui3/download-arrow.png', :class => 'download') if reference.url.present? %>
-            </div>
-            <div class="cover">
-              <h3>
-                <%= link_to reference.title, presenter.url_for(reference), data: {pjax: '[data-pjax-container]'} %>
-              </h3>
-              <%= reference.date %> <%= reference.authors %> <%= reference.editor %>
-            </div>
-          </div>
-      <% end %>
+  <% references.each do |reference| %>
+      <%= render_reference_item reference, [shelf, reference], background %>
   <% end %>
 </div>
