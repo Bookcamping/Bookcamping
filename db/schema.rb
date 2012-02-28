@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227150059) do
+ActiveRecord::Schema.define(:version => 20120228112935) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -83,12 +83,17 @@ ActiveRecord::Schema.define(:version => 20120227150059) do
   end
 
   create_table "licenses", :force => true do |t|
-    t.string   "name",       :limit => 300
-    t.string   "url",        :limit => 500
-    t.string   "icon",       :limit => 300
+    t.string   "name",             :limit => 300
+    t.string   "url",              :limit => 500
+    t.string   "icon",             :limit => 300
     t.boolean  "open"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "body"
+    t.integer  "references_count"
+    t.string   "image_url",        :limit => 200
+    t.string   "slug",             :limit => 300
+    t.string   "reference_url",    :limit => 200
   end
 
   create_table "media_bites", :force => true do |t|

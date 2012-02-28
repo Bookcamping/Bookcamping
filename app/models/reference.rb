@@ -14,8 +14,9 @@ class Reference < ActiveRecord::Base
   has_many :shelves, :through => :shelf_items
   has_many :camp_shelves, through: :shelf_items
 
-  belongs_to :license
+  belongs_to :license, counter_cache: true
   serialize :marks
+
   delegate :name, to: :license, prefix: true
 
   extend Camp::Scopes
@@ -38,7 +39,7 @@ class Reference < ActiveRecord::Base
   # validates :include_in_shelf_id, presence: true, on: :create
 
   after_create do
-    if include_in_shelf_id
+    if include_in_shelf_id.present?
       shelf = Shelf.find include_in_shelf_id
       shelf.add_reference self, self.user
     end

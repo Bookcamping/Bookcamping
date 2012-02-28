@@ -41,10 +41,8 @@ Bookcamp::Application.routes.draw do
       get :email, on: :collection
     end
     resources :publishers, path: 'editoriales'
+    resources :licenses, path: 'licencias'
 
-    scope module: 'licenses' do
-      resources :licenses, path: 'licencias'
-    end
 
     scope module: 'public' do
       resources :password_recoveries, path: 'recuperar', except: [:index] do

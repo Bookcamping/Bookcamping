@@ -14,6 +14,10 @@ class Ability
     publishers
     misc
 
+    # Licenses
+    can :read, License
+    can :manage, License if @user and @user.admin?
+
     # Pages
     can :read, Page
     can :manage, Page do |page|

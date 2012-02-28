@@ -14,13 +14,6 @@ es:
       update: "Participante modificado. Espero que sepas lo que haces."
     show:
       books: "Libros"
-  book_lists:
-    book_lists:
-      add_list: "Añadir lista"
-    edit:
-      title: "MODIFICAR LISTA"
-    new:
-      title: "AÑADIR LISTA"
 
     index:
       latest_books: "ÚLTIMOS LIBROS AÑADIDOS"

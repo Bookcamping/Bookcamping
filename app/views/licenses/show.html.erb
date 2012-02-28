@@ -1,0 +1,20 @@
+<div class="header">
+  <div class="count"><%= license.references.count %> referencias</div>
+  <%= title license.name %>
+  <div class="actions">
+    <%= link_to 'Volver', licenses_path, class: 'back' %>
+    <%= link_to 'Editar', [:edit, license] if can? :edit, license %>
+    <%= link_to 'Borrar', license, method: :delete, class: 'warning',
+                confirm: "¿Borrar esta licencia?" if can?(:destroy, license) and license.references.count == 0 %>
+  </div>
+</div>
+
+<%= div_for license do %>
+    <%= image_tag(license.icon) %>
+    <%= markdown license.body %>
+<% end %>
+
+<h2>Últimas referencias con esta licencia</h2>
+<%= render_references license.references.reorder('created_at DESC').limit(10), '#efefef' %>
+
+

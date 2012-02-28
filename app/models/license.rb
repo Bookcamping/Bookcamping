@@ -9,8 +9,15 @@
 #  t.datetime "updated_at"
 #end
 class License < ActiveRecord::Base
-  has_many :references
+  extend FriendlyId
 
+  # EXTENSIONS
+  friendly_id :name, use: :slugged
+
+  # RELATIONS
+  has_many :references, dependent: :restrict
+
+  # VALIDATIONS
   validates :name, presence: true
 
   def license_type

@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="count"><%= licenses.size %></div>
+  <%= title 'Licencias' %>
+</div>
+
+<table class="licenses table">
+  <% licenses.each do |license| %>
+      <tr>
+        <td><%= image_tag(license.icon) %></td>
+        <td><%= link_to license.name, license %></td>
+        <td></td>
+      </tr>
+  <% end %>
+</table>
