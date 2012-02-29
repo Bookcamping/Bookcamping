@@ -20,7 +20,7 @@
   <%# end %>
 </div>
 
-<%= cache 'camp_shelves_list' do %>
+<%= cache ['camp_shelves_list', current_camp] do %>
     <%= render_shelves camp_shelves %>
 <% end %>
 

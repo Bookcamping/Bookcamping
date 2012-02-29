@@ -36,17 +36,17 @@ class CampShelvesController < ApplicationController
       camp_shelf.visibility = :public
       create! [camp_shelf]
     end
-    expire_fragment 'camp_shelves_list'
+    expire_fragment ['camp_shelves_list', current_camp]
   end
 
   def update
     update! [camp_shelf]
-    expire_fragment 'camp_shelves_list'
+    expire_fragment ['camp_shelves_list', current_camp]
   end
 
   def destroy
     destroy!
-    expire_fragment 'camp_shelves_list'
+    expire_fragment ['camp_shelves_list', current_camp]
   end
 
 end

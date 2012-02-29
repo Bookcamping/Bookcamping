@@ -1,4 +1,5 @@
 class Admin::CampsController < ApplicationController
+  before_filter :require_user, except: [:enter]
   respond_to :html
   expose_resource :camp
 
@@ -15,7 +16,7 @@ class Admin::CampsController < ApplicationController
   end
 
   def enter
-    if current_user.admin? 
+    if !Rails.env.production? or (current_user and current_user.admin?)
       session[:camp_id] = params[:id]
       flash[:notice] = "Nos vamos"
     end
