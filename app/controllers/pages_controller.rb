@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 class PagesController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
   respond_to :html
   expose_resource :page
-  expose(:pages) { Page.all }
+  expose(:pages) { Page.order('updated_at DESC') }
   expose(:page)
 
   def index

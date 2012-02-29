@@ -6,13 +6,25 @@
 </div>
 
 <table class="table">
+  <thead>
+  <tr>
+    <th>Código</th>
+    <th>Título</th>
+    <th>Autora(s)</th>
+    <th>Visible por</th>
+    <th>Editable por</th>
+    <th>Última modificación</th>
+  </tr>
+  </thead>
   <tbody>
   <% pages.each do |page| %>
   <tr>
+    <td>@[<%= page.id %>]</td>
     <td><%= link_to page.title, page %></td>
-    <td><%= '[solo admin]' if page.view_level == 'admin' %></td>
     <td><%= link_to page.author %></td>
-    <td>Última mod. hace <%= time_ago_in_words page.updated_at %></td>
+    <td><%= page.view_level %></td>
+    <td><%= page.edit_level %></td>
+    <td>hace <%= time_ago_in_words page.updated_at %></td>
     <td class="actions">
       <%= link_to 'Editar', [:edit, page] if can? :edit, page %>
     </td>
