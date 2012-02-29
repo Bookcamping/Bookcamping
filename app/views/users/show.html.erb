@@ -10,6 +10,7 @@
     <%= link_to 'Editar', edit_user_path(user) if can? :edit, user %>
     <%= link_to 'Borrar', user, method: :delete,
                 confirm: "NO DEBERÍA HABER RAZÓN PARA HACER ESTO. NO PUEDES DESHACER" if can? :destroy, user %>
+    <%= link_to 'Cerrar sesión', logout_path, class: 'warning' if current_user == user %>
   </div>
 </div>
 

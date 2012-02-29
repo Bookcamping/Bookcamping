@@ -3,14 +3,14 @@
     <% if current_user %>
         <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
         <%= link_to "¡Hola #{current_user.name}!", current_user, rel: 'current-user' %>
-        <%= link_to 'Estanterías', camp_shelves_path %> /
-        <%= link_to 'Listas', user_shelves_path %> /
-        <%= link_to 'Salir', logout_path %>
     <% else %>
-        <%= link_to 'Estanterías', camp_shelves_path %> /
-        <%= link_to 'Listas', user_shelves_path %> /
         <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
     <% end %>
+
+    <%= link_to 'Estanterías', camp_shelves_path %> /
+    <%= link_to 'Listas', user_shelves_path %> /
+    <%= link_to 'Licencias', licenses_path %> /
+    <%= link_to 'Wiki', pages_path %>
   </div>
   <div class="tabs">
     <%= link_to 'Como', '/como', class: 'como' %>

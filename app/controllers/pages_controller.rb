@@ -4,7 +4,10 @@ class PagesController < ApplicationController
   before_filter :require_user, except: [:index, :show]
   respond_to :html
   expose_resource :page
-  expose(:pages) { Page.order('updated_at DESC') }
+  expose(:pages) do
+    pages = Page.order('updated_at DESC')
+    #pages.where(edit_level: 'admin') unless current_user and current_user.admin?
+  end
   expose(:page)
 
   def index
