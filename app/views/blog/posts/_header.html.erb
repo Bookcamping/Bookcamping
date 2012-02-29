@@ -1,11 +1,6 @@
 <div id="go-camping" class="blog">
-  <% if current_camp.name == 'bookcamping' %>
       <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
-      <p class="go-bookcamping">bookcamping</p>
-  <% else %>
-      <p class="go-videocamping">videocamping</p>
       <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
-  <% end %>
 </div>
 <div id="header" class="blog">
       <a href="<%= current_page?(posts_path) ? root_path : posts_path %>">
