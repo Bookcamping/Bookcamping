@@ -4,6 +4,6 @@
     <%=  form.input :image_url %>
     <%=  form.input :reference_url %>
     <%=  form.input :open %>
-    <%=  form.input :body, as: :text %>
+    <%=  form.input :page_id, collection: Page.all %>
     <%= form.submit %>
 <% end  %>

@@ -19,6 +19,7 @@ class License < ActiveRecord::Base
 
   # RELATIONS
   has_many :references, dependent: :restrict
+  belongs_to :page
 
   # VALIDATIONS
   validates :name, presence: true

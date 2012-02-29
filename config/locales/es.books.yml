@@ -22,24 +22,6 @@ es:
       read_later_books: "Más deseados"
     book_list:
       empty_list: "No hay %{model}s en esta lista."
-  simple_form:
-    labels:
-      book:
-        include_in_shelf_id: "Estantería"
-        title: "Título"
-        authors: "Autoras"
-        editor: "Editorial / Editora"
-        url: "Enlace de descarga"
-        description: "Descripción"
-        date: "Fecha"
-        media: "Imágen / Vídeo / Audio"
-        license: "Licencia"
-    hints:
-      book:
-        title: "Tienes 300 caracteres máximo"
-        authors: "¿Quién lo ha escrito / creado / imaginado?"
-        description: "No tiene límite de espacio, pero intenta ser concisa."
-        media: "Un enlace a una imágen de la web, un vídeo de youtube..."
   shelf_items:
     new:
       title: "Gestionar listas de '%{title}'"

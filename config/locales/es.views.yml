@@ -1,0 +1,5 @@
+es:
+  licenses:
+    index:
+      title: 'Observatorio de licencias'
+      description: 'Licencias, licenciados, licenciaturas y demás.'

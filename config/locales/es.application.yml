@@ -5,6 +5,13 @@ es:
   sessions:
     signed_in: "Hola!"
     signed_out: "Adiós!"
+
+  page:
+    levels:
+      public: 'cualquiera'
+      admin: 'administradoras'
+      collab: 'colaboradoras'
+
   users:
     index:
       title: "Colaboradoras"
@@ -17,25 +24,7 @@ es:
 
     index:
       latest_books: "ÚLTIMOS LIBROS AÑADIDOS"
-  simple_form:
-    "yes": 'Sí'
-    "no": 'No'
-    required:
-      text: 'obligatorio'
-      mark: '*'
-      # You can uncomment the line below if you need to overwrite the whole required html.
-      # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
-    error_notification:
-      default_message: "Hay errores en los datos introducidos:"
 
-    labels:
-      book:
-        description: "Texto"
-        title: "Título"
-        authors: "Autoras"
-        editor: "Editorial"
-        url: "Enlace de descarga"
   resource:
     created: '¡Creado! Gracias.'
     updated: '¡Guardado! Gracias.'

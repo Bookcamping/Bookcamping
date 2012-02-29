@@ -1,0 +1,44 @@
+es:
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'obligatorio'
+      mark: '*'
+    error_notification:
+      default_message: "Se han encontrado errores. Echa un vistazo, plis:"
+
+    labels:
+      defaults:
+        name: 'Nombre'
+        title: 'Título'
+      reference:
+        include_in_shelf_id: "Estantería"
+        title: "Título"
+        authors: "Autoras"
+        editor: "Editorial / Editora"
+        url: "Enlace de descarga"
+        description: "Descripción"
+        date: "Fecha"
+        media: "Imágen / Vídeo / Audio"
+        license: "Licencia"
+    hints:
+      reference:
+        title: "Tienes 300 caracteres máximo"
+        authors: "¿Quién lo ha escrito / creado / imaginado?"
+        description: "No tiene límite de espacio, pero intenta ser concisa."
+        media: "Un enlace a una imágen de la web, un vídeo de youtube..."
+
+
+    # Labels and hints examples
+    # labels:
+    #   password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail para efetuar o sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   username: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+
