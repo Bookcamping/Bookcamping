@@ -2,17 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+div#header.blog {
+  margin: 0 0 5px 0;
+  height: 186px;
+}
+
+div#go-camping.blog {margin-left: -10px;}
+
+a#blog-archive {
+  overflow: hidden;
+  text-indent: -1000px;
+  display: block;
+  width: 327px;
+  height: 88px;
+  margin: 10px 0;
+  background: image_url('blog_archivo_01.png') no-repeat;
+}
+
+h1#blog {
+  display: block;
+  width: 1025px;
+  height: 186px;
+  background: image_url('cabecera_blog.jpg') no-repeat;
+  margin-bottom: -50px;
+}
+
 div.post {
-    padding: 5px 0;
-    div.author {text-style: italic;}
-    div.body {
-        margin-top: 10px;
+  padding: 5px 0;
+  div.author {
+    text-style: italic;
+  }
+  div.body {
+    margin-top: 10px;
 
-
-    }
-    div.visibility {float: right;}
-
-
+  }
+  div.visibility {
+    float: right;
+  }
 }
 
 div.posts {
@@ -26,5 +52,32 @@ div.posts {
     border-bottom: 2px solid black;
   }
 
-  h2 {margin: 0}
+  h2 {
+    margin: 0
+  }
+}
+
+div.archive {
+  width: 100%; overflow: hidden;
+
+  div.post {
+    position: relative;
+    float: left;
+    width: 144px;
+    height: 136px;
+    margin: 0 20px 10px 0;
+    background: image_url('icono_archivo_blog_negro.png') no-repeat;
+
+    div.content {
+      color: white;
+      position: absolute;
+      overflow: hidden;
+      left: 42px;
+      top: 8px;
+      right: 2px;
+      bottom: 13px;
+
+      a {color: white;}
+    }
+  }
 }

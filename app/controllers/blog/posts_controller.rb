@@ -20,6 +20,9 @@ class Blog::PostsController < ApplicationController
     end
   end
 
+  def archive
+  end
+
   def show
     authorize! :show, post
   end

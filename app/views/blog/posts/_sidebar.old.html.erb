@@ -1,5 +1,27 @@
 <div id="sidecontent">
   <div class="curtain">
+    <div class="content">
+      <h2><%= link_to 'Blog #bookcamping' %></h2>
+
+      <div class="actions">
+        <%= link_to 'Añadir entrada', new_post_path if can? :manage, Post %>
+        <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
+        <%= link_to 'Subir imágen', new_media_bite_path if can? :create, MediaBite %>
+      </div>
+      <ul id="latest-posts" style="display: block;">
+        <% cache "recent_posts" do %>
+            <% all_posts.each do |post| %>
+                <li><h3>
+                  <%= link_to post do %>
+                      <%= l post.published_at.to_date %>&nbsp;
+                      <%= post.title %>
+                  <% end %>
+                </h3></li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="separator">&nbsp;</div>
     <script src="http://widgets.twimg.com/j/2/widget.js"></script>
     <script>
         new TWTR.Widget({
@@ -30,6 +52,4 @@
     </script>
     <div class="bottom"></div>
   </div>
-  <%= link_to 'Archivo: todas las entradas publicadas', archive_posts_path,
-              id: 'blog-archive' unless current_page?(archive_posts_path) %>
 </div>

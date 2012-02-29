@@ -63,6 +63,7 @@ Bookcamp::Application.routes.draw do
 
   scope module: 'blog' do
     resources :posts, path: 'blog' do
+      get :archive, on: :collection, path: 'archivo'
       resources :comments
     end
     resources :media_bites, path: 'media'

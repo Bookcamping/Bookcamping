@@ -1,11 +1,10 @@
 <div class="header">
   <%= title 'Imágenes y ficheros del blog' %>
+  <div class="actions">
+    <%= link_to 'Subir fichero', new_media_bite_path %>
+    <%= link_to 'Volver al blog', archive_posts_path %>
+  </div>
 </div>
-<div class="actions">
-  <%= link_to 'Subir fichero', new_media_bite_path %>
-  <%= link_to 'Volver al blog', posts_path %>
-</div>
-
 
 <div id="media_bites">
   <% media_bites.each do |media_bite| %>

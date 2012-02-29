@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="count"><%= all_posts.size %></div>
+  <%= title 'ARCHIVO' %>
+  <div class="description">Todas las entradas publicadas</div>
+  <div class="actions">
+    <%= link_to 'Añadir entrada', new_post_path if can? :create, Post %>
+    <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
+    <%= link_to 'Subir imágen', new_media_bite_path if can? :create, MediaBite %>
+  </div>
+</div>
+
+<%= content_for(:sidebar) { render 'sidebar' } %>
+
+<div class="archive">
+  <% all_posts.each do |post| %>
+  <%= div_for post do %>
+          <div class="content">
+            <%= l post.published_at.to_date %>
+            <%= link_to post.title, post %>
+          </div>
+  <% end %>
+  <% end %>
+</div>

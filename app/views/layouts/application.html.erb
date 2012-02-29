@@ -11,7 +11,6 @@
   <%= auto_discovery_link_tag :atom, posts_path(format: :atom) %>
   <%= auto_discovery_link_tag :rss, posts_path(format: :rss) %>
 </head>
-<%= render 'layouts/ga' %>
 <body>
 <div id="page">
   <!-- a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a-->
@@ -23,53 +22,8 @@
   </div>
 
 
-  <div id="session">
-    <div class="user">
-      <% if current_user %>
-          <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
-          <%= link_to "¡Hola #{current_user.name}!", current_user, rel: 'current-user' %>
-          <%= link_to 'Estanterías', camp_shelves_path %> /
-          <%= link_to 'Listas', user_shelves_path %> /
-          <%= link_to 'Salir', logout_path %>
-      <% else %>
-          <%= link_to 'Estanterías', camp_shelves_path %> /
-          <%= link_to 'Listas', user_shelves_path %> /
-          <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
-      <% end %>
-    </div>
-    <div class="tabs">
-      <%= link_to 'Como', '/como', class: 'como' %>
-      <%= link_to 'Visitas guiadas', '/visitas', class: 'visitas' %>
-      <%= link_to 'Blog', posts_path, class: 'blog' %>
-    </div>
-    <div class="search">
-      <%= form_tag '/buscar' do %>
-          <%= text_field_tag :term %>
-          <%= submit_tag 'BUSCAR', id: 'submit-search' %>
-      <% end %>
-    </div>
-  </div>
-
-  <div id="go-camping">
-    <% if current_camp.name == 'bookcamping' %>
-        <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
-        <p class="go-bookcamping">bookcamping</p>
-    <% else %>
-        <p class="go-videocamping">videocamping</p>
-        <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
-    <% end %>
-  </div>
-  <div id="header">
-    <% if current_publisher %>
-        <a href="/" class="publisher">
-          <img src="<%= "/images/#{current_publisher}/#{current_publisher}.jpg" %>" width="1025" height="140"/>
-        </a>
-    <% else %>
-        <a href="/">
-          <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
-        </a>
-    <% end %>
-  </div>
+  <%= render 'session' %>
+  <%=  render 'header' %>
   <div id="main">
     <% if false and current_publisher %>
         <%= yield %>
@@ -112,5 +66,6 @@
   <%= render 'layouts/js' %>
   <div style="display:none">(cc) Bookcamping 0.5.2 - 28 febrero 2012</div>
 </div>
+<%= render 'layouts/ga' %>
 </body>
 </html>
