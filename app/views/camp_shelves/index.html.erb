@@ -21,8 +21,15 @@
 </div>
 
 <%= cache ['camp_shelves_list', current_camp] do %>
-    <%= render_shelves camp_shelves %>
+    <%= render_shelves camp_shelves, nil %>
 <% end %>
 
 
-<%= content_for(:sidebar) { render 'sidebar' } %>
+<%= content_for(:sidebar) do %>
+    <%= render 'sidebar' %>
+    <% if current_camp.id == 1 %>
+        <div id="sidebar_extra">
+          <%= link_to 'Mapa bookcamping', '/mapa', id: 'go-map' %>
+    <% end %>
+    </div>
+<% end %>

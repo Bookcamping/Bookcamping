@@ -34,11 +34,6 @@
           </div>
           <div id="sidebar">
             <%= yield :sidebar %>
-            <div id="sidebar_extra">
-              <% if current_camp.id == 1 %>
-                  <%= link_to 'Mapa bookcamping', '/mapa', id: 'go-map' %>
-              <% end %>
-            </div>
           </div>
         </div>
     <% end %>
