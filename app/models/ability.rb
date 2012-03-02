@@ -42,6 +42,9 @@ class Ability
       end
     end
 
+    # Colors
+    can :manage, Color if @user and @user.admin?
+
   end
 
   def publishers

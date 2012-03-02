@@ -42,7 +42,7 @@ Bookcamp::Application.routes.draw do
     end
     resources :publishers, path: 'editoriales'
     resources :licenses, path: 'licencias'
-
+    resources :colors, path: 'colores'
 
     scope module: 'public' do
       resources :password_recoveries, path: 'recuperar', except: [:index] do
@@ -67,19 +67,6 @@ Bookcamp::Application.routes.draw do
       resources :comments
     end
     resources :media_bites, path: 'media'
-  end
-
-  namespace :admin do
-    root to: 'camp_shelves#index'
-    resources :camp_shelves, path: 'estanterias'
-    resources :curated_shelves, path: 'comisariadas'
-    resources :notices, path: 'anuncios'
-    resources :camps, path: 'campings'
-    resources :comments, path: 'comentarios'
-    resources :colors, path: 'colores'
-    resources :users, path: 'somos'
-
-    resources :identities, except: [:create, :destroy]
   end
 
   match "/clismon/pnh" => 'publishers/clismon#pnh'

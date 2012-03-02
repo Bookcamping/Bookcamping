@@ -1,0 +1,21 @@
+<div class="header">
+  <div class="count"><%= colors.size %></div>
+  <%= title 'Colores' %>
+  <div class="actions">
+    <%= link_to 'Añadir color', new_color_path %>
+  </div>
+</div>
+
+<table class="table">
+  <% colors.each do |color| %>
+      <tr >
+        <td><%= color.name %></td>
+        <td style="background-color: <%= color.value %>;"><%= color.value %></td>
+        <td class="actions">
+          <%= link_to 'Editar', edit_color_path(color) if can? :edit, color %>
+          <%= link_to 'Borrar', color, method: :delete,
+                      confirm: '¿Borrar color?' if can? :edit, color %>
+        </td>
+      </tr>
+  <% end %>
+</table>

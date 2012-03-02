@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302130902) do
+ActiveRecord::Schema.define(:version => 20120302134445) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20120302130902) do
     t.integer  "references_count"
     t.string   "image_url",        :limit => 200
     t.string   "slug",             :limit => 300
-    t.string   "body"
+    t.text     "body"
   end
 
   create_table "media_bites", :force => true do |t|
