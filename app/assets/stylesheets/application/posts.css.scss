@@ -9,6 +9,7 @@ div#header.blog {
 
 div#go-camping.blog {margin-left: -10px;}
 
+// icono para ir al acrhivo
 a#blog-archive {
   overflow: hidden;
   text-indent: -1000px;
@@ -16,7 +17,10 @@ a#blog-archive {
   width: 327px;
   height: 88px;
   margin: 10px 0;
-  background: image_url('blog_archivo_01.png') no-repeat;
+  background: image_url('boton_archivo.png') no-repeat;
+}
+a#blog-archive:hover {
+  background-position: 0 -88px;
 }
 
 h1#blog {
