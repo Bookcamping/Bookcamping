@@ -43,6 +43,8 @@ Bookcamp::Application.routes.draw do
     resources :publishers, path: 'editoriales'
     resources :licenses, path: 'licencias'
     resources :colors, path: 'colores'
+    resources :pages, path: 'wiki'
+    resources :categories, path: 'categorias'
 
     scope module: 'public' do
       resources :password_recoveries, path: 'recuperar', except: [:index] do
@@ -50,7 +52,6 @@ Bookcamp::Application.routes.draw do
       end
     end
     match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
-    resources :pages, path: 'wiki'
 
     ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
       match name => "public/info_pages##{name}"

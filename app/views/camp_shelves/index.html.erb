@@ -10,7 +10,7 @@
   <% if can? :manage, CampShelf %>
       <div class="actions">
         <%= link_to 'Añadir estantería', new_camp_shelf_path %>
-        <%= link_to 'Gestionar colores', colors_path if can? :view, Color %>
+        <%= link_to 'Gestionar colores', colors_path if can? :manage, Color %>
       </div>
   <% end %>
 </div>

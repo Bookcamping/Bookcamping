@@ -8,4 +8,7 @@ class Category < ActiveRecord::Base
   # RELATIONS
   has_many :pages
 
+  # CONSTANTS
+  LEVELS = [:public, :admin]
+
 end

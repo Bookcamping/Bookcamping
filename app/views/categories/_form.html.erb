@@ -1,0 +1,8 @@
+<%= simple_form_for category do |form| %>
+    <%= form.input :name %>
+    <%= form.input :description %>
+    <%= form.input :view_level, :collection => tc('category.levels', Category::LEVELS), include_blank: false %>
+    <%= form.input :edit_level, :collection => tc('category.levels', Category::LEVELS), include_blank: false %>
+    <%= form.input :section %>
+    <%= form.submit %>
+<% end %>

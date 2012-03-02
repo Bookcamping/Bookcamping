@@ -12,6 +12,7 @@ es:
       defaults:
         name: 'Nombre'
         title: 'Título'
+        description: 'Descripción'
 
       reference:
         include_in_shelf_id: "Estantería"
@@ -34,13 +35,24 @@ es:
         open: 'Licencia libre'
         icon: 'URL de enlace al icono'
         image_url: 'URL de enlace una imágen grande'
-    hints:
 
+      category:
+        view_level: 'Quién puede ver las páginas de ésta categoría'
+        edit_level: 'Quién puede editar las páginas de ésta categoría'
+        section: 'Sección'
+
+
+
+    hints:
       reference:
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito / creado / imaginado?"
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
+
+      category:
+        description: 'Tienes 300 caracteres'
+        section: 'En general, debería estar en blanco'
 
 
 

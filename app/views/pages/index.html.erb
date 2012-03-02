@@ -2,6 +2,7 @@
   <%= title 'Wiki #bookcamping' %>
   <div class="actions">
     <%= link_to 'Añadir página', [:new, :page] if can? :manage, Page %>
+    <%= link_to 'Gestionar categorías', categories_path if can? :manage, Category %>
   </div>
 </div>
 
@@ -11,8 +12,7 @@
 <% categories.each do |category| %>
     <% if can? :view, category %>
         <h2><%= category.name %></h2>
-        <p class="hint">Visible por <%= t(category.view_level, scope: [:category, :levels]) %> y
-          editable por <%= t(category.edit_level, scope: [:category, :levels]) %></p>
+        <p class="hint"><%= category.description %></p>
         <table class="table">
           <tbody>
           <% category.pages.each do |page| %>
@@ -26,6 +26,8 @@
           <% end %>
           </tbody>
         </table>
+    <% else %>
+        <%= simple_debug category %>
     <% end %>
 <% end %>
 
