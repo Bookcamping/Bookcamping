@@ -3,6 +3,8 @@ class LicensesController < ApplicationController
 
   expose_resource :license
 
+  expose(:category) { Category.find_by_section('licenses') }
+
   def index
     index!
   end

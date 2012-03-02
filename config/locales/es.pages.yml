@@ -1,19 +1,2 @@
 es:
-  activerecord:
-    models:
-      page: 'página'
 
-  simple_form:
-    labels:
-      page:
-        title: 'Título'
-        slug: 'URL de la página'
-        author: 'Autora'
-        body: 'Contenido'
-        view_level: '¿Quién puede ver ésta página?'
-        edit_level: '¿Quién puede editar ésta página?'
-    hints:
-      page:
-        author: 'Opcional. Sólo si quieres que aparezca.'
-        slug: 'Opcional: déjalo en blanco para que se genere automáticamente'
-        body: 'Puedes usar markdown.'

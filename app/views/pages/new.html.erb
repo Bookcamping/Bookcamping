@@ -1,6 +1,6 @@
 <div class="header">
   <%= title 'Añadir página' %>
+  <%= link_to 'Volver', (category ? licenses_path : pages_path), class: 'back' %>
 </div>
-<%= link_to 'Volver', pages_path, class: 'back' %>
 
 <%= render 'form' %>

@@ -1,27 +1,4 @@
 es:
-  activerecord:
-    models:
-      media_bite: 'media'
 
-  media_bite:
-    content_types:
-      file: 'Fichero'
-      url/link: 'Enlace'
-    positions:
-      left: 'A la izquierda'
-      center: 'En el centro'
-      right: 'A la derecha'
 
-  simple_form:
-    labels:
-      media_bite:
-        position: 'Posición en el post'
-        caption: 'Descripción'
-        link: 'Enlace'
-    hints:
-      media_bite:
-        title: 'Tienes 100 caracteres.'
-        position: 'Dónde quieres que se vea publicado'
-        caption: 'Aparecerá debajo de la imágen/archivo/video...'
-        link: 'Sólo sierve en imágenes: url a la que enlaza la imágen'
 

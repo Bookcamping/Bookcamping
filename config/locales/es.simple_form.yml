@@ -13,6 +13,32 @@ es:
         name: 'Nombre'
         title: 'Título'
         description: 'Descripción'
+        author: 'Autora'
+        body: 'Contenido'
+
+      category:
+        view_level: 'Quién puede ver las páginas de ésta categoría'
+        edit_level: 'Quién puede editar las páginas de ésta categoría'
+        section: 'Sección'
+
+      license:
+        body: 'Información sobre ésta licencia'
+        open: 'Licencia libre'
+        icon: 'URL de enlace al icono'
+        image_url: 'URL de enlace una imágen grande'
+
+      media_bite:
+        position: 'Posición en el post'
+        caption: 'Descripción'
+        link: 'Enlace'
+
+      page:
+        category_id: 'Dónde va esta página'
+
+      post:
+        visibility: 'Visibilidad'
+        published_at: 'Fecha de publicación'
+        body: 'Texto'
 
       reference:
         include_in_shelf_id: "Estantería"
@@ -25,47 +51,31 @@ es:
         media: "Imágen / Vídeo / Audio"
         license: "Licencia"
 
-      page:
-        category: 'Tipo de página'
-
-      license:
-        name: 'Nombre'
-        author: 'Autora'
-        body: 'Información sobre ésta licencia'
-        open: 'Licencia libre'
-        icon: 'URL de enlace al icono'
-        image_url: 'URL de enlace una imágen grande'
-
-      category:
-        view_level: 'Quién puede ver las páginas de ésta categoría'
-        edit_level: 'Quién puede editar las páginas de ésta categoría'
-        section: 'Sección'
-
-
-
     hints:
+      category:
+        description: 'Tienes 300 caracteres'
+        section: 'En general, debería estar en blanco'
+
+      media_bite:
+        title: 'Tienes 100 caracteres.'
+        position: 'Dónde quieres que se vea publicado'
+        caption: 'Aparecerá debajo de la imágen/archivo/video...'
+        link: 'Sólo sierve en imágenes: url a la que enlaza la imágen'
+
+      page:
+        author: 'Opcional. Sólo si quieres que aparezca.'
+        slug: 'Opcional: déjalo en blanco para que se genere automáticamente'
+        body: 'Puedes usar markdown.'
+
+      post:
+        author: 'Es la firma del post, para separarlo de la persona que escribe el post'
+        published_at: 'Sirve, básicamente, para ordenar entradas: de más reciente a más antigüa'
+        visibility: 'Permite tener borradores o entradas sólo visibles por las administradoras'
+        body: 'Podéis usar markdown'
+
       reference:
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito / creado / imaginado?"
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
-
-      category:
-        description: 'Tienes 300 caracteres'
-        section: 'En general, debería estar en blanco'
-
-
-
-
-    # Labels and hints examples
-    # labels:
-    #   password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail para efetuar o sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   username: 'User name to sign in.'
-    #   password: 'No special characters, please.'
 

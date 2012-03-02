@@ -6,6 +6,15 @@ es:
     signed_in: "Hola!"
     signed_out: "Adiós!"
 
+  media_bite:
+    content_types:
+      file: 'Fichero'
+      url/link: 'Enlace'
+    positions:
+      left: 'A la izquierda'
+      center: 'En el centro'
+      right: 'A la derecha'
+
   category:
     levels:
       public: 'cualquiera'
@@ -26,45 +35,12 @@ es:
       Post: 'entrada'
       License: 'licencia'
 
-
-  users:
-    index:
-      title: "Colaboradoras"
-    edit:
-      title: "Editar participante"
-    notice:
-      update: "Participante modificado. Espero que sepas lo que haces."
-    show:
-      books: "Libros"
-
-    index:
-      latest_books: "ÚLTIMOS LIBROS AÑADIDOS"
+  post:
+    visibilities:
+      published: 'Publicado'
+      draft: 'Borrador'
 
   resource:
     created: '¡Creado! Gracias.'
     updated: '¡Guardado! Gracias.'
 
-  comments:
-    notice:
-      create: "Gracias por tu comentario."
-    comments:
-      comments: "Comentar"
-
-  books:
-    book:
-      download: "Descargar!"
-    search:
-      title: "Resultados de la búsqueda"
-  shelves:
-    browse:
-      add: "+ Añadir a la lista"
-    browse_books:
-      view_list: "Ver como lista &rarr;"
-      add: "+ Añadir %{model}"
-  camps:
-    notice:
-      update: "Campamento montado!"
-  bookmarks:
-    read_later:
-      libro: "Me muero por leerlo!"
-      video: "Si, me muero por verlo!"

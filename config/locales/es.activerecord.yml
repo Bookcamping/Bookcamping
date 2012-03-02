@@ -3,3 +3,6 @@ es:
     models:
       license: 'licencia'
       category: 'categoría'
+      media_bite: 'media'
+      page: 'página'
+      post: 'entrada'

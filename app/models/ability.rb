@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :view, to: :read
     @user = user
 
     camps
@@ -20,24 +21,14 @@ class Ability
     can [:edit, :update], License if @user.present?
 
     # Pages
-    can :view, Page do |page|
-      can? :view, page.category
-    end
-    can :manage, Page do |page|
-      if page.category and page.category.edit_level == 'admin'
-        @user and @user.admin?
-      else
-        @user
-      end
-    end
+    can(:read, Page) {|page| page.category.viewable?(user) }
+    can(:update, Page) {|page| page.category.editable?(user) }
+    can :manage, Page if @user and @user.admin?
+
 
     # Categories
-    can :view, Category do |category|
-      if category.present?
-        category.view_level == 'public' or (category.view_level == 'admin' and @user.try(:admin?))
-      else
-        @user and @user.admin?
-      end
+    can :read, Category do |category|
+      category.viewable?(user)
     end
     can :manage, Category if @user and @user.admin?
 

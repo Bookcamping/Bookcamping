@@ -3,8 +3,11 @@
 class PagesController < ApplicationController
   before_filter :require_user, except: [:index, :show]
   respond_to :html
-  expose_resource :page
+
   expose(:categories) { Category.where(section: '').includes(:pages)}
+  expose(:category) { Category.find(params[:en]) if params[:en].present? }
+
+  expose_resource :page
   expose(:pages) { Page.order('updated_at DESC').includes(:category) }
   expose(:page)
 
@@ -17,6 +20,7 @@ class PagesController < ApplicationController
   end
 
   def new
+    page.category = category || Category.find(1)
     new!
   end
 
@@ -34,7 +38,8 @@ class PagesController < ApplicationController
 
   def update
     page.category_id ||= 1
-    update! page_path(page)
+    flash[:notice] = 'Página guardada' if page.save
+    respond_with page
   end
 
   def destroy
