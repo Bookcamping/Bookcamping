@@ -20,7 +20,9 @@ class Ability
     can [:edit, :update], License if @user.present?
 
     # Pages
-    can :read, Page
+    can :view, Page do
+      true
+    end
     can :manage, Page do |page|
       if page.category and page.category.edit_level == 'admin'
         @user and @user.admin?
@@ -32,10 +34,10 @@ class Ability
     # Categories
     can :view, Category do |category|
       if category.present?
-        if category.edit_level == 'admin'
+        if category.view_level == 'admin'
           @user and @user.admin?
         else
-          @user.present?
+          true
         end
       else
         @user and @user.admin?
