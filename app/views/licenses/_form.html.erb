@@ -1,9 +1,11 @@
 <%= simple_form_for license do |form| %>
-    <%=  form.input :name %>
-    <%=  form.input :icon %>
-    <%=  form.input :image_url %>
-    <%=  form.input :reference_url %>
-    <%=  form.input :open %>
-    <%=  form.input :page_id, collection: Page.all %>
+    <%= form.input :body, as: :text %>
+    <% if current_user.admin? %>
+        <h2>Eres administradora, puedes editar los siguientes datos:</h2>
+        <%= form.input :name %>
+        <%= form.input :icon %>
+        <%= form.input :image_url %>
+        <%= form.input :open %>
+    <% end %>
     <%= form.submit %>
-<% end  %>
+<% end %>

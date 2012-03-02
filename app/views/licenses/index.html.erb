@@ -7,12 +7,16 @@
   </div>
 </div>
 
+<h2>Licencias en #bookcamping</h2>
 <table class="licenses table">
   <% licenses.each do |license| %>
       <tr>
         <td><%= image_tag(license.icon) %></td>
         <td><%= link_to license.name, license %></td>
-        <td></td>
+        <td class="actions"><%= link_to 'Editar', [:edit, license] if can? :edit, license %></td>
       </tr>
   <% end %>
 </table>
+
+<h2>Otros documentos relacionados con licencias</h2>
+<p>Próximamente.</p>

@@ -1,5 +1,6 @@
 class LicensesController < ApplicationController
   respond_to :html
+
   expose_resource :license
 
   def index

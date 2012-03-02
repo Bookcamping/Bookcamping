@@ -17,6 +17,7 @@ class Ability
     # Licenses
     can :read, License
     can :manage, License if @user and @user.admin?
+    can [:edit, :update], License if @user.present?
 
     # Pages
     can :read, Page

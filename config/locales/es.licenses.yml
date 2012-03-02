@@ -4,14 +4,6 @@ es:
       license: 'licencia'
 
   simple_form:
-    labels:
-      license:
-        name: 'Nombre'
-        author: 'Autora'
-        body: 'Descripción'
-        open: 'Licencia libre'
-        icon: 'URL de enlace al icono'
-        image_url: 'URL de enlace una imágen grande'
     hints:
       page:
         author: 'Opcional. Sólo si quieres que aparezca.'

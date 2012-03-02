@@ -3,6 +3,8 @@
   <div class="actions">
     <%= link_to 'Volver', pages_path, class: 'back' %>
     <%= link_to 'Editar', [:edit, page] if can? :edit, page %>
+    <%= link_to 'Borrar', page, method: :delete,
+                confirm: '¿Seguro que quieres borrar esta página?' if can? :edit, page %>
   </div>
 </div>
 

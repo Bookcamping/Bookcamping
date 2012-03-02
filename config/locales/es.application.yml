@@ -12,6 +12,21 @@ es:
       admin: 'administradoras'
       collab: 'colaboradoras'
 
+  versions:
+    events:
+      create: 'añadido'
+      update: 'modificado'
+      destroy: 'borrado'
+    models:
+      Reference: 'referencia'
+      Comment: 'comentario'
+      Shelf: 'lista'
+      Bookmark: 'marca'
+      Page: 'página'
+      Post: 'entrada'
+      License: 'licencia'
+
+
   users:
     index:
       title: "Colaboradoras"

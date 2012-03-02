@@ -22,6 +22,14 @@ es:
         date: "Fecha"
         media: "Imágen / Vídeo / Audio"
         license: "Licencia"
+
+      license:
+        name: 'Nombre'
+        author: 'Autora'
+        body: 'Información sobre ésta licencia'
+        open: 'Licencia libre'
+        icon: 'URL de enlace al icono'
+        image_url: 'URL de enlace una imágen grande'
     hints:
       reference:
         title: "Tienes 300 caracteres máximo"

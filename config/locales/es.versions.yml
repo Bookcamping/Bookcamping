@@ -1,16 +1,1 @@
 es:
-  versions:
-    index:
-      title: "ACTIVIDAD"
-    events:
-      create: 'añadido'
-      update: 'modificado'
-      destroy: 'borrado'
-    models:
-      Book: 'referencia'
-      Comment: 'comentario'
-      Shelf: 'lista'
-      Bookmark: 'marca'
-      Page: 'página'
-      Post: 'entrada'
-      License: 'licencia'

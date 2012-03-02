@@ -1,17 +1,14 @@
-<div class="header">
+<div class="header" xmlns="http://www.w3.org/1999/html">
   <%= title 'Wiki #bookcamping' %>
   <div class="actions">
     <%=  link_to 'Añadir página', [:new, :page] if can? :manage, Page %>
   </div>
 </div>
 
+<p>El <b><%= link_to 'Observatorio de licencias', licenses_path %></b> tiene otros
+  documentos relacionados con licencias, derechos y legalidad.</p>
+
 <table class="table">
-  <thead>
-  <tr>
-    <th>Título</th>
-    <th>Última modificación</th>
-  </tr>
-  </thead>
   <tbody>
   <% pages.each do |page| %>
   <tr>
