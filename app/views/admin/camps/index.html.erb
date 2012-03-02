@@ -1,9 +1,0 @@
-<div class="header">
-<%= title 'Campings' %>
-</div>
-
-<ul>
-  <% camps.each do |camp| %>
-      <li><%= link_to camp.name, [:admin, camp] %></li>
-  <% end %>
-</ul>

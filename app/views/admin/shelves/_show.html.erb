@@ -1,8 +1,0 @@
-<% title shelf.name %>
-<h1><%= shelf.name %>
-  <small>(<%= shelf.references_count %>)</small>
-</h1>
-<div class="description"><%= shelf.description %></div>
-<h5>Por <%= shelf.user.name %>
-<small>Modificada hace <%= time_ago_in_words shelf.updated_at %></small></h5>
-

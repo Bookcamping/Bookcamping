@@ -1,9 +1,0 @@
-<div class="header">
-<%= title camp.name %>
-</div>
-<div class="actions">
-  <%= link_to 'Volver', admin_camps_path, class: 'back' %>
-  <%= link_to 'Editar', [:edit, :admin, camp] if can? :edit, camp %>
-</div>
-
-<%= simple_debug camp %>
