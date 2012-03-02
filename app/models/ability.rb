@@ -22,10 +22,23 @@ class Ability
     # Pages
     can :read, Page
     can :manage, Page do |page|
-      if page.edit_level == 'admin'
+      if page.category.edit_level == 'admin'
         @user and @user.admin?
       else
         @user
+      end
+    end
+
+    # Categories
+    can :view, Category do |category|
+      if category.present?
+        if category.edit_level == 'admin'
+          @user and @user.admin?
+        else
+          @user.present?
+        end
+      else
+        @user and @user.admin?
       end
     end
 

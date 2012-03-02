@@ -1,23 +1,31 @@
 <div class="header" xmlns="http://www.w3.org/1999/html">
   <%= title 'Wiki #bookcamping' %>
   <div class="actions">
-    <%=  link_to 'Añadir página', [:new, :page] if can? :manage, Page %>
+    <%= link_to 'Añadir página', [:new, :page] if can? :manage, Page %>
   </div>
 </div>
 
 <p>El <b><%= link_to 'Observatorio de licencias', licenses_path %></b> tiene otros
   documentos relacionados con licencias, derechos y legalidad.</p>
 
-<table class="table">
-  <tbody>
-  <% pages.each do |page| %>
-  <tr>
-    <td><%= link_to page.title, page %></td>
-    <td>hace <%= time_ago_in_words page.updated_at %></td>
-    <td class="actions">
-      <%= link_to 'Editar', [:edit, page] if can? :edit, page %>
-    </td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+<% categories.each do |category| %>
+    <% if can? :view, category %>
+        <h2><%= category.name %></h2>
+        <p class="hint">Visible por <%= t(category.view_level, scope: [:category, :levels]) %> y
+          editable por <%= t(category.edit_level, scope: [:category, :levels]) %></p>
+        <table class="table">
+          <tbody>
+          <% category.pages.each do |page| %>
+              <tr>
+                <td><%= link_to page.title, page %></td>
+                <td>hace <%= time_ago_in_words page.updated_at %></td>
+                <td class="actions">
+                  <%= link_to 'Editar', [:edit, page] if can? :edit, page %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
+<% end %>
+

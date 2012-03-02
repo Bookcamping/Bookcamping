@@ -12,6 +12,7 @@ es:
       defaults:
         name: 'Nombre'
         title: 'Título'
+
       reference:
         include_in_shelf_id: "Estantería"
         title: "Título"
@@ -23,6 +24,9 @@ es:
         media: "Imágen / Vídeo / Audio"
         license: "Licencia"
 
+      page:
+        category: 'Tipo de página'
+
       license:
         name: 'Nombre'
         author: 'Autora'
@@ -31,11 +35,14 @@ es:
         icon: 'URL de enlace al icono'
         image_url: 'URL de enlace una imágen grande'
     hints:
+
       reference:
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito / creado / imaginado?"
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
+
+
 
 
     # Labels and hints examples

@@ -6,7 +6,7 @@ es:
     signed_in: "Hola!"
     signed_out: "Adiós!"
 
-  page:
+  category:
     levels:
       public: 'cualquiera'
       admin: 'administradoras'

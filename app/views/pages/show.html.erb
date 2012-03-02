@@ -1,5 +1,8 @@
 <div class="header">
   <%= title page.title %>
+  <div class="description">
+    En <%= page.category.name %>
+  </div>
   <div class="actions">
     <%= link_to 'Volver', pages_path, class: 'back' %>
     <%= link_to 'Editar', [:edit, page] if can? :edit, page %>

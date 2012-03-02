@@ -3,10 +3,7 @@
     <%= form.input :author %>
     <%= form.input :body %>
     <% if current_user.admin? %>
-        <%= form.input :view_level, collection: tc('user.levels', [:admin, :collab, :public]),
-                       include_blank: false %>
-        <%= form.input :edit_level, collection: tc('user.levels', [:admin, :collab, :public]),
-                       include_blank: false %>
+        <%= form.input :category_id, collection: Category.all, include_blank: false %>
     <% end %>
     <%= form.submit %>
 <% end %>
