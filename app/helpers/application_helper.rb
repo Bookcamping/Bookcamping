@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def beta_div(&block)
-    content_tag(:div, class: 'beta', &block) if beta?
+    #content_tag(:div, class: 'beta', &block) if beta?
   end
 
   # Presenters: see http://railscasts.com/episodes/287-presenters-from-scratch

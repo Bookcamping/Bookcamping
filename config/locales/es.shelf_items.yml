@@ -1,6 +1,0 @@
-es:
-  simple_form:
-    labels:
-      shelf_item:
-        item_action: 'Deseas:'
-        shelf: 'Listas posibles'
