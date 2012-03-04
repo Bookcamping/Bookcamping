@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302134445) do
+ActiveRecord::Schema.define(:version => 20120304155055) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -192,20 +192,28 @@ ActiveRecord::Schema.define(:version => 20120302134445) do
   add_index "shelf_items", ["shelf_id"], :name => "index_shelf_items_on_shelf_id"
   add_index "shelf_items", ["user_id"], :name => "index_shelf_items_on_user_id"
 
+  create_table "shelf_members", :force => true do |t|
+    t.integer  "shelf_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "shelves", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",             :limit => 200
-    t.string   "slug",             :limit => 50
-    t.integer  "references_count",                :default => 0
-    t.integer  "comments_count",                  :default => 0
+    t.string   "name",                :limit => 200
+    t.string   "slug",                :limit => 50
+    t.integer  "references_count",                   :default => 0
+    t.integer  "comments_count",                     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "camp_id"
-    t.string   "color",            :limit => 16
+    t.string   "color",               :limit => 16
     t.text     "description"
-    t.string   "rol",              :limit => 32
-    t.string   "type",             :limit => 32
-    t.string   "visibility",       :limit => 16
+    t.string   "rol",                 :limit => 32
+    t.string   "type",                :limit => 32
+    t.string   "visibility",          :limit => 16
+    t.integer  "shelf_members_count",                :default => 0
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"

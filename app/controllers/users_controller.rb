@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   expose_with_slug
   expose_resource :user
   expose(:user_count) { User.count }
-  expose(:users) { User.order('login_count DESC').limit(50) }
+  expose(:users) { User.order('last_login_at DESC').limit(50) }
   expose(:user)
 
   expose(:shelf_order) { Shelf::Order.new(params[:o]) }

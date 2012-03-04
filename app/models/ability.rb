@@ -21,8 +21,8 @@ class Ability
     can [:edit, :update], License if @user.present?
 
     # Pages
-    can(:read, Page) {|page| page.category.viewable?(user) }
-    can(:update, Page) {|page| page.category.editable?(user) }
+    can(:read, Page) { |page| page.category.viewable?(user) }
+    can(:update, Page) { |page| page.category.editable?(user) }
     can :manage, Page if @user and @user.admin?
 
 
@@ -80,12 +80,12 @@ class Ability
   def user_shelves
     can :read, UserShelf
     can :create, UserShelf if @user
-    can :manage, UserShelf do |shelf|
-      @user and shelf.user_id == @user.id
+    can :update, UserShelf do |shelf|
+      @user and shelf.members.include?(@user)
     end
-    cannot :destroy, UserShelf, :rol => 'read_later'
-    cannot :destroy, UserShelf, :rol => 'like_it'
-    cannot :destroy, UserShelf, :rol => 'my_references'
+    can :destroy, UserShelf do |shelf|
+      @user and shelf.user == @user
+    end
   end
 
   def misc

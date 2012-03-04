@@ -2,6 +2,15 @@ module ExposeResource
   extend ActiveSupport::Concern
 
   module ClassMethods
+    def delegate_resource(name, options)
+      original = name.to_s
+      delegated = options[:to].to_s
+
+      expose(original.to_sym) { send(delegated) }
+      expose(original.pluralize.to_sym) { send(original.pluralize) }
+    end
+
+
     def expose_resource(name, options = {})
       options.reverse_merge!(as: name)
       exposed_name = options[:as].to_s

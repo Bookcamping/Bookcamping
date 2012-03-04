@@ -1,13 +1,21 @@
 <% title user_shelf.name %>
 <%= div_for user_shelf, class: 'shelf' do %>
     <% present user_shelf do |presenter| %>
-        <%= presenter.header %>
-        <div class="actions">
-          <%= link_to 'Volver', user_shelves_path, class: 'back' %>
-          <%= link_to 'Añadir referencia', [:select, user_shelf, Reference] if can? :manage, user_shelf %>
-          <%= link_to 'Editar lista', [:edit, user_shelf] if can? :edit, user_shelf %>
-          <%= link_to 'Borrar lista', user_shelf, method: :delete,
-                      confirm: "¿Seguro que borrar la lista '#{user_shelf.name}'?" if can? :destroy, user_shelf %>
+        <div class="header">
+          <%= render 'shared/shelves/header' %>
+          <div class="actions">
+            <%= link_to 'Volver', user_shelves_path, class: 'back' %>
+            <%= link_to 'Invitar colaboradora', [:new, user_shelf, :shelf_member] if can? :manage, user_shelf %>
+            <%= link_to 'Añadir referencia', [:select, user_shelf, Reference] if can? :update, user_shelf %>
+            <%= link_to 'Editar lista', [:edit, user_shelf] if can? :edit, user_shelf %>
+            <%= link_to 'Borrar lista', user_shelf, method: :delete,
+                        confirm: "¿Seguro que borrar la lista '#{user_shelf.name}'?" if can? :destroy, user_shelf %>
+          </div>
+        </div>
+        <div class="shelf_members">
+          <% user_shelf.shelf_members(include: :user).each do |member| %>
+              <%= link_to avatar_image(member.user, :small), member.user %>
+          <% end %>
         </div>
         <%= presenter.references %>
     <% end %>

@@ -1,0 +1,35 @@
+<div class="header">
+  <%= title "Añadir colaboradora a '#{shelf.name}'" %>
+  <div class="actions">
+    <%= link_to 'Volver', shelf, class: 'back' %>
+  </div>
+</div>
+
+<%= form_tag [:new, shelf, :shelf_member], method: :get do %>
+    <label>Buscar colaboradora:</label>
+    <%= text_field_tag :user_name, search.term %>
+    <%= submit_tag 'Buscar', id: 'submit-search' %>
+<% end %>
+
+<% if search.term.present? %>
+    <h2>Añadir colaboradoras a esta lista</h2>
+    <%= content_tag(:div, search.error, class: 'error') if search.error.present? %>
+    <table class="table">
+      <% search.results.each do |user| %>
+          <% unless shelf.members.include?(user) %>
+              <tr>
+                <td><%= link_to user do %>
+                      <%= avatar_image(user, :small) %>
+                      <%= user.name %>
+                  <% end %></td>
+                <td><%= user.description %></td>
+                <td class="actions">
+                  <%= link_to raw('Añadir'), user_shelf_shelf_members_path(shelf, user_id: user.id), method: :post %>
+                </td>
+              </tr>
+          <% end %>
+      <% end %>
+    </table>
+<% end %>
+
+

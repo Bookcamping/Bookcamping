@@ -3,6 +3,8 @@ class UserShelvesController < ApplicationController
   respond_to :html
 
   expose_resource :user_shelf
+  delegate_resource :shelf, to: :user_shelf
+
   expose(:user_shelves) { UserShelf.where(rol: nil) }
   expose(:user_shelf)
 

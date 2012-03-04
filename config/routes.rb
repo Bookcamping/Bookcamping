@@ -19,6 +19,7 @@ Bookcamp::Application.routes.draw do
 
     # User Shelves
     resources :user_shelves, path: 'listas' do
+      resources :shelf_members, path: 'colaboradoras'
       scope module: 'user_shelves' do
         resources :references, path: 'referencias', only: [:show, :new] do
           get :select, on: :collection, path: 'buscar'

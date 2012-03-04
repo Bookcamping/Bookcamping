@@ -9,6 +9,8 @@ class Shelf < ActiveRecord::Base
   belongs_to :user
   has_many :shelf_items, dependent: :delete_all
   has_many :references, through: :shelf_items
+  has_many :shelf_members
+  has_many :members, class_name: 'User', through: :shelf_members, source: :user
 
   # EXTENSIONS
   has_paper_trail meta: {title: :name, camp_id: :camp_id}
@@ -34,6 +36,9 @@ class Shelf < ActiveRecord::Base
   ROLES = []
   VISIBILITIES = [:private, :public]
 
+  def add_member(user)
+    ShelfMember.create(shelf_id: self.id, user_id: user.id)
+  end
 
   def background
     color? ? color : '#db533d'

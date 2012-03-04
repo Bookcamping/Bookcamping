@@ -7,6 +7,24 @@ describe UserShelf do
     PaperTrail.whodunnit = @user.id
   end
 
+  it "should have shelf members" do
+    shelf = Factory(:user_shelf)
+    shelf.reload
+    shelf.shelf_members.size.should == 1
+    shelf.shelf_members_count.should == 1
+  end
+
+  it "should have members" do
+    shelf = Factory :user_shelf
+    member = Factory(:user)
+    shelf.add_member member
+    shelf.members.size.should == 2
+    shelf.members.should include(shelf.user)
+    shelf.members.should include(member)
+  end
+
+
+
   it "should create versions" do
     shelf = Factory.build :user_shelf
     shelf.save.should == true
