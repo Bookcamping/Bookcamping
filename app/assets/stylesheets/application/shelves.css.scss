@@ -1,5 +1,22 @@
 @import "variables.css.scss";
 
+div.shelves {
+  .shelf, .user_shelf, .camp_shelf {
+    position: relative;
+    width: 674px; height: 64px;
+    margin-bottom: 10px;
+
+    .main {
+      position: relative; height: 64px;
+      display : table-cell;
+      border: 1px solid red;
+
+
+      span {vertical-align:middle}
+    }
+  }
+}
+
 table.shelves {
   width: 100%;
   margin-top: 10px;

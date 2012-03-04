@@ -1,12 +1,17 @@
 <div class="header">
   <%= title 'Listas' %>
   <div class="actions">
-    <%=  link_to 'Añadir una lista', new_user_shelf_path  %>
+    <%= link_to 'Añadir una lista', new_user_shelf_path %>
   </div>
 </div>
 
+
+
 <table class="shelves">
   <% user_shelves.each do |shelf| %>
-      <%= render_shelf shelf, shelf %>
+      <%= tr_for_shelf shelf do %>
+          <span class="name"><%= link_to shelf.name, shelf %></span>
+          <span class="user">Por <%= link_to shelf.user.name, shelf.user %> y <%= shelf.shelf_members_count - 1 %> más.</span>
+      <% end %>
   <% end %>
 </table>

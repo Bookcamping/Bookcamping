@@ -5,7 +5,7 @@ class UserShelvesController < ApplicationController
   expose_resource :user_shelf
   delegate_resource :shelf, to: :user_shelf
 
-  expose(:user_shelves) { UserShelf.where(rol: nil) }
+  expose(:user_shelves) { UserShelf.order('updated_at DESC') }
   expose(:user_shelf)
 
   def index
@@ -26,6 +26,7 @@ class UserShelvesController < ApplicationController
 
   def create
     user_shelf.user = current_user
+    user_shelf.visibility ||= 'public'
     create!
   end
 

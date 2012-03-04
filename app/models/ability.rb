@@ -83,7 +83,7 @@ class Ability
     can :update, UserShelf do |shelf|
       @user and shelf.members.include?(@user)
     end
-    can :destroy, UserShelf do |shelf|
+    can :manage, UserShelf do |shelf|
       @user and shelf.user == @user
     end
   end
