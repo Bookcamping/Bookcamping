@@ -88,7 +88,7 @@ class Ability
       @user and shelf.members.include?(@user)
     end
     can :manage, UserShelf do |shelf|
-      @user and shelf.user == @user
+      @user and (shelf.user == @user or @user.admin?)
     end
     can :manage, ShelfMember if @user and @user.admin?
   end
