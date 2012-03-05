@@ -55,6 +55,7 @@ class Ability
   end
 
   def references
+    can :view, Reference
     can :manage, Reference do |reference|
       @user and (reference.publisher_id.nil? or @user.admin?)
     end

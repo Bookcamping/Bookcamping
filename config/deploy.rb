@@ -39,4 +39,6 @@ load 'config/deploy/symlink'
 load 'config/deploy/mysql'
 load 'config/deploy/unicorn'
 load 'config/deploy/local_assets'
+load 'config/deploy/archive'
+
 
