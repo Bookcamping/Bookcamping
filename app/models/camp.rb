@@ -27,7 +27,7 @@ class Camp < ActiveRecord::Base
     end
   end
 
-  store :settings, accessors: [ :has_blog, :lock_camp_shelves, :last_activity_email ]
+  store :settings, accessors: [:description, :has_blog, :lock_camp_shelves, :last_activity_email ]
   boolean_accessor [:has_blog, :lock_camp_shelves ]
 
 

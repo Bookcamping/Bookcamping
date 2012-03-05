@@ -37,31 +37,15 @@ class Reference < ActiveRecord::Base
   validates :camp_id, :presence => true
   validates :title, :presence => true
   validates :license_id, :presence => true
+  validates :ref_type, :presence => true
   # validates :include_in_shelf_id, presence: true, on: :create
+
+  REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']
 
   after_create do
     if include_in_shelf_id.present?
       shelf = Shelf.find include_in_shelf_id
       shelf.add_reference self, self.user
-    end
-  end
-
-  RESOURCES = [:BookReference, :VideoReference, :EscuchaReference]
-  def resource_type
-    RESOURCES[camp_id - 1]
-  end
-
-  def referencemark_count(name)
-    self.send "#{name}_marks"
-  end
-
-  def update_referencemark(name, delta)
-    attr = "#{name}_marks"
-    if self.respond_to? attr
-      PaperTrail.enabled = false
-      value = self.send(attr) + delta
-      self.update_attribute(attr, value)
-      PaperTrail.enabled = true
     end
   end
 

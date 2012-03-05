@@ -1,0 +1,3 @@
+class PublishedReferencesController < ApplicationController
+
+end

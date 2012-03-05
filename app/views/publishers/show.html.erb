@@ -3,6 +3,7 @@
   <div class="actions">
     <%= link_to 'Volver', publishers_path, class: 'back' %>
     <%= link_to 'Editar', [:edit, publisher] if can? :edit, publisher %>
+    <%= link_to 'Añadir referencia', [:new, publisher, :published_reference] if can? :manage, publisher %>
   </div>
 </div>
 

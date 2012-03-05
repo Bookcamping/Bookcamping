@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304155055) do
+ActiveRecord::Schema.define(:version => 20120305124405) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -153,28 +153,24 @@ ActiveRecord::Schema.define(:version => 20120304155055) do
 
   create_table "references", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "book_list_id"
-    t.string   "title",            :limit => 300
-    t.string   "authors",          :limit => 100
-    t.string   "editor",           :limit => 100
+    t.string   "title",          :limit => 300
+    t.string   "authors",        :limit => 100
+    t.string   "editor",         :limit => 100
     t.text     "description"
-    t.string   "url",              :limit => 300
+    t.string   "url",            :limit => 300
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count",                   :default => 0
-    t.string   "glasslevel",       :limit => 50
-    t.string   "license",          :limit => 50
-    t.string   "media",            :limit => 1024
-    t.string   "media_type",       :limit => 32
-    t.string   "date",             :limit => 40
+    t.integer  "comments_count",                 :default => 0
+    t.string   "media",          :limit => 1024
+    t.string   "media_type",     :limit => 32
+    t.string   "date",           :limit => 40
     t.integer  "camp_id"
-    t.string   "marks",            :limit => 300
-    t.integer  "like_it_marks",                    :default => 0
-    t.integer  "read_later_marks",                 :default => 0
+    t.string   "marks",          :limit => 300
     t.integer  "license_id"
+    t.integer  "publisher_id"
+    t.string   "ref_type",       :limit => 16
   end
 
-  add_index "references", ["book_list_id"], :name => "index_books_on_book_list_id"
   add_index "references", ["camp_id"], :name => "index_books_on_camp_id"
   add_index "references", ["user_id"], :name => "index_books_on_user_id"
 

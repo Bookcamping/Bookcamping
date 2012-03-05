@@ -1,0 +1,11 @@
+<%= simple_form_for camp do |form| %>
+    <%= form.input :name %>
+    <%= form.input :model_name %>
+    <%= form.input :description %>
+    <%= form.input :lang %>
+    <%= form.input :lock_camp_shelves, as: :boolean %>
+    <%= form.input :has_blog, as: :boolean %>
+    <%= form.input :show_media_on_lists %>
+    <%= form.submit %>
+<% end %>
+

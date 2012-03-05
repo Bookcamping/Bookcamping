@@ -3,14 +3,13 @@
   <div class="count"><%= current_camp.references.count %> <%= current_camp.model_name %>s</div>
   <h1>Estanterías #<%= current_camp.name %></H1>
 
-  <div class="description">Bienvenidas a #<%= current_camp.name %>, una biblioteca abierta y colaborativa
-    nacida a la luz<br/> del 15 de Mayo.
-  </div>
+  <div class="description"><%= current_camp.description %></div>
 
   <% if can? :manage, CampShelf %>
       <div class="actions">
         <%= link_to 'Añadir estantería', new_camp_shelf_path %>
         <%= link_to 'Gestionar colores', colors_path if can? :manage, Color %>
+        <%= link_to "Gestionar acampada", [:edit, current_camp] if can? :manage, current_camp %>
       </div>
   <% end %>
 </div>

@@ -1,0 +1,14 @@
+<div class="header">
+  <%= title 'Acampadas' %>
+</div>
+
+<table class="table">
+  <% camps.each do |camp| %>
+      <tr>
+        <td><%= link_to camp.name, camp %></td>
+        <td class="actions">
+          <%= link_to 'Editar', [:edit, camp] %>
+        </td>
+      </tr>
+  <% end %>
+</table>

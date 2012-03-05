@@ -6,6 +6,7 @@
         <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Presta atención!</strong> Selecciona bien dónde quieres poner
           esta referencia.</p>
     <% end %>
+    <%= form.input :ref_type, collection: tc('reference.ref_types', Reference::REF_TYPES), include_blank: false %>
     <%= form.input :title %>
     <%= form.input :authors %>
     <%= form.input :editor %>

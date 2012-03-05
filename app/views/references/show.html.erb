@@ -51,9 +51,6 @@
               </div>
           <% end %>
         </div>
-        <div class="camp_shelves row">
-          <%= reference_presenter.camp_shelves %>
-        </div>
         <div class="social row">
           <%= reference_presenter.social %>
         </div>
@@ -61,4 +58,15 @@
           <%= reference_presenter.comments %>
         </div>
     <% end %>
+<% end %>
+
+
+<% content_for :sidebar do %>
+    <table class="shelves small">
+      <% reference.shelves.each do |shelf| %>
+          <%= tr_for_shelf shelf do %>
+              <span class="main"><%= link_to truncate(shelf.name), shelf %></span>
+          <% end %>
+      <% end %>
+    </table>
 <% end %>

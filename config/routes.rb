@@ -9,18 +9,14 @@ Bookcamp::Application.routes.draw do
     # Camp Shelves
     resources :camp_shelves, path: 'estanterias' do
       resources :shelf_items, path: 'referencias', only: [:new, :create]
-      scope module: 'camp_shelves' do
-        resources :references, path: 'referencia', only: [:show]
-      end
+      resources :references, path: 'referencia', only: [:show]
     end
 
     # User Shelves
     resources :user_shelves, path: 'listas' do
       resources :shelf_items, path: 'referencias', only: [:new, :create]
       resources :shelf_members, path: 'colaboradoras', only: [:new, :create]
-      scope module: 'user_shelves' do
-        resources :references, path: 'referencia', only: [:show]
-      end
+      resources :references, path: 'referencia', only: [:show]
     end
 
     # References
@@ -32,13 +28,21 @@ Bookcamp::Application.routes.draw do
       end
     end
 
+    # Publishers
+    resources :publishers, path: 'editoriales' do
+      resources :published_references, path: 'referencias'
+    end
+
+    # Model Controllers
     resources :tags
     resources :versions, path: 'actividad' do
       get :email, on: :collection
     end
-    resources :publishers, path: 'editoriales'
     resources :licenses, path: 'licencias'
     resources :colors, path: 'colores'
+    resources :camps, path: 'acampadas'
+
+    # Wiki
     resources :pages, path: 'wiki'
     resources :categories, path: 'categorias'
 
@@ -84,7 +88,7 @@ Bookcamp::Application.routes.draw do
 
   # Backdoors used in test and development
   match "/enter/:id" => "public/sessions#enter", :as => :enter unless Rails.env.production?
-  match "/gocamp/:id" => "admin/camps#enter", :as => :gocamp
+  match "/gocamp/:id" => "camps#enter", :as => :gocamp
 
 end
 

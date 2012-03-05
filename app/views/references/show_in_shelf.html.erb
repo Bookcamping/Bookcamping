@@ -1,0 +1,10 @@
+<% title "#{reference.title} en #{truncate(shelf.name)}" %>
+
+<% content_for(:sidebar) do %>
+    <div data-pjax-container>
+      <%= render 'summary' %>
+    </div>
+<% end %>
+
+<%= render shelf %>
+

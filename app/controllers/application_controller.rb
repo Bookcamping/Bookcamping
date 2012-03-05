@@ -17,6 +17,17 @@ class ApplicationController < ActionController::Base
   # Current publisher: used to change the layout
   expose(:current_publisher) { nil }
 
+  protected
+  def find_parent_shelf
+    if params[:camp_shelf_id].present?
+      CampShelf.find_by_slug!(params[:camp_shelf_id])
+    elsif params[:user_shelf_id].present?
+      UserShelf.find(params[:user_shelf_id])
+    else
+      nil
+    end
+  end
+
   def info_for_paper_trail
     { user_name: (current_user? ? current_user.name : 'Anónimx') }
   end

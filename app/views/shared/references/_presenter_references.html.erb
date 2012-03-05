@@ -11,7 +11,7 @@
 <% end %>
 <div class="references container">
   <% presenter.references.each do |reference| %>
-      <%= div_for reference, style: "background-color: #{presenter.color};", class: reference.resource_type do %>
+      <%= div_for reference, style: "background-color: #{presenter.color};", class: reference.ref_type do %>
           <div class="content">
             <div class="emblems">
               <%= license_type_icon reference %>

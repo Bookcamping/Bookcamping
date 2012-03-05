@@ -40,6 +40,13 @@ es:
       published: 'Publicado'
       draft: 'Borrador'
 
+  reference:
+    ref_types:
+      Book: 'Publicación impresa'
+      Video: 'Vídeo / Película'
+      Audio: 'Audio libro / Música / Sonidos'
+      WebPage: 'Página web'
+
   resource:
     created: '¡Creado! Gracias.'
     updated: '¡Guardado! Gracias.'

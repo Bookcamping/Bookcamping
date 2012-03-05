@@ -1,7 +1,8 @@
 module ShelvesHelper
   def tr_for_shelf(shelf, &block)
+    content = block_given? ? capture(&block) : content_tag(:span, link_to(shelf.name, shelf), class: 'main')
     render partial: 'shelves/tr_for_shelf',
-           locals: {shelf: shelf, content: capture(&block) }
+           locals: {shelf: shelf, content: content }
   end
 
   def shelf_background(shelf)

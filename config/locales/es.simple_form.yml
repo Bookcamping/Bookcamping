@@ -41,6 +41,7 @@ es:
         body: 'Texto'
 
       reference:
+        ref_type: 'Tipo'
         include_in_shelf_id: "Estantería"
         title: "Título"
         authors: "Autoras"
@@ -74,6 +75,7 @@ es:
         body: 'Podéis usar markdown'
 
       reference:
+        ref_type: 'Esto afecta, básicamente, a cómo se muestra en la web'
         title: "Tienes 300 caracteres máximo"
         authors: "¿Quién lo ha escrito / creado / imaginado?"
         description: "No tiene límite de espacio, pero intenta ser concisa."
