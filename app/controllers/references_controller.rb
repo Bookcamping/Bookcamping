@@ -27,7 +27,8 @@ class ReferencesController < ApplicationController
   end
 
   def new
-    authorize! :manage, Reference
+    reference.include_in_shelf_id = shelf.id
+    authorize! :update, shelf
   end
 
   def edit

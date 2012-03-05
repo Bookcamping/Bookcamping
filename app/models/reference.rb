@@ -29,7 +29,7 @@ class Reference < ActiveRecord::Base
   has_paper_trail meta: {title: :title, camp_id: :camp_id}
 
   # ATTRIBUTES
-  attr_accessible :description, :reference_list_id, :title, :authors, :editor, :url, :date, :media, :license_id, :include_in_shelf_id
+  attr_accessible :description, :title, :authors, :editor, :url, :date, :media, :license_id, :include_in_shelf_id, :ref_type
   attr_accessible :user_id, :as => :super
   attr_accessor :include_in_shelf_id
 

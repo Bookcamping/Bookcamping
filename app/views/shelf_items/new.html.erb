@@ -32,12 +32,10 @@
     </table>
 <% end %>
 
-<% if shelf.class == CampShelf %>
-    <h2>Añadir una referencia nueva a ésta estantería</h2>
-    <p>Si la referencia que quieres añadir no existe puedes crearla, pero te rogaríamos que
-      <b>te asegures que la referencia no existe buscándola primero.</b></p>
-    <div class="actions">
-      <%= link_to 'Añadir una referencia nueva', new_reference_path(shelf_id: shelf) %>
-    </div>
-<% end %>
+<h2>Añadir una referencia nueva a ésta estantería</h2>
+<p>Si la referencia que quieres añadir no existe puedes crearla, pero te rogaríamos que
+  <b>te asegures que la referencia no existe buscándola primero.</b></p>
+<div class="actions">
+  <%= link_to 'Añadir una referencia nueva', [:new, shelf, :reference] %>
+</div>
 

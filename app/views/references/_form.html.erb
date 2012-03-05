@@ -1,11 +1,13 @@
 <%= simple_form_for reference do |form| %>
     <% if reference.include_in_shelf_id.present? %>
-        <%= form.input :include_in_shelf_id, :as => :hidden %>
-    <% elsif reference.new_record? %>
-        <%= form.input :include_in_shelf_id, :collection => current_camp.camp_shelves, :include_blank => false %>
-        <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Presta atención!</strong> Selecciona bien dónde quieres poner
-          esta referencia.</p>
+        <table class="shelves">
+          <%= tr_for_shelf shelf do %>
+              <span class="name"><%= link_to shelf.name, shelf %></span>
+          <% end %>
+        </table>
     <% end %>
+    <%= form.error :base %>
+    <%= form.input :include_in_shelf_id, as: :hidden %>
     <%= form.input :ref_type, collection: tc('reference.ref_types', Reference::REF_TYPES), include_blank: false %>
     <%= form.input :title %>
     <%= form.input :authors %>

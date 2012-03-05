@@ -90,6 +90,7 @@ class Ability
     can :manage, UserShelf do |shelf|
       @user and shelf.user == @user
     end
+    can :manage, ShelfMember if @user and @user.admin?
   end
 
   def misc
