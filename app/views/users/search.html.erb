@@ -12,7 +12,7 @@
 <div class="users">
   <% search.results.each do |user| %>
       <%= div_for user do %>
-          <div class="avatar">&nbsp;</div>
+          <div class="avatar"><%= link_to avatar_image(user), user %></div>
           <div class="name">
             <%= link_to user.name, user %>
           </div>

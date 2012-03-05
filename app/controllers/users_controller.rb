@@ -43,5 +43,6 @@ class UsersController < ApplicationController
   def update
     update! [user]
   end
+
 end
 
