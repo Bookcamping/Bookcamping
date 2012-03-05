@@ -1,0 +1,26 @@
+<div class="header">
+  <%= title "Añadir referencia a '#{publisher.name}'" %>
+  <%= link_to 'Volver', publisher, class: 'back' %>
+</div>
+
+<%= form_tag [:new, publisher, :published_reference], method: :get do %>
+    <p>Puedes buscar por título o autora la referencia que quieres añadir. Escribe al menos 3 letras, plis.</p>
+    <label>Buscar referencia:</label>
+    <%= text_field_tag :title, search.term %>
+    <%= submit_tag 'Buscar', id: 'submit-search' %>
+<% end %>
+
+<% if search.term.present? %>
+    <h2>Añadir una referencia existente</h2>
+    <p>Se han encontrado <%= search.results.count %> referencias buscando '<%= search.term %>'</p>
+    <table class="table">
+      <% search.results.each do |reference| %>
+          <tr>
+            <td class="actions">
+              <%= link_to "Añadir", polymorphic_url([publisher, :published_references], reference_id: reference.id), method: :create %>
+            </td>
+            <td><b><%= link_to reference.title, reference %></b></td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>

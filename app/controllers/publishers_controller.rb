@@ -2,6 +2,9 @@ class PublishersController < ApplicationController
   respond_to :html
   expose_resource :publisher
 
+  expose(:current_publisher) { publisher if params[:id].present? }
+  expose(:references) { publisher.references }
+
   def index
     index!
   end

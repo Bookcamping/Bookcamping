@@ -1,20 +1,22 @@
-<div id="go-camping">
-  <% if current_camp.name == 'bookcamping' %>
-      <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
-      <p class="go-bookcamping">bookcamping</p>
-  <% else %>
-      <p class="go-videocamping">videocamping</p>
-      <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
-  <% end %>
-</div>
-<div id="header">
-  <% if current_publisher %>
-      <a href="/" class="publisher">
-        <img src="<%= "/images/#{current_publisher}/#{current_publisher}.jpg" %>" width="1025" height="140"/>
-      </a>
-  <% else %>
+<% if current_publisher %>
+    <div id="header">
+      <%= link_to current_publisher do %>
+          <%= publisher_banner(current_publisher) %>
+      <% end %>
+    </div>
+<% else %>
+    <div id="go-camping">
+      <% if current_camp.name == 'bookcamping' %>
+          <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
+          <p class="go-bookcamping">bookcamping</p>
+      <% else %>
+          <p class="go-videocamping">videocamping</p>
+          <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
+      <% end %>
+    </div>
+    <div id="header">
       <a href="/">
         <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
       </a>
-  <% end %>
-</div>
+    </div>
+<% end %>

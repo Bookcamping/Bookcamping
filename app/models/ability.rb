@@ -55,7 +55,10 @@ class Ability
   end
 
   def references
-    can :manage, Reference if @user
+    can :manage, Reference do |reference|
+      @user and (reference.publisher_id.nil? or @user.admin?)
+    end
+
     cannot :destroy, Reference unless is? :admin
   end
 
@@ -104,4 +107,5 @@ class Ability
   def is?(rol)
     @user and @user.send("#{rol}?")
   end
+
 end

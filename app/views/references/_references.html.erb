@@ -1,0 +1,18 @@
+<div class="references container">
+  <% references.each do |reference| %>
+      <%= div_for reference, style: "background-color: #{presenter.color};", class: reference.ref_type do %>
+          <div class="content">
+            <div class="emblems">
+              <%= license_type_icon reference %>
+              <%= image_tag('/images/ui3/download-arrow.png', :class => 'download') if reference.url.present? %>
+            </div>
+            <div class="cover">
+              <h3>
+                <%= link_to reference.title, url_for([publisher, reference].compact), data: {pjax: '[data-pjax-container]'} %>
+              </h3>
+              <%= reference.date %> <%= reference.authors %> <%= reference.editor %>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>

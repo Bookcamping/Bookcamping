@@ -3,6 +3,7 @@
 class Reference < ActiveRecord::Base
   belongs_to :camp
   belongs_to :user
+  belongs_to :publisher, counter_cache: true
   has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
 
   # TAGS

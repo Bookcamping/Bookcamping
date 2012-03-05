@@ -11,8 +11,10 @@ class AddPublisherIdAndRefTypeToReferences < ActiveRecord::Migration
     PaperTrail.enabled = false
     ActiveRecord::Base.record_timestamps = false
 
+    types = [:Book, :Video, :Audio]
     Reference.all.each do |reference|
-       reference.update_attribute(:ref_type, reference.resource_type)
+       ref_type = types[reference.camp_id - 1]
+       reference.update_attribute(:ref_type, ref_type)
     end
   end
 end

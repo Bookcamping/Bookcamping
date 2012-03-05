@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305124405) do
+ActiveRecord::Schema.define(:version => 20120305173923) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -141,12 +141,14 @@ ActiveRecord::Schema.define(:version => 20120305124405) do
   end
 
   create_table "publishers", :force => true do |t|
-    t.string   "name",         :limit => 300
-    t.string   "slug",         :limit => 100
-    t.string   "header_url",   :limit => 300
-    t.string   "homepage_url", :limit => 300
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.string   "name",             :limit => 300
+    t.string   "slug",             :limit => 100
+    t.string   "header_url",       :limit => 300
+    t.string   "homepage_url",     :limit => 300
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.string   "archive_slug",     :limit => 100
+    t.integer  "references_count",                :default => 0
   end
 
   add_index "publishers", ["slug"], :name => "index_publishers_on_slug", :unique => true
@@ -169,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20120305124405) do
     t.integer  "license_id"
     t.integer  "publisher_id"
     t.string   "ref_type",       :limit => 16
+    t.string   "archive_slug",   :limit => 100
   end
 
   add_index "references", ["camp_id"], :name => "index_books_on_camp_id"
