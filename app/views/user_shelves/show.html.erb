@@ -13,12 +13,11 @@
           </div>
         </div>
         <div class="shelf_members">
-          <% user_shelf.shelf_members(include: :user).each do |member| %>
-              <%= link_to avatar_image(member.user, :small), member.user %>
+          <% user_shelf.members.each do |user| %>
+              <%= link_to avatar_image(user, :small), user %>
           <% end %>
         </div>
         <%= presenter.references %>
     <% end %>
 <% end %>
-
 
