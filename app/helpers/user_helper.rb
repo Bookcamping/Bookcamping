@@ -7,7 +7,7 @@ module UserHelper
   end
 
   def avatar_url(user, s)
-    default_url = "http://bookcamping.cc/images/guest#{s}x#{s}.png)"
+    default_url = "http://bookcamping.cc/images/guest#{s}x#{s}.png"
     if user.email.present?
       gravatar_id = Digest::MD5::hexdigest(user.email).downcase
       "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{s}&d=#{CGI.escape(default_url)}"

@@ -9,7 +9,7 @@ class Shelf < ActiveRecord::Base
   belongs_to :user
   has_many :shelf_items, dependent: :delete_all
   has_many :references, through: :shelf_items
-  has_many :shelf_members
+  has_many :shelf_members, dependent: :delete_all
   has_many :members, class_name: 'User', through: :shelf_members, source: :user
 
   # EXTENSIONS

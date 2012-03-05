@@ -18,14 +18,14 @@
       <% search.results.each do |user| %>
           <% unless shelf.members.include?(user) %>
               <tr>
+                <td class="actions">
+                  <%= link_to raw('Añadir'), user_shelf_shelf_members_path(shelf, user_id: user.id), method: :post %>
+                </td>
                 <td><%= link_to user do %>
                       <%= avatar_image(user, :small) %>
                       <%= user.name %>
                   <% end %></td>
                 <td><%= user.description %></td>
-                <td class="actions">
-                  <%= link_to raw('Añadir'), user_shelf_shelf_members_path(shelf, user_id: user.id), method: :post %>
-                </td>
               </tr>
           <% end %>
       <% end %>

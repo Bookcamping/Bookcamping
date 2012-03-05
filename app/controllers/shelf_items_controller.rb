@@ -6,11 +6,11 @@ class ShelfItemsController < ApplicationController
   expose(:reference) { Reference.find params[:reference_id]}
 
   def new
-    authorize! :manage, shelf
+    authorize! :update, shelf
   end
 
   def create
-    authorize! :manage, shelf
+    authorize! :update, shelf
     shelf.add_reference(reference, current_user)
     redirect_to shelf
   end

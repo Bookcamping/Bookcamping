@@ -9,12 +9,18 @@ Bookcamp::Application.routes.draw do
     # Camp Shelves
     resources :camp_shelves, path: 'estanterias' do
       resources :shelf_items, path: 'referencias', only: [:new, :create]
+      scope module: 'camp_shelves' do
+        resources :references, path: 'referencia', only: [:show]
+      end
     end
 
     # User Shelves
     resources :user_shelves, path: 'listas' do
       resources :shelf_items, path: 'referencias', only: [:new, :create]
       resources :shelf_members, path: 'colaboradoras', only: [:new, :create]
+      scope module: 'user_shelves' do
+        resources :references, path: 'referencia', only: [:show]
+      end
     end
 
     # References

@@ -33,4 +33,8 @@ class UserShelvesController < ApplicationController
   def update
     update!
   end
+
+  def destroy
+    destroy!
+  end
 end
