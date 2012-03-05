@@ -20,11 +20,6 @@ class User < ActiveRecord::Base
   has_many :camp_shelves, dependent: :restrict
   has_many :user_shelves, dependent: :destroy
 
-  # Profile shelves
-  has_one :like_it_shelf, class_name: 'UserShelf', conditions: {rol: 'like_it'}
-  has_one :read_later_shelf, class_name: 'UserShelf', conditions: {rol: 'read_later'}
-  has_one :my_references_shelf, class_name: 'UserShelf', conditions: {rol: 'my_references'}
-
   # Validations
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
