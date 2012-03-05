@@ -6,7 +6,7 @@
           <div class="actions">
             <%= link_to 'Volver', user_shelves_path, class: 'back' %>
             <%= link_to 'Añadir colaboradora', [:new, user_shelf, :shelf_member] if can? :manage, user_shelf %>
-            <%= link_to 'Añadir referencia', [:select, user_shelf, Reference] if can? :update, user_shelf %>
+            <%= link_to 'Añadir referencia', [:new, user_shelf, :shelf_item] if can? :update, user_shelf %>
             <%= link_to 'Editar lista', [:edit, user_shelf] if can? :edit, user_shelf %>
             <%= link_to 'Borrar lista', user_shelf, method: :delete,
                         confirm: "¿Seguro que borrar la lista '#{user_shelf.name}'?" if can? :destroy, user_shelf %>

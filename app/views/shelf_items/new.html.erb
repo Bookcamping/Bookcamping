@@ -1,0 +1,43 @@
+<div class="header">
+  <%= title "Añadir referencia" %>
+  <%= link_to 'Volver', shelf, class: 'back' %>
+</div>
+
+<table class="shelves">
+  <%= tr_for_shelf shelf do %>
+  <span class="name"><%= link_to shelf.name, shelf %></span>
+  <% end %>
+</table>
+
+<h2>Añadir una referencia existente</h2>
+<%= form_tag [:new, shelf, :shelf_item], method: :get do %>
+    <p>Puedes buscar por título o autora la referencia que quieres añadir. Escribe al menos 3 letras, plis.</p>
+    <label>Buscar referencia:</label>
+    <%= text_field_tag :title, search.term %>
+    <%= submit_tag 'Buscar', id: 'submit-search' %>
+<% end %>
+
+<% if search.term.present? %>
+    <h2>Añadir una referencia existente</h2>
+    <p>Se han encontrado <%= search.results.count %> referencias buscando '<%= search.term %>'</p>
+    <table class="table">
+      <% search.results.each do |reference| %>
+          <tr>
+            <td><b><%= link_to reference.title, reference %></b></td>
+            <td class="actions">
+              <%= link_to "Añadir", polymorphic_url([shelf, :shelf_items], reference_id: reference.id), method: :create %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
+
+<% if shelf.class == CampShelf %>
+    <h2>Añadir una referencia nueva a ésta estantería</h2>
+    <p>Si la referencia que quieres añadir no existe puedes crearla, pero te rogaríamos que
+    <b>te asegures que la referencia no existe buscándola primero.</b></p>
+    <div class="actions">
+      <%= link_to 'Añadir una referencia nueva', new_reference_path(shelf_id: shelf) %>
+    </div>
+<% end %>
+

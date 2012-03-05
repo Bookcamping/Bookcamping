@@ -7,6 +7,7 @@ class CampShelvesController < ApplicationController
   expose(:on_member?) { params[:id].present? }
   expose(:current_camp) { on_member? ? camp_shelf.camp : load_camp_from_request }
   expose(:parent) { on_member? ? Site.new : current_camp }
+
   expose(:shelf_order) { Shelf::Order.new(params[:o]) }
   expose_resource :camp_shelf
   expose(:camp_shelves) { shelf_order.order(parent.camp_shelves) }

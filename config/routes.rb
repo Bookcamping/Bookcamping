@@ -8,24 +8,13 @@ Bookcamp::Application.routes.draw do
 
     # Camp Shelves
     resources :camp_shelves, path: 'estanterias' do
-      scope module: 'camp_shelves' do
-        resources :references, path: 'referencia', only: [:show, :new] do
-          get :select, on: :collection, path: 'buscar'
-          post :add, on: :member, path: 'anadir'
-        end
-        resources :auto_shelves, path: 'ver', only: [:show]
-      end
+      resources :shelf_items, path: 'referencias', only: [:new, :create]
     end
 
     # User Shelves
     resources :user_shelves, path: 'listas' do
-      resources :shelf_members, path: 'colaboradoras'
-      scope module: 'user_shelves' do
-        resources :references, path: 'referencias', only: [:show, :new] do
-          get :select, on: :collection, path: 'buscar'
-          post :add, on: :member, path: 'anadir'
-        end
-      end
+      resources :shelf_items, path: 'referencias', only: [:new, :create]
+      resources :shelf_members, path: 'colaboradoras', only: [:new, :create]
     end
 
     # References
