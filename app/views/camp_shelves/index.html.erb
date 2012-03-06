@@ -3,7 +3,6 @@
   <div class="count"><%= current_camp.references.count %> <%= current_camp.model_name %>s</div>
   <h1>Estanterías #<%= current_camp.name %></H1>
 
-  <div class="description"><%= current_camp.description %></div>
 
   <% if can? :manage, CampShelf %>
       <div class="actions">
