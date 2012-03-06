@@ -1,7 +1,8 @@
 <div class="header">
-  <%= title "Editar camping #{camp.name}" %>
+  <%= title "Editar biblioteca ##{camp.name}" %>
   <div class="actions">
     <%= link_to 'Volver', root_path, class: 'back' %>
+    <%= link_to 'Gestionar colores', colors_path if can? :manage, Color %>
   </div>
 </div>
 

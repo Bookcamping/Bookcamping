@@ -30,11 +30,11 @@ class CampsController < ApplicationController
   end
 
   def create
-    create!
+    create! root_path
   end
 
   def update
-    update!
+    update! root_path
   end
 
 end

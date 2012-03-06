@@ -1,6 +1,7 @@
 es:
   activerecord:
     models:
+      camp: 'biblioteca'
       license: 'licencia'
       category: 'categoría'
       media_bite: 'media'

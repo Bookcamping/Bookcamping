@@ -25,6 +25,6 @@ class ShelfMembersController < ApplicationController
   end
 
   def destroy
-    destroy!
+    destroy! [shelf, :shelf_members]
   end
 end
