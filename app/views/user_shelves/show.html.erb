@@ -1,23 +1,4 @@
 <% title user_shelf.name %>
-<%= div_for user_shelf, class: 'shelf' do %>
-    <% present user_shelf do |presenter| %>
-        <div class="header">
-          <%= render 'shared/shelves/header' %>
-          <div class="actions">
-            <%= link_to 'Volver', user_shelves_path, class: 'back' %>
-            <%= link_to 'Añadir colaboradora', [:new, user_shelf, :shelf_member] if can? :update, user_shelf %>
-            <%= link_to 'Añadir referencia', [:new, user_shelf, :shelf_item] if can? :update, user_shelf %>
-            <%= link_to 'Editar lista', [:edit, user_shelf] if can? :edit, user_shelf %>
-            <%= link_to 'Borrar lista', user_shelf, method: :delete,
-                        confirm: "¿Seguro que borrar la lista '#{user_shelf.name}'?" if can? :destroy, user_shelf %>
-          </div>
-        </div>
-        <div class="shelf_members">
-          <% user_shelf.members.each do |user| %>
-              <%= link_to avatar_image(user, :small), user %>
-          <% end %>
-        </div>
-        <%= presenter.references %>
-    <% end %>
-<% end %>
+<%= render user_shelf %>
 
+<%= render 'shelves/sidebar' %>

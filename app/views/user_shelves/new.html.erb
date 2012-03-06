@@ -1,3 +1,13 @@
-<%= title 'Añadir lista' %>
+<div class="header">
+  <%= title 'Añadir lista' %>
+  <div class="actions">
+    <%= link_to 'Volver', user_shelves_path, class: 'back' %>
+  </div>
+</div>
 
 <%= render partial: 'form' %>
+
+<%= content_for :sidebar do %>
+    <%= render 'markdown' %>
+<% end %>
+

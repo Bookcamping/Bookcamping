@@ -5,10 +5,10 @@
 //= require jquery.pjax
 //= require_tree ./application
 
-    if (typeof console == "undefined" || typeof console.log == "undefined") {
-        console = {
-            log : function() {
-            }
-        };
-    }
+if (typeof console == "undefined" || typeof console.log == "undefined") {
+    console = {
+        log:function () {
+        }
+    };
+}
 

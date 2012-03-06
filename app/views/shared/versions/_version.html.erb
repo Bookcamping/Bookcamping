@@ -1,5 +1,5 @@
 <%= div_for version do %>
-    <%= link_to version.user_name, user_path(version.whodunnit) %> ha
+    <%= link_to version.user_name, user_path(version.whodunnit) if version.whodunnit %> ha
     <%= t("versions.events.#{version.event}") %> la
     <%= t("versions.models.#{version.item_type}") %>
     <% title = version.title ? version.title : '<sin título>' %>

@@ -8,6 +8,7 @@ class ReferencesController < ApplicationController
   expose(:shelf) { find_parent_shelf }
   expose_resource :reference
   expose(:references) { shelf.present? ? shelf.references : Reference.scoped }
+  expose(:shelf_item) { shelf.shelf_items.where(reference_id: reference.id).first }
 
   def index
     index!

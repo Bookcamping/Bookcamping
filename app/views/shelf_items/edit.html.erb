@@ -1,0 +1,13 @@
+<div class="header">
+  <h1>¿Por qué '<%= shelf_item.reference.title %>' está en <%= shelf.name %>?</h1>
+  <%= link_to 'Volver', [shelf, shelf_item.reference], class: 'back' %>
+</div> 
+
+<%= simple_form_for [shelf, shelf_item] do |form| %>
+    <%= form.input :description, as: :text %>
+    <%= form.button :submit %>
+<% end %>
+
+<%= content_for :sidebar do %>
+    <%=  render 'markdown' %>
+<% end %>

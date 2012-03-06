@@ -8,13 +8,13 @@ Bookcamp::Application.routes.draw do
 
     # Camp Shelves
     resources :camp_shelves, path: 'estanterias' do
-      resources :shelf_items, path: 'referencias', only: [:new, :create]
+      resources :shelf_items, path: 'referencias'
       resources :references, path: 'referencia', only: [:show, :new]
     end
 
     # User Shelves
     resources :user_shelves, path: 'listas' do
-      resources :shelf_items, path: 'referencias', only: [:new, :create]
+      resources :shelf_items, path: 'referencias'
       resources :shelf_members, path: 'colaboradoras', except: [:show, :update]
       resources :references, path: 'referencia', only: [:show, :new]
     end

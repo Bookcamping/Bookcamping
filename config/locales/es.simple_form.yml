@@ -52,6 +52,9 @@ es:
         media: "Imágen / Vídeo / Audio"
         license: "Licencia"
 
+      shelf_item:
+        description: 'Escribe por qué debe estar en esta lista'
+
     hints:
       category:
         description: 'Tienes 300 caracteres'
@@ -80,4 +83,13 @@ es:
         authors: "¿Quién lo ha escrito / creado / imaginado?"
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
+
+      shelf_item:
+        description: 'Puedes usar markdown'
+
+      user_shelf:
+        description: 'Puedes usar markdown'
+
+
+
 

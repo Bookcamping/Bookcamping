@@ -2,7 +2,7 @@
     <%= div_for camp_shelf, class: 'shelf' do %>
         <div class="header">
 
-          <%= render partial: 'shared/shelves/header', locals: {shelf: camp_shelf} %>
+          <%= render partial: 'shelves/header' %>
 
           <div class="actions">
             <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>

@@ -65,7 +65,7 @@
     <table class="shelves small">
       <% reference.shelves.each do |shelf| %>
           <%= tr_for_shelf shelf do %>
-              <span class="main"><%= link_to truncate(shelf.name), shelf %></span>
+              <span class="main"><%= link_to truncate(shelf.name), [shelf, reference] %></span>
           <% end %>
       <% end %>
     </table>

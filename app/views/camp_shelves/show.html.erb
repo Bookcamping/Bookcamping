@@ -2,11 +2,4 @@
 
 <%= render camp_shelf %>
 
-<%= content_for(:sidebar) do %>
-    <%= render 'sidebar' %>
-    <% if false %>
-        <div id="sidebar_extra">
-          <%= link_to 'Mapa bookcamping', '/mapa', id: 'go-map' %>
-    <% end %>
-    </div>
-<% end %>
+<%= render 'shelves/sidebar' %>

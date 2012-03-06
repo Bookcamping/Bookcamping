@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305173923) do
+ActiveRecord::Schema.define(:version => 20120305233809) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(:version => 20120305173923) do
     t.datetime "created_at"
     t.integer  "camp_id"
     t.string   "mark",         :limit => 32
+    t.text     "description"
   end
 
   add_index "shelf_items", ["camp_id"], :name => "index_shelf_items_on_camp_id"

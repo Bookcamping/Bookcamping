@@ -1,3 +1,12 @@
-<%= title "Editar lista '#{user_shelf.name}'" %>
+<div class="header">
+  <%= title "Editar lista '#{user_shelf.name}'" %>
+  <div class="actions">
+    <%= link_to 'Volver', user_shelf, class: 'back' %>
+  </div>
+</div>
 
 <%= render partial: 'form' %>
+
+<%= content_for :sidebar do %>
+    <%= render 'markdown' %>
+<% end %>

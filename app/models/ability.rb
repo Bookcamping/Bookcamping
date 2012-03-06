@@ -71,7 +71,7 @@ class Ability
 
   def shelf_items
     can :manage, ShelfItem do |item|
-      can :manage, item.shelf
+      can? :update, item.shelf
     end
   end
 

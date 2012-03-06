@@ -151,7 +151,7 @@
     # Default translation keys for submit FormHelper
     submit:
       create: 'Guardar %{model}'
-      update: 'Actualizar %{model}'
+      update: 'Guardar %{model}'
       submit: 'Guardar %{model}'
 
   # Attributes names common to most models

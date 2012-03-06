@@ -16,7 +16,10 @@ class ShelfItem < ActiveRecord::Base
   belongs_to :reference
   belongs_to :camp
 
-  # Keep it!
+  has_paper_trail meta: {title: Proc.new {|item| "'#{item.reference.title}' en #{item.shelf.name}" }, camp_id: :camp_id }
+
+
+  # Keep it! TODO: check wky...
   belongs_to :camp_shelf, :foreign_key => :shelf_id
 
   validates :user_id, presence: true

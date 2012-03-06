@@ -1,3 +1,18 @@
+<% if shelf_item.description? %>
+    <%= markdown shelf_item.description %>
+    <div class="actions small">
+      <%= link_to 'Editar', [:edit, shelf, shelf_item] if can? :edit, shelf_item %>
+    </div>
+    <%= image_tag 'dedo-vertical.png', id: 'dedo-vertical' %>
+<% else %>
+    <% if can? :edit, shelf_item %>
+        <div class="question">
+          <h3><%= link_to "¿Por qué '#{reference.title}' está en #{shelf.name}?", [:edit, shelf, shelf_item] %></h3>
+        </div>
+        <%= image_tag 'dedo-vertical.png', id: 'dedo-vertical' %>
+    <% end %>
+<% end %>
+
 <%= div_for reference, class: 'summary' do %>
     <% present reference do |presenter| -%>
         <%= link_to 'Ver ficha completa', reference, class: 'go-reference' %>

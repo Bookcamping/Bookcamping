@@ -28,6 +28,9 @@ class VersionsController < ApplicationController
         redirect_to page
       when 'License'
         redirect_to License.find(version.item_id)
+      when 'ShelfItem'
+        item = ShelfItem.find version.item_id
+        redirect_to [item.shelf, item.reference]
     end
   end
 

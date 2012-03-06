@@ -34,6 +34,7 @@ es:
       Page: 'página'
       Post: 'entrada'
       License: 'licencia'
+      ShelfItem: 'entrada'
 
   post:
     visibilities:

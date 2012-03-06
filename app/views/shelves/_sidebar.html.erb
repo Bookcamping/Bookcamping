@@ -1,0 +1,10 @@
+<%= content_for :sidebar do %>
+    <% if shelf.description? %>
+        <h2><%= shelf.name %></h2>
+        <div class="description">
+          <%= markdown shelf.description %>
+        </div>
+        <%= image_tag 'dedo-vertical.png', id: 'dedo-vertical' %>
+    <% end %>
+    <div data-pjax-container></div>
+<% end %>

@@ -2,7 +2,7 @@
   <%= shelf.references_count %> referencias
   <br/>
 </div>
-<h1><%= shelf.name %></h1>
+<h1><%= link_to shelf.name, shelf %></h1>
 <div class="properties">
   Creada por <%= link_to shelf.user.name, shelf.user %>
   <% if shelf.updated_at %>
@@ -10,6 +10,3 @@
   <% end %>
 </div>
 
-<div class="description">
-  <%= markdown shelf.description %>
-</div>
