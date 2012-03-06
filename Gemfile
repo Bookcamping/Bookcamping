@@ -19,8 +19,8 @@ gem 'cancan'
 gem 'bcrypt-ruby', '~> 3.0.0'
 #gem 'meta_where'
 
-gem 'omniauth', git: 'git://github.com/intridea/omniauth.git'
-#gem "omniauth", ">= 1.0.0"
+#gem 'omniauth', git: 'git://github.com/intridea/omniauth.git'
+gem "omniauth", ">= 1.0.0"
 gem "omniauth-twitter"
 gem "omniauth-openid"
 gem "omniauth-facebook"
