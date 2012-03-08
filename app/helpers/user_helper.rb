@@ -1,8 +1,10 @@
 module UserHelper
   include ActionView::Helpers::AssetTagHelper
 
+  SIZES = {micro: 20, small: 40, medium: 80}
   def avatar_image(user, size = :medium)
-    s = (size == :small) ? 40 : 80
+    s = SIZES[size]
+    s ||= 40
     image_tag(avatar_url(user, s), alt: user.name, width: s, height: s)
   end
 

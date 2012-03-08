@@ -1,26 +1,26 @@
 <div id="session">
   <div class="user">
     <% if current_user %>
-        <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
-        <%= link_to "¡Hola!", current_user, rel: 'current-user' %>
+      <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
+      <%= avatar_image current_user, :micro %> 
+      <%= link_to "¡Hola!", current_user, rel: 'current-user' %>
     <% else %>
-        <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %> >
+      <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
     <% end %>
-
-    <%= link_to 'Estanterías', camp_shelves_path %> /
-    <%= link_to 'Listas', user_shelves_path %> /
-    <%= link_to 'Licencias', licenses_path %> /
-    <%= link_to 'Wiki', pages_path %>
   </div>
+
   <div class="tabs">
-    <%= link_to 'Como', '/como', class: 'como' %>
-    <%= link_to 'Visitas guiadas', '/visitas', class: 'visitas' %>
-    <%= link_to 'Blog', posts_path, class: 'blog' %>
+    <%= link_to 'Licencias', licenses_path %>
+    <%= link_to 'Wiki', pages_path %>
+    <%= link_to 'Blog', posts_path %>
+    <%#= link_to 'Visitas guiadas', '/visitas', class: 'double' %>
+    <%= link_to 'Listas', user_shelves_path %>
+    <%= link_to 'Estantes', camp_shelves_path %>
   </div>
   <div class="search">
     <%= form_tag '/buscar' do %>
-        <%= text_field_tag :term %>
-        <%= submit_tag 'BUSCAR', id: 'submit-search' %>
+      <%= text_field_tag :term %>
+      <%= submit_tag 'BUSCAR', id: 'submit-search' %>
     <% end %>
   </div>
 </div>
