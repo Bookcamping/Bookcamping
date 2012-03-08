@@ -52,6 +52,7 @@ class Ability
     can :create, User unless @user
     can :destroy, User if is? :super
     can :update, user { |u| @user.id = u.id or is? :admin }
+    can :manage, User if is? :super
   end
 
   def references
@@ -71,7 +72,7 @@ class Ability
 
   def shelf_items
     can :manage, ShelfItem do |item|
-      can? :update, item.shelf
+      can? :add_to, item.shelf
     end
   end
 
@@ -84,8 +85,8 @@ class Ability
   def user_shelves
     can :read, UserShelf
     can :create, UserShelf if @user
-    can :update, UserShelf do |shelf|
-      @user and shelf.members.include?(@user)
+    can :add_to, UserShelf do |shelf|
+      @user and (shelf.open? || shelf.members.include?(@user))
     end
     can :manage, UserShelf do |shelf|
       @user and (shelf.user == @user or @user.admin?)

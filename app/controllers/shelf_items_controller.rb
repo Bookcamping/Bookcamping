@@ -14,11 +14,11 @@ class ShelfItemsController < ApplicationController
   end
 
   def new
-    authorize! :update, shelf
+    authorize! :add_to, shelf
   end
 
   def create
-    authorize! :update, shelf
+    authorize! :add_to, shelf
     shelf.add_reference(reference, current_user)
     redirect_to shelf
   end

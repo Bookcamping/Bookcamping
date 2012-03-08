@@ -15,7 +15,8 @@ class UserShelf < Shelf
   after_create :add_owner_membership
 
   def add_reference(reference, user = nil)
-    add_reference_id(reference.id, self.user.id)
+    user ||= self.user
+    add_reference_id(reference.id, user.id)
   end
 
   protected
