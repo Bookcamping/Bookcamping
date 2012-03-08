@@ -10,7 +10,8 @@
 hasta el <%= l Time.now %> (ahora mismito)</p>
 <% @versions.each do |version| %>
     <p>
-      <%= link_to version.user_name, user_url(version.whodunnit) %> ha
+      <%= version.user_name %>
+      <%#= link_to_if version.whodunnit.present?, version.user_name, user_url(id: version.whodunnit) %> ha
       <%= t("versions.events.#{version.event}") %> la
       <%= t("versions.models.#{version.item_type}") %>
       <% title = version.title ? version.title : '<sin título>' %>
