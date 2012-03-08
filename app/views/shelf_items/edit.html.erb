@@ -3,6 +3,7 @@
   <%= link_to 'Volver', [shelf, shelf_item.reference], class: 'back' %>
 </div> 
 
+<p>Referencia añadida a esta lista por <%= link_to shelf_item.user.name, shelf_item.user %></p>
 <%= simple_form_for [shelf, shelf_item] do |form| %>
     <%= form.input :description, as: :text %>
     <%= form.button :submit %>
