@@ -27,4 +27,8 @@ class ShelfItemsController < ApplicationController
     update! [shelf, shelf_item.reference]
   end
 
+  def destroy
+    destroy! shelf
+  end
+
 end

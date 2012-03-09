@@ -3,7 +3,7 @@
     <% if current_user %>
       <%= content_tag(:div, current_user.id, :id => 'user-id', :style => 'display:none;') %>
       <%= avatar_image current_user, :micro %> 
-      <%= link_to "¡Hola!", current_user, rel: 'current-user' %>
+      <%= link_to "¡Hola #{truncate(current_user.name)}!", current_user, rel: 'current-user' %>
     <% else %>
       <%= link_to 'Entrar', login_path(from: request.fullpath), rel: 'nofollow' %>
     <% end %>

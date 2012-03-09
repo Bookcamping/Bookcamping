@@ -15,7 +15,7 @@
             <%= link_to 'Editar', edit_reference_path(reference) if can? :edit, reference %>
             <%= link_to 'Borrar', reference_path(reference), method: :delete,
                         confirm: "¿Quieres borrar '#{reference.title}'? Esto NO SE PUEDE DESHACER" if can? :manage, reference %>
-            <%= link_to 'Gestionar listas', [reference, :shelf_items], class: 'beta' if can? :edit, reference %>
+            <%= link_to 'Gestionar listas', [reference, :shelf_items] if can? :manage, reference %>
           </div>
         </div>
         <%= beta_div do %>

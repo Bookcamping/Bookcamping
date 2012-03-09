@@ -1,14 +1,18 @@
 <div class="header">
   <h1>¿Por qué '<%= shelf_item.reference.title %>' está en <%= shelf.name %>?</h1>
-  <%= link_to 'Volver', [shelf, shelf_item.reference], class: 'back' %>
-</div> 
+  <div class="actions">
+    <%= link_to 'Volver', [shelf, shelf_item.reference], class: 'back' %>
+    <%= link_to 'Borrar', [shelf, shelf_item], method: :delete,
+      confirm: '¿Quieres quitar la referencia de esta lista?' if can? :destroy, shelf_item %>
+  </div>
+</div>
 
 <p>Referencia añadida a esta lista por <%= link_to shelf_item.user.name, shelf_item.user %></p>
 <%= simple_form_for [shelf, shelf_item] do |form| %>
-    <%= form.input :description, as: :text %>
-    <%= form.button :submit %>
+  <%= form.input :description, as: :text %>
+  <%= form.button :submit %>
 <% end %>
 
 <%= content_for :sidebar do %>
-    <%=  render 'markdown' %>
+  <%= render 'markdown' %>
 <% end %>

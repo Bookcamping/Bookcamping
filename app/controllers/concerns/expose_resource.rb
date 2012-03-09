@@ -44,7 +44,7 @@ module ExposeResource
       end
 
       define_method :edit! do
-        authorize! :edit, resource
+        authorize! :update, resource
         respond_with resource
       end
 

@@ -29,7 +29,7 @@ class ReferencesController < ApplicationController
 
   def new
     reference.include_in_shelf_id = shelf.id
-    authorize! :update, shelf
+    authorize! :add_to, shelf
   end
 
   def edit
