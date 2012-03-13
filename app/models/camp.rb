@@ -12,8 +12,6 @@ class Camp < ActiveRecord::Base
   has_many :references
   has_many :comments
   has_many :referencemarks
-  has_many :memberships
-  has_many :users, through: :memberships
   has_many :versions
 
   validates :name, presence: true

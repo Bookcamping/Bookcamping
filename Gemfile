@@ -17,9 +17,7 @@ gem 'friendly_id'
 
 gem 'cancan'
 gem 'bcrypt-ruby', '~> 3.0.0'
-#gem 'meta_where'
 
-#gem 'omniauth', git: 'git://github.com/intridea/omniauth.git'
 gem "omniauth", ">= 1.0.0"
 gem "omniauth-twitter"
 gem "omniauth-openid"
@@ -35,8 +33,6 @@ gem 'kaminari'
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
-
-#gem 'resque', :require => 'resque/server'
 
 #gem 'prawn'
 #gem 'prawnto'
@@ -54,22 +50,16 @@ else
 end
 
 gem 'unicorn', group: [:development, :production]
-# gem "bullet", group: "development"
-
-gem "rspec-rails", ">= 2.8.1", group: [:development, :test]
-group :test do
-  gem 'ruby-debug19'
-  gem 'database_cleaner'
-  gem 'turn', :require => false
-  gem 'yaml_db'
-  gem "spork", "> 0.9.0.rc"
-  #gem "guard-spork"
-  #gem "guard-cucumber"
-  #gem "cucumber-rails", ">= 1.0.2"
-  gem "factory_girl_rails", "~> 1.2"
-  gem "capybara", ">= 1.0.1"
-  gem "sqlite3"
-end
 
 gem 'capistrano'
+
+group :test do
+  gem 'minitest'
+  gem 'capybara'
+  gem 'turn'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'sqlite3'
+end
 

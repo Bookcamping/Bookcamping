@@ -20,7 +20,7 @@
   <div class="search">
     <%= form_tag '/buscar' do %>
       <%= text_field_tag :term %>
-      <%= submit_tag 'BUSCAR', id: 'submit-search' %>
+      <%= submit_tag 'BUSCAR', id: 'submit-search', name: 'search' %>
     <% end %>
   </div>
 </div>

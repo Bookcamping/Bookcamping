@@ -22,6 +22,7 @@ FactoryGirl.define do
     camp_id 1
     license
     title 'Reference'
+    ref_type 'Book'
   end
 
   factory :version do

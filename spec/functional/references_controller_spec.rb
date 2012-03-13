@@ -13,4 +13,12 @@ feature 'References controller' do
     page.click_button 'submit-search'
     page.should have_content 'Mi libro'
   end
+
+  scenario 'view reference' do
+    user = Factory :user
+    visit enter_path(user.id)
+    reference = Factory.create :reference, title: 'Mi libro', user: user
+    visit reference_path(reference)
+    page.should have_content 'Mi libro'
+  end
 end
