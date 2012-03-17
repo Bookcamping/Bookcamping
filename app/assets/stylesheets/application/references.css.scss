@@ -50,6 +50,9 @@ div.references {
 
   div.reference {
     float: left;
+    width: 121px;
+    height: 125px;
+    margin: 5px 5px 5px 5px;
 
     div.emblems {
       width: 12px;
@@ -81,6 +84,19 @@ div.references {
         overflow: hidden;
       }
 
+      div.cover {
+        left: 4px;
+        top: 15px;
+        right: 25px;
+        height: 100px;
+      }
+      div.emblems {
+        left: 100px;
+        top: 12px;
+        width: 20px;
+        height: 112px;
+      }
+
       div.emblems {
         img {
           position: absolute;
@@ -95,79 +111,36 @@ div.references {
     }
   }
 
-  div.Book, div.WebPage, div.BookReference {
-    width: 126px;
-    height: 143px;
-    background: image_url('referencia-libro.png') no-repeat;
-    margin-left: -3px;
-    margin-right: 13px;
-    margin-bottom: 3px;
-
-    div.content {
-      div.cover {
-        left: 10px;
-        top: 22px;
-        right: 25px;
-        height: 116px;
-      }
-      div.emblems {
-        left: 105px;
-        top: 19px;
-        width: 20px;
-        height: 118px;
-      }
-    }
+  div.Book {
+    background: image_url('icono_referencia_libro.png') no-repeat;
   }
 
   div.WebPage {
-    background: image_url('referencia-web.png') no-repeat;
+    background: image_url('icono_referencia_blog.png') no-repeat;
   }
 
   div.Audio {
-    width: 170px;
-    height: 96px;
-    background: image_url('referencia-cassette.png') no-repeat;
-    margin-left: 0px;
-    margin-right: 3px;
-
-    div.content {
-      div.cover {
-        left: 9px;
-        top: 5px;
-        right: 20px;
-        height: 70px;
-      }
-      div.emblems {
-        right: 0px;
-        top: 9px;
-        width: 24px;
-        height: 80px;
-      }
+    background: image_url('icono_referencia_audio.png') no-repeat;
+    div.content div.cover {
+      top: 4px;
+      left: 6px;
+    }
+    div.content div.emblems {
+      top: 0px;
+      height: 114px;
     }
   }
 
   div.Video {
-    width: 158px;
-    height: 112px;
-    background: image_url('referencia-video.png') no-repeat;
-    margin-top: 14px;
-    margin-left: -1px;
-    margin-right: 14px;
-    border-bottom: 20px solid white;
-
-    div.content {
-      div.cover {
-        left: 27px;
-        top: 8px;
-        bottom: 24px;
-        right: 22px;
-      }
-      div.emblems {
-        left: 137px;
-        top: 10px;
-        width: 19px;
-        height: 75px;
-      }
+    background: image_url('icono_referencia_video.png') no-repeat;
+    div.content div.cover {
+      left: 30px;
+      top: 0px;
+      height: 100px;
+    }
+    div.content div.emblems {
+      top: 0px;
+      height: 104px;
     }
   }
 }
@@ -191,27 +164,27 @@ a.go-reference:hover {
 }
 
 div.reference.unselected {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 div#selection {
-    padding: 5px 10px 0 10px;
-    margin-bottom: 1px;
+  padding: 5px 10px 0 10px;
+  margin-bottom: 1px;
 
-    div.selection-controls {
-        input[type=text] {border: 1px solid #333; padding: 1px 2px;}
+  div.selection-controls {
+    input[type=text] {border: 1px solid #333; padding: 1px 2px;}
+  }
+
+  div.messages {
+    div {
+      padding: 3px 10px;
+      cursor: pointer;
     }
+    a {text-decoration: underline; color: white;}
 
-    div.messages {
-        div {
-            padding: 3px 10px;
-            cursor: pointer;
-        }
-        a {text-decoration: underline; color: white;}
-
-        div.working { color: yellow; background-color: black; }
-        div.success { color: #adff2f; background-color: black; }
-    }
+    div.working { color: yellow; background-color: black; }
+    div.success { color: #adff2f; background-color: black; }
+  }
 
 }
 
