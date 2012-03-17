@@ -1,15 +1,11 @@
 
 TAREAS
-* Ocultar el email de los usuarios y limpiar los campos de la base de datos
-* Buscar títulos similares
-* Pruebas!!
+ - Añadir configuración de sitio (locale)
+ - Añadir 'cómo' a configuración de camp
 
-
-URGENTE
-  * Sessiones
-  * Invitaciones
-  * Merge users!
-  * DecentExposure para todos los controladores
+17/03/2012
+- Modificar las pesataña
+- Nuevos iconos
 
 13/3/2012
 - Cambiar a minitest
