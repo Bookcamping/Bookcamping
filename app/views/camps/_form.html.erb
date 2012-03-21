@@ -1,4 +1,4 @@
-<%= simple_form_for camp do |form| %>
+<%= simple_form_for camp, url: current_camp_path do |form| %>
     <%= form.input :name %>
     <%= form.input :model_name %>
     <%= form.input :description, as: :text %>

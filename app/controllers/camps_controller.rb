@@ -3,6 +3,7 @@ class CampsController < ApplicationController
   respond_to :html
 
   expose(:camp) { current_camp }
+  expose(:latests_references) { camp.references.reorder('id DESC').limit(10) }
 
   def enter
     if !Rails.env.production? or (current_user and current_user.admin?)

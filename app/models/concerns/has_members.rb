@@ -19,6 +19,6 @@ module HasMembers
 
   protected
   def add_owner_as_member
-    add_member(self.user)
+    add_member(self.user) if self.respond? :user
   end
 end

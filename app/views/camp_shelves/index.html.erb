@@ -7,7 +7,6 @@
   <% if can? :manage, CampShelf %>
       <div class="actions">
         <%= link_to 'Añadir estantería', new_camp_shelf_path %>
-        <%= link_to "Editar biblioteca", [:edit, current_camp] if can? :manage, current_camp %>
       </div>
   <% end %>
 </div>
