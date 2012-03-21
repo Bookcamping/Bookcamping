@@ -40,7 +40,7 @@ Bookcamp::Application.routes.draw do
     end
     resources :licenses, path: 'licencias'
     resources :colors, path: 'colores'
-    resources :camps, path: 'acampadas'
+    resource :camps, path: 'camping', as: :current_camp
 
     # Wiki
     resources :pages, path: 'wiki'

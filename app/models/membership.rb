@@ -1,10 +1,12 @@
 class Membership < ActiveRecord::Base
-  belongs_to :camp
+  belongs_to :resource, polymorphic: true
   belongs_to :user
 
-  validates :camp_id, :presence => true
-  validates :user_id, :presence => true
-
-  extend Camp::Scopes
-
+  before_destroy do
+    !owner?
+  end
+  
+  def owner?
+    resource.user_id == self.user_id
+  end
 end

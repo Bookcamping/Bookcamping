@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308093348) do
+ActiveRecord::Schema.define(:version => 20120320182608) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120308093348) do
     t.boolean  "show_media_on_lists",                :default => false
     t.string   "lang",                :limit => 8
     t.text     "settings"
+    t.integer  "user_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -112,6 +113,17 @@ ActiveRecord::Schema.define(:version => 20120308093348) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "memberships", ["resource_type", "resource_id"], :name => "index_memberships_on_resource_type_and_resource_id"
+  add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"

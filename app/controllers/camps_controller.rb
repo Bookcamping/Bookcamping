@@ -2,7 +2,7 @@ class CampsController < ApplicationController
   before_filter :require_admin, except: [:enter]
   respond_to :html
 
-  expose_resource :camp
+  expose(:camp) { current_camp }
 
   def enter
     if !Rails.env.production? or (current_user and current_user.admin?)
@@ -13,28 +13,15 @@ class CampsController < ApplicationController
     redirect_to root_path
   end
 
-  def index
-    index!
-  end
-
   def show
-    show!
-  end
-
-  def new
-    new!
   end
 
   def edit
-    edit!
-  end
-
-  def create
-    create! root_path
   end
 
   def update
-    update! root_path
+    flash[:notice] = t('.updated') if camp.update_attributes(params[:camp])
+    respond_with camp, location: current_camp_path
   end
 
 end

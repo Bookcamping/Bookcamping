@@ -4,6 +4,11 @@
 # pueden crear sobre la marcha.
 #
 class Camp < ActiveRecord::Base
+  # EXTENSIONS
+  include HasMembers
+
+  # Relations
+  belongs_to :user
   has_many :shelves
   has_many :camp_shelves
   has_many :curated_shelves
@@ -14,6 +19,8 @@ class Camp < ActiveRecord::Base
   has_many :referencemarks
   has_many :versions
 
+  # Validations
+  validates :user_id, presence: true
   validates :name, presence: true
   validates :model_name, presence: true
 

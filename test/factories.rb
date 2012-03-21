@@ -2,6 +2,7 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :camp do
+    user
     name 'Camp'
     model_name 'reference'
   end

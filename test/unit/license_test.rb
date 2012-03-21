@@ -22,9 +22,8 @@ describe License do
 
   it "can't be deleted if have references" do
     license = create(:license)
-    license.references << create(:reference)
+    create(:reference, license: license)
     license.references.count.must_equal 1
-    license.destroy
-    license.destroyed?.must_equal false
+    ->{ license.destroy }.must_raise ActiveRecord::DeleteRestrictionError
   end
 end
