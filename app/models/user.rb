@@ -1,21 +1,19 @@
 # User
 #
 class User < ActiveRecord::Base
+  # Extensions
   extend FriendlyId
+  friendly_id :name, use: :slugged
   include Identifiable
   include HasRoles
-
-  friendly_id :name, use: :slugged
+  include HasMembers
 
   # RELATIONS 
-  has_many :old_identities, class_name: 'Identity', dependent: :destroy
   has_many :references, dependent: :restrict
   has_many :comments, dependent: :destroy
   has_many :versions, foreign_key: :whodunnit
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-
-  # Shelves
   has_many :shelves, dependent: :restrict
   has_many :camp_shelves, dependent: :restrict
   has_many :user_shelves, dependent: :destroy
