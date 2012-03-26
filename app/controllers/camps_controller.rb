@@ -1,8 +1,10 @@
 class CampsController < ApplicationController
   before_filter :require_user, except: [:enter]
+  before_filter :require_admin, only: [:index]
   respond_to :html
 
-  expose(:camp) { current_camp }
+  expose(:camps) { Camp.scoped }
+  expose(:camp) { params[:id].present? ? Camp.find(params[:id]) : current_camp }
   expose(:latests_references) { camp.references.reorder('id DESC').limit(10) }
 
   def enter

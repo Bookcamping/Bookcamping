@@ -1,6 +1,6 @@
 <div class="members">
   <% members.each do |user| %>
-    <%= link_to avatar_image(user, :small), user %>
+    <%= link_to avatar_image(user, :small), user, alt: user.name %>
   <% end %>
 </div>
 
