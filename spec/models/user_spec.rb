@@ -2,7 +2,14 @@ require 'spec_helper'
 
 describe User do
   let(:user) { FactoryGirl.create(:user) }
-  
+
+  it 'find groups' do
+    create(:user, group: false)
+    create(:user, group: true)
+    User.groups.count.must_equal 1
+    User.groups.first.group?.must_equal true
+  end
+
   # OPERATIONS
   it 'should add references' do
     reference = FactoryGirl.create(:reference)

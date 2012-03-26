@@ -1,13 +1,13 @@
 
-TAREAS
- - Añadir configuración de sitio (locale)
- - Añadir 'cómo' a configuración de camp
 
 27/03/2012
 - Los campings pueden ser privados
+- A los campings se le pueden asignar grupo
+- Las administradoras del camping aparecen en la vista
 
 26/03/2012
-- Los grupos ahora pueden ser colectivos
+- Los usuarios ahora pueden ser colectivos (grupos)
+- Los campings pueden tener grupo
 
 17/03/2012
 - Modificar las pesataña
@@ -17,161 +17,161 @@ TAREAS
 - Cambiar a minitest
 
 8/3/2012
-	* convetir en pestañas el menú
-  * listas compartidas abiertas
-  * quitar duplicación de nombres
+- convetir en pestañas el menú
+- listas compartidas abiertas
+- quitar duplicación de nombres
 
 3/3/012
-  * listas compartidas
-	* mejora del interface en general
+- listas compartidas
+- mejora del interface en general
 
 27/2/2012
-  * mejoras en la actividad
-  * wiki se mueve a /wiki
-  * Envío de actividad automático
-  * Pages con versiones
-  * Se puede añadir referencias a las listas
+- mejoras en la actividad
+- wiki se mueve a /wiki
+- Envío de actividad automático
+- Pages con versiones
+- Se puede añadir referencias a las listas
 
 24/2/2012
-  * Fragment caching en blog y en estanterías
-  * Avatars en usuarios
-  * Vista de usuario mejorada
-  * Zona backend fuera!
-  * Simplificando listas en bookcamping
-  * Una especie de wiki casero (pages)
+- Fragment caching en blog y en estanterías
+- Avatars en usuarios
+- Vista de usuario mejorada
+- Zona backend fuera!
+- Simplificando listas en bookcamping
+- Una especie de wiki casero (pages)
 
 20/2/2012
-  * Mejora del sistema de autenticación
-  * Cambiar contraseña
+- Mejora del sistema de autenticación
+- Cambiar contraseña
 
 2012/1/30
-  * Nginx configuration
-	* Bug fixes
-	* Design changes
+- Nginx configuration
+- Bug fixes
+- Design changes
 
 
 2011/12/13
-  * Más tests 
-  * Actividad por usuario
-  * Bug en paper_trail
+- Más tests 
+- Actividad por usuario
+- Bug en paper_trail
 
 2011/12/12
-  * Refactorizar extensiones de controlador
-  * Tests!
-  * Actividad pública
+- Refactorizar extensiones de controlador
+- Tests!
+- Actividad pública
   
 
 2011/12/11
-  * Quitar camp_id de posts
-  * Cambiar public por published en posts
-  * Lost posts tienen slug
-  * Mover blog a su namespace
-  * Añadir zonas en beta
-  * Mover roles de usuario a una extensión
-  * Añadir tags a referencias
+- Quitar camp_id de posts
+- Cambiar public por published en posts
+- Lost posts tienen slug
+- Mover blog a su namespace
+- Añadir zonas en beta
+- Mover roles de usuario a una extensión
+- Añadir tags a referencias
 
 
 2011/12/10
-  * Intentamos adaptar a jruby para buscar memoryleaks (de momento, sin éxito. Parece un problema de jruby 1.9 utf8)
+- Intentamos adaptar a jruby para buscar memoryleaks (de momento, sin éxito. Parece un problema de jruby 1.9 utf8)
   
 2011/12/08
-  * Crear test de integración
-  * Borrar ProfileShelf model
+- Crear test de integración
+- Borrar ProfileShelf model
 
 2011/11/28
-  * Bug: blog/blog.rss debería dar 404
-  * Bug: show in user_shelves should respond with 404
+- Bug: blog/blog.rss debería dar 404
+- Bug: show in user_shelves should respond with 404
  
 2011/11/25
-  * Cambio de contraseña
-  * Recuperación de contraseña por email
-  * Generación de invitaciones
+- Cambio de contraseña
+- Recuperación de contraseña por email
+- Generación de invitaciones
 
  
 2011/11/24
-  * Bug: no se guarda la autenticación de un nuevo usuario
-  * Quitamos inherit_resources
-  * Empezamos con Activities
-  * Después de mucho probar, un observer y Activities lanzado en background: empezamos con los emails
-  * Bug que desactivaba el uso de versiones
+- Bug: no se guarda la autenticación de un nuevo usuario
+- Quitamos inherit_resources
+- Empezamos con Activities
+- Después de mucho probar, un observer y Activities lanzado en background: empezamos con los emails
+- Bug que desactivaba el uso de versiones
  
 
 2011/11/23
-  * Notificaciones al grupo
-  * Bug en identity
-  * Intentar reducir la posibilidad de error en el alta automática
-  * Clean shelves slug
-  * Identidades en admin
-  * Se puede crear un usuario a través de admin
-  * Test de usuario
-  *
+- Notificaciones al grupo
+- Bug en identity
+- Intentar reducir la posibilidad de error en el alta automática
+- Clean shelves slug
+- Identidades en admin
+- Se puede crear un usuario a través de admin
+- Test de usuario
+-
 2011/11/22
-  * Mejora del sistema de autenticación
-  * Identidades en admin
-  * El email siempre oculto
-  * bug: la zona de administración no borraba elementos
-  * Nofollow login links
-  * mejor navegación en la edición del blog
-  * bug: las admin no tenían permisos de editar posts
-  * precompile assets en local
-  * Pruebas de email
-  * Mailcatcher for development
+- Mejora del sistema de autenticación
+- Identidades en admin
+- El email siempre oculto
+- bug: la zona de administración no borraba elementos
+- Nofollow login links
+- mejor navegación en la edición del blog
+- bug: las admin no tenían permisos de editar posts
+- precompile assets en local
+- Pruebas de email
+- Mailcatcher for development
 
 2011/11/21
-  * /search muestra el buscador en vez de 0 resultados
-  * Mensaje en las pantallas de horror
-  * Bug: algunas estanterías no se encontraban
-  * Bug: algunos usuarios no se econtraban
-  * Añadiendo deploys a errbit
-  * Eliminar la autenticación por email hasta que esté resuelto
-  * Eliminar la validación del usuario hasta que se resuelva
-  * Bug: buscar sin texto daba error
+- /search muestra el buscador en vez de 0 resultados
+- Mensaje en las pantallas de horror
+- Bug: algunas estanterías no se encontraban
+- Bug: algunos usuarios no se econtraban
+- Añadiendo deploys a errbit
+- Eliminar la autenticación por email hasta que esté resuelto
+- Eliminar la validación del usuario hasta que se resuelva
+- Bug: buscar sin texto daba error
 
 2011/11/19
-  * Instalación de errcamping: trampa para errores
-  * Empezamos con los editores (/clismon/pnh)
-  * Sistema de autenticación interno: login con nombre y contraseña
-  * Dar de alta un nuevo usuario
+- Instalación de errcamping: trampa para errores
+- Empezamos con los editores (/clismon/pnh)
+- Sistema de autenticación interno: login con nombre y contraseña
+- Dar de alta un nuevo usuario
 
 2011/11/18
-  * Mejoras en el aspecto: headers comunes para listas y colaboradoras
-  * Sistema de cambiar el orden, oculto
-  * Se muestran las estanterías creadas en el perfil público (si las hubiese)
-  * La descripción aparece en la cabecera de la lista
-  * Limpieza de UI: fuera mensajes
-  * Login un poco mejorado
-  * Instalado torque para trabajos en cola
-  * Se puede seleccionar el orden en el que se muestran las estanterías
+- Mejoras en el aspecto: headers comunes para listas y colaboradoras
+- Sistema de cambiar el orden, oculto
+- Se muestran las estanterías creadas en el perfil público (si las hubiese)
+- La descripción aparece en la cabecera de la lista
+- Limpieza de UI: fuera mensajes
+- Login un poco mejorado
+- Instalado torque para trabajos en cola
+- Se puede seleccionar el orden en el que se muestran las estanterías
 
 2011/11/17
-  * Bug que impedía buscar sin hacer login
-  * Seleccionar referencias y añadirlas a una lista
-  * Explorar bookcamping
+- Bug que impedía buscar sin hacer login
+- Seleccionar referencias y añadirlas a una lista
+- Explorar bookcamping
 
 2011/11/16
-  * Un nuevo camping: #escucha
-  * Bug en atom
-  * Nuevos botones con estados
-  * Las listas de usuario son generales para todos los campings
-  * Bug añadiendo referencias
-  * Se pueden mover los libros de listas ¡por fin!
-  * Mejora del css para el blog
-  * El enlace al usuario de los comentarios va al perfil
-  * Perfil de los usuarios mejorado
-  * Editar los posts utilizando wysiwyg (Mercury Editor)
-  * Por defecto todas las participantes muestran su cuenta de twitter
+- Un nuevo camping: #escucha
+- Bug en atom
+- Nuevos botones con estados
+- Las listas de usuario son generales para todos los campings
+- Bug añadiendo referencias
+- Se pueden mover los libros de listas ¡por fin!
+- Mejora del css para el blog
+- El enlace al usuario de los comentarios va al perfil
+- Perfil de los usuarios mejorado
+- Editar los posts utilizando wysiwyg (Mercury Editor)
+- Por defecto todas las participantes muestran su cuenta de twitter
 
 2011/11/14
-  * Empieza a existir la parte social
-  * Se pueden añadir listas personales
-  * Se pueden editar listas personales
-  * Las colaboradoras pueden editar sus datos personales
-  * Se pueden editar los colores
-  * Se puede entrar con nombre/contraseña (aunque aún no es práctico, puesto que no se pueden crear colaboradoras)
+- Empieza a existir la parte social
+- Se pueden añadir listas personales
+- Se pueden editar listas personales
+- Las colaboradoras pueden editar sus datos personales
+- Se pueden editar los colores
+- Se puede entrar con nombre/contraseña (aunque aún no es práctico, puesto que no se pueden crear colaboradoras)
 
 2011/11/09
-  * En la lista de referencias, el resúmen de la ficha se carga con pjax
+- En la lista de referencias, el resúmen de la ficha se carga con pjax
 
 2011/11/08
-  * Pantalla de 'Ver ficha' rediseñada
-  * Nuevas páginas de error, cortesía de M.Castelló y Mdblau
+- Pantalla de 'Ver ficha' rediseñada
+- Nuevas páginas de error, cortesía de M.Castelló y Mdblau

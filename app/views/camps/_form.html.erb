@@ -1,5 +1,6 @@
 <%= simple_form_for camp, url: current_camp_path do |form| %>
     <%= form.input :name %>
+    <%= form.input :group_id, collection: User.groups %>
     <%= form.input :model_name %>
     <%= form.input :description, as: :text %>
     <%= form.input :lang %>

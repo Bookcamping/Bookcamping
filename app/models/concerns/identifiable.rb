@@ -23,7 +23,7 @@ module Identifiable
   end
 
   def password_required?
-    uid_twitter.blank? and uid_google.blank? and uid_facebook.blank?
+    !self.group? && uid_twitter.blank? and uid_google.blank? and uid_facebook.blank?
   end
 
   def authenticate(unencrypted_password)

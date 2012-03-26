@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   expose_with_slug
   expose_resource :user
   expose(:user_count) { User.count }
-  expose(:users) { User.order('last_login_at DESC').limit(50) }
+  expose(:users) { User.all }
   expose(:user)
+  expose(:persons) { User.persons.order('last_login_at DESC').limit(50) }
+  expose(:groups) { User.groups }
 
   expose(:shelf_order) { Shelf::Order.new(params[:o]) }
   expose(:shelves) { shelf_order.order user.shelves.public }
@@ -30,19 +32,30 @@ class UsersController < ApplicationController
   end
 
   def create
-    if user.save
-      self.current_user = user
-      user.audit_login
-      flash[:notice] = "¡Bienvenidx #{user.name}!"
+    if current_user
+      user.group = true
+      if user.save
+        user.add_member(current_user)
+        flash[:notice] = 'Colectivo creado'
+      end
     else
-      puts user.errors.inspect
+      if user.save
+        self.current_user = user
+        user.audit_login
+        flash[:notice] = "¡Bienvenidx #{user.name}!"
+      else
+        puts user.errors.inspect
+      end
     end
-    respond_with user, location: root_path
+    respond_with user
   end
 
   def update
     update! [user]
   end
 
+  def destroy
+    destroy!
+  end
 end
 

@@ -19,6 +19,12 @@ module UserHelper
   end
 
   def render_members(members)
-    render partial: 'users/members', locals: {members: members}
+    render partial: 'users/members',
+      locals: {members: members} if members.present?
+  end
+
+  def render_users(users)
+    render partial: 'users/users',
+      locals: {users: users} if users.present?
   end
 end

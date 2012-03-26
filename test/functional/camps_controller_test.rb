@@ -17,4 +17,15 @@ describe 'Camps controller integration' do
     page.current_path.must_equal current_camp_path
     page.text.must_include 'Nombre'
   end
+
+  it "assign a group to camp" do
+    camp = create(:camp)
+    group = create(:user, group: true)
+    login_with camp.user
+    visit edit_current_camp_path
+    select group.name, from: 'camp_group_id'
+    click_submit
+    camp.reload
+    camp.group.must_equal group
+  end
 end

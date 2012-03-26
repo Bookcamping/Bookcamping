@@ -4,11 +4,15 @@
   <div class="actions">
     <%= link_to 'Volver', users_path, class: 'back' %>
     <%= link_to 'Añadir colaboradora', [:new, user, :membership],
-      rel: 'add_membership' if can? :manage, user %>
+      rel: 'add_membership' if user.group? && can?(:manage, user) %>
     <%= link_to 'Editar', edit_user_path(user) if can? :edit, user %>
     <%= link_to 'Borrar', user, method: :delete,
       confirm: "NO DEBERÍA HABER RAZÓN PARA HACER ESTO. NO PUEDES DESHACER" if can? :destroy, user %>
-    <%= link_to 'Cerrar sesión', logout_path, class: 'warning' if current_user == user %>
+    <% if current_user == user %>
+      <%= link_to 'Crear colectivo', new_user_path,
+       rel: 'new-group' if can?(:new, user) %>
+      <%= link_to 'Cerrar sesión', logout_path, class: 'warning' %>
+    <% end %>
   </div>
 </div>
 <%= render_members user.members %>

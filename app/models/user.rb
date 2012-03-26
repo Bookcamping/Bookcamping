@@ -18,11 +18,13 @@ class User < ActiveRecord::Base
   has_many :camp_shelves, dependent: :restrict
   has_many :user_shelves, dependent: :destroy
 
+  # SCOPES
+  scope :groups, where(group: true)
+  scope :persons, where(group: false)
+
   # Validations
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  # validates :password, presence: true, confirmation: true, on: :create
-  # validates :password_confirmation, presence: true, on: :create
 
   # Add reference to my_references_shelf
   def add_reference(reference)

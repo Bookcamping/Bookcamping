@@ -5,10 +5,14 @@
       rel: 'edit-current-camp' if can? :edit, camp %>
   </div>
 </div>
+<%= render_members camp.group_members %>
+
 <h2>Últimas adquisiciones</h2>
 <%= render_references latests_references, '#efefef' %>
 
 <% content_for :sidebar do %>
   <%= markdown camp.description %>
 <% end %>
+
+<%= simple_debug camp %>
 

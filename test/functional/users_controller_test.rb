@@ -34,4 +34,19 @@ describe 'Users controller integration' do
     user.reload
     user.group.must_equal true
   end
+
+  it "create a new group" do
+    create(:camp)
+    user = create(:user)
+    login_with(user)
+    visit user_path(user)
+    page.find('a[rel=new-group]').click
+    fill_in 'user_name', with: 'Grupo'
+    fill_in 'user_email', with: 'grupo@email.com'
+    click_submit
+    group = User.last
+    group.name.must_equal 'Grupo'
+    group.email.must_equal 'grupo@email.com'
+    group.must_be :group?
+  end
 end
