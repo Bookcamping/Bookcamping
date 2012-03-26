@@ -49,4 +49,13 @@ describe 'Users controller integration' do
     group.email.must_equal 'grupo@email.com'
     group.must_be :group?
   end
+
+  it "searches" do
+    create(:camp)
+    create(:user, name: 'Silvink')
+    visit users_path
+    fill_in 'term', with: 'Sil'
+    click_submit 'commit-search-user'
+    page.text.must_include 'Silvink'
+  end
 end

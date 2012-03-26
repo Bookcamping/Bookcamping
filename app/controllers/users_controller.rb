@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   expose_with_slug
   expose_resource :user
   expose(:user_count) { User.count }
-  expose(:users) { User.all }
+  expose(:users) { User.scoped }
   expose(:user)
   expose(:persons) { User.persons.order('last_login_at DESC').limit(50) }
   expose(:groups) { User.groups }

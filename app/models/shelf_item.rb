@@ -16,7 +16,10 @@ class ShelfItem < ActiveRecord::Base
   belongs_to :reference
   belongs_to :camp
 
-  has_paper_trail meta: {title: Proc.new {|item| "'#{item.reference.title}' en #{item.shelf.name}" }, camp_id: :camp_id }
+  has_paper_trail meta: {
+    title: Proc.new {|item| "'#{item.reference.title}' en #{item.shelf.name}" }, 
+    camp_id: :camp_id
+  }
 
 
   # Keep it! TODO: check wky...
