@@ -1,13 +1,12 @@
 <div class="header">
-  <%=  title "Buscar colaboradoras con '#{search.term}'" %>
-  <div class="description">
+  <div class="count">
     <%= search.results.size %> encontradas.
   </div>
+  <%=  title "Buscar colaboradoras con '#{search.term}'" %>
+  <%= link_to 'Volver', users_path, class: 'back' %>
 </div>
 
-<%= form_tag search_users_path, method: :get, class: 'search_users' do %>
-    Buscar colaboradoras: <%= text_field_tag :term %>
-<% end %>
+<%= render 'search_box' %>
 
 <div class="users">
   <% search.results.each do |user| %>

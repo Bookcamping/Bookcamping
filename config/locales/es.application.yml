@@ -35,6 +35,7 @@ es:
       Post: 'entrada'
       License: 'licencia'
       ShelfItem: 'entrada'
+      Membership: 'pertenencia de'
 
   post:
     visibilities:

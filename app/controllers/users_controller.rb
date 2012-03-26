@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   expose(:user_count) { User.count }
   expose(:users) { User.scoped }
   expose(:user)
-  expose(:persons) { User.persons.order('last_login_at DESC').limit(50) }
+  expose(:persons) { User.persons.order('last_login_at DESC').limit(48) }
   expose(:groups) { User.groups }
 
   expose(:shelf_order) { Shelf::Order.new(params[:o]) }

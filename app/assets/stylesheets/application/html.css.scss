@@ -67,7 +67,7 @@ form {
      }
      input[type="submit"]:hover {background-color: black;color:white;}
      input[type="submit"]:active {background-color: black;color:yellow;}
-
+     input[type="submit"].mini { padding: 0 4px;}
 
     span.error {color: #c00; display: block;}
 }
