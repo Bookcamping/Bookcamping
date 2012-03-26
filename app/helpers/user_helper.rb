@@ -17,4 +17,8 @@ module UserHelper
       default_url
     end
   end
+
+  def render_members(members)
+    render partial: 'users/members', locals: {members: members}
+  end
 end

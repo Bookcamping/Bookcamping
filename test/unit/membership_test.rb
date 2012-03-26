@@ -1,17 +1,19 @@
 require 'test_helper'
 
 describe Membership do
-  it "can be owner" do
-    camp = create(:camp)
-    camp.memberships.first.must_be :owner?
-    camp.add_member(create(:user))
-    camp.memberships.last.wont_be :owner?
+  it "have resource and user" do
+    group = create(:user, group: true)
+    group.add_member(create(:user))
+    group.memberships.first.resource.must_be :present?
+    group.memberships.first.user.must_be :present?
   end
 
-  it "can't be destroyed if owner" do
-    camp = create(:camp)
-    owner = camp.memberships.first
-    owner.destroy
-    owner.wont_be :destroyed?
+  it "can't have same user for same resource" do
+    group = create(:user, group: true)
+    member = create(:user)
+    ms = Membership.create(resource: group, user: member)
+    ms.save.must_equal true
+    ms = Membership.create(resource: group, user: member)
+    ms.save.must_equal false
   end
 end

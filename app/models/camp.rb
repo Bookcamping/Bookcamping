@@ -5,7 +5,7 @@
 #
 class Camp < ActiveRecord::Base
   # EXTENSIONS
-  include HasMembers
+  include HasGroup
 
   # Relations
   belongs_to :user

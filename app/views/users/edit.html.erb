@@ -5,21 +5,38 @@
   <%= link_to 'Volver', user, class: 'back' %>
 </div>
 
+<h2><%= t('.edit_profile', default: 'Cambiar datos personales') %></h2>
 <%= simple_form_for user do |form| %>
-    <%= form.input :name %>
-    <%= form.input :email %>
-    <%= form.input :twitter %>
-    <%= form.input :description, as: :text, row: 2 %>
-    <%= form.submit 'Guardar perfil' %>
+  <%= form.input :name %>
+  <%= form.input :email %>
+  <%= form.input :twitter %>
+  <%= form.input :description, as: :text, row: 2 %>
+  <%= form.submit 'Guardar perfil', name: 'commit-profile' %>
 <% end %>
+
+<% unless user.group? %>
+  <h2><%= t('.convert-to-group', default: 'Convertir en colectivo') %></h2>
+  <p>Convertir este perfil en un colectivo hará que puedas añadir
+  colaboradoras a este perfil. Todas las referencias y listas de este
+  perfil pasarán a ser gestionadas colectivamente por las colaboradoras.</p>
+  <p class="warning">¡Cuidado! Esto no se puede deshacer</p>
+  <%= simple_form_for user do |form| %>
+    <%= hidden_field_tag 'user[group]', '1' %>
+    <%= form.submit t(:submit_group, default: 'Convertir en grupo'),
+      name: 'commit-group' %>
+  <% end %>
+<% end %>
+
 
 <% if user.password_digest.present? %>
-    <h2>Cambiar contraseña</h2>
-    <p>Si quieres cambiar tu contraseña puedes hacerlo aquí:</p>
-    <%= simple_form_for user do |form| %>
-        <%= form.input :password %>
-        <%= form.input :password_confirmation %>
-        <%= form.submit 'Cambiar contraseña' %>
-    <% end %>
+  <h2>Cambiar contraseña</h2>
+  <p>Si quieres cambiar tu contraseña puedes hacerlo aquí:</p>
+  <%= simple_form_for user do |form| %>
+    <%= form.input :password %>
+    <%= form.input :password_confirmation %>
+    <%= form.submit 'Cambiar contraseña' %>
+  <% end %>
 <% end %>
 
+
+<%= simple_debug user %>

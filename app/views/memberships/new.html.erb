@@ -1,0 +1,38 @@
+<div class="header">
+  <%= render 'users/header' %>
+  <div class="actions">
+    <%= link_to 'Volver', user_path(user), class: 'back' %>
+  </div>
+</div>
+<%= render_members user.members %>
+<%= title 'Añadir colaboradora' %>
+
+<%= form_tag [:new, user, :membership], method: :get do %>
+  <label>Buscar colaboradora:</label>
+  <%= text_field_tag :user_name, search.term %>
+  <%= submit_tag 'Buscar', name: 'search_member' %>
+<% end %>
+
+<% if search.term.present? %>
+  <h2>Añadir colaboradoras a esta lista</h2>
+  <%= content_tag(:div, search.error, class: 'error') if search.error.present? %>
+  <table class="table">
+    <% search.results.each do |member| %>
+      <% unless user.member?(member) %>
+        <tr>
+          <td class="actions">
+            <%= link_to raw('Añadir'), user_memberships_path(user, member_id: member.id),
+              method: :post %>
+          </td>
+          <td><%= link_to member do %>
+            <%= avatar_image(member, :small) %>
+            <%= member.name %>
+          <% end %></td>
+        <td><%= member.description %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+<% end %>
+
+

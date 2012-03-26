@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     alias_action :view, to: :read
 
+    can :read, Camp, closed: false
     can :read, User
     can :read, Reference
     can :read, License
@@ -19,8 +20,11 @@ class Ability
 
 
     if user.present?
+      can :update, Camp do |camp|
+        camp.member?(user)
+      end
       can :create, User
-      can :update, User, id: user.id
+      can :manage, User, id: user.id
       can :update, License
 
       can :create, Reference

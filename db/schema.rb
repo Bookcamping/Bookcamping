@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321224120) do
+ActiveRecord::Schema.define(:version => 20120325114208) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(:version => 20120321224120) do
     t.string   "lang",                :limit => 8
     t.text     "settings"
     t.integer  "user_id"
+    t.integer  "group_id"
+    t.boolean  "open",                               :default => false
+    t.boolean  "closed",                             :default => false
   end
 
   create_table "categories", :force => true do |t|
@@ -184,6 +187,8 @@ ActiveRecord::Schema.define(:version => 20120321224120) do
     t.integer  "publisher_id"
     t.string   "ref_type",       :limit => 16
     t.string   "archive_slug",   :limit => 100
+    t.integer  "group_id"
+    t.boolean  "open",                           :default => true
   end
 
   add_index "references", ["camp_id"], :name => "index_books_on_camp_id"
@@ -227,6 +232,7 @@ ActiveRecord::Schema.define(:version => 20120321224120) do
     t.string   "visibility",          :limit => 16
     t.integer  "shelf_members_count",                :default => 0
     t.boolean  "open",                               :default => false
+    t.integer  "group_id"
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"

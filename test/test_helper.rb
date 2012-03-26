@@ -28,16 +28,17 @@ class IntegrationTest < MiniTest::Spec
 
   register_spec_type(/integration$/, self)
 
-  def login_user(user)
+  def login_with(user)
     if user.present?
       visit enter_path(user)
     else
       visit logout_path
     end
+    user
   end
 
-  def click_submit
-    page.find('input[name="commit"]').click
+  def click_submit(name = 'commit')
+    page.find("input[name=\"#{name}\"]").click
   end
 end
 

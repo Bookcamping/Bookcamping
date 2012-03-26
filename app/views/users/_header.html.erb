@@ -1,0 +1,9 @@
+<% if user.group? %>
+  <div class="count">Colectivo</div>
+<% end %>
+<div class="avatar"><%= avatar_image(user, :small) %></div>
+<h1><%= user.name %>
+<small>&nbsp;<%= link_to user.twitter, "http://twitter.com/##{user.twitter}" if user.twitter? %></small>
+</h1>
+<div class="description"><%= user.description %></div>
+

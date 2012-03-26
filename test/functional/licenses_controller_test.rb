@@ -20,19 +20,19 @@ describe 'Licenses integration' do
   end
 
   it "new should be admin only" do
-    login_user(nil)
+    login_with(nil)
     visit new_license_path
     page.current_path.wont_equal new_license_path
-    login_user (create(:user))
+    login_with (create(:user))
     visit new_license_path
     page.current_path.wont_equal new_license_path
-    login_user(create(:user, rol: 'admin'))
+    login_with(create(:user, rol: 'admin'))
     visit new_license_path
     page.current_path.must_equal new_license_path
   end
 
   it "new should create license" do
-    login_user(create(:user, rol: 'admin'))
+    login_with(create(:user, rol: 'admin'))
     visit new_license_path
     fill_in 'license_name', with: 'License name'
     fill_in 'license_body', with: 'License body'
@@ -44,14 +44,14 @@ describe 'Licenses integration' do
 
   it "edit can't be anonymous" do
     license = create(:license)
-    login_user(nil)
+    login_with(nil)
     visit edit_license_path(license)
     page.current_path.wont_equal edit_license_path(license)
   end
 
   it "edit should update license" do
     license = create(:license)
-    login_user(create(:user))
+    login_with(create(:user))
     visit edit_license_path(license)
 #   page.has_selector?('#license_name').must_be false
     fill_in 'license_body', with: 'The body'

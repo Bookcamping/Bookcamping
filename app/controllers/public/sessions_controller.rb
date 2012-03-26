@@ -18,7 +18,7 @@ class Public::SessionsController < ApplicationController
     user = User.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
 
     if user
-      login_user(user)
+      login_with(user)
     else
       @user = User.new do |user|
         user.name = omniauth['info']['name']
@@ -27,7 +27,7 @@ class Public::SessionsController < ApplicationController
         column = "uid_#{omniauth['provider']}="
         user.send(column, omniauth['uid'])
       end
-      login_user(@user) if @user.save
+      login_with(@user) if @user.save
     end
   end
 
@@ -35,7 +35,7 @@ class Public::SessionsController < ApplicationController
     data = params[:user]
     user = User.authenticate(params[:user][:email], params[:user][:password])
     if user
-      login_user(user)
+      login_with(user)
     else
       redirect_to login_path, notice: 'No te hemos encontrado.'
     end
@@ -59,7 +59,7 @@ class Public::SessionsController < ApplicationController
   end
 
   protected
-  def login_user(user)
+  def login_with(user)
     self.current_user = user
     user.audit_login
     redirect_to stored_or(root_path), notice:

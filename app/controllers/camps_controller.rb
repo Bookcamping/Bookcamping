@@ -18,9 +18,11 @@ class CampsController < ApplicationController
   end
 
   def edit
+    authorize! :edit, camp
   end
 
   def update
+    authorize! :update, camp
     flash[:notice] = t('.updated') if camp.update_attributes(params[:camp])
     respond_with camp, location: current_camp_path
   end

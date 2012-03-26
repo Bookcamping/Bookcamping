@@ -59,6 +59,7 @@ Bookcamp::Application.routes.draw do
 
     resources :users, path: 'somos' do
       get :search, on: :collection, path: 'buscar'
+      resources :memberships, path: 'colaboradoras', except: [:index, :show]
     end
   end
 
