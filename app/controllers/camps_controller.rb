@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
-  before_filter :require_admin, except: [:enter]
+  before_filter :require_user, except: [:enter]
   respond_to :html
 
   expose(:camp) { current_camp }
