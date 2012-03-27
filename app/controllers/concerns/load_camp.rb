@@ -3,6 +3,7 @@ module LoadCamp
 
   protected
   def load_camp_from_request
+    puts "HOST #{request.host}"
     if request.domain == 'videocamping.cc'
       session[:camp_id] = 2
     elsif request.subdomain.present? and (request.subdomain == 'escucha' or request.subdomain == 'escuchamos')

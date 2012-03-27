@@ -2,10 +2,11 @@ require 'test_helper'
 
 describe 'Camps controller integration' do
   it "show current camp" do
-    camp = create(:camp)
+    camp = create(:camp, name: 'Test camp', host: 'host.cc')
     visit gocamp_path(camp)
     visit current_camp_path
     page.text.must_include camp.name
+    page.text.must_include camp.host
   end
 
   it "edit and update current camp" do
@@ -13,9 +14,12 @@ describe 'Camps controller integration' do
     login_with camp.user
     visit edit_current_camp_path
     fill_in 'camp_name', with: 'Nombre'
+    fill_in 'camp_host', with: 'bookcamping.cc'
     click_submit
     page.current_path.must_equal current_camp_path
-    page.text.must_include 'Nombre'
+    camp.reload
+    camp.name.must_equal 'Nombre'
+    camp.host.must_equal 'bookcamping.cc'
   end
 
   it "assign a group to camp" do

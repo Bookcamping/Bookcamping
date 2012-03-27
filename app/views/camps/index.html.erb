@@ -1,15 +1,18 @@
 <div class="header">
   <%= title 'Acampadas' %>
-  <%= link_to 'Volver', root_path, class: 'back' %>
+  <div class="actions">
+    <%= link_to 'Volver', root_path, class: 'back' %>
+    <%= link_to 'Nueva acampada', new_camp_path if can?(:new, Camp) %>
+  </div>
 </div>
 
 <table class="table">
   <% camps.each do |camp| %>
-      <tr>
-        <td><%= link_to camp.name, camp %></td>
-        <td class="actions">
-          <%= link_to 'Editar', [:edit, camp] %>
-        </td>
-      </tr>
+    <tr>
+      <td><%= link_to camp.name, camp %></td>
+      <td class="actions">
+        <%= link_to 'Editar', [:edit, camp] %>
+      </td>
+    </tr>
   <% end %>
 </table>

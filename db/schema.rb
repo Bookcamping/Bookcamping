@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325114208) do
+ActiveRecord::Schema.define(:version => 20120327113318) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -40,7 +40,10 @@ ActiveRecord::Schema.define(:version => 20120325114208) do
     t.integer  "group_id"
     t.boolean  "open",                               :default => false
     t.boolean  "closed",                             :default => false
+    t.string   "host",                :limit => 100
   end
+
+  add_index "camps", ["host"], :name => "index_camps_on_host"
 
   create_table "categories", :force => true do |t|
     t.string   "name",        :limit => 64

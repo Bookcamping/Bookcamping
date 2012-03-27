@@ -1,5 +1,9 @@
 <div class="header">
-  <%= title camp.name %>
+  <% title "##{camp.name}" %>
+  <h1>#<%= camp.name %><small> <%= link_to camp.host, "http://#{camp.host}" %></small></h1>
+  <div class="description">
+  <%= markdown camp.description %>
+</div>
   <div class="actions">
     <%= link_to 'Editar', edit_current_camp_path, 
       rel: 'edit-current-camp' if can? :edit, camp %>
@@ -11,7 +15,6 @@
 <%= render_references latests_references, '#efefef' %>
 
 <% content_for :sidebar do %>
-  <%= markdown camp.description %>
 <% end %>
 
 <%= simple_debug camp %>
