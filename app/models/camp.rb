@@ -6,6 +6,8 @@
 class Camp < ActiveRecord::Base
   # EXTENSIONS
   include HasGroup
+  extend FriendlyId
+  friendly_id :name
 
   # Relations
   belongs_to :user
@@ -22,7 +24,6 @@ class Camp < ActiveRecord::Base
   # Validations
   validates :user_id, presence: true
   validates :name, presence: true
-  validates :model_name, presence: true
 
   def self.boolean_accessor(keys) 
     keys.each do |key|

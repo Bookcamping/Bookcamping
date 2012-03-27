@@ -4,7 +4,6 @@ FactoryGirl.define do
   factory :camp do
     user
     name 'Camp'
-    model_name 'reference'
   end
 
   factory :license do

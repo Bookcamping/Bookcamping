@@ -1,10 +1,11 @@
 class CampsController < ApplicationController
   before_filter :require_user, except: [:enter]
-  before_filter :require_admin, only: [:index]
+  before_filter :require_admin, only: [:index, :create]
   respond_to :html
 
+  expose_resource :camp
   expose(:camps) { Camp.scoped }
-  expose(:camp) { params[:id].present? ? Camp.find(params[:id]) : current_camp }
+  expose(:camp)
   expose(:latests_references) { camp.references.reorder('id DESC').limit(10) }
 
   def enter
@@ -16,17 +17,25 @@ class CampsController < ApplicationController
     redirect_to root_path
   end
 
+  def new
+    new!
+  end
+
   def show
+    show!
   end
 
   def edit
     authorize! :edit, camp
   end
 
+  def create
+    camp.user = current_user
+    create!
+  end
+
   def update
-    authorize! :update, camp
-    flash[:notice] = t('.updated') if camp.update_attributes(params[:camp])
-    respond_with camp, location: current_camp_path
+    update!
   end
 
 end

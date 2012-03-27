@@ -1,8 +1,7 @@
-<%= simple_form_for camp, url: current_camp_path do |form| %>
+<%= simple_form_for camp do |form| %>
     <%= form.input :name %>
     <%= form.input :host %>
     <%= form.input :group_id, collection: User.groups %>
-    <%= form.input :model_name %>
     <%= form.input :description, as: :text %>
     <%= form.input :lang %>
     <%= form.input :lock_camp_shelves, as: :boolean %>
@@ -15,3 +14,4 @@
     <%= render 'markdown' %>
 <% end %>
 
+<%= simple_debug camp.errors %>

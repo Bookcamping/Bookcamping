@@ -52,11 +52,6 @@ module ApplicationHelper
     presenter.render
   end
 
-
-  def current_model
-    current_camp.model_name
-  end
-
   def simple_debug(model)
     debug(model) if Rails.env.development?
   end

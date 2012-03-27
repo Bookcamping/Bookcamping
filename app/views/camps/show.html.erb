@@ -5,8 +5,8 @@
   <%= markdown camp.description %>
 </div>
   <div class="actions">
-    <%= link_to 'Editar', edit_current_camp_path, 
-      rel: 'edit-current-camp' if can? :edit, camp %>
+    <%= link_to 'Editar', edit_camp_path(camp), 
+      rel: 'edit-camp' if can? :edit, camp %>
   </div>
 </div>
 <%= render_members camp.group_members %>
