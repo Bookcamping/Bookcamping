@@ -1,11 +1,10 @@
 
-
-
 <%= simple_form_for user_shelf do |form| %>
-    <%= form.input :name %>
-    <%= form.input :description, as: :text, html: {rows: 10} %>
-    <%= form.input :color, collection: Color.collection, include_blank: false,
-      input_html: {class: 'color-select'} %>
-    <%= form.input :open %>
-    <%= form.submit  %>
+  <%= form.input :name %>
+  <%= form.input :description, as: :text, html: {rows: 10} %>
+  <%= form.input :color, collection: Color.collection, include_blank: false,
+    input_html: {class: 'color-select'} %>
+  <%= form.input :open, collection: tc('shelf.open', ['0', '1']), 
+    include_blank: false  %>
+  <%= form.submit  %>
 <% end %>

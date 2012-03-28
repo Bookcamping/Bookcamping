@@ -21,6 +21,11 @@ es:
       admin: 'administradoras'
       collab: 'colaboradoras'
 
+  shelf:
+    open:
+      '0': 'Las propietaria y colaboradoras'
+      '1': 'Cualquier bookcamper'
+
   versions:
     events:
       create: 'añadido'

@@ -24,6 +24,7 @@ class Camp < ActiveRecord::Base
   # Validations
   validates :user_id, presence: true
   validates :name, presence: true
+  validates :host, presence: true
 
   def self.boolean_accessor(keys) 
     keys.each do |key|

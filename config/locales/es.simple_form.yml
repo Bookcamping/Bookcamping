@@ -55,7 +55,15 @@ es:
       shelf_item:
         description: 'Escribe por qué debe estar en esta lista'
 
+      user_shelf:
+        open: '¿Quién puede añadir referencias a esta lista?'
+
+
     hints:
+      defaults:
+        description: 'Puedes usar markdown'
+        body: 'Puedes usar markdown.'
+
       category:
         description: 'Tienes 300 caracteres'
         section: 'En general, debería estar en blanco'
@@ -69,13 +77,11 @@ es:
       page:
         author: 'Opcional. Sólo si quieres que aparezca.'
         slug: 'Opcional: déjalo en blanco para que se genere automáticamente'
-        body: 'Puedes usar markdown.'
 
       post:
         author: 'Es la firma del post, para separarlo de la persona que escribe el post'
         published_at: 'Sirve, básicamente, para ordenar entradas: de más reciente a más antigüa'
         visibility: 'Permite tener borradores o entradas sólo visibles por las administradoras'
-        body: 'Podéis usar markdown'
 
       reference:
         ref_type: 'Esto afecta, básicamente, a cómo se muestra en la web'
@@ -84,11 +90,7 @@ es:
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
 
-      shelf_item:
-        description: 'Puedes usar markdown'
 
-      user_shelf:
-        description: 'Puedes usar markdown'
 
 
 
