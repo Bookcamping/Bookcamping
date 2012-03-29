@@ -3,3 +3,8 @@ es:
     index:
       title: 'Observatorio de licencias'
       description: 'Licencias, licenciados, licenciaturas y demás.'
+
+  shelves:
+    header:
+      is_open: 'Cualquier bookcamper puede añadir referencias'
+      not_open: 'Sólo las colaboradoras pueden añadir referencias'

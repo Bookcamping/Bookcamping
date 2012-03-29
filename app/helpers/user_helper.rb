@@ -17,6 +17,10 @@ module UserHelper
       default_url
     end
   end
+  
+  def link_to_user(user)
+    link_to(avatar_image(user, :small) << ' ' << user.name, user)
+  end
 
   def render_members(members)
     render partial: 'users/members',

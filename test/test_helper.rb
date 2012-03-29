@@ -20,6 +20,10 @@ class MiniTest::Spec
   before :each do
     DatabaseCleaner.clean
   end
+
+  def ar_log
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+  end
 end
 
 class IntegrationTest < MiniTest::Spec

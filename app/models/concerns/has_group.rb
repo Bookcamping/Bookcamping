@@ -10,4 +10,5 @@ module HasGroup
     (self.user_id == user.id) ||
       (self.group_id.present? && self.group.member?(user))
   end
+
 end

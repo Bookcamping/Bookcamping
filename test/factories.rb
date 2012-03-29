@@ -3,7 +3,8 @@ require 'factory_girl'
 FactoryGirl.define do
   factory :camp do
     user
-    name 'Camp'
+    sequence(:name) {|n| "Camp #{n}" }
+    sequence(:host) {|n| "camp#{n}.bookcamping.cc" }
   end
 
   factory :license do
@@ -40,7 +41,6 @@ FactoryGirl.define do
     user 
     sequence(:name) {|n| "Shelf #{n}"}
     sequence(:slug) {|n| "Shelf slug #{n}"}
-    visibility 'public'
   end
 
    factory :camp_shelf do
@@ -48,14 +48,12 @@ FactoryGirl.define do
     user 
     sequence(:name) {|n| "Camp shelf #{n}"}
     sequence(:slug) {|n| "Camp shelf slug #{n}"}
-    visibility 'public'
   end
 
   factory :user_shelf do
     camp_id 1
     user 
     sequence(:name) {|n| "User shelf #{n}"}
-    visibility 'public'
   end
 
   factory :post do

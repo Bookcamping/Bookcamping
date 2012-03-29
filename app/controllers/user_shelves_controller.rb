@@ -26,7 +26,6 @@ class UserShelvesController < ApplicationController
 
   def create
     user_shelf.user = current_user
-    user_shelf.visibility ||= 'public'
     create!
   end
 

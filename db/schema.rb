@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327113318) do
+ActiveRecord::Schema.define(:version => 20120329012500) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120327113318) do
     t.boolean  "open",                               :default => false
     t.boolean  "closed",                             :default => false
     t.string   "host",                :limit => 100
+    t.integer  "memberships_count",                  :default => 0
   end
 
   add_index "camps", ["host"], :name => "index_camps_on_host"
@@ -135,13 +136,14 @@ ActiveRecord::Schema.define(:version => 20120327113318) do
     t.string   "title"
     t.string   "slug"
     t.string   "author"
-    t.string   "content_type",   :limit => 50
+    t.string   "content_type",      :limit => 50
     t.text     "body"
     t.integer  "comments_count"
     t.integer  "user_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.integer  "category_id"
+    t.integer  "memberships_count",               :default => 0
   end
 
   create_table "posts", :force => true do |t|
@@ -230,15 +232,19 @@ ActiveRecord::Schema.define(:version => 20120327113318) do
     t.integer  "camp_id"
     t.string   "color",               :limit => 16
     t.text     "description"
-    t.string   "rol",                 :limit => 32
     t.string   "type",                :limit => 32
-    t.string   "visibility",          :limit => 16
     t.integer  "shelf_members_count",                :default => 0
     t.boolean  "open",                               :default => false
     t.integer  "group_id"
+    t.string   "settings",            :limit => 300
+    t.boolean  "hidden",                             :default => false
+    t.integer  "memberships_count",                  :default => 0
   end
 
   add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"
+  add_index "shelves", ["group_id"], :name => "index_shelves_on_group_id"
+  add_index "shelves", ["slug"], :name => "index_shelves_on_slug"
+  add_index "shelves", ["user_id"], :name => "index_shelves_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "user_id"
@@ -261,23 +267,24 @@ ActiveRecord::Schema.define(:version => 20120327113318) do
   add_index "tags", ["slug"], :name => "index_tags_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "name",            :limit => 100
+    t.string   "name",              :limit => 100
     t.string   "email"
-    t.string   "rol",             :limit => 10
+    t.string   "rol",               :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "login_count",                    :default => 0
+    t.integer  "login_count",                      :default => 0
     t.datetime "last_login_at"
-    t.string   "twitter",         :limit => 150
-    t.string   "description",     :limit => 300
-    t.string   "slug",            :limit => 100
-    t.string   "settings",        :limit => 300
+    t.string   "twitter",           :limit => 150
+    t.string   "description",       :limit => 300
+    t.string   "slug",              :limit => 100
+    t.string   "settings",          :limit => 300
     t.string   "password_digest"
     t.string   "uid_twitter"
     t.string   "uid_facebook"
     t.string   "uid_google"
     t.string   "recovery_code"
-    t.boolean  "group",                          :default => false
+    t.boolean  "group",                            :default => false
+    t.integer  "memberships_count",                :default => 0
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

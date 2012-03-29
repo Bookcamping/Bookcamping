@@ -35,7 +35,6 @@ class CampShelvesController < ApplicationController
     else
       camp_shelf.user = current_user
       camp_shelf.camp = current_camp
-      camp_shelf.visibility = :public
       create! [camp_shelf]
     end
     expire_fragment ['camp_shelves_list', current_camp]

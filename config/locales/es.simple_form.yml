@@ -15,6 +15,7 @@ es:
         description: 'Descripción'
         author: 'Autora'
         body: 'Contenido'
+        render_mode: 'Cómo se ven las referencias'
 
       category:
         view_level: 'Quién puede ver las páginas de ésta categoría'
@@ -57,12 +58,21 @@ es:
 
       user_shelf:
         open: '¿Quién puede añadir referencias a esta lista?'
+        hidden: '¿Quién puede ver esta lista?'
+        group_id: 'Colectivo que gestiona esta lista'
 
+      camp_shelf:
+        slug: 'URL'
+        group_id: 'Colectivo que gestiona esta estantería'
 
     hints:
       defaults:
         description: 'Puedes usar markdown'
         body: 'Puedes usar markdown.'
+
+      camp_shelf:
+        slug: 'Es lo que aparece en la URL del navegador. Sólo letras y guiones. Espacios, números o tildes no están permitidos'
+        group_id: 'Las bookcampers de este grupo serán colaboradoras de esta estantería'
 
       category:
         description: 'Tienes 300 caracteres'
@@ -90,6 +100,8 @@ es:
         description: "No tiene límite de espacio, pero intenta ser concisa."
         media: "Un enlace a una imágen de la web, un vídeo de youtube..."
 
+      user_shelf:
+        group_id: 'Las bookcampers de este grupo serán colaboradoras de esta lista'
 
 
 

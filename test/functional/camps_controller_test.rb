@@ -3,6 +3,7 @@ require 'test_helper'
 describe 'Camps controller integration' do
   it "show current camp" do
     camp = create(:camp, name: 'Test camp', host: 'host.cc')
+    login_with camp.user
     visit gocamp_path(camp)
     visit camp_path(camp)
     page.text.must_include camp.name

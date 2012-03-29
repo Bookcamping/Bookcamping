@@ -10,12 +10,14 @@ Bookcamp::Application.routes.draw do
     resources :camp_shelves, path: 'estanterias' do
       resources :shelf_items, path: 'referencias'
       resources :references, path: 'referencia', only: [:show, :new]
+      resources :memberships, path: 'colaboradoras'#, only: [:index, :create, :destroy]
     end
 
     # User Shelves
     resources :user_shelves, path: 'listas' do
       resources :shelf_items, path: 'referencias'
-      resources :shelf_members, path: 'colaboradoras', except: [:show, :update]
+      resources :memberships, path: 'colaboradoras', only: [:index, :create, :destroy]
+      resources :shelf_members, path: 'no', except: [:show, :update]
       resources :references, path: 'referencia', only: [:show, :new]
     end
 
@@ -59,7 +61,7 @@ Bookcamp::Application.routes.draw do
 
     resources :users, path: 'somos' do
       get :search, on: :collection, path: 'buscar'
-      resources :memberships, path: 'colaboradoras', except: [:index, :show]
+      resources :memberships, path: 'colaboradoras', except: [:new, :show, :update]
     end
   end
 

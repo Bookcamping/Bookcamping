@@ -1,8 +1,8 @@
 <div class="header">
   <%= title 'Añadir estantería' %>
-</div>
 <div class="actions">
   <%= link_to 'Volver', camp_shelves_path, class: 'back' %>
+</div>
 </div>
 <% if current_camp.lock_camp_shelves? %>
   <p>Ahora mismo en #bookcamping <strong>estamos discutiendo la idoneidad o
@@ -26,4 +26,7 @@
   <% end %>
 <% else %>
   <%= render 'form' %>
+  <%= content_for :sidebar do %>
+    <%= render 'markdown' %>
+  <% end %>
 <% end %>

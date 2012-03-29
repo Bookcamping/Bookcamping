@@ -23,8 +23,14 @@ es:
 
   shelf:
     open:
-      '0': 'Las propietaria y colaboradoras'
+      '0': 'Sólo las colaboradoras'
       '1': 'Cualquier bookcamper'
+    hidden:
+      '0': 'Cualquier bookcamper'
+      '1': 'Sólo las colaboradoras'
+    render_modes:
+      icons: 'Como iconos'
+      explanations: 'Con explicaciones (visitas guiadas)'
 
   versions:
     events:

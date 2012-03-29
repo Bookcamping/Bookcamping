@@ -5,16 +5,17 @@
   </div>
 </div>
 <%= render_members user.members %>
-<%= title 'Añadir colaboradora' %>
+<% title 'Colaboradoras' %>
 
-<%= form_tag [:new, user, :membership], method: :get do %>
+<h2>Buscar colaboradora para añadir</h2>
+<%= form_tag [user, :memberships], method: :get do %>
   <label>Buscar colaboradora:</label>
   <%= text_field_tag :user_name, search.term %>
   <%= submit_tag 'Buscar', name: 'search_member' %>
 <% end %>
 
 <% if search.term.present? %>
-  <h2>Añadir colaboradoras a esta lista</h2>
+  <h2>Añadir colaboradora</h2>
   <%= content_tag(:div, search.error, class: 'error') if search.error.present? %>
   <table class="table">
     <% search.results.each do |member| %>
@@ -35,4 +36,18 @@
 </table>
 <% end %>
 
+<h2>Eliminar colaboradora</h2>
+
+<table class="table">
+  <% parent.memberships.each do |membership| %>
+    <tr>
+      <td class="actions">
+        <%= link_to 'Borrar', [parent, membership], method: :destroy,
+          confirm: '¿Estás segura?' %>
+      </td>
+      <td><%= link_to_user membership.user %></td>
+      <td><%= membership.user.description %></td>
+    </tr>
+  <% end %>
+</table>
 

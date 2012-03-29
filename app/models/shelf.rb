@@ -5,35 +5,24 @@
 # UserShelf: listas personales
 #
 class Shelf < ActiveRecord::Base
+  # EXTENSIONS
+  has_paper_trail meta: {title: :name, camp_id: :camp_id}
+  include HasGroup
+  include HasMembers
+  store :settings, accessors: [:render_mode]
+
+  # RELATIONS
   belongs_to :camp
   belongs_to :user
   has_many :shelf_items, dependent: :delete_all
   has_many :references, through: :shelf_items
-  has_many :shelf_members, dependent: :delete_all
-  has_many :members, class_name: 'User', through: :shelf_members, source: :user
-
-  # EXTENSIONS
-  has_paper_trail meta: {title: :name, camp_id: :camp_id}
-
-  # SCOPES
-  scope :public, where(visibility: :public)
-  scope :private, where(visibility: :private)
 
   # VALIDATIONS
   validates :user_id, presence: true
   validates :name, presence: true
-  validates :visibility, presence: true
 
   # CALLBACKS
   before_save :clean_slug
-
-  ROLES = []
-  VISIBILITIES = [:private, :public]
-
-  # TODO: deprecate (self.members << user)
-  def add_member(user)
-    ShelfMember.create(shelf_id: self.id, user_id: user.id)
-  end
 
   # TODO: deprecate
   def background
@@ -47,10 +36,6 @@ class Shelf < ActiveRecord::Base
       limited = name.split[0..2].join(' ')
       "#{self.id}-#{limited.parameterize}"
     end
-  end
-
-  def visible_public?
-    false
   end
 
   def add_reference(reference, user = nil)

@@ -3,8 +3,8 @@
   <%= render 'header' %>
   <div class="actions">
     <%= link_to 'Volver', users_path, class: 'back' %>
-    <%= link_to 'Añadir colaboradora', [:new, user, :membership],
-      rel: 'add_membership' if user.group? && can?(:manage, user) %>
+    <%= link_to 'Añadir colaboradora', [user, :memberships],
+      rel: 'memberships' if user.group? && can?(:manage, user) %>
     <%= link_to 'Editar', edit_user_path(user) if can? :edit, user %>
     <%= link_to 'Borrar', user, method: :delete,
       confirm: "NO DEBERÍA HABER RAZÓN PARA HACER ESTO. NO PUEDES DESHACER" if can? :destroy, user %>
@@ -17,22 +17,32 @@
 </div>
 <%= render_members user.members %>
 
-<h2>Últimas referencias añadidas</h2>
-<%= render_references references, '#efefef' %>
-<%#= link_to 'más...'  TODO %>
+<% if user.user_groups.size > 0 %>
+  <h2>En...</h2>
+  <%= render_users user.user_groups %>
+<% end %>
 
-<h2>Listas</h2>
+
+<h2>Colabora en las siguientes listas...</h2>
 <div class="actions">
   <%= link_to 'Añadir lista', new_user_shelf_path if user == current_user %>
 </div>
 <table class="shelves">
-  <% user.user_shelves.each do |shelf| %>
+  <% user.visible_user_shelves.each do |shelf| %>
     <%= render_shelf shelf, shelf %>
   <% end %>
 </table>
 
-<% if current_user and current_user.super? %>
-  <h2>Esto es para tí:</h2>
-  <%= debug user %>
+<% if user.visible_camp_shelves %>
+  <h2>Apadrina las siguientes estanterías...</h2>
+  <table class="shelves">
+    <%= render_shelves user.visible_camp_shelves %>
+  </table>
 <% end %>
 
+<h2>Últimas referencias añadidas</h2>
+<%= render_references references, '#efefef' %>
+<%#= link_to 'más...'  TODO %>
+
+
+<%= simple_debug user %>

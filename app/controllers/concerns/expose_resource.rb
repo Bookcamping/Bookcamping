@@ -30,7 +30,7 @@ module ExposeResource
       expose(exposed_name.to_sym)
 
       define_method :index! do
-        authorize! :read, resource_class
+        authorize! :index, resource_class
       end
 
       define_method :show! do

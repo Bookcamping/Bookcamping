@@ -4,9 +4,17 @@
 </div>
 <h1><%= link_to shelf.name, shelf %></h1>
 <div class="properties">
-  Creada por <%= link_to shelf.user.name, shelf.user %>
-  <% if shelf.updated_at %>
-      y modificada hace <%= time_ago_in_words shelf.updated_at %>
+  Iniciada por <%= link_to shelf.user.name, shelf.user %>.
+  <%= link_to "#{shelf.memberships_count} madrinas.", [shelf, :memberships] %>
+<% if shelf.updated_at %>
+  Modificada hace <%= time_ago_in_words shelf.updated_at %>
+  <% end %>
+</div>
+<div class="description">
+  <% if shelf.open? %>
+    <%= t('.is_open') %>
+  <% else %>
+    <%= link_to t('.not_open'), [shelf, :memberships] %>
   <% end %>
 </div>
 

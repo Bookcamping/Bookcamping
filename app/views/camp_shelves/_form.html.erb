@@ -1,9 +1,10 @@
-  <%= simple_form_for camp_shelf do |form| %>
-    <%= form.input :name %>
-    <%= form.input :slug %>
-    <%= form.input :description %>
-    <%= form.input :color, collection: Color.collection, include_blank: false,
-      input_html: {class: 'color-select'} %>
-    <%= form.submit  %>
-  <% end %>
+<%= simple_form_for camp_shelf do |form| %>
+  <%= form.input :name %>
+  <%= form.input :slug %>
+  <%= form.input :description %>
+  <%= form.input :group_id, collection: User.groups %>
+  <%= form.input :color, collection: Color.collection, include_blank: false,
+    input_html: {class: 'color-select'} %>
+  <%= form.submit  %>
+<% end %>
 

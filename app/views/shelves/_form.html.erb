@@ -1,0 +1,24 @@
+
+<%= simple_form_for user_shelf do |form| %>
+  <%= form.input :name %>
+  <%= form.input :description, as: :text, html: {rows: 10} %>
+
+  <h2>Cómo se ve</h2>
+  <%= form.input :color, collection: Color.collection, include_blank: false,
+    input_html: {class: 'color-select'} %>
+  <%= form.input :render_mode, collection: tc('shelf.render_modes', ['icons', 'explanations']), 
+    include_blank: false %>
+
+  <h2>Colaboradoras y permisos</h2>
+  <% if user_shelf.user %>
+    <p>Iniciada por <%= link_to user_shelf.user.name, user_shelf.user %></p>
+  <% end %>
+  <%= form.input :group_id, collection: User.groups %>
+  <%= form.input :hidden, collection: tc('shelf.hidden', ['0', '1']), 
+    include_blank: false  %>
+
+  <%= form.input :open, collection: tc('shelf.open', ['0', '1']), 
+    include_blank: false  %>
+
+  <%= form.submit  %>
+<% end %>

@@ -2,7 +2,7 @@
   <td>&nbsp;</td>
   <td>&nbsp;</td>
 </tr>
-<tr class="shelf" style="background-color: <%= shelf.background %>;">
+<tr class="shelf" style="<%= shelf_background(shelf) %>;">
   <td class="main">
     <span class="name"><%= link_to shelf.name, shelf_link %></span>
     <% if shelf.type == 'CampShelf' -%>
@@ -11,8 +11,6 @@
     <% else %>
         <span class="user">De&nbsp;<%= link_to shelf.user.name, shelf.user %></span>
     <% end %>
-    <%= '(privada)' if shelf.visibility == 'private' %>
-
   </td>
   <td class="count">
     <%= link_to shelf_link do %>

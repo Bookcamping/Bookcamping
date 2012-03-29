@@ -5,7 +5,7 @@ class Membership < ActiveRecord::Base
   }
 
   # RELATIONS
-  belongs_to :resource, polymorphic: true
+  belongs_to :resource, polymorphic: true, counter_cache: true
   belongs_to :user
 
   # VALIDATIONS
