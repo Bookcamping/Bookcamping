@@ -4,7 +4,7 @@
 <table class="search_results table">
   <% search.results.each do |member| %>
     <% unless parent.member?(member) %>
-      <tr>
+      <tr id="user-<%= member.id %>">
         <td class="actions">
           <% if user %>
             <%= link_to raw('Añadir'), user_memberships_path(parent, member_id: member.id), method: :post %>

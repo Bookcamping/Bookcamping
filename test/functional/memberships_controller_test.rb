@@ -18,7 +18,6 @@ describe 'Memberships controller integration' do
   end
 
   it 'search for non member users' do
-    create(:camp)
     group = create(:user, group: true)
     group.add_member(create(:user, name: 'User 1'))
     owner = create(:user, name: 'User 2')
@@ -32,5 +31,10 @@ describe 'Memberships controller integration' do
     find('.search_results').text.must_include 'User 3'
     find('.search_results').text.wont_include 'User 1'
     find('.search_results').text.wont_include 'User 2'
+  end
+
+  it "groups have memberships" do
+    user = create(:user, group: true)
+    visit user_memberships_path(user)
   end
 end

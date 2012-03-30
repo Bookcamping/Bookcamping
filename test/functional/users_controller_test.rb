@@ -1,15 +1,17 @@
 require 'test_helper'
 
 describe 'Users controller integration' do
-  it "show user" do
+  before do
     create(:camp)
+  end
+
+  it "show user" do
     user = create(:user)
     visit user_path(user)
     page.text.must_include user.name
   end
 
   it "edit and update user profile" do
-    create(:camp)
     user = login_with create(:user)
     visit edit_user_path(user)
     fill_in 'user_name', with: 'User name'
@@ -26,7 +28,6 @@ describe 'Users controller integration' do
   end
 
   it "convert regular user to a group" do
-    create(:camp)
     user = create(:user, group: false)
     login_with(user)
     visit edit_user_path(user)
@@ -36,7 +37,6 @@ describe 'Users controller integration' do
   end
 
   it "create a new group" do
-    create(:camp)
     user = create(:user)
     login_with(user)
     visit user_path(user)
@@ -51,11 +51,9 @@ describe 'Users controller integration' do
   end
 
   it "searches" do
-    create(:camp)
-    create(:user, name: 'Silvink')
     visit users_path
     fill_in 'term', with: 'Sil'
     click_submit 'commit-search-user'
-    page.text.must_include 'Silvink'
+    find('.search-results').text.must_include 'Silvink'
   end
 end

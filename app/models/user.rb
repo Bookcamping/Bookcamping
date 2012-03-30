@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     User.where { id.not_in(ids) }
   end
 
+  def collaborators
+    ids = memberships.map(&:user_id) << id
+    User.where(id: ids)
+  end
 
   # Add reference to my_references_shelf
   def add_reference(reference)
