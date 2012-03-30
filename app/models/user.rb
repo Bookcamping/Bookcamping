@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, uniqueness: true, presence: true, if: :email_required?
 
   # Add reference to my_references_shelf
   def add_reference(reference)
@@ -51,4 +51,8 @@ class User < ActiveRecord::Base
     self.save(:validate => false)
   end
 
+  protected
+  def email_required?
+    self.group == false
+  end
 end

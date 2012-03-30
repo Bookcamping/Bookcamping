@@ -1,0 +1,29 @@
+
+<h2>Añadir colaboradora</h2>
+<%= content_tag(:div, search.error, class: 'error') if search.error.present? %>
+<table class="search_results table">
+  <% search.results.each do |member| %>
+    <% unless parent.member?(member) %>
+      <tr>
+        <td class="actions">
+          <% if user %>
+            <%= link_to raw('Añadir'), user_memberships_path(parent, member_id: member.id), method: :post %>
+          <% elsif camp_shelf %>
+            <%= link_to raw('Añadir'), camp_shelf_memberships_path(parent, member_id: member.id), method: :post %>
+          <% elsif user_shelf %>
+            <%= link_to raw('Añadir'), user_shelf_memberships_path(parent, member_id: member.id), method: :post %>
+          <% end %>
+        </td>
+        <td><%= link_to member do %>
+          <%= avatar_image(member, :small) %>
+          <%= member.name %>
+        <% end %></td>
+      <td><%= member.description %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+<br/>
+<div class="actions">
+  <%= link_to 'Ninguna de ésta, buscar otra', [parent, :memberships] %>
+</div>

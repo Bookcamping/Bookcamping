@@ -4,8 +4,12 @@
 </div>
 <h1><%= link_to shelf.name, shelf %></h1>
 <div class="properties">
-  Iniciada por <%= link_to shelf.user.name, shelf.user %>.
-  <%= link_to "#{shelf.memberships_count} madrinas.", [shelf, :memberships] %>
+  Iniciada por <%= link_to shelf.user.name, shelf.user %>
+  y gestionada por
+  <% if shelf.group.present? %>
+    <%= shelf.group.name %> y
+  <% end %>
+  <%= link_to "#{shelf.memberships_count} más.", [shelf, :memberships] %>
 <% if shelf.updated_at %>
   Modificada hace <%= time_ago_in_words shelf.updated_at %>
   <% end %>

@@ -3,6 +3,10 @@
   <%= title '#bookcamping somos...' %>
   <p class="description">Personas y colectivos que colaboran con 
   #bookcamping</p>
+  <div class="actions">
+    <%= link_to 'Crear colectivo', new_user_path, 
+     rel: 'new-group' if can? :new, User %>
+  </div>
 </div>
 
 <%= render 'search_box' %>

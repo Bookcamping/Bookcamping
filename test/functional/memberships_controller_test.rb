@@ -1,13 +1,20 @@
 require 'test_helper'
 
 describe 'Memberships controller integration' do
-  it 'show members' do
+  before do
     create(:camp)
+  end
+
+  it 'show members' do
+    owner = create(:user, name: 'Owner')
     group = create(:user, group: true)
-    group.add_member(create(:user, name: 'Username'))
-    login_with group
-    visit user_memberships_path(group)
-    page.text.must_include 'Username'
+    group.add_member(create(:user, name: 'Groupr'))
+    list = create(:user_shelf, user: owner, group: group)
+    list.add_member(create(:user, name: 'Collaborator'))
+    visit user_shelf_memberships_path(list)
+    page.text.must_include 'Owner'
+    page.text.must_include 'Groupr'
+    page.text.must_include 'Collaborator'
   end
 
   it 'search for non member users' do

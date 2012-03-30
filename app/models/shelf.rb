@@ -24,11 +24,6 @@ class Shelf < ActiveRecord::Base
   # CALLBACKS
   before_save :clean_slug
 
-  # TODO: deprecate
-  def background
-    color? ? color : '#db533d'
-  end
-
   def to_param
     if slug.present?
       slug.parameterize

@@ -5,58 +5,44 @@
   </div>
 </div>
 
-
-<% if search.term.present? %>
+<% if can? :manage, parent %>
   <h2>Añadir colaboradora</h2>
-  <%= content_tag(:div, search.error, class: 'error') if search.error.present? %>
-  <table class="search_results table">
-    <% search.results.each do |member| %>
-      <% unless parent.member?(member) %>
-        <tr>
-          <td class="actions">
-            <% if user %>
-              <%= link_to raw('Añadir'), user_memberships_path(parent, member_id: member.id), method: :post %>
-            <% elsif camp_shelf %>
-              <%= link_to raw('Añadir'), camp_shelf_memberships_path(parent, member_id: member.id), method: :post %>
-            <% elsif user_shelf %>
-              <%= link_to raw('Añadir'), user_shelf_memberships_path(parent, member_id: member.id), method: :post %>
-            <% end %>
-          </td>
-          <td><%= link_to member do %>
-            <%= avatar_image(member, :small) %>
-            <%= member.name %>
-          <% end %></td>
-        <td><%= member.description %></td>
-      </tr>
-    <% end %>
-  <% end %>
-</table>
-<br/>
-<div class="actions">
-  <%= link_to 'Ninguna de ésta, buscar otra', [parent, :memberships] %>
-</div>
-<% else %>
-  <h2>Buscar colaboradora para añadir</h2>
-  <%= form_tag [parent, :memberships], method: :get do %>
+  <%= form_tag [:new, parent, :membership], method: :get do %>
     <label>Buscar colaboradora:</label>
     <%= text_field_tag :user_name, search.term %>
     <%= submit_tag 'Buscar', name: 'search_member' %>
   <% end %>
+<% end %>
 
-  <h2>Quitar colaboradora</h2>
-  <p>Estas son las colaboradoras que hay actualmente.</p>
-
-  <table class="table">
+<h2>Quién participa</h2>
+<table class="table">
+  <% if parent.respond_to?(:user) && parent.user.present? %>
+    <tr>
+      <td><%= link_to_user parent.user %></td>
+      <td>Inicia '<%= link_to parent.name %>'</td>
+      <td></td>
+    </tr>
+  <% end %>
+  <% if parent.group.present? && parent.group != true %>
+    <% parent.group.members.each do |m| %>
+      <tr>
+        <td><%= link_to_user m %>
+        <td>En el colectivo '<%= link_to parent.group.name, parent.group %>'</td>
+        <td></td>
+      </tr>
+    <% end %>
+  <% end %>
+  <% if parent.memberships.present? %>
     <% parent.memberships.each do |membership| %>
       <tr>
+        <td><%= link_to_user membership.user %></td>
+        <td>Colaboradora</td>
         <td class="actions">
           <%= link_to 'Quitar', [parent, membership], method: :delete,
             confirm: '¿Estás segura?' %>
         </td>
-        <td><%= link_to_user membership.user %></td>
-        <td><%= membership.user.description %></td>
       </tr>
     <% end %>
-  </table>
-<% end %>
+  <% end %>
+</table>
 

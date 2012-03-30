@@ -12,6 +12,7 @@ class Ability
     can(:read, Page) {|page| page.category.viewable?(user) }
     can :read, Publisher
     can :read, Post
+    can :read, Membership
 
     can :read, CampShelf
     can :read, UserShelf
@@ -43,6 +44,10 @@ class Ability
 
       can :manage, Tagging
       can :create, Tag
+
+      can :manage, Membership do |membership|
+        can? :manage, membership.resource
+      end
 
       if user.admin?
         can :manage, Camp

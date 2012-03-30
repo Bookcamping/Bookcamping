@@ -3,7 +3,7 @@
   <%= render 'header' %>
   <div class="actions">
     <%= link_to 'Volver', users_path, class: 'back' %>
-    <%= link_to 'Añadir colaboradora', [user, :memberships],
+    <%= link_to 'Colaboradoras en éste grupo', [user, :memberships],
       rel: 'memberships' if user.group? && can?(:manage, user) %>
     <%= link_to 'Editar', edit_user_path(user) if can? :edit, user %>
     <%= link_to 'Borrar', user, method: :delete,

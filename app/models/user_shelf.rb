@@ -1,15 +1,11 @@
 class UserShelf < Shelf
-  extend FriendlyId
-
-
-  # VALIDATIONS
-  validates :name, uniqueness: true
-
   # EXTENSIONS
+  extend FriendlyId
   has_paper_trail meta: {title: :name, camp_id: :camp_id}
   friendly_id :name, use: :slugged
 
-  extend Shelf::ProfileScopes
+  # VALIDATIONS
+  validates :name, uniqueness: true
 
   # CALLBACKS
   after_create :add_owner_membership
