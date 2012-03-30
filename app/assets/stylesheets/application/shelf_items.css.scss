@@ -1,14 +1,14 @@
-
-div.shelf_management {
-    ul {
-        border-top: 1px solid #efefef;
-        li {
-            margin: 5px 0;
-            padding: 5px;
-            border-bottom: 1px solid #efefef;
-
-            a {color: #ff4932;}
-            a:hover {color: black; background: yellow;}
-        }
-    }
+div.shelf_item {
+  width: 100%;
 }
+
+div.shelf_item.odd {
+  with: 100%; overflow: hidden;
+  .reference {float: right; margin-left: 10px; margin-top: 30px;}
+}
+
+div.shelf_item.even {
+  with: 100%; overflow: hidden;
+  .reference {float: left;}
+}
+

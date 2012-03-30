@@ -57,11 +57,15 @@ es:
         description: 'Escribe por qué debe estar en esta lista'
 
       user_shelf:
+        user_id: '¿Quién inicia esta lista?'
         open: '¿Quién puede añadir referencias a esta lista?'
         hidden: '¿Quién puede ver esta lista?'
         group_id: 'Colectivo que gestiona esta lista'
 
       camp_shelf:
+        user_id: '¿Quién inicia esta estantería?'
+        open: '¿Quién puede añadir referencias a esta estantería?'
+        hidden: '¿Quién puede ver esta estantería?'
         slug: 'URL'
         group_id: 'Colectivo que gestiona esta estantería'
 

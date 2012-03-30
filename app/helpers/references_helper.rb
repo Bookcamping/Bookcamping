@@ -1,6 +1,14 @@
 module ReferencesHelper
+  def render_reference(reference, options = {})
+    locals = options.reverse_merge({reference: reference, 
+                                    background_color: '#efefef'})
+    render partial: 'references/reference', locals: locals
+  end
+
   def render_references(references, background, shelf = nil)
-    render :partial => 'shared/references/references', :locals => {:references => references, :background => background, :shelf => shelf}
+    locals = {references: references, background_color: background, 
+              shelf: shelf, render_mode: shelf.try(:render_mode) }
+    render :partial => 'references/references', locals: locals
   end
 
   def render_reference_item(reference, reference_link, background = 'gray')

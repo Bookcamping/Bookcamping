@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
 
   def user_groups
     unless @user_groups
-      ids = Membership.where(user_id: id, resource_type: 'User').map(&:resource_id)
+      ids = Membership.where(user_id: self.id, resource_type: 'User').map(&:resource_id)
       @user_groups = User.where(id: ids)
     end
     @user_groups

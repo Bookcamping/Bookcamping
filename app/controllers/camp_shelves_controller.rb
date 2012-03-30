@@ -11,6 +11,7 @@ class CampShelvesController < ApplicationController
   expose_resource :camp_shelf
   delegate_resource :shelf, to: :camp_shelf
   expose(:camp_shelves) { parent.camp_shelves }
+  expose(:valid_owners) { current_user.user_groups.all.unshift(current_user) }
 
   def index
   end
@@ -32,7 +33,9 @@ class CampShelvesController < ApplicationController
     if current_camp.lock_camp_shelves? && !current_user.admin?
       redirect_to camp_shelves_path, notice: 'No se pueden crear estanterías'
     else
-      camp_shelf.user = current_user
+      unless valid_owners.include?(camp_shelf.user)
+        camp_shelf.user ||= current_user
+      end
       camp_shelf.camp = current_camp
       create! [camp_shelf]
     end

@@ -1,0 +1,10 @@
+<div class="shelf_items">
+  <% reset_cycle %>
+  <% shelf.shelf_items.each do |item| %>
+    <%= div_for item, class: cycle('even', 'odd') do %>
+      <%= render_reference item.reference, background_color: shelf.color %>
+    <%= markdown item.description %>
+    <% end %> 
+  <% end %> 
+</div>
+

@@ -10,6 +10,7 @@ class Shelf < ActiveRecord::Base
   include HasGroup
   include HasMembers
   store :settings, accessors: [:render_mode]
+  MODES = ['icons', 'explanations']
 
   # RELATIONS
   belongs_to :camp

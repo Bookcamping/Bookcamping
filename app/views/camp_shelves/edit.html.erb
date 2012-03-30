@@ -1,11 +1,11 @@
 <div class="header">
   <%= title "Editar estantería '#{camp_shelf.name}'" %>
-</div>
-<div class="actions">
-  <%= link_to 'Volver', camp_shelves_path, class: 'back' %>
+  <div class="actions">
+    <%= link_to 'Volver', camp_shelves_path, class: 'back' %>
+  </div>
 </div>
 
-<%= render 'form' %>
+<%= render 'shelves/form' %>
 <%= content_for :sidebar do %>
   <%= render 'markdown' %>
 <% end %>

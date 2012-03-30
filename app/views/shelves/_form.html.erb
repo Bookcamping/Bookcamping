@@ -1,17 +1,21 @@
 
-<%= simple_form_for user_shelf do |form| %>
+<%= simple_form_for shelf do |form| %>
+  <h2>Qué</h2>
   <%= form.input :name %>
+  <%= form.input :slug if shelf.class == CampShelf %>
   <%= form.input :description, as: :text, html: {rows: 10} %>
 
-  <h2>Cómo se ve</h2>
+  <h2>Cómo</h2>
   <%= form.input :color, collection: Color.collection, include_blank: false,
     input_html: {class: 'color-select'} %>
-  <%= form.input :render_mode, collection: tc('shelf.render_modes', ['icons', 'explanations']), 
+  <%= form.input :render_mode, collection: tc('shelf.render_modes', Shelf::MODES), 
     include_blank: false %>
 
-  <h2>Colaboradoras y permisos</h2>
-  <% if user_shelf.user %>
-    <p>Iniciada por <%= link_to user_shelf.user.name, user_shelf.user %></p>
+  <h2>Quién</h2>
+  <% if shelf.user %>
+    <p>Iniciada por <%= link_to shelf.user.name, shelf.user %></p>
+  <% else %>
+    <%= form.input :user_id, collection: valid_owners, include_blank: false %>
   <% end %>
   <%= form.input :group_id, collection: User.groups %>
   <%= form.input :hidden, collection: tc('shelf.hidden', ['0', '1']), 
@@ -22,3 +26,4 @@
 
   <%= form.submit  %>
 <% end %>
+<%= simple_debug shelf.errors %>

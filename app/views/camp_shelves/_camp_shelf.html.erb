@@ -1,20 +1,20 @@
 <% present camp_shelf do |presenter| %>
-    <%= div_for camp_shelf, class: 'shelf' do %>
-        <div class="header">
+  <%= div_for camp_shelf, class: 'shelf' do %>
+    <div class="header">
 
-          <%= render partial: 'shelves/header' %>
+      <%= render partial: 'shelves/header' %>
 
-          <div class="actions">
-            <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
-            <%= link_to "Añadir referencia", [:new, camp_shelf, :shelf_item] %>
-            <%= link_to 'Editar estantería', [:edit, camp_shelf] if can? :edit, camp_shelf %>
-            <%= link_to 'Borrar estantería', camp_shelf, method: :delete, class: 'warning',
-                        confirm: "Borrar #{camp_shelf.name} ¡¿Segura?! No se puedes deshacer." if can? :destroy, camp_shelf %>
-          </div>
-        </div>
-        <%= cache camp_shelf do %>
-            <%= presenter.references %>
-        <% end %>
+      <div class="actions">
+        <%= link_to 'Volver', camp_shelves_path, :class => 'back' %>
+        <%= link_to "Añadir referencia", [:new, camp_shelf, :shelf_item] %>
+        <%= link_to 'Editar estantería', [:edit, camp_shelf] if can? :edit, camp_shelf %>
+        <%= link_to 'Borrar estantería', camp_shelf, method: :delete, class: 'warning',
+          confirm: "Borrar #{camp_shelf.name} ¡¿Segura?! No se puedes deshacer." if can? :destroy, camp_shelf %>
+      </div>
+    </div>
+    <%= cache camp_shelf do %>
+      <%= render_references camp_shelf.references, camp_shelf.color, camp_shelf %>
     <% end %>
+  <% end %>
 <% end %>
 <%= simple_debug camp_shelf %>
