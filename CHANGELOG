@@ -1,5 +1,9 @@
 
 30/03/2012
+- El camping se carga utilizando la variable host
+- Bug: un div suelto en el layout
+- Mejorada la carga de tipografías
+- Mejorado el archivo de configuración nginx
 - jquery.hightlight daba problemas. Quitado
 - Las listas tienen tanto grupos como colaboradoras
 - Los grupos no necesitan email

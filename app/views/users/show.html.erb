@@ -10,28 +10,34 @@
       confirm: "NO DEBERÍA HABER RAZÓN PARA HACER ESTO. NO PUEDES DESHACER" if can? :destroy, user %>
     <% if current_user == user %>
       <%= link_to 'Crear colectivo', new_user_path,
-       rel: 'new-group' if can?(:new, user) %>
+        rel: 'new-group' if can?(:new, user) %>
       <%= link_to 'Cerrar sesión', logout_path, class: 'warning' %>
     <% end %>
   </div>
 </div>
-<%= render_members user.members %>
+<% if user.group %>
+  <h2>Participan...</h2>
+  <%= render_users user.members %>
+<% else %>
+  <%= render_members user.members %>
 
-<% if user.user_groups.size > 0 %>
-  <h2>En...</h2>
-  <%= render_users user.user_groups %>
+  <% if user.user_groups.size > 0 %>
+    <h2>En...</h2>
+    <%= render_users user.user_groups %>
+  <% end %>
 <% end %>
 
-
-<h2>Colabora en las siguientes listas...</h2>
-<div class="actions">
-  <%= link_to 'Añadir lista', new_user_shelf_path if user == current_user %>
-</div>
-<table class="shelves">
-  <% user.visible_user_shelves.each do |shelf| %>
-    <%= render_shelf shelf, shelf %>
-  <% end %>
-</table>
+<% if user.visible_user_shelves.size > 0 %>
+  <h2>Colabora en las siguientes listas...</h2>
+  <div class="actions">
+    <%= link_to 'Añadir lista', new_user_shelf_path if user == current_user %>
+  </div>
+  <table class="shelves">
+    <% user.visible_user_shelves.each do |shelf| %>
+      <%= render_shelf shelf, shelf %>
+    <% end %>
+  </table>
+<% end %>
 
 <% if user.visible_camp_shelves %>
   <h2>Apadrina las siguientes estanterías...</h2>
@@ -40,9 +46,10 @@
   </table>
 <% end %>
 
-<h2>Últimas referencias añadidas</h2>
-<%= render_references references, '#efefef' %>
-<%#= link_to 'más...'  TODO %>
-
+<% if references.present? %>
+  <h2>Últimas referencias añadidas</h2>
+  <%= render_references references, '#efefef' %>
+  <%#= link_to 'más...'  TODO %>
+<% end %>
 
 <%= simple_debug user %>

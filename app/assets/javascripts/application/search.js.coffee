@@ -22,5 +22,3 @@ jQuery ->
         search $("div.search input[type=text]").val()
         false
 
-    $("div.search-results").highlight($("#search-term").text());
-

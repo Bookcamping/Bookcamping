@@ -5,15 +5,18 @@ module ApplicationHelper
   end
 
   def renderer
-    options = {hard_wrap: true, autolink: true, fenced_code_blocks: true }
-    @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    unless @renderer
+      options = {hard_wrap: true, autolink: true, fenced_code_blocks: true }
+      @renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    end
+    @renderer
   end
 
   def markdown(text, limit = nil)
-    text = '' if text.blank?
+    text = ' ' if text.blank?
     text = truncate(text, :length => limit) if limit.present?
-    # REMOVED_OPTIONS: :filter_html,
-    content_tag(:div, renderer.render(text).html_safe, :class => 'markdown')
+    rendered = renderer.render(text)
+    content_tag(:div, (rendered+'<br/>').html_safe, :class => 'markdown')
   end
 
   # TRANSLATED COLLECTION

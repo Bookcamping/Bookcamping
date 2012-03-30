@@ -5,28 +5,28 @@
 
 
   <% if can? :manage, CampShelf %>
-      <div class="actions">
-        <%= link_to 'Añadir estantería', new_camp_shelf_path %>
-      </div>
+    <div class="actions">
+      <%= link_to 'Añadir estantería', new_camp_shelf_path %>
+    </div>
   <% end %>
 </div>
 
 <div class="order">
   <%# shelf_order.each do |param, name| %>
-  <%#= link_to_unless shelf_order.current?(param), name, camp_shelves_path(o: param) %>
-  <%# end %>
-</div>
+    <%#= link_to_unless shelf_order.current?(param), name, camp_shelves_path(o: param) %>
+    <%# end %>
+  </div>
 
-<%= cache ['camp_shelves_list', current_camp] do %>
+  <%= cache ['camp_shelves_list', current_camp] do %>
     <%= render_shelves camp_shelves, nil %>
-<% end %>
+  <% end %>
 
 
-<%= content_for(:sidebar) do %>
+  <%= content_for(:sidebar) do %>
     <%= render 'sidebar' %>
     <% if current_camp.id == 1 %>
-        <div id="sidebar_extra">
-          <%= link_to 'Mapa bookcamping', '/mapa', id: 'go-map' %>
+      <div id="sidebar_extra">
+        <%= link_to 'Mapa bookcamping', '/mapa', id: 'go-map' %>
+      </div>
     <% end %>
-    </div>
-<% end %>
+  <% end %>

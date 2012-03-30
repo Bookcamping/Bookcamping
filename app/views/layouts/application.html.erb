@@ -1,66 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield :title %> :: <%= current_camp.name %> </title>
-  <link rel="Shortcut Icon" href="/images/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
+  <head>
+    <title><%= yield :title %> :: <%= current_camp.name %> </title>
+    <link rel="Shortcut Icon" href="/images/ui3/<%= current_camp.name %>-mini.ico" type="image/x-icon"/>
 
-  <link href='http://fonts.googleapis.com/css?family=Kreon:light,bold&v1' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Cousine&v1' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= auto_discovery_link_tag :atom, posts_path(format: :atom) %>
-  <%= auto_discovery_link_tag :rss, posts_path(format: :rss) %>
-</head>
-<body>
-<div id="page">
-  <!-- a id="feedback" href="javascript:UserVoice.showPopupWidget();">Buzón de sugerencias</a-->
-  <div id="notices">
-
-  </div>
-  <div id="flash">
-    <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
-  </div>
+    <link href='http://fonts.googleapis.com/css?family=Kreon:300,700|Cousine' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= auto_discovery_link_tag :atom, posts_path(format: :atom) %>
+    <%= auto_discovery_link_tag :rss, posts_path(format: :rss) %>
+  </head>
+  <body>
+    <div id="page">
+      <div id="flash">
+        <%= content_tag :span, flash[:notice], :class => 'notice' if flash[:notice].present? %>&nbsp;
+      </div>
 
 
-  <%= render 'session' %>
-  <%= render 'banner' %>
-  <div id="main">
-    <% if false and current_publisher %>
-        <%= yield %>
-    <% else %>
-        <div class="container">
-          <div id="center">
-            <%= yield %>
-          </div>
-          <div id="sidebar">
-            <%= yield :sidebar %>
+      <%= render 'session' %>
+      <%= render 'banner' %>
+      <div id="main">
+        <% if false and current_publisher %>
+          <%= yield %>
+        <% else %>
+          <div class="container">
+            <div id="center">
+              <%= yield %>
+            </div><!-- #center -->
+            <div id="sidebar">
+              <%= yield :sidebar %>
+            </div><!-- #sidebar -->
+          </div><!-- .container -->
+        <% end %>
+      </div><!-- #main -->
+      <div id="footer">
+        <div class="bar">
+          <%= link_to 'Agradecimientos enormes', '/agradecimientos' %> |
+          <%= link_to 'Contactar', '/contactar' %> |
+          <%= link_to 'Sobre nosotras', '/nosotras' %>
+          <%= link_to posts_path(format: :atom), class: 'rss' do %>
+            <%= image_tag 'icono_rss.png' %>
+            Suscripción al blog
+          <% end %>
+        </div>
+        <div class="end">
+          <%= link_to 'Colofon', '/colofon', class: 'colofon' %>
+          <div class="license">
+            <%= image_tag 'licencia_bookcamping.png', alt: 'licencia' %>
+            <p>Esta web y todo el material generado por el proyecto #bookcamping
+            está bajo una licencia Creative Commons Reconocimiento - Compartir Igual (by-sa)</p>
           </div>
         </div>
-    <% end %>
-  </div>
-  <div id="footer">
-    <div class="bar">
-      <%= link_to 'Agradecimientos enormes', '/agradecimientos' %> |
-      <%= link_to 'Contactar', '/contactar' %> |
-      <%= link_to 'Sobre nosotras', '/nosotras' %>
-      <%= link_to posts_path(format: :atom), class: 'rss' do %>
-          <%= image_tag 'icono_rss.png' %>
-          Suscripción al blog
-      <% end %>
-    </div>
-    <div class="end">
-      <%= link_to 'Colofon', '/colofon', class: 'colofon' %>
-      <div class="license">
-        <%= image_tag 'licencia_bookcamping.png', alt: 'licencia' %>
-        <p>Esta web y todo el material generado por el proyecto #bookcamping
-          está bajo una licencia Creative Commons Reconocimiento - Compartir Igual (by-sa)</p>
+
       </div>
     </div>
-
-  </div>
-  <%= render 'layouts/js' %>
-  <div style="display:none">(cc) Bookcamping 0.6.5 - 27 marzo 2012</div>
-</div>
-<%= render 'layouts/ga' %>
-</body>
+    <%= render 'layouts/js' %>
+    <div style="display:none">(cc) Bookcamping 0.6.5 - 27 marzo 2012</div>
+    <%= render 'layouts/ga' %>
+  </body>
 </html>

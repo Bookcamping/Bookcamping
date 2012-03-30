@@ -1,3 +1,4 @@
+<% cache ['header', shelf] do %>
 <div class="count" style="color: <%= shelf.color %>;">
   <%= shelf.references_count %> referencias
   <br/>
@@ -7,7 +8,7 @@
   Iniciada por <%= link_to shelf.user.name, shelf.user %>
   y gestionada por
   <% if shelf.group.present? %>
-    <%= shelf.group.name %> y
+    <%= link_to shelf.group.name, shelf.group %> y
   <% end %>
   <%= link_to "#{shelf.memberships_count} más.", [shelf, :memberships] %>
 </div>
@@ -18,4 +19,4 @@
     <%= link_to t('.not_open'), [shelf, :memberships] %>
   <% end %>
 </div>
-
+<% end %>
