@@ -4,7 +4,6 @@ puts = (text) -> console.log(text)
 class ReferenceSelector
 
   constructor: ->
-    console.log ('vamos')
     @button = $('a.select-references')
     @container = $('div.books.container')
     @main = $('div#selection')
