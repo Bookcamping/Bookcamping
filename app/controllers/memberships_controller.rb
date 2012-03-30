@@ -5,7 +5,9 @@ class MembershipsController < ApplicationController
   expose(:camp_shelf) { CampShelf.find(params[:camp_shelf_id]) if params[:camp_shelf_id] }
   expose(:user_shelf) { UserShelf.find(params[:user_shelf_id]) if params[:user_shelf_id] }
   expose(:parent) { user || (camp_shelf || user_shelf) }
-  expose(:search) { Search.new(:users, User.reorder('last_login_at DESC'), params[:user_name]) }
+
+  expose(:search_scope) { User.not_collaborators(parent).reorder('last_login_at DESC') }
+  expose(:search) { Search.new(:users, search_scope, params[:user_name]) }
   expose(:member) { User.find params[:member_id] }
   expose_resource :membership
   expose(:memberships) { parent.memberships }

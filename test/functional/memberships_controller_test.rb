@@ -21,13 +21,16 @@ describe 'Memberships controller integration' do
     create(:camp)
     group = create(:user, group: true)
     group.add_member(create(:user, name: 'User 1'))
-    create(:user, name: 'User 2')
+    owner = create(:user, name: 'User 2')
+    shelf = create(:user_shelf, user: owner, group: group)
+    create(:user, name: 'User 3')
 
-    login_with group
-    visit user_memberships_path(group)
+    login_with shelf.user
+    visit user_shelf_memberships_path(shelf)
     fill_in 'user_name', with: 'User'
     click_submit 'search_member'
-    find('.search_results').text.must_include 'User 2'
+    find('.search_results').text.must_include 'User 3'
     find('.search_results').text.wont_include 'User 1'
+    find('.search_results').text.wont_include 'User 2'
   end
 end

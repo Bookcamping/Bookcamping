@@ -1,21 +1,36 @@
+require 'test_helper'
 
-module ShelfTest
-  def test_that_shelf_always_have_user_and_name
-    shelf.user.must_be :present?
+describe Shelf do
+  it "requires name and user" do
+    shelf = create(:shelf)
     shelf.name.must_be :present?
+    shelf.user.must_be :present?
   end
 
-  def test_that_shelf_create_versions
-    shelf
-    version = Version.last
-    version.must_be :present?
-    version.title.must_equal shelf.name
-    version.camp_id.must_equal shelf.camp_id
+  it "create versions" do
+    shelf = create(:shelf)
+    v = Version.last
+    v.item_type.must_equal 'Shelf'
+    v.item_id.must_equal shelf.id
   end
 
-  def test_that_shelf_have_members
-    total = shelf.members.count
-    shelf.members << create(:user)
-    shelf.members.count.must_equal total + 1
+  it "have members" do
+    shelf = create(:shelf)
+    shelf.add_member(create(:user))
+    shelf.memberships.count.must_equal 1
+  end
+
+  it "have collaborators" do
+    group = create(:user, group: true)
+    group.add_member(create(:user, name: 'group-user'))
+    shelf = create(:shelf, group: group)
+    shelf.add_member(create(:user, name: 'collaborator'))
+
+    c = shelf.collaborators.map(&:id)
+    c.size.must_equal 3
+    c.must_include shelf.user.id
+    c.must_include group.members.first.id
+    c.must_include shelf.members.first.id
   end
 end
+

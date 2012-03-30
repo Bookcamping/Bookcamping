@@ -26,6 +26,13 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :email, uniqueness: true, presence: true, if: :email_required?
 
+  # Not collaborators scoped (see MembershipsController)
+  def self.not_collaborators(model)
+    ids = model.collaborators.map(&:id)
+    User.where { id.not_in(ids) }
+  end
+
+
   # Add reference to my_references_shelf
   def add_reference(reference)
     reference.user = self

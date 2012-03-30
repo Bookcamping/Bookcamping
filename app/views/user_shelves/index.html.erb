@@ -7,14 +7,18 @@
 
 <table class="shelves">
   <% user_shelves.each do |shelf| %>
-      <%= tr_for_shelf shelf do %>
-          <span class="name"><%= link_to shelf.name, shelf %></span>
-          <span class="user">Por <%= link_to shelf.user.name, shelf.user %> y <%= shelf.shelf_members_count - 1 %> más.</span>
-      <% end %>
+    <%= tr_for_shelf shelf do %>
+      <span class="name"><%= link_to shelf.name, shelf %></span>
+      <span class="user">Por 
+        <%= link_to shelf.user.name, shelf.user %><% if shelf.group && shelf.user != shelf.group %>,
+        <%= link_to shelf.group.name, shelf.group %>
+    <% end %> 
+    y <%= link_to "#{shelf.memberships_count} más", [shelf, :memberships] %></span>
+<% end %>
   <% end %>
 </table>
 
 <% content_for :nosidebar do %>
-    <div class="info">Las listas compartidas</div>
-    <%= image_tag 'dedo-vertical.png', width: 60, height: 88, id: 'dedo-vertical' %>
+  <div class="info">Las listas compartidas</div>
+  <%= image_tag 'dedo-vertical.png', width: 60, height: 88, id: 'dedo-vertical' %>
 <% end %>

@@ -21,26 +21,17 @@ class Shelf < ActiveRecord::Base
   validates :user_id, presence: true
   validates :name, presence: true
 
-  # CALLBACKS
-  before_save :clean_slug
-
-  def to_param
-    if slug.present?
-      slug.parameterize
-    else
-      limited = name.split[0..2].join(' ')
-      "#{self.id}-#{limited.parameterize}"
-    end
-  end
-
   def add_reference(reference, user = nil)
     user ||= reference.user
     add_reference_id(reference.id, user.id)
   end
 
-  protected
-  def clean_slug
-    self.slug = self.slug.parameterize if self.slug.present?
+  def collaborators
+    memberships = Membership.where do
+      (resource_type == 'Shelf' && resource_id == my{id})
+    end
+    ids = memberships.map(&:user_id) << self.user_id
+    User.where(id: ids)
   end
   
   def add_reference_id(id, user_id)
