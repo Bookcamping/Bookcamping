@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   expose(:persons) { User.persons.order('last_login_at DESC').limit(48) }
   expose(:groups) { User.groups }
 
-  expose(:shelf_order) { Shelf::Order.new(params[:o]) }
-  expose(:shelves) { shelf_order.order user.shelves.public }
+  expose(:shelves) { user.shelves.public }
   expose(:search) { Search.new(:users, users, params[:term]) }
 
   def index

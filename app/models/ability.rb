@@ -40,7 +40,6 @@ class Ability
       can :manage, UserShelf, user_id: user.id
 
       can(:manage, ShelfItem) {|item| can? :add_to, item.shelf }
-      can(:manage, ShelfMember) {|member| can? :manage, member.shelf }
 
       can :manage, Tagging
       can :create, Tag
@@ -61,7 +60,6 @@ class Ability
         can :manage, UserShelf
         can :manage, Post
         can :manage, MediaBite
-        can :manage, ShelfMember
       end
 
       if user.super?
