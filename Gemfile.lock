@@ -39,7 +39,7 @@ GEM
     bcrypt-ruby (3.0.1-java)
     builder (3.0.0)
     cancan (1.6.7)
-    capistrano (2.9.0)
+    capistrano (2.11.2)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -94,7 +94,7 @@ GEM
     formatador (0.2.1)
     friendly_id (4.0.0)
     hashie (1.2.0)
-    highline (1.6.9)
+    highline (1.6.11)
     hike (1.2.1)
     hoptoad_notifier (2.4.11)
       activesupport
@@ -253,7 +253,7 @@ DEPENDENCIES
   capistrano
   capybara
   carrierwave
-  coffee-rails (~> 3.2.1)
+  coffee-rails (~> 3.2)
   database_cleaner
   decent_exposure
   factory_girl_rails
@@ -274,10 +274,10 @@ DEPENDENCIES
   redcarpet
   rmagick
   ruby-debug19
-  sass-rails (~> 3.2.3)
+  sass-rails (~> 3.2)
   simple_form
   sqlite3
   squeel
   turn
-  uglifier (>= 1.0.3)
+  uglifier (>= 1.0)
   unicorn
