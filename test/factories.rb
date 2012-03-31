@@ -22,7 +22,7 @@ FactoryGirl.define do
     user
     camp_id 1
     license
-    title 'Reference'
+    sequence(:title) {|n| "Reference #{n}" }
     ref_type 'Book'
   end
 

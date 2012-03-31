@@ -4,7 +4,7 @@ class ReferencesController < ApplicationController
 
   expose(:current_camp) { params[:id].present? ? reference.camp : load_camp_from_request }
 
-  expose(:search) { Search.new(:references, current_camp.references, params[:term]) }
+  expose(:search) { Search.new(:references, Reference.scoped, params[:term]) }
   expose(:shelf) { find_parent_shelf }
   expose_resource :reference
   expose(:references) { shelf.present? ? shelf.references : Reference.scoped }
