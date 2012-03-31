@@ -39,10 +39,10 @@
   </table>
 <% end %>
 
-<% if user.visible_camp_shelves %>
+<% if user.my_camp_shelves.present? %>
   <h2>Apadrina las siguientes estanterías...</h2>
   <table class="shelves">
-    <%= render_shelves user.visible_camp_shelves %>
+    <%= render_shelves user.my_camp_shelves %>
   </table>
 <% end %>
 

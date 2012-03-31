@@ -9,6 +9,10 @@ module UserMemberships
     my_shelves_scoped_by(UserShelf)
   end
 
+  def my_camp_shelves
+    my_shelves_scoped_by(CampShelf)
+  end
+
   def visible_camp_shelves
     visible_shelves_scoped_by(CampShelf)
   end

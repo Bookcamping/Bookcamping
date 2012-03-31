@@ -17,12 +17,14 @@ describe 'Users controller integration' do
 
   it "show user user_shelves" do
     user = create(:user)
+    shelf = create(:user_shelf)
     owned = create(:user_shelf, user: user)
     shared = create(:user_shelf)
     shared.add_member(user)
 
     visit user_path(user)
-    page.text.must_include owner.name
+    page.text.wont_include shelf.name
+    page.text.must_include owned.name
     page.text.must_include shared.name
   end
 

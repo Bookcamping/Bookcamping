@@ -9,6 +9,12 @@ describe UserMemberships do
     user.owned_memberships.last.resource.must_equal shelf
   end
 
+  it "can't access not owned shelves" do
+    user = create(:user)
+    shelf = create(:user_shelf)
+    user.my_user_shelves.wont_include shelf
+  end
+
   it "access owned shelves" do
     user = create(:user)
     visible = create(:user_shelf, user: user, hidden: false)
