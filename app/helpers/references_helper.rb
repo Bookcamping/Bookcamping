@@ -6,14 +6,14 @@ module ReferencesHelper
   end
 
   def render_references(references, background, shelf = nil)
-    locals = {references: references, background_color: background, 
+    locals = {references: references, background_color: background,
               shelf: shelf, render_mode: shelf.try(:render_mode) }
     render :partial => 'references/references', locals: locals
   end
 
   def render_reference_item(reference, reference_link, background = 'gray')
     render partial: 'shared/references/reference_item', locals:
-        {reference: reference, reference_link: reference_link, background_color: background}
+      {reference: reference, reference_link: reference_link, background_color: background}
   end
 
   def license_type_icon(reference)

@@ -17,6 +17,7 @@
       <% end %>
     </div>
     <% if shelf.render_mode == 'explanations' %>
+      <%= markdown shelf.description %>
       <%= render_shelf_items shelf %>
     <% else %>
       <%= render_references user_shelf.references, user_shelf.color, user_shelf %>

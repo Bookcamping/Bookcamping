@@ -1,9 +1,15 @@
 <div class="shelf_items">
   <% reset_cycle %>
   <% shelf.shelf_items.each do |item| %>
+      <% if can? :edit, item %>
+        <div class="actions">
+          <%= link_to 'Editar', [:edit, shelf, item] %>
+        </div>
+      <% end %> 
     <%= div_for item, class: cycle('even', 'odd') do %>
-      <%= render_reference item.reference, background_color: shelf.color %>
-    <%= markdown item.description %>
+      <%= render_reference item.reference, shelf: shelf, 
+        background_color: shelf.color %>
+      <%= markdown item.description %>
     <% end %> 
   <% end %> 
 </div>

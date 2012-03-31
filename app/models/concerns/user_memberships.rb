@@ -23,12 +23,20 @@ module UserMemberships
 
   private
   def my_shelves_scoped_by(scope)
-    ids = Membership.where(resource_type: 'Shelf', user_id: id).map(&:resource_id)
-    scope.where { user_id.eq(my{id}) | id.in(ids) }
+    if admin?
+      scope.scoped
+    else
+      ids = Membership.where(resource_type: 'Shelf', user_id: id).map(&:resource_id)
+      scope.where { user_id.eq(my{id}) | id.in(ids) }
+    end
   end
 
   def visible_shelves_scoped_by(scope)
-    ids = Membership.where(resource_type: 'Shelf', user_id: id).map(&:resource_id)
-    scope.where { hidden.eq(false) | user_id.eq(my{id}) }
+    if admin?
+      scope.scoped
+    else
+      ids = Membership.where(resource_type: 'Shelf', user_id: id).map(&:resource_id)
+      scope.where { hidden.eq(false) | user_id.eq(my{id}) }
+    end
   end
 end

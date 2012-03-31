@@ -1,6 +1,6 @@
 <%= content_for :sidebar do %>
   <div data-pjax-container>
-    <% if shelf.description? %>
+    <% if shelf.description? && shelf.render_mode == 'icons' %>
       <h2><%= shelf.name %></h2>
       <div class="description">
         <%= markdown shelf.description %>

@@ -9,6 +9,12 @@ describe UserMemberships do
     user.owned_memberships.last.resource.must_equal shelf
   end
 
+  it "can access all if admin" do
+    user = create(:user, rol: 'admin')
+    shelf = create(:user_shelf, hidden: true)
+    user.my_user_shelves.must_include shelf
+  end
+
   it "can't access not owned shelves" do
     user = create(:user)
     shelf = create(:user_shelf)
