@@ -6,6 +6,7 @@ class Ability
 
     can :read, Camp, closed: false
     can :read, User
+    can :create, User
     can :read, Reference
     can :read, License
     can(:read, Category) {|category| category.viewable?(user) }
