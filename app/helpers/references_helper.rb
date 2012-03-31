@@ -1,6 +1,6 @@
 module ReferencesHelper
   def render_reference(reference, options = {})
-    locals = options.reverse_merge({reference: reference, 
+    locals = options.reverse_merge({reference: reference, shelf: nil,
                                     background_color: '#efefef'})
     render partial: 'references/reference', locals: locals
   end

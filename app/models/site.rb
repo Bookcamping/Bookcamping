@@ -3,6 +3,10 @@ class Site
     '#bookcamping'
   end
 
+  def visible_user_shelves
+    UserShelf.where(hidden: false)
+  end
+
   def camp_shelves(orderer = nil)
     orderer ? orderer.order_by(CampShelf.scoped) : CampShelf.scoped
   end

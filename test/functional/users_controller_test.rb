@@ -7,8 +7,23 @@ describe 'Users controller integration' do
 
   it "show user" do
     user = create(:user)
+    my_ref = create(:reference)
+    user.add_reference(my_ref)
+
     visit user_path(user)
     page.text.must_include user.name
+    page.text.must_include my_ref.title
+  end
+
+  it "show user user_shelves" do
+    user = create(:user)
+    owned = create(:user_shelf, user: user)
+    shared = create(:user_shelf)
+    shared.add_member(user)
+
+    visit user_path(user)
+    page.text.must_include owner.name
+    page.text.must_include shared.name
   end
 
   it "edit and update user profile" do

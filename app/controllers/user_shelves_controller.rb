@@ -5,7 +5,8 @@ class UserShelvesController < ApplicationController
   expose_resource :user_shelf
   delegate_resource :shelf, to: :user_shelf
 
-  expose(:user_shelves) { UserShelf.order('updated_at DESC') }
+  expose(:parent) { current_user || Site.new }
+  expose(:user_shelves) { parent.visible_user_shelves.order('updated_at DESC') }
   expose(:user_shelf)
 
   def index

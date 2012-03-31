@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe UserMemberships do
-  it "list memberships" do
+  it "has owned memberships" do
     user = create(:user)
     shelf = create(:shelf)
     shelf.add_member(user)
@@ -9,22 +9,37 @@ describe UserMemberships do
     user.owned_memberships.last.resource.must_equal shelf
   end
 
-  it "has visible shelves" do
+  it "access owned shelves" do
     user = create(:user)
-    create(:camp_shelf, user: user)
-    create(:user_shelf, user: user)
-    create(:camp_shelf).add_member(user)
-    create(:user_shelf).add_member(user)
-    cs_ids = user.visible_camp_shelves.all.map(&:id)
-    cs_ids.must_include 1
-    cs_ids.must_include 3
-    cs_ids.wont_include 2
-    cs_ids.wont_include 4
-
-    us_ids = user.visible_user_shelves.all.map(&:id)
-    us_ids.must_include 2
-    us_ids.must_include 4
-    us_ids.wont_include 1
-    us_ids.wont_include 3
+    visible = create(:user_shelf, user: user, hidden: false)
+    hidden = create(:user_shelf, user: user, hidden: true)
+    shelves = user.my_user_shelves
+    shelves.must_include visible
+    shelves.must_include hidden
   end
+
+  it "access collaborated shelves" do
+    user = create(:user)
+    shelf = create(:user_shelf)
+    shelf.add_member(user)
+    shelves = user.my_user_shelves
+    shelves.must_include shelf
+  end
+
+  it "access visible shelves" do
+    user = create(:user)
+    visible = create(:user_shelf, hidden: false)
+    hidden = create(:user_shelf, hidden: true)
+    shelves = user.visible_user_shelves
+    shelves.must_include visible
+    shelves.wont_include hidden
+  end
+
+  it "access hidden shelves if owned" do
+    user = create(:user)
+    hidden = create(:user_shelf, hidden: true, user: user)
+    shelves = user.visible_user_shelves
+    shelves.must_include hidden
+  end
+
 end
