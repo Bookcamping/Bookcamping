@@ -3,6 +3,7 @@
   <div class="actions">
     <%= link_to 'Volver', root_path, class: 'back' %>
     <%= link_to 'Nueva acampada', new_camp_path if can?(:new, Camp) %>
+    <%= link_to 'Gestionar colores', colors_path if can? :manage, Color %>
   </div>
 </div>
 
@@ -10,6 +11,8 @@
   <% camps.each do |camp| %>
     <tr>
       <td><%= link_to camp.name, camp %></td>
+      <td><%= link_to camp.host, "http://#{camp.host}" %></td>
+      <td><%= link_to camp.group.name, camp.group if camp.group.present? %></td>
       <td class="actions">
         <%= link_to 'Editar', [:edit, camp] %>
       </td>

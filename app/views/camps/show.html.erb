@@ -5,6 +5,7 @@
   <%= markdown camp.description %>
 </div>
   <div class="actions">
+    <%= link_to 'Volver', camps_path, class: 'back' %>
     <%= link_to 'Editar', edit_camp_path(camp), 
       rel: 'edit-camp' if can? :edit, camp %>
   </div>

@@ -29,4 +29,14 @@ namespace :bookcamping do
       puts "User with id #{id} not found"
     end
   end
+
+  task normalize_camp_shelves: :environment do
+    ActiveRecord::Base.record_timestamps = false
+    CampShelf.all.each do |shelf|
+      shelf.group = shelf.camp.group
+      shelf.open = true
+      puts "Saved #{shelf.save}: #{shelf.name} (#{shelf.group_id})"
+      puts "#{shelf.inspect}"
+    end
+  end
 end
