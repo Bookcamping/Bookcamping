@@ -34,11 +34,11 @@ class Reference < ActiveRecord::Base
   attr_accessor :include_in_shelf_id
 
   # VALIDATIONS
-  validates :user_id, :presence => true
-  validates :camp_id, :presence => true
-  validates :title, :presence => true
-  validates :license_id, :presence => true
-  validates :ref_type, :presence => true
+  validates :user_id, presence: true
+  validates :camp_id, presence: true
+  validates :title, presence: true, uniqueness: true
+  validates :license_id, presence: true
+  validates :ref_type, presence: true
   # validates :include_in_shelf_id, presence: true, on: :create
 
   REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']

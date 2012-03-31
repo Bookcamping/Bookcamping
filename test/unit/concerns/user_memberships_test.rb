@@ -9,19 +9,25 @@ describe UserMemberships do
     user.owned_memberships.last.resource.must_equal shelf
   end
 
-  it "can access all if admin" do
+  it "visible_shelves include all if admin" do
     user = create(:user, rol: 'admin')
     shelf = create(:user_shelf, hidden: true)
-    user.my_user_shelves.must_include shelf
+    user.visible_user_shelves.must_include shelf
   end
 
-  it "can't access not owned shelves" do
+  it "my_shelves include group shelves" do
+    user = create(:user, group: true)
+    grouped = create(:user_shelf, group: user)
+    user.my_user_shelves.must_include grouped
+  end
+
+  it "my_shelves doesn't include other's shelves" do
     user = create(:user)
     shelf = create(:user_shelf)
     user.my_user_shelves.wont_include shelf
   end
 
-  it "access owned shelves" do
+  it "my_shelves include owned shelves" do
     user = create(:user)
     visible = create(:user_shelf, user: user, hidden: false)
     hidden = create(:user_shelf, user: user, hidden: true)
