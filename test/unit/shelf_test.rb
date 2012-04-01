@@ -21,16 +21,19 @@ describe Shelf do
   end
 
   it "have collaborators" do
-    group = create(:user, group: true)
-    group.add_member(create(:user, name: 'group-user'))
-    shelf = create(:shelf, group: group)
-    shelf.add_member(create(:user, name: 'collaborator'))
+    owner = create(:user, name: 'owner')
+    group = create(:user, group: true, name: 'group')
+    group_member = create(:user, name: 'member')
+    group.add_member(group_member)
+    shelf = create(:shelf, user: owner, group: group)
+    shelf_member = create(:user, name: 'collab')
+    shelf.add_member(shelf_member)
 
-    c = shelf.collaborators.map(&:id)
+    c = shelf.collaborators
     c.size.must_equal 3
-    c.must_include shelf.user.id
-    c.must_include group.members.first.id
-    c.must_include shelf.members.first.id
+    c.must_include owner
+    c.must_include group_member
+    c.must_include shelf_member
   end
 end
 

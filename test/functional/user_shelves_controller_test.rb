@@ -25,4 +25,13 @@ describe "User shelves controller integration" do
     page.text.must_include 'Group'
     page.text.must_include '1 más'
   end
+
+  it "collaborators can add reference" do
+    user = create(:user)
+    group = create(:user, group: true)
+    group.add_member(user)
+    shelf = create(:user_shelf, group: group)
+    visit user_shelf_path(shelf)
+    page.find('a[rel=add-reference]').click
+  end
 end

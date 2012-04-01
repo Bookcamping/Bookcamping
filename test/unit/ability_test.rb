@@ -19,6 +19,13 @@ describe "Ability with user" do
     @ab = Ability.new(@user)
   end
 
+  it "can add_to UserShelf if collaborator" do
+    group = create(:user, group: true)
+    group.add_member(@user)
+    shelf = create(:user_shelf, group: group)
+    @ab.can?(:add_to, shelf).must_equal true
+  end
+
   it "update Camp if owner" do
     camp = create(:camp, user: @user)
     @ab.can?(:update, camp).must_equal true

@@ -29,12 +29,13 @@ class Shelf < ActiveRecord::Base
 
   def collaborators
     memberships = Membership.where do
-      (resource_type == 'Shelf' && resource_id == my{id})
+      (resource_type == 'Shelf' && resource_id == my{id}) |
+        (resource_type == 'User' && resource_id == my{group_id} )
     end
     ids = memberships.map(&:user_id) << self.user_id
     User.where(id: ids)
   end
-  
+
   def add_reference_id(id, user_id)
     PaperTrail.enabled = false
     unless ShelfItem.where(shelf_id: self.id).where(reference_id: id).first

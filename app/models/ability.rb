@@ -36,8 +36,11 @@ class Ability
       can(:update, Page) {|page| page.category.editable?(user) }
 
       can :add_to, CampShelf
+
       can :create, UserShelf
-      can(:add_to, UserShelf) {|shelf| shelf.open? or shelf.members.include?(user)}
+      can(:add_to, UserShelf) do |shelf|
+        shelf.open? or shelf.members.include?(user) or shelf.collaborators.include?(user)
+      end
       can :manage, UserShelf, user_id: user.id
 
       can(:manage, ShelfItem) {|item| can? :add_to, item.shelf }

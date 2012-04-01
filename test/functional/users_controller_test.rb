@@ -15,6 +15,19 @@ describe 'Users controller integration' do
     page.text.must_include my_ref.title
   end
 
+  it "create new user" do
+    login_with nil
+    visit new_user_path
+    fill_in 'user_name', with: 'NewUser'
+    fill_in 'user_email', with: 'newuser@example.com'
+    fill_in 'user_password', with: 'secret'
+    fill_in 'user_password_confirmation', with: 'secret'
+    click_submit
+    u = User.last
+    u.name.must_equal 'NewUser'
+    u.email.must_equal 'newuser@example.com'
+  end
+
   it "show user user_shelves" do
     user = create(:user)
     shelf = create(:user_shelf)
@@ -68,9 +81,11 @@ describe 'Users controller integration' do
   end
 
   it "searches" do
+    create(:user, name: 'Silvink')
     visit users_path
     fill_in 'term', with: 'Sil'
     click_submit 'commit-search-user'
     find('.search-results').text.must_include 'Silvink'
+    puts find('.search-results').text
   end
 end
