@@ -85,7 +85,7 @@ describe 'Users controller integration' do
     visit users_path
     fill_in 'term', with: 'Sil'
     click_submit 'commit-search-user'
+    puts page.text
     find('.search-results').text.must_include 'Silvink'
-    puts find('.search-results').text
   end
 end

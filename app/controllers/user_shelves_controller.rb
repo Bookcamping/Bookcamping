@@ -8,6 +8,7 @@ class UserShelvesController < ApplicationController
   expose(:parent) { current_user || Site.new }
   expose(:user_shelves) { parent.visible_user_shelves.order('updated_at DESC') }
   expose(:user_shelf)
+  expose(:valid_owners) { current_user.user_groups.all.unshift(current_user) }
 
   def index
     index!

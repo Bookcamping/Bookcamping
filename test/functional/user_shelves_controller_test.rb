@@ -26,6 +26,17 @@ describe "User shelves controller integration" do
     page.text.must_include '1 más'
   end
 
+  it "can create a new shelf" do
+    user = create(:user)
+    login_with user
+    visit new_user_shelf_path
+    fill_in 'user_shelf_name', with: 'Lista'
+    click_submit
+    shelf = UserShelf.last
+    shelf.name.must_equal 'Lista'
+    shelf.user.must_equal user
+  end
+
   it "collaborators can add reference" do
     user = create(:user)
     group = create(:user, group: true)
