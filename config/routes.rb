@@ -21,7 +21,7 @@ Bookcamp::Application.routes.draw do
     end
 
     # References
-    resources :references, path: 'referencia' do
+    resources :references, path: 'referencia', except: [:index] do
       scope module: 'references' do
         resources :comments, only: [:create]
         resources :shelf_items, path: 'listas'

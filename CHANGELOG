@@ -1,4 +1,7 @@
 
+6/04/2012
+- El index de references no es una ruta válida (bug fix)
+
 5/04/2012
 - Actualizar algunas gemas
 - Resolver bug: no se podían crear user shelves
