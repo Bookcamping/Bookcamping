@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410095205) do
+ActiveRecord::Schema.define(:version => 20120410103417) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(:version => 20120410095205) do
     t.string   "archive_slug",   :limit => 100
     t.integer  "group_id"
     t.boolean  "open",                           :default => true
+    t.string   "cover_image",    :limit => 300
   end
 
   add_index "references", ["camp_id"], :name => "index_books_on_camp_id"

@@ -18,7 +18,7 @@ module ReferencesHelper
 
   def license_type_icon(reference)
     name = reference.license.license_type
-    image_tag("/images/ui3/license_icons/#{name}.png", :class => 'license-type')
+    image_tag("license_icons/#{name}.png", :class => 'license-type')
   end
 
 

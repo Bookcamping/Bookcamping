@@ -12,6 +12,7 @@
   <%= form.input :avatar %>
   <%= form.input :twitter %>
   <%= form.input :description, as: :text, row: 2 %>
+  <%= form.input :uploader?, as: :boolean if current_user.admin? %>
   <%= form.submit 'Guardar perfil', name: 'commit-profile' %>
   <%= simple_debug user.errors if user.errors.present? %>
 <% end %>

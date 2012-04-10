@@ -21,6 +21,7 @@
         <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no enlaces el archivo, limítate a hacer la referencia/reseña. ¡Gracias!</p>
     </div>
     <%= form.input :media %>
+    <%= form.input :cover_image if current_user.uploader? %>
     <%= form.input :description, :as => :text %>
     <%= form.submit 'Guardar' %>
 <% end %>

@@ -59,12 +59,14 @@ es:
         date: "Fecha"
         media: "Imágen / Vídeo / Audio"
         license: "Licencia"
+        cover_image: 'Portada'
 
       shelf_item:
         description: 'Escribe por qué debe estar en esta lista'
 
       user:
         avatar: 'Imágen'
+        uploader?: 'Esta colaboradora puede subir portadas a las referencias'
 
       user_shelf:
         user_id: '¿Quién inicia esta lista?'

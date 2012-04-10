@@ -54,6 +54,7 @@ class Ability
 
       if user.admin?
         can :manage, Camp
+        can :manage, Reference
         can :update, User
         can :manage, License
         can :manage, Category

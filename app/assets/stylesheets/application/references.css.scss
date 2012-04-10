@@ -16,7 +16,7 @@ div[data-pjax-container] {
     }
     div.social {margin-top:10px;}
 
-    img.cover {width: 100%;}
+    img.cover-icon {width: 100%;}
   }
 }
 
@@ -48,6 +48,12 @@ div.reference {
 div.references, div.shelf_item {
   width: 700px;
 
+  div.reference.cover-image {
+    div.emblems {
+      background-color: black;
+    }
+  }
+
   div.reference {
     float: left;
     width: 121px;
@@ -78,13 +84,13 @@ div.references, div.shelf_item {
         margin: 0;
       }
 
-      div.cover, div.emblems {
+      div.cover-icon, div.emblems {
         position: absolute;
         padding: 0;
         overflow: hidden;
       }
 
-      div.cover {
+      div.cover-icon {
         left: 4px;
         top: 15px;
         right: 25px;
@@ -112,16 +118,16 @@ div.references, div.shelf_item {
   }
 
   div.Book {
-    background: image_url('icono_referencia_libro.png') no-repeat;
+    background: image_url('../icono_referencia_libro.png') no-repeat;
   }
 
   div.WebPage {
-    background: image_url('icono_referencia_blog.png') no-repeat;
+    background: image_url('../icono_referencia_blog.png') no-repeat;
   }
 
   div.Audio {
-    background: image_url('icono_referencia_audio.png') no-repeat;
-    div.content div.cover {
+    background: image_url('../icono_referencia_audio.png') no-repeat;
+    div.content div.cover-icon {
       top: 4px;
       left: 6px;
     }
@@ -132,8 +138,8 @@ div.references, div.shelf_item {
   }
 
   div.Video {
-    background: image_url('icono_referencia_video.png') no-repeat;
-    div.content div.cover {
+    background: image_url('../icono_referencia_video.png') no-repeat;
+    div.content div.cover-icon {
       left: 30px;
       top: 0px;
       height: 100px;
@@ -153,7 +159,7 @@ a.go-reference {
   width: 336px;
   height: 41px;
   margin: 2px 0 0 -0px;
-  background: image_url('ver_ficha_completa.png') no-repeat;
+  background: image_url('../ver_ficha_completa.png') no-repeat;
 }
 a.go-reference:hover {
   background-position: 0 -45px;

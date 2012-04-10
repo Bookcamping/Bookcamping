@@ -1,6 +1,12 @@
 # Reference
 #
 class Reference < ActiveRecord::Base
+  # EXTENSIONS
+  extend Camp::Scopes
+  has_paper_trail meta: {title: :title, camp_id: :camp_id}
+  mount_uploader :cover_image, CoverUploader
+
+  # RELATIONS
   belongs_to :camp
   belongs_to :user
   belongs_to :publisher, counter_cache: true
@@ -16,20 +22,17 @@ class Reference < ActiveRecord::Base
   has_many :camp_shelves, through: :shelf_items
 
   belongs_to :license, counter_cache: true
-  serialize :marks
 
   delegate :name, to: :license, prefix: true
 
-  extend Camp::Scopes
 
   scope :titled, where('title != null')
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 
-  # EXTENSIONS
-  has_paper_trail meta: {title: :title, camp_id: :camp_id}
-
   # ATTRIBUTES
-  attr_accessible :description, :title, :authors, :editor, :url, :date, :media, :license_id, :include_in_shelf_id, :ref_type
+  attr_accessible :description, :title, :authors, :editor
+  attr_accessible :url, :date, :media, :license_id, :include_in_shelf_id, :ref_type
+  attr_accessible :cover_image
   attr_accessible :user_id, :as => :super
   attr_accessor :include_in_shelf_id
 
@@ -54,7 +57,5 @@ class Reference < ActiveRecord::Base
     limited = title.split[0..2].join(' ')
     "#{self.id}-#{limited.parameterize}"
   end
-
-
 end
 
