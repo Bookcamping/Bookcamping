@@ -118,15 +118,15 @@ div.references, div.shelf_item {
   }
 
   div.Book {
-    background: image_url('../icono_referencia_libro.png') no-repeat;
+    background: image_url('icono_referencia_libro.png') no-repeat;
   }
 
   div.WebPage {
-    background: image_url('../icono_referencia_blog.png') no-repeat;
+    background: image_url('icono_referencia_blog.png') no-repeat;
   }
 
   div.Audio {
-    background: image_url('../icono_referencia_audio.png') no-repeat;
+    background: image_url('icono_referencia_audio.png') no-repeat;
     div.content div.cover-icon {
       top: 4px;
       left: 6px;
@@ -138,7 +138,7 @@ div.references, div.shelf_item {
   }
 
   div.Video {
-    background: image_url('../icono_referencia_video.png') no-repeat;
+    background: image_url('icono_referencia_video.png') no-repeat;
     div.content div.cover-icon {
       left: 30px;
       top: 0px;
@@ -159,7 +159,7 @@ a.go-reference {
   width: 336px;
   height: 41px;
   margin: 2px 0 0 -0px;
-  background: image_url('../ver_ficha_completa.png') no-repeat;
+  background: image_url('ver_ficha_completa.png') no-repeat;
 }
 a.go-reference:hover {
   background-position: 0 -45px;
