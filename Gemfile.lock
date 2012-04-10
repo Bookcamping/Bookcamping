@@ -57,6 +57,8 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
+    cloudinary (1.0.4)
+      rest-client
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -189,6 +191,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rmagick (2.13.1)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
@@ -255,6 +259,7 @@ DEPENDENCIES
   capistrano
   capybara
   carrierwave
+  cloudinary
   coffee-rails (~> 3.2)
   database_cleaner
   decent_exposure

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329012500) do
+ActiveRecord::Schema.define(:version => 20120410095205) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -285,6 +285,7 @@ ActiveRecord::Schema.define(:version => 20120329012500) do
     t.string   "recovery_code"
     t.boolean  "group",                            :default => false
     t.integer  "memberships_count",                :default => 0
+    t.string   "avatar",            :limit => 300
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

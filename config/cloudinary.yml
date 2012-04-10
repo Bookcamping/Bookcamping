@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: bookcamping
+  api_key: '766322571247231'
+  api_secret: Dap5kIKIZg0pr901SesCd0KBMjM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: bookcamping
+  api_key: '766322571247231'
+  api_secret: Dap5kIKIZg0pr901SesCd0KBMjM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: bookcamping
+  api_key: '766322571247231'
+  api_secret: Dap5kIKIZg0pr901SesCd0KBMjM
+  enhance_image_tag: true
+  static_image_support: false

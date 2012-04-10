@@ -5,7 +5,14 @@ module UserHelper
   def avatar_image(user, size = :medium)
     s = SIZES[size]
     s ||= 40
-    image_tag(avatar_url(user, s), alt: user.name, width: s, height: s)
+    image_url = nil
+
+    if user.avatar.present?
+      image_url = user.avatar_url(size)
+    else
+      image_url = avatar_url(user, s)
+    end
+    image_tag(image_url, alt: user.name, width: s, height: s)
   end
 
   def avatar_url(user, s)

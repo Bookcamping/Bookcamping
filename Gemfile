@@ -34,6 +34,7 @@ gem 'kaminari'
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'cloudinary'
 
 #gem 'prawn'
 #gem 'prawnto'

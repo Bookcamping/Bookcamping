@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   include HasMembers
   include HasTags
   include UserMemberships
+  # store :settings, accessors: []
+
+  mount_uploader :avatar, AvatarUploader
 
   # RELATIONS 
   has_many :references, dependent: :restrict
@@ -24,7 +27,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true, uniqueness: true
-  validates :email, uniqueness: true, presence: true, if: :email_required?
+  validates :email, uniqueness:true, presence: true, if: :email_required?
 
   # Not collaborators scoped (see MembershipsController)
   def self.not_collaborators(model)
@@ -64,6 +67,6 @@ class User < ActiveRecord::Base
 
   protected
   def email_required?
-    self.group == false
+    false #self.group == false
   end
 end
