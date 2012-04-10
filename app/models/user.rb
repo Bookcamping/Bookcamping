@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   include HasMembers
   include HasTags
   include UserMemberships
-  # store :settings, accessors: []
+  include BooleanAccessor
+  store :settings, accessors: [:uploader]
+  boolean_accessor [:uploader]
 
   mount_uploader :avatar, AvatarUploader
 

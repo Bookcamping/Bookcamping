@@ -18,6 +18,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def public_id
-    return "users/#{model.name}"
+    return "#{model.to_param}_user"
   end
 end

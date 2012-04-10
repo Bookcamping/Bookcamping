@@ -6,6 +6,7 @@
 class Camp < ActiveRecord::Base
   # EXTENSIONS
   include HasGroup
+  include BooleanAccessor
   extend FriendlyId
   friendly_id :name
 
@@ -25,14 +26,6 @@ class Camp < ActiveRecord::Base
   validates :user_id, presence: true
   validates :name, presence: true
   validates :host, presence: true
-
-  def self.boolean_accessor(keys) 
-    keys.each do |key|
-      define_method("#{key}?") do
-        send(key) != '0'
-      end
-    end
-  end
 
   store :settings, accessors: [:description, :has_blog, :lock_camp_shelves, :last_activity_email ]
   boolean_accessor [:has_blog, :lock_camp_shelves ]
