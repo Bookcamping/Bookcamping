@@ -1,24 +1,26 @@
 <%= div_for reference, class: 'summary' do %>
-    <% present reference do |presenter| -%>
-        <%= link_to 'Ver ficha completa', reference, class: 'go-reference' %>
-        <div class="info">
-          <h1><%= presenter.linked_title %></h1>
-          <%= presenter.license_icon %>
-          <%= presenter.date %>
-          <%= presenter.authors %>
-          <% if reference.editor.present? %>
-              / <%= presenter.editor %>
-          <% end %>
-        </div>
-        <%= presenter.user('Subido por ') %>
-        <div class="description">
-          <%= presenter.description %>
-        </div>
-        <% if presenter.download_visible? %>
-            <div class="download_url">
-              <%= presenter.download_link %>
-            </div>
-        <% end %>
-        <%= presenter.media %>
+  <% present reference do |presenter| -%>
+    <%= link_to 'Ver ficha completa', reference, class: 'go-reference' %>
+    <div class="info">
+      <h1><%= presenter.linked_title %></h1>
+      <%= presenter.license_icon %>
+      <%= presenter.date %>
+      <%= presenter.authors %>
+      <% if reference.editor.present? %>
+        / <%= presenter.editor %>
     <% end %>
+  </div>
+  <%= presenter.user('Subido por ') %>
+  <div class="description">
+    <%= presenter.description %>
+  </div>
+  <% if presenter.download_visible? %>
+    <div class="download_url">
+      <%= presenter.download_link %>
+    </div>
+  <% end %>
+  <div class="media">
+    <%= presenter.media %>
+  </div>
+<% end %>
 <% end %>

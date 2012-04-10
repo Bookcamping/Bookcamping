@@ -8,7 +8,7 @@ module BooleanAccessor
     def boolean_accessor(keys)
       keys.each do |key|
         define_method("#{key}?") do
-          send(key) != '0'
+          send(key) == '1'
         end
       end
     end
