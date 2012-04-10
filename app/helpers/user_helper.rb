@@ -9,6 +9,9 @@ module UserHelper
 
     if user.avatar.present?
       image_url = user.avatar_url(size)
+    elsif user.twitter?
+      return twitter_name_profile_image_tag("#{user.twitter}.jpg",
+        alt: user.name, width: s, height: s, crop: :scale)
     else
       image_url = avatar_url(user, s)
     end
