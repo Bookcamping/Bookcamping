@@ -39,7 +39,7 @@ class Reference < ActiveRecord::Base
   # VALIDATIONS
   validates :user_id, presence: true
   validates :camp_id, presence: true
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true #, uniqueness: true
   validates :license_id, presence: true
   validates :ref_type, presence: true
   # validates :include_in_shelf_id, presence: true, on: :create
