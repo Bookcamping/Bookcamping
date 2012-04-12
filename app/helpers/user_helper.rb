@@ -11,14 +11,14 @@ module UserHelper
       image_url = user.avatar_url(size)
     elsif user.twitter?
       return twitter_name_profile_image_tag("#{user.twitter}.jpg",
-        alt: user.name, width: s, height: s, crop: :scale)
+        alt: user.name, width: s, height: s, crop: :pad)
     else
-      image_url = avatar_url(user, s)
+      image_url = gravatar_url(user, s)
     end
     image_tag(image_url, alt: user.name, width: s, height: s)
   end
 
-  def avatar_url(user, s)
+  def gravatar_url(user, s)
     default_url = "http://bookcamping.cc/images/guest#{s}x#{s}.png"
     if user.email.present?
       gravatar_id = Digest::MD5::hexdigest(user.email).downcase
