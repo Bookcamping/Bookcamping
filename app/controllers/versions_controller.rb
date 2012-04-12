@@ -12,25 +12,27 @@ class VersionsController < ApplicationController
 
   def show
     case version.item_type
-      when 'UserShelf'
-        redirect_to personal_user_shelf_path(version.item_id)
-      when 'CampShelf'
-        camp_shelf = CampShelf.find version.item_id
-        redirect_to camp_shelf
-      when 'Reference'
-        reference = Reference.find version.item_id
-        redirect_to reference
-      when 'Comment'
-        comment = Comment.find version.item_id
-        redirect_to comment.resource
-      when 'Page'
-        page = Page.find version.item_id
-        redirect_to page
-      when 'License'
-        redirect_to License.find(version.item_id)
-      when 'ShelfItem'
-        item = ShelfItem.find version.item_id
-        redirect_to [item.shelf, item.reference]
+    when 'Shelf'
+      redirect_to Shelf.find(version.item_id)
+    when 'UserShelf'
+      redirect_to personal_user_shelf_path(version.item_id)
+    when 'CampShelf'
+      camp_shelf = CampShelf.find version.item_id
+      redirect_to camp_shelf
+    when 'Reference'
+      reference = Reference.find version.item_id
+      redirect_to reference
+    when 'Comment'
+      comment = Comment.find version.item_id
+      redirect_to comment.resource
+    when 'Page'
+      page = Page.find version.item_id
+      redirect_to page
+    when 'License'
+      redirect_to License.find(version.item_id)
+    when 'ShelfItem'
+      item = ShelfItem.find version.item_id
+      redirect_to [item.shelf, item.reference]
     end
   end
 

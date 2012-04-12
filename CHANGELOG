@@ -5,6 +5,8 @@
 12/04/2012
 - Cuando se modifica una referencia se tocan (touch) sus listas
 - La licencia se renderiza mejor en el ref summary
+- En actividad, los elementos 'borrados' no llevan enlace
+- En la actividad, cualquier lista enlaza con su url
 
 10/04/2012
 - Las colaboradoras pueden subir su propio avatar

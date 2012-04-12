@@ -3,6 +3,6 @@
     <%= t("versions.events.#{version.event}") %> la
     <%= t("versions.models.#{version.item_type}") %>
     <% title = version.title ? version.title : '<sin título>' %>
-    '<%= link_to truncate(title, length: 50), version %>'
+    '<%= link_to_if version.event != 'destroy', truncate(title, length: 50), version %>'
     <small>hace <%= time_ago_in_words version.created_at if version.created_at %></small>
 <% end %>
