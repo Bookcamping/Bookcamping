@@ -1,6 +1,9 @@
 <%= div_for reference, class: 'summary' do %>
   <% present reference do |presenter| -%>
-    <%= link_to 'Ver ficha completa', reference, class: 'go-reference' %>
+    <div class="actions">
+      <%= link_to 'Ver ficha completa', reference %>
+      <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
+    </div>
     <div class="info">
       <h1><%= presenter.linked_title %></h1>
       <%= presenter.license_icon %>

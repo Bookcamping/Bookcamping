@@ -46,11 +46,20 @@ class Reference < ActiveRecord::Base
 
   REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']
 
+  # CALLBACKS
   after_create do
     if include_in_shelf_id.present?
       shelf = Shelf.find include_in_shelf_id
       shelf.add_reference self, self.user
     end
+  end
+
+  after_update do
+    PaperTrail.enabled = false
+    self.shelves.each do |shelf|
+      shelf.touch
+    end
+    PaperTrail.enabled = true
   end
 
   def to_param

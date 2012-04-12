@@ -2,6 +2,10 @@
 ## TODO
 - Quiero volver a marcar mis referencias favoritas
 
+12/04/2012
+- Cuando se modifica una referencia se tocan (touch) sus listas
+- La licencia se renderiza mejor en el ref summary
+
 10/04/2012
 - Las colaboradoras pueden subir su propio avatar
 - Se muestra la imágen de twitter si no se ha especificado avatar

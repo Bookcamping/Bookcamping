@@ -7,7 +7,7 @@ class ReferencePresenter < ApplicationPresenter
   end
 
   def license_icon
-    h.image_tag(reference.license.icon)
+    h.raw "<img src='#{reference.license.icon}' alt='#{reference.license.name}'>"
   end
 
   def date
