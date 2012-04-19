@@ -2,6 +2,9 @@
 ## TODO
 - Quiero volver a marcar mis referencias favoritas
 
+19/04/2012
+- Bug fix: cabecera del blog
+
 12/04/2012
 - Cuando se modifica una referencia se tocan (touch) sus listas
 - La licencia se renderiza mejor en el ref summary

@@ -48,6 +48,10 @@ div.post {
 div.posts {
   div.post {
     margin: -10px 0 2em 0;
+
+    div.body { 
+      width: 100%; overflow: hidden;
+    }
   }
 
   div.post_head {

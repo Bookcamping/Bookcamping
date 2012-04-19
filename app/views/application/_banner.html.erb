@@ -1,14 +1,22 @@
-<div id="go-camping">
-  <% if current_camp.name == 'bookcamping' %>
-    <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
-    <p class="go-bookcamping">bookcamping</p>
-  <% else %>
-    <p class="go-videocamping">videocamping</p>
-    <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
+<% if respond_to?(:header) %>
+  <% if header == 'blog' %>
+    <div id="header" class="blog">
+      <a href="<%= current_page?(posts_path) ? root_path : posts_path %>"><h1 id="blog"><%= yield :title %></h1></a>
+    </div>
   <% end %>
-</div>
-<div id="header">
-  <a href="/">
-    <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
-  </a>
-</div>
+<% else %>
+  <div id="go-camping">
+    <% if current_camp.name == 'bookcamping' %>
+      <%= link_to 'videocamping', 'http://videocamping.cc', :class => 'go-videocamping' %>
+      <p class="go-bookcamping">bookcamping</p>
+    <% else %>
+      <p class="go-videocamping">videocamping</p>
+      <%= link_to 'bookcamping', 'http://bookcamping.cc', :class => 'go-bookcamping' %>
+    <% end %>
+  </div>
+  <div id="header">
+    <a href="/">
+      <h1 id="logo" class="logo-<%= current_camp.name %>"><%= current_camp.name %></h1>
+    </a>
+  </div>
+<% end %>
