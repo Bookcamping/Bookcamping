@@ -36,6 +36,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'cloudinary'
 
+gem 'quiet_assets', :group => :development
 #gem 'prawn'
 #gem 'prawnto'
 #gem 'nokogiri'
@@ -54,6 +55,7 @@ end
 gem 'unicorn', group: [:development, :production]
 
 gem 'capistrano'
+gem 'rvm-capistrano'
 
 group :test do
   gem 'minitest'
@@ -61,7 +63,6 @@ group :test do
   gem 'turn'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'sqlite3'
 end
 

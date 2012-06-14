@@ -1,0 +1,16 @@
+
+<div class="header">
+  <%= title 'Añadir referencia' %>
+  <p class="description">
+  Elige la estantería a la que quieres añadir la referencia
+  </p>
+  <div class="actions">
+    <%= link_to 'Volver', camp_shelves_path, class: 'back' %>
+  </div>
+</div>
+
+<table class="shelves">
+  <% current_camp.camp_shelves.each do |shelf| %>
+    <%= render_shelf shelf, new_camp_shelf_reference_path(shelf) %>
+  <% end %>
+</table>

@@ -1,5 +1,10 @@
 <div data-pjax-container>
-  <div class="description">
+  <div class="buttons">
+    <%= link_to 'Añadir libro', new_reference_path %>
+    <%= link_to 'Añadir lista', new_user_shelf_path %>
+  </div>
+  <div class="main">
     <%= markdown current_camp.description %>&nbsp;
   </div>
+  <div class="footer"></div>
 </div><!-- data-pjax-container -->

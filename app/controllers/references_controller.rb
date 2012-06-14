@@ -28,8 +28,12 @@ class ReferencesController < ApplicationController
   end
 
   def new
-    reference.include_in_shelf_id = shelf.id
-    authorize! :add_to, shelf
+    if shelf.present?
+      reference.include_in_shelf_id = shelf.id
+      authorize! :add_to, shelf
+    else
+      render action: 'select_camp_shelf'
+    end
   end
 
   def edit
