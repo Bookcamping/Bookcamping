@@ -33,6 +33,7 @@ gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'hoptoad_notifier'
 
+gem 'quiet_assets', group: :development
 gem 'thin', group: :development
 
 gem 'mysql2', group: [:development, :production]
@@ -40,6 +41,7 @@ gem 'mysql2', group: [:development, :production]
 gem 'unicorn', group: [:development, :production]
 
 gem 'capistrano'
+gem 'rvm-capistrano'
 
 group :test do
   gem 'minitest'
@@ -47,7 +49,6 @@ group :test do
   gem 'turn'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'sqlite3'
 end
 
