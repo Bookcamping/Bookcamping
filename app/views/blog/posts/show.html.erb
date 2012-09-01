@@ -6,7 +6,14 @@
     <%= link_to 'Ver ficheros', media_bites_path if can? :view, MediaBite %>
   </div>
 </div>
+<% if Rails.env.development? %>
+  <%= post.title %><br>
+  <%= post.published_at %><br>
+  <%= post.title.parameterize %><br><br>
+  <%= md2html(post.body) %><br>
+<% end %>
 
 <%= render :partial => 'show' %>
+
 
 <%= content_for(:sidebar) { render 'sidebar'} %>

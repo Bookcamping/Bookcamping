@@ -19,6 +19,10 @@ module ApplicationHelper
     content_tag(:div, (rendered+'<br/>').html_safe, :class => 'markdown')
   end
 
+  def md2html(text)
+    renderer.render(text).gsub(/h2/, 'h3').gsub(/h1/, 'p')
+  end
+
   # TRANSLATED COLLECTION
   def tc(prefix, collection)
     collection.map do |item|

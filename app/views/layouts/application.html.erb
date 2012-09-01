@@ -38,10 +38,6 @@
           <%= link_to 'Agradecimientos enormes', '/agradecimientos' %> |
           <%= link_to 'Contactar', '/contactar' %> |
           <%= link_to 'Sobre nosotras', '/nosotras' %>
-          <%= link_to posts_path(format: :atom), class: 'rss' do %>
-            <%= image_tag 'icono_rss.png' %>
-            Suscripción al blog
-          <% end %>
         </div>
         <div class="end">
           <%= link_to 'Colofon', '/colofon', class: 'colofon' %>
@@ -55,7 +51,7 @@
       </div>
     </div>
     <%= render 'layouts/js' %>
-    <div style="display:none">(cc) Bookcamping 0.6.7 - 5 Abril 2012 Semana Fanta</div>
+    <div style="display:none">(cc) Bookcamping 0.6.9 - 1 Septiembre 2012 Semana Fanta</div>
     <%= render 'layouts/ga' %>
   </body>
 </html>

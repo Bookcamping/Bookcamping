@@ -4,7 +4,6 @@ class Reference < ActiveRecord::Base
   # EXTENSIONS
   extend Camp::Scopes
   has_paper_trail meta: {title: :title, camp_id: :camp_id}
-  mount_uploader :cover_image, CoverUploader
 
   # RELATIONS
   belongs_to :camp
@@ -32,7 +31,6 @@ class Reference < ActiveRecord::Base
   # ATTRIBUTES
   attr_accessible :description, :title, :authors, :editor
   attr_accessible :url, :date, :media, :license_id, :include_in_shelf_id, :ref_type
-  attr_accessible :cover_image
   attr_accessible :user_id, :as => :super
   attr_accessor :include_in_shelf_id
 

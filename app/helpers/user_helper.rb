@@ -7,14 +7,7 @@ module UserHelper
     s ||= 40
     image_url = nil
 
-    if user.avatar.present?
-      image_url = user.avatar_url(size)
-    elsif user.twitter?
-      return twitter_name_profile_image_tag("#{user.twitter}.jpg",
-        alt: user.name, width: s, height: s, crop: :pad)
-    else
-      image_url = gravatar_url(user, s)
-    end
+    image_url = gravatar_url(user, s)
     image_tag(image_url, alt: user.name, width: s, height: s)
   end
 
@@ -27,7 +20,7 @@ module UserHelper
       default_url
     end
   end
-  
+
   def link_to_user(user)
     link_to(avatar_image(user, :small) << ' ' << user.name, user)
   end

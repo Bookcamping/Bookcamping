@@ -40,15 +40,9 @@ class ReferencePresenter < ApplicationPresenter
   end
 
   def media
-    if reference.cover_image?
-      cover_image
-    elsif reference.media?
+    if reference.media?
       render_media
     end
-  end
-
-  def cover_image
-    h.image_tag(reference.cover_image_url(:cover), alt: reference.title)
   end
 
   def social

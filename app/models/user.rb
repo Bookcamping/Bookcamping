@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
   store :settings, accessors: [:uploader]
   boolean_accessor [:uploader]
 
-  mount_uploader :avatar, AvatarUploader
-
   # RELATIONS 
   has_many :references, dependent: :restrict
   has_many :comments, dependent: :destroy

@@ -16,7 +16,7 @@
 #    t.timestamps
 # end
 class MediaBite < ActiveRecord::Base
-  mount_uploader :file_content, MediaUploader
+  #mount_uploader :file_content, MediaUploader
 
   belongs_to :camp
   belongs_to :user
@@ -30,7 +30,7 @@ class MediaBite < ActiveRecord::Base
   #validates :content_type, presence: true
 
   def image_file?
-    file_content.present? and file_content_url =~ /\.(?:jpg|jpeg|gif|png)$/
+    false
   end
 
   def to_param

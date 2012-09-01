@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
-
+gem 'rails', '~> 3.2'
 
 group :assets do
   gem 'sass-rails', '~> 3.2'
@@ -31,25 +30,12 @@ gem 'squeel'
 gem 'redcarpet'
 gem 'kaminari'
 
-gem 'fog'
-gem 'carrierwave'
-gem 'rmagick'
-gem 'cloudinary'
+gem 'newrelic_rpm'
+gem 'hoptoad_notifier'
 
-#gem 'prawn'
-#gem 'prawnto'
-#gem 'nokogiri'
+gem 'thin', group: :development
 
-unless defined?(JRUBY_VERSION)
-  gem 'newrelic_rpm'
-  gem 'hoptoad_notifier'
-end
-
-if defined?(JRUBY_VERSION)
-  gem 'jdbc-mysql'
-else
-  gem 'mysql2', group: [:development, :production]
-end
+gem 'mysql2', group: [:development, :production]
 
 gem 'unicorn', group: [:development, :production]
 

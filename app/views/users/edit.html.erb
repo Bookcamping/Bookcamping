@@ -9,7 +9,6 @@
 <%= simple_form_for user do |form| %>
   <%= form.input :name %>
   <%= form.input :email %>
-  <%= form.input :avatar %>
   <%= form.input :twitter %>
   <%= form.input :description, as: :text, row: 2 %>
   <%= form.input :uploader?, as: :boolean if current_user.admin? %>

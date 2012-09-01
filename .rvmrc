@@ -1,1 +1,1 @@
-rvm 1.9.2@rails31
+rvm --create 1.9.2@rails31

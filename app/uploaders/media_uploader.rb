@@ -2,7 +2,7 @@
 
 class MediaUploader < CarrierWave::Uploader::Base
   include CarrierWave::MimeTypes
-  include CarrierWave::RMagick
+  #include CarrierWave::RMagick
 
   process :set_content_type
 

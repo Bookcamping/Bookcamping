@@ -2,6 +2,11 @@
 ## TODO
 - Quiero volver a marcar mis referencias favoritas
 
+1/09/2012
+- Eliminamos las dependencias de carrierwave
+- Fuera las imágenes de portada
+- Fuera los avatares de usuario con carrierwave
+
 5/05/2012
 - Bug fix: mapa
 
