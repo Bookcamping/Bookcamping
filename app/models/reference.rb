@@ -10,6 +10,7 @@ class Reference < ActiveRecord::Base
   belongs_to :user
   belongs_to :publisher, counter_cache: true
   has_many :comments, :as => :resource, :order => 'id DESC', :dependent => :destroy
+  has_many :versions, as: :item, order: 'created_at DESC'
 
   # TAGS
   has_many :taggings, dependent: :destroy, foreign_key: 'reference_id'

@@ -1,73 +1,76 @@
 <% title reference.title %>
 
 <%= div_for reference do %>
-    <% present reference do |reference_presenter| -%>
-        <div class="header">
-          <div class="count"><%= link_to reference.user.name, reference.user %></div>
-          <h1><%= reference_presenter.linked_title %></h1>
-          <%= reference_presenter.license_icon %>
-          <%= reference_presenter.date %>
-          <%= reference_presenter.authors %>
-          <% if reference.editor.present? %>
-              / <%= reference_presenter.editor %>
+  <% present reference do |reference_presenter| -%>
+  <div class="header">
+  <div class="count"><%= link_to reference.user.name, reference.user %></div>
+  <h1><%= reference_presenter.linked_title %></h1>
+  <%= reference_presenter.license_icon %>
+  <%= reference_presenter.date %>
+  <%= reference_presenter.authors %>
+  <% if reference.editor.present? %>
+    / <%= reference_presenter.editor %>
           <% end %>
-          <div class="actions">
-            <%= link_to 'Editar', edit_reference_path(reference) if can? :edit, reference %>
-            <%= link_to 'Borrar', reference_path(reference), method: :delete,
-                        confirm: "¿Quieres borrar '#{reference.title}'? Esto NO SE PUEDE DESHACER" if can? :manage, reference %>
-            <%= link_to 'Gestionar listas', [reference, :shelf_items] if can? :manage, reference %>
-          </div>
-        </div>
-        <%= beta_div do %>
-            <div class="tags">
-              <h3>Tags</h3>
-              <%= form_tag reference_taggings_path(reference) do %>
-                  <%= text_field_tag :tag_name %>
-                  <%= submit_tag 'Añadir tag', id: 'submit_add_tag' %>
-              <% end %>
-              <% reference.taggings.each do |tagging| %>
-                  <%= div_for tagging do %>
-                      <%= link_to tagging.tag.name, tagging.tag %>
-                      <%= link_to 'x', [reference, tagging], class: 'destroy', method: :delete,
-                                  confirm: "¿Quieres quitar la etiqueta #{tagging.tag.name}?" %>
-                  <% end %>
-              <% end %>
-            </div>
-        <% end %>
-        <div class="content row">
-          <div class="left media">
-            <%= reference_presenter.media %>
-          </div>
-          <div class="right">
-            <div class="description">
-              <%= reference_presenter.description %>
-            </div>
-          </div>
-        </div>
-        <div class="content row">
-          <% if reference_presenter.download_visible? %>
-              <div class="download_url">
-                <%= reference_presenter.download_link %>
-              </div>
-          <% end %>
-        </div>
-        <div class="social row">
-          <%= reference_presenter.social %>
-        </div>
-        <div class="comments row">
-          <%= reference_presenter.comments %>
-        </div>
+  <div class="actions">
+    <%= link_to 'Editar', edit_reference_path(reference) if can? :edit, reference %>
+    <%= link_to 'Borrar', reference_path(reference), method: :delete,
+      confirm: "¿Quieres borrar '#{reference.title}'? Esto NO SE PUEDE DESHACER" if can? :manage, reference %>
+    <%= link_to 'Gestionar listas', [reference, :shelf_items] if can? :manage, reference %>
+    </div>
+  </div>
+  <%= beta_div do %>
+    <div class="tags">
+    <h3>Tags</h3>
+    <%= form_tag reference_taggings_path(reference) do %>
+      <%= text_field_tag :tag_name %>
+    <%= submit_tag 'Añadir tag', id: 'submit_add_tag' %>
+  <% end %>
+    <% reference.taggings.each do |tagging| %>
+      <%= div_for tagging do %>
+      <%= link_to tagging.tag.name, tagging.tag %>
+    <%= link_to 'x', [reference, tagging], class: 'destroy', method: :delete,
+      confirm: "¿Quieres quitar la etiqueta #{tagging.tag.name}?" %>
+  <% end %>
     <% end %>
-<% end %>
+    </div>
+  <% end %>
+    <div class="content row">
+      <div class="left media">
+        <%= reference_presenter.media %>
+      </div>
+      <div class="right">
+        <div class="description">
+          <%= reference_presenter.description %>
+        </div>
+      </div>
+    </div>
+    <div class="content row">
+      <% if reference_presenter.download_visible? %>
+        <div class="download_url">
+        <%= reference_presenter.download_link %>
+      </div>
+    <% end %>
+    </div>
+    <div class="social row">
+      <%= reference_presenter.social %>
+    </div>
+    <div class="comments row">
+      <%= reference_presenter.comments %>
+    </div>
+  <% end %>
+  <% end %>
 
-<%= simple_debug reference %>
 
-<% content_for :sidebar do %>
-    <table class="shelves small">
+    <% content_for :sidebar do %>
+      <table class="shelves small">
       <% reference.shelves.each do |shelf| %>
-          <%= tr_for_shelf shelf do %>
-              <span class="main"><%= link_to truncate(shelf.name), [shelf, reference] %></span>
-          <% end %>
-      <% end %>
+        <%= tr_for_shelf shelf do %>
+        <span class="main"><%= link_to truncate(shelf.name), [shelf, reference] %></span>
+    <% end %>
+    <% end %>
     </table>
-<% end %>
+    <% if Rails.env.development? %>
+      <h3>Versiones</h3>
+      <%= render reference.versions %>
+  <% end %>
+  <% end %>

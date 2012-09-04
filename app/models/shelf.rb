@@ -17,6 +17,7 @@ class Shelf < ActiveRecord::Base
   belongs_to :user
   has_many :shelf_items, dependent: :delete_all
   has_many :references, through: :shelf_items
+  has_many :versions, as: :item
 
   # VALIDATIONS
   validates :user_id, presence: true

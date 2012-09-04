@@ -13,13 +13,6 @@
 
 <% content_for :sidebar do %>
     <%= render 'markdown' %>
-
-    <h2>Imágenes disponibles:</h2>
-    <ul>
-      <% media_bites.each do |media| %>
-          <li><%= link_to media.title, [media] %>: <%= media.inline_code %></li>
-      <% end %>
-    </ul>
 <% end %>
 
 <%= simple_debug post.errors.inspect %>

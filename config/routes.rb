@@ -64,7 +64,14 @@ Bookcamp::Application.routes.draw do
     end
   end
 
-  resources :blog_redirect, only: [:index, :show], path: 'blog'
+  #resources :blog_redirect, only: [:index, :show], path: 'blog'
+  scope module: 'blog' do
+    resources :posts, path: 'blog' do
+      get :archive, on: :collection
+      resources :comments
+    end
+  end
+
 
   match "/clismon/pnh" => 'publishers/clismon#pnh'
 

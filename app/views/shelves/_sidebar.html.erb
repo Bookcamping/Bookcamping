@@ -8,4 +8,8 @@
       <%= image_tag 'dedo-vertical.png', id: 'dedo-vertical' %>
     <% end %>
   </div>
+  <% if Rails.env.development? %>
+    <h3>Versiones</h3>
+    <%= render shelf.versions %>
+  <% end %>
 <% end %>
