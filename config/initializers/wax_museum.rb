@@ -5,6 +5,6 @@ WaxMuseum.config do
   publish 'contactar', '17_p2VNjE1ZQfwh42TLV3CeyhlbigkPMnfveuv7ZIhnw'
   publish 'como', '123HPpEccjBaSebNX-GMB3EOUiyAnymart7qFDwYLyDM'
   publish 'nosotras', '1uhqkIZmiQE6Y9GB-YV8rl8bs4MtAms5WyVX9L1roenE'
-  publish 'criterios-editoriales', '1A3yFSBV5t--YZIDvePbXMNpAnvK_vVs8LQ6LDQCA820'
-  publish 'bienvenidas-colaboradoras', '14_-xOfpPHXtVskhePvOuQMTqosuEmicluPS-G_msDtU'
+  publish 'criterios_editoriales', '1A3yFSBV5t--YZIDvePbXMNpAnvK_vVs8LQ6LDQCA820'
+  publish 'bienvenidas_colaboradoras', '14_-xOfpPHXtVskhePvOuQMTqosuEmicluPS-G_msDtU'
 end
