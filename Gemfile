@@ -22,6 +22,8 @@ gem "omniauth-twitter"
 gem "omniauth-openid"
 gem "omniauth-facebook"
 
+gem 'wax_museum', git: 'http://github.com/recortable/wax_museum.git'
+
 gem 'ancestry'
 gem 'paper_trail'
 gem 'acts_as_list'
@@ -32,6 +34,7 @@ gem 'kaminari'
 
 gem 'newrelic_rpm'
 gem 'hoptoad_notifier'
+
 
 gem 'quiet_assets', group: :development
 gem 'thin', group: :development

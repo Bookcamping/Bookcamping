@@ -54,9 +54,9 @@ Bookcamp::Application.routes.draw do
     end
     match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
-    ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
-      match name => "public/info_pages##{name}"
-    end
+#    ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
+#      match name => "public/info_pages##{name}"
+#    end
 
     resources :users, path: 'somos' do
       get :search, on: :collection, path: 'buscar'
@@ -71,6 +71,8 @@ Bookcamp::Application.routes.draw do
       resources :comments
     end
   end
+
+  WaxMuseum::Routes.draw
 
 
   match "/clismon/pnh" => 'publishers/clismon#pnh'
