@@ -11,22 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410103417) do
-
-  create_table "activities", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "user_name"
-    t.string   "user_url"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.string   "action",        :limit => 16
-    t.string   "title",         :limit => 200
-    t.string   "url",           :limit => 200
-    t.datetime "activity_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "version_id"
-  end
+ActiveRecord::Schema.define(:version => 20120910063632) do
 
   create_table "camps", :force => true do |t|
     t.string   "name",                :limit => 100
@@ -45,19 +30,6 @@ ActiveRecord::Schema.define(:version => 20120410103417) do
   end
 
   add_index "camps", ["host"], :name => "index_camps_on_host"
-
-  create_table "categories", :force => true do |t|
-    t.string   "name",        :limit => 64
-    t.string   "slug",        :limit => 64
-    t.string   "description", :limit => 300
-    t.string   "section",     :limit => 32
-    t.string   "view_level",  :limit => 16
-    t.string   "edit_level",  :limit => 16
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
-
-  add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -131,20 +103,6 @@ ActiveRecord::Schema.define(:version => 20120410103417) do
 
   add_index "memberships", ["resource_type", "resource_id"], :name => "index_memberships_on_resource_type_and_resource_id"
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
-
-  create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.string   "author"
-    t.string   "content_type",      :limit => 50
-    t.text     "body"
-    t.integer  "comments_count"
-    t.integer  "user_id"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-    t.integer  "category_id"
-    t.integer  "memberships_count",               :default => 0
-  end
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"

@@ -9,8 +9,6 @@ class Ability
     can :create, User
     can :read, Reference
     can :read, License
-    can(:read, Category) {|category| category.viewable?(user) }
-    can(:read, Page) {|page| page.category.viewable?(user) }
     can :read, Publisher
     can :read, Post
     can :read, Membership
@@ -31,9 +29,6 @@ class Ability
 
       can :create, Reference
       can :manage, Reference, publisher_id: nil
-
-      can :create, Page
-      can(:update, Page) {|page| page.category.editable?(user) }
 
       can :add_to, CampShelf
 
@@ -57,8 +52,6 @@ class Ability
         can :manage, Reference
         can :update, User
         can :manage, License
-        can :manage, Category
-        can :manage, Page
         can :manage, Color
         can :manage, Publisher
         can :manage, CampShelf

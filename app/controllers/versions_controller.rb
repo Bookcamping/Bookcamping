@@ -26,8 +26,8 @@ class VersionsController < ApplicationController
       comment = Comment.find version.item_id
       redirect_to comment.resource
     when 'Page'
-      page = Page.find version.item_id
-      redirect_to page
+      flash[:notice] = 'Esto ya no existe...'
+      redirect_to root_path
     when 'License'
       redirect_to License.find(version.item_id)
     when 'ShelfItem'

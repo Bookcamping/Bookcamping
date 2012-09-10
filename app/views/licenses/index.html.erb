@@ -4,11 +4,8 @@
   <div class="description"><%= t('.description') %></div>
   <div class="actions">
     <%= link_to 'Añadir licencia', new_license_path if can? :create, License %>
-    <%=  link_to 'Añadir documento', new_page_path(en: category) if category.present? %>
   </div>
 </div>
-
-<%= render category if category %>
 
 <h2>Licencias en #bookcamping</h2>
 <table class="licenses table">

@@ -43,20 +43,12 @@ Bookcamp::Application.routes.draw do
     resources :colors, path: 'colores'
     resources :camps, path: 'campings'
 
-    # Wiki
-    resources :pages, path: 'wiki'
-    resources :categories, path: 'categorias'
-
     scope module: 'public' do
       resources :password_recoveries, path: 'recuperar', except: [:index] do
         post :change, on: :collection
       end
     end
     match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
-
-#    ['agradecimientos', 'contactar', 'nosotras', 'colofon', 'como', 'visitas'].each do |name|
-#      match name => "public/info_pages##{name}"
-#    end
 
     resources :users, path: 'somos' do
       get :search, on: :collection, path: 'buscar'
