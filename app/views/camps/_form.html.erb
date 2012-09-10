@@ -1,5 +1,6 @@
 <%= simple_form_for camp do |form| %>
     <%= form.input :name %>
+    <%= form.input :slug %>
     <%= form.input :host %>
     <%= form.input :group_id, collection: User.groups %>
     <%= form.input :description, as: :text %>

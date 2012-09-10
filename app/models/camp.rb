@@ -25,7 +25,7 @@ class Camp < ActiveRecord::Base
   # Validations
   validates :user_id, presence: true
   validates :name, presence: true
-  validates :host, presence: true
+  validates :slug, presence: true
 
   store :settings, accessors: [:description, :has_blog, :lock_camp_shelves, :last_activity_email ]
   boolean_accessor [:has_blog, :lock_camp_shelves ]

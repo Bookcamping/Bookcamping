@@ -11,25 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910063632) do
+ActiveRecord::Schema.define(:version => 20120910100758) do
 
   create_table "camps", :force => true do |t|
     t.string   "name",                :limit => 100
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "model_name",          :limit => 32
     t.boolean  "show_media_on_lists",                :default => false
     t.string   "lang",                :limit => 8
     t.text     "settings"
     t.integer  "user_id"
     t.integer  "group_id"
-    t.boolean  "open",                               :default => false
-    t.boolean  "closed",                             :default => false
     t.string   "host",                :limit => 100
     t.integer  "memberships_count",                  :default => 0
+    t.string   "slug",                :limit => 100
   end
 
   add_index "camps", ["host"], :name => "index_camps_on_host"
+  add_index "camps", ["slug"], :name => "index_camps_on_slug"
 
   create_table "colors", :force => true do |t|
     t.string   "name"

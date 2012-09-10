@@ -11,6 +11,7 @@
   <% camps.each do |camp| %>
     <tr>
       <td><%= link_to camp.name, camp %></td>
+      <td><%= link_to camp.slug, "/#{camp.slug}" %></td>
       <td><%= link_to camp.host, "http://#{camp.host}" %></td>
       <td><%= link_to camp.group.name, camp.group if camp.group.present? %></td>
       <td class="actions">
